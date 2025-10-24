@@ -1,0 +1,159 @@
+start-at-login = true
+after-login-command = []
+after-startup-command = ['workspace q']
+
+# on-focus-changed = ['move-mouse window-lazy-center']
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['exec-and-forget sketchybar --trigger aerospace_window_change']
+exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREVIOUS_WORKSPACE=$AEROSPACE_PREV_WORKSPACE']
+
+accordion-padding = 30
+automatically-unhide-macos-hidden-apps = true # turn off "hide application" (cmd-h) feature
+default-root-container-layout = 'tiles' # tiles|accordion
+default-root-container-orientation = 'auto' # horizontal|vertical|auto
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+[gaps]
+inner.horizontal = [{monitor."Built-in Retina Display" = 5}, 10]
+inner.vertical = [{monitor."Built-in Retina Display" = 5}, 10]
+outer.left = [{monitor."Built-in Retina Display" = 5}, 10]
+outer.bottom = [{monitor."Built-in Retina Display" = 35}, 40] # +30 for sketchybar
+outer.top = [{monitor."Built-in Retina Display" = 5}, 10]
+outer.right = [{monitor."Built-in Retina Display" = 5}, 10]
+
+# [workspace-to-monitor-force-assignment]
+# 1 = 'main'
+# 2 = 'main'
+# 3 = 'main'
+# 4 = ['secondary', '^LG HDR 4K \(2\)$', 'T27h\-30']
+# 5 = ['secondary', '^LG HDR 4K \(2\)$', 'T27h\-30']
+# 6 = ['secondary', '^LG HDR 4K \(2\)$', 'T27h\-30']
+# 7 = ['secondary', '^LG HDR 4K \(1\)$', 'P27q\-20']
+# 8 = ['secondary', '^LG HDR 4K \(1\)$', 'P27q\-20']
+# 9 = ['secondary', '^LG HDR 4K \(1\)$', 'P27q\-20']
+
+##### BEGIN DEFAULT WORKSPACES #####
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'move-node-to-workspace a'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Excel'
+run = 'move-node-to-workspace ä'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.install4j.9806-1938-4586-6531.70'
+run = 'move-node-to-workspace b'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace c'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'move-node-to-workspace e'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = 'move-node-to-workspace f'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace g'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'move-node-to-workspace h'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace i'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace l'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace m'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = 'move-node-to-workspace n'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = 'move-node-to-workspace o'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Powerpoint'
+run = 'move-node-to-workspace ö'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.Reminders'
+run = 'move-node-to-workspace r'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace s'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'dev.warp.Warp-Stable'
+run = 'move-node-to-workspace t'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.utmapp.UTM'
+run = 'move-node-to-workspace u'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Word'
+run = 'move-node-to-workspace ü'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'move-node-to-workspace v'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = 'move-node-to-workspace w'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run = 'move-node-to-workspace x'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome.canary'
+run = 'move-node-to-workspace y'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'org.zotero.zotero-beta'
+run = 'move-node-to-workspace z'
+check-further-callbacks = true
+##### END DEFAULT WORKSPACES #####
+
+[[on-window-detected]]
+if.app-id = 'com.install4j.9806-1938-4586-6531.70'
+if.window-title-regex-substring = 'Settings'
+run = 'layout floating'
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.app-id = 'com.electron.wispr-flow.accessibility-mac-app'
+run = 'layout floating'
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.app-id = 'com.electron.wispr-flow'
+run = 'layout floating'
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.app-id = 'com.superduper.superwhisper'
+run = 'layout floating'
+check-further-callbacks = true
