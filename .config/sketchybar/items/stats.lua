@@ -1,7 +1,7 @@
 local fonts = require("helpers.fonts")
 local colors = require("helpers.colors")
 
-sbar.exec("killall stats_provider >/dev/null; $CONFIG_DIR/sketchybar-system-stats/target/release/stats_provider --battery percentage remaining state time_to_full --cpu count frequency temperature usage --disk count free total usage used --memory ram_available ram_total ram_usage ram_used swp_free swp_total swp_usage swp_used --network en0 --system arch distro host_name kernel_version name os_version long_os_version --uptime day hour --interval 3 --network-refresh-rate 5 --no-units &")
+sbar.exec("killall stats_provider >/dev/null; $CONFIG_DIR/sketchybar-system-stats/target/release/stats_provider --battery percentage remaining state time_to_full --cpu count frequency temperature usage --disk count free total usage used --memory ram_available ram_total ram_usage ram_used swp_free swp_total swp_usage swp_used --network en0 --system arch distro host_name kernel_version name os_version long_os_version --uptime day hour --interval 5 --network-refresh-rate 5 --no-units &")
 
 local uptime = sbar.add("item", "uptime", {
     position = "right",
