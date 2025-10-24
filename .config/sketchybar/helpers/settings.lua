@@ -9,6 +9,11 @@ return {
     style = "Regular",
     size = 15.0,
   },
+  font_nerd = {
+    family = "Hack Nerd Font",
+    style = "Regular",
+    size = 18.0,
+  },
   font_apps = {
     family = "sketchybar-app-font",
     style = "Regular",
