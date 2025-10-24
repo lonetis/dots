@@ -1,5 +1,5 @@
 local colors = require("helpers.colors")
-local settings = require("helpers.settings")
+local fonts = require("helpers.fonts")
 
 -- https://felixkratz.github.io/SketchyBar/config/bar
 sbar.bar({
@@ -11,8 +11,8 @@ sbar.bar({
   sticky = true,
 
   -- paddings and margins
-  padding_left = 10,
-  padding_right = 10,
+  padding_left = 0,
+  padding_right = 0,
   margin = 0,
   y_offset = 0,
 
@@ -23,15 +23,15 @@ sbar.bar({
 
   -- notch
   -- notch_display_height = 40,
-  notch_width = 200,
-  notch_offset = 0,
+  -- notch_width = 200,
+  -- notch_offset = 0,
 
   -- color
-  color = colors.bar.bg,
-  blur_radius = 20,
+  color = colors.transparent,
+  blur_radius = 0,
 
   -- border
-  border_color = colors.bar.border,
+  border_color = colors.white,
   border_width = 0,
 
   -- shadow
