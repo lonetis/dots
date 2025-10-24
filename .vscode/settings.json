@@ -1,0 +1,15 @@
+{
+    "git.enabled": true,
+    "git.autoRepositoryDetection": "openEditors",
+    "search.followSymlinks": false,
+    "search.ripgrep.maxThreads": 1,
+    "search.exclude": {
+        "[!.]*": true,
+    },
+    "files.watcherExclude": {
+        "**": true,
+    },
+    "files.exclude": {
+        "[!.]*": true,
+    },
+}
