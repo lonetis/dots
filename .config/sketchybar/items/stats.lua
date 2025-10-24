@@ -1,4 +1,5 @@
 local fonts = require("helpers.fonts")
+local colors = require("helpers.colors")
 
 sbar.exec("killall stats_provider >/dev/null; $CONFIG_DIR/sketchybar-system-stats/target/release/stats_provider --battery percentage remaining state time_to_full --cpu count frequency temperature usage --disk count free total usage used --memory ram_available ram_total ram_usage ram_used swp_free swp_total swp_usage swp_used --network en0 --system arch distro host_name kernel_version name os_version long_os_version --uptime day hour --interval 3 --network-refresh-rate 5 --no-units &")
 
@@ -9,6 +10,11 @@ local uptime = sbar.add("item", "uptime", {
         font = fonts.nerd,
         string = "",
     },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
+    },
 })
 
 local hostname = sbar.add("item", "hostname", {
@@ -16,6 +22,11 @@ local hostname = sbar.add("item", "hostname", {
     icon = {
         font = fonts.nerd,
         string = "",
+    },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
     },
 })
 
@@ -25,6 +36,11 @@ local disk = sbar.add("item", "disk", {
         font = fonts.nerd,
         string = "󰋊",
     },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
+    },
 })
 
 local uplink = sbar.add("item", "uplink", {
@@ -32,6 +48,11 @@ local uplink = sbar.add("item", "uplink", {
     icon = {
         font = fonts.nerd,
         string = "",
+    },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
     },
 })
 
@@ -41,6 +62,11 @@ local downlink = sbar.add("item", "downlink", {
         font = fonts.nerd,
         string = "",
     },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
+    },
 })
 
 local ram = sbar.add("item", "ram", {
@@ -48,6 +74,11 @@ local ram = sbar.add("item", "ram", {
     icon = {
         font = fonts.nerd,
         string = "",
+    },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
     },
 })
 
@@ -57,6 +88,11 @@ local temp = sbar.add("item", "temp", {
         font = fonts.nerd,
         string = "",
     },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
+    },
 })
 
 local cpu = sbar.add("item", "cpu", {
@@ -64,6 +100,11 @@ local cpu = sbar.add("item", "cpu", {
     icon = {
         font = fonts.nerd,
         string = "",
+    },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
     },
 })
 
