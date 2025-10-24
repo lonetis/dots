@@ -16,24 +16,8 @@ return {
   black = 0xFF000000,
   white = 0xFFFFFFFF,
   grey = 0xFF8E8E93,
-  transparent = 0x00000000,
 
-  bar = {
-    bg = 0x44000000,
-    border = 0xFFFFFFFF,
-  },
-  popup = {
-    bg = 0x44000000,
-    border = 0xFFFFFFFF,
-  },
-  items = {
-    bg = 0x55000000,
-    border = 0xFF8E8E93,
-    bg2 = 0x55000000, -- focused space
-    border2 = 0xFFFF383C,
-    bg3 = 0x55000000, -- previously focused space
-    border3 = 0xFFFFCC00,
-    bg4 = 0x55000000, -- visible space
-    border4 = 0xFF34C759,
-  }
+  transparent = 0x00000000,
+  dark_transparent = 0x44000000,
+  light_transparent = 0x55000000,
 }
