@@ -1,0 +1,3 @@
+[submodule ".config/sketchybar/sketchybar-system-stats"]
+	path = .config/sketchybar/sketchybar-system-stats
+	url = https://github.com/joncrangle/sketchybar-system-stats.git
