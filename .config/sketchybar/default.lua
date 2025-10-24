@@ -1,27 +1,27 @@
 local colors = require("helpers.colors")
-local settings = require("helpers.settings")
+local fonts = require("helpers.fonts")
 
 -- https://felixkratz.github.io/SketchyBar/config/items
 sbar.default({
   -- paddings and margins
   padding_left = 5,
-  padding_right = 5,
+  padding_right = 0, -- only the last item needs right padding
 
   -- icon
   icon = {
-    font = settings.font_text,
+    font = fonts.text,
     color = colors.white,
     highlight_color = colors.red,
-    padding_left = settings.padding,
-    padding_right = settings.padding,
+    padding_left = 5,
+    padding_right = 0,
   },
 
   -- label
   label = {
-    font = settings.font_text,
+    font = fonts.text,
     color = colors.white,
-    padding_left = settings.padding,
-    padding_right = settings.padding,
+    padding_left = 5,
+    padding_right = 5,
   },
 
   -- background
@@ -34,8 +34,8 @@ sbar.default({
   popup = {
     blur_radius = 20,
     background = {
-      color = colors.popup.bg,
-      border_color = colors.popup.border,
+      color = colors.dark_transparent,
+      border_color = colors.white,
       border_width = 1,
       corner_radius = 5,
     },

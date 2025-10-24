@@ -1,15 +1,16 @@
-local settings = require("helpers.settings")
+local fonts = require("helpers.fonts")
 local icon_map = require("helpers.icon_map")
 
 local front_app_notch = sbar.add("item", {
-  position = "center",
+  position = "left",
   display = 1, -- only main display has notch
-  padding_right = 20,
+  padding_left = 10,
 })
 
 local front_app_center = sbar.add("item", {
-  position = "center",
+  position = "left",
   display = "2, 3, 4, 5", -- all displays except main display
+  padding_left = 10,
 })
 
 local function front_app_update(env)
@@ -17,7 +18,7 @@ local function front_app_update(env)
     item:set({
       icon = {
         string = icon_map[env.INFO] or icon_map["Default"],
-        font = settings.font_apps,
+        font = fonts.apps,
       },
       label = {
         string = env.INFO,

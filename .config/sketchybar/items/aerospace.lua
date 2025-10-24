@@ -1,5 +1,5 @@
 local colors = require("helpers.colors")
-local settings = require("helpers.settings")
+local fonts = require("helpers.fonts")
 local icon_map = require("helpers.icon_map")
 
 -- https://nikitabobko.github.io/AeroSpace/commands#list-workspaces
@@ -30,18 +30,18 @@ for _, space_name in ipairs(space_names) do
   local space_item = sbar.add("item", "space." .. space_name, {
     icon = {
       string = string.upper(space_name),
-      font = settings.font_mono,
+      font = fonts.mono,
       color = colors.white,
       highlight_color = colors.red,
     },
     label = {
-      font = settings.font_apps,
+      font = fonts.apps,
       color = colors.grey,
       highlight_color = colors.white,
     },
     background = {
-      color = colors.items.bg,
-      border_color = colors.items.border,
+      color = colors.dark_transparent,
+      border_color = colors.grey,
       border_width = 1,
     },
   })
@@ -105,8 +105,8 @@ local function aerospace_update()
             icon = { color = colors.white },
             label = { color = colors.white },
             background = {
-              color = colors.items.bg2,
-              border_color = colors.items.border2,
+              color = colors.light_transparent,
+              border_color = colors.red,
               border_width = 2,
             },
           })
@@ -115,8 +115,8 @@ local function aerospace_update()
             icon = { color = colors.white },
             label = { color = colors.white },
             background = {
-              color = colors.items.bg3,
-              border_color = colors.items.border3,
+              color = colors.light_transparent,
+              border_color = colors.yellow,
               border_width = 2,
             },
           })
@@ -125,8 +125,8 @@ local function aerospace_update()
             icon = { color = colors.white },
             label = { color = colors.white },
             background = {
-              color = colors.items.bg4,
-              border_color = colors.items.border4,
+              color = colors.light_transparent,
+              border_color = colors.green,
               border_width = 2,
             },
           })
@@ -135,7 +135,7 @@ local function aerospace_update()
             icon = { color = colors.grey },
             label = { color = colors.grey },
             background = {
-              border_color = colors.items.border,
+              border_color = colors.grey,
               border_width = 1,
             },
           })
