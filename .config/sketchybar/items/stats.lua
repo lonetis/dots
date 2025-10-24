@@ -10,6 +10,9 @@ local uptime = sbar.add("item", "uptime", {
         font = fonts.nerd,
         string = "",
     },
+    label = {
+        font = fonts.mono,
+    },
     background = {
         drawing = true,
         border_color = colors.grey,
@@ -22,6 +25,9 @@ local hostname = sbar.add("item", "hostname", {
     icon = {
         font = fonts.nerd,
         string = "",
+    },
+    label = {
+        font = fonts.mono,
     },
     background = {
         drawing = true,
@@ -36,6 +42,9 @@ local disk = sbar.add("item", "disk", {
         font = fonts.nerd,
         string = "󰋊",
     },
+    label = {
+        font = fonts.mono,
+    },
     background = {
         drawing = true,
         border_color = colors.grey,
@@ -48,6 +57,10 @@ local uplink = sbar.add("item", "uplink", {
     icon = {
         font = fonts.nerd,
         string = "",
+    },
+    label = {
+        font = fonts.mono,
+        width = 120,
     },
     background = {
         drawing = true,
@@ -62,6 +75,10 @@ local downlink = sbar.add("item", "downlink", {
         font = fonts.nerd,
         string = "",
     },
+    label = {
+        font = fonts.mono,
+        width = 120,
+    },
     background = {
         drawing = true,
         border_color = colors.grey,
@@ -74,6 +91,9 @@ local ram = sbar.add("item", "ram", {
     icon = {
         font = fonts.nerd,
         string = "",
+    },
+    label = {
+        font = fonts.mono,
     },
     background = {
         drawing = true,
@@ -88,6 +108,9 @@ local temp = sbar.add("item", "temp", {
         font = fonts.nerd,
         string = "",
     },
+    label = {
+        font = fonts.mono,
+    },
     background = {
         drawing = true,
         border_color = colors.grey,
@@ -101,6 +124,9 @@ local cpu = sbar.add("item", "cpu", {
         font = fonts.nerd,
         string = "",
     },
+    label = {
+        font = fonts.mono,
+    },
     background = {
         drawing = true,
         border_color = colors.grey,
@@ -110,13 +136,13 @@ local cpu = sbar.add("item", "cpu", {
 
 disk:subscribe("system_stats", function(env)
     if env.CPU_USAGE then
-        cpu:set { label = env.CPU_USAGE .. "%" }
+        cpu:set { label = string.format("%02d%%", tonumber(env.CPU_USAGE)) }
     end
     if env.CPU_TEMP then
-        temp:set { label = math.floor(tonumber(env.CPU_TEMP)) .. "°C" }
+        temp:set { label = string.format("%02d°C", math.floor(tonumber(env.CPU_TEMP))) }
     end
     if env.RAM_USAGE then
-        ram:set { label = env.RAM_USAGE .. "%" }
+        ram:set { label = string.format("%02d%%", tonumber(env.RAM_USAGE)) }
     end
     if env.NETWORK_RX_en0 then
         local rx_kbytes = tonumber(env.NETWORK_RX_en0)
@@ -136,8 +162,8 @@ disk:subscribe("system_stats", function(env)
             uplink:set { label = string.format("%.1f Mbit/s", tx_kbits / 1000) }
         end
     end
-    if env.DISK_FREE then
-        disk:set { label = env.DISK_USAGE .. "%" }
+    if env.DISK_USAGE then
+        disk:set { label = string.format("%02d%%", tonumber(env.DISK_USAGE)) }
     end
     if env.HOST_NAME then
         hostname:set { label = env.HOST_NAME }
