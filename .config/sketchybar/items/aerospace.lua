@@ -33,6 +33,7 @@ for _, space_name in ipairs(space_names) do
       font = fonts.mono,
       color = colors.white,
       highlight_color = colors.red,
+      padding_right = 5,
     },
     label = {
       font = fonts.apps,
