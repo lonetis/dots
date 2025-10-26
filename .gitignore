@@ -4,6 +4,9 @@
 !.gitconfig
 !.gitignore_global
 
+!.bin/
+!.bin/**/*
+
 !.vscode/
 !.vscode/settings.json
 
