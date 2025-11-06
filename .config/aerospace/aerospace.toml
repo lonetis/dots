@@ -63,12 +63,12 @@ if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace g'
 check-further-callbacks = true
 [[on-window-detected]]
-if.app-id = 'com.apple.iCal'
-run = 'move-node-to-workspace h'
-check-further-callbacks = true
-[[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run = 'move-node-to-workspace i'
+check-further-callbacks = true
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'move-node-to-workspace k'
 check-further-callbacks = true
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
