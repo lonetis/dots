@@ -64,7 +64,7 @@ local function update_wifi()
 end
 
 update_wifi()
-wifi:subscribe("system_stats", update_wifi)
+wifi:subscribe("wifi_change", update_wifi)
 
 local disk = sbar.add("item", "disk", {
     position = "right",
