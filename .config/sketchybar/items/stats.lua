@@ -36,6 +36,36 @@ local hostname = sbar.add("item", "hostname", {
     },
 })
 
+local wifi = sbar.add("item", "wifi", {
+    position = "right",
+    icon = {
+        font = fonts.nerd,
+        string = "󰖩",
+    },
+    label = {
+        font = fonts.mono,
+    },
+    background = {
+        drawing = true,
+        border_color = colors.grey,
+        border_width = 1,
+    },
+})
+
+local function update_wifi()
+    sbar.exec("shortcuts run get-wlan-ssid", function(result)
+        local ssid = result:gsub("^%s*(.-)%s*$", "%1")
+        if ssid == "" then
+            wifi:set { label = "N/A" }
+        else
+            wifi:set { label = ssid }
+        end
+    end)
+end
+
+update_wifi()
+wifi:subscribe("system_stats", update_wifi)
+
 local disk = sbar.add("item", "disk", {
     position = "right",
     icon = {
