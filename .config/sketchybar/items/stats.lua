@@ -60,13 +60,25 @@ local wifi = sbar.add("item", "wifi", {
 })
 
 local function update_wifi()
-    sbar.exec("shortcuts run get-wlan-ssid", function(result)
-        local ssid = result:gsub("^%s*(.-)%s*$", "%1")
-        if ssid == "" then
-            wifi:set { label = "N/A" }
-        else
-            wifi:set { label = ssid }
-        end
+    -- Check for active ethernet/LAN connection (matches Ethernet adapters and USB LAN adapters)
+    sbar.exec([[networksetup -listallhardwareports | awk '/Ethernet|LAN/{getline; print $2}' | while read dev; do [ -n "$dev" ] && ifconfig "$dev" 2>/dev/null | grep -q "status: active" && echo "connected" && break; done]], function(lan_result)
+        local has_lan = lan_result:gsub("%s+", "") == "connected"
+
+        sbar.exec("shortcuts run get-wlan-ssid", function(result)
+            local ssid = result:gsub("^%s*(.-)%s*$", "%1")
+            local has_wifi = ssid ~= ""
+            local icon
+            if has_lan and has_wifi then
+                icon = "󰈀 󰖩"
+            elseif has_lan then
+                icon = "󰈀"
+            elseif has_wifi then
+                icon = "󰖩"
+            else
+                icon = "󰖪"
+            end
+            wifi:set { icon = { string = icon }, label = has_wifi and ssid or "" }
+        end)
     end)
 end
 
