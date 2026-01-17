@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+#
+# check-git-remotes
+#
+# Validates that all git repos managed by 'git list' have:
+# - Only a single remote named 'origin'
+# - Remote URL matches the filesystem path structure under ~/repos/
+#
+# Usage:
+#   check-git-remotes                                List all repos with status and protocol
+#   check-git-remotes --fix <repo-path> <ssh|https>  Fix a single repo's remote URL
+#
+# Status (✓/✗) indicates whether the remote path matches the filesystem path.
+# Protocol column shows the current remote protocol (ssh/https/http/?).
+
+set -euo pipefail
+
+fix_repo=""
+fix_protocol=""
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --fix)
+      if [[ -z "${2:-}" || -z "${3:-}" ]]; then
+        echo "Usage: check-git-remotes --fix <repo-path> <ssh|https>"
+        exit 1
+      fi
+      fix_repo="$2"
+      fix_protocol="$3"
+      shift 3
+      ;;
+    -h|--help)
+      echo "Usage:"
+      echo "  check-git-remotes                                List all repos"
+      echo "  check-git-remotes --fix <repo-path> <ssh|https>  Fix a single repo"
+      exit 0
+      ;;
+    *)
+      echo "Unknown option: $1"
+      echo "Use --help for usage information"
+      exit 1
+      ;;
+  esac
+done
+
+# Validate fix protocol if provided
+if [[ -n "$fix_repo" && ! "$fix_protocol" =~ ^(ssh|https)$ ]]; then
+  echo "Error: Protocol must be 'ssh' or 'https'"
+  exit 1
+fi
+
+found_fix=false
+output=""
+
+while read -r line; do
+  # Extract directory path from git list output
+  d=$(echo "$line" | awk '{print $1}')
+
+  # Get all remote names (should only be "origin")
+  r=$(git -C "$d" remote)
+  # Get the origin URL
+  u=$(git -C "$d" remote get-url origin 2>/dev/null || echo "")
+
+  # Extract host from path: /Users/louis/repos/<host>/... -> github.com
+  h=$(echo "$d" | cut -d'/' -f5)
+  # Extract repo path: /Users/louis/repos/github.com/<path> -> org/repo
+  p=$(echo "$d" | cut -d'/' -f6-)
+
+  # Detect current protocol from remote URL
+  proto=""
+  if [[ "$u" =~ ^ssh:// || "$u" =~ ^git@ ]]; then
+    proto="ssh"
+  elif [[ "$u" =~ ^https:// ]]; then
+    proto="https"
+  elif [[ "$u" =~ ^http:// ]]; then
+    proto="http"
+  else
+    proto="?"
+  fi
+
+  # Normalize the actual remote URL to host/path format:
+  # - Strip protocol prefixes (ssh://, git@, https://, http://)
+  # - Replace : with / (for git@host:path format)
+  # - Remove trailing .git
+  n=$(echo "$u" | sed -E 's#^(ssh://)?git@##; s#^https?://##; s#:#/#; s#\.git$##')
+
+  # Expected normalized path from filesystem
+  e="${h}/${p}"
+
+  # Check for errors and determine status
+  st="✓"
+  err=""
+
+  # Check remote configuration
+  if [[ -z "$r" ]]; then
+    st="✗"
+    err="no remotes"
+  elif [[ "$r" != "origin" ]]; then
+    remote_count=$(echo "$r" | wc -l | tr -d ' ')
+    if [[ "$remote_count" -gt 1 ]]; then
+      st="✗"
+      err="multiple remotes: $(echo $r | tr '\n' ' ')"
+    else
+      st="✗"
+      err="remote not named origin: $r"
+    fi
+  elif [[ -z "$u" ]]; then
+    st="✗"
+    err="no origin URL"
+  elif [[ "$n" != "$e" ]]; then
+    st="✗"
+    err="path mismatch: $n != $e"
+  fi
+
+  # Handle fix mode for specific repo
+  if [[ -n "$fix_repo" && "$d" == "$fix_repo" ]]; then
+    found_fix=true
+
+    if [[ "$r" != "origin" ]]; then
+      echo "Error: Cannot fix repo with multiple or no 'origin' remote"
+      echo "Remotes found: $r"
+      exit 1
+    fi
+
+    # Build correct URL based on requested protocol
+    correct_url=""
+    if [[ "$fix_protocol" == "ssh" ]]; then
+      correct_url="ssh://git@${h}/${p}"
+    else
+      correct_url="https://${h}/${p}"
+    fi
+
+    # Apply the fix
+    git -C "$d" remote set-url origin "$correct_url"
+    echo "Fixed: $d"
+    echo "  Protocol: $proto → $fix_protocol"
+    echo "  Old URL:  $u"
+    echo "  New URL:  $correct_url"
+    exit 0
+  fi
+
+  # Collect output for table display
+  output+="${st}|${proto}|${d}|${err}"$'\n'
+done < <(git list -o flat)
+
+# Check if fix repo was specified but not found
+if [[ -n "$fix_repo" && "$found_fix" == false ]]; then
+  echo "Error: Repository not found: $fix_repo"
+  exit 1
+fi
+
+# Print table output (only in list mode)
+if [[ -z "$fix_repo" ]]; then
+  {
+    echo "ST|PROTO|PATH|ERROR"
+    echo "--|-----|----|----- "
+    echo -n "$output"
+  } | column -t -s'|'
+fi
