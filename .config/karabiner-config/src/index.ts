@@ -75,8 +75,6 @@ writeToProfile('Default profile', [
   rule('default stuff').manipulators([
     // open screenshot launcher
     map(de_key('4'), lCmdShift).to$('open -b com.apple.screenshot.launcher'),
-    // open clipboard history
-    map(de_key('␣'), lCmdAlt).to$('open -u raycast://extensions/raycast/clipboard-history/clipboard-history'),
     // open new window of focused app (not always supported)
     map('⏎', lAltShift).to$(`open -n -b $(aerospace list-windows --focused --format '%{app-bundle-id}')`),
   ]),
