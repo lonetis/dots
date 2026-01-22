@@ -7,7 +7,7 @@ sbar.exec("route -n get default 2>/dev/null | awk '/interface:/{print $2}'", fun
     if primary_iface == "" then
         primary_iface = "en0" -- fallback to en0
     end
-    sbar.exec("killall stats_provider >/dev/null; $CONFIG_DIR/sketchybar-system-stats/target/release/stats_provider --battery percentage remaining state time_to_full --cpu count frequency temperature usage --disk count free total usage used --memory ram_available ram_total ram_usage ram_used swp_free swp_total swp_usage swp_used --network " .. primary_iface .. " --system arch distro host_name kernel_version name os_version long_os_version --uptime day hour --interval 5 --network-refresh-rate 5 --no-units &")
+    sbar.exec("killall stats_provider >/dev/null; $CONFIG_DIR/sketchybar-system-stats/target/release/stats_provider --battery percentage remaining state time_to_full --cpu count frequency temperature usage --disk count free total usage used --memory ram_available ram_total ram_usage ram_used swp_free swp_total swp_usage swp_used --network " .. primary_iface .. " --system arch distro host_name kernel_version name os_version long_os_version --uptime day hour --interval 1 --network-refresh-rate 1 --no-units &")
 end)
 
 local uptime = sbar.add("item", "uptime", {
