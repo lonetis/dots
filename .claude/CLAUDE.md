@@ -174,3 +174,11 @@ BREAKING CHANGE: The /v1/login endpoint was removed. Use /v2/login instead.
 Fixes #123
 Co-authored-by: Claude <noreply@anthropic.com>
 ```
+
+## Commit Frequency
+
+Commit frequently and logically when working on multiple tasks. Use your judgement to determine the right commit granularity:
+
+- **Separate tasks get separate commits.** Two unrelated features, a bug fix and a refactor, or any combination of independent changes must each be their own commit.
+- **One cohesive change can be one commit.** A single feature that spans multiple files or involves smaller substeps (e.g., adding a model, a route, and a template for one feature) should be committed together as one atomic unit.
+- **When in doubt, commit more often.** Smaller, focused commits are easier to review, revert, and bisect. Prefer granularity over batching.
