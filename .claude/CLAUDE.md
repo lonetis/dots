@@ -110,3 +110,77 @@ networks:
 
 - When modifying existing features or adding new ones, always update `README.md` and `CLAUDE.md` to reflect the changes.
 - When adding new environment variables, add them to `.env.example` with description and defaults before using them in code.
+
+# Git Guidelines
+
+## Commit Messages
+
+Follow **Conventional Commits v1.0.0** with emojis.
+
+**Format:**
+1. Header (required, single line): `<type>[optional scope][!]: <emoji> <description>`
+2. Body (optional): blank line after header, wrap at ~72 chars.
+3. Footer (optional): blank line after body (or header if no body).
+
+**Rules:**
+- `<type>` must be lowercase and one of the allowed types below.
+- `<scope>` is optional, lowercase noun (e.g., auth, api, ui, deps).
+- `<description>` is required, imperative mood, concise, no trailing period.
+- Description must start with a lowercase letter (no Title Case).
+- Only capitalize words when naturally required (e.g., OAuth, WebAuthn, FIDO2, HTTP, iOS).
+- Breaking change: add `!` before `:` and include footer:
+  `BREAKING CHANGE: <what breaks and how to migrate>`
+- Footers may include issue refs: `Fixes #123`, `Refs #456`.
+
+**Emoji + type map (use exactly):**
+
+| Type | Emoji | Meaning |
+|------|-------|---------|
+| feat | ✨ | new feature |
+| fix | 🐛 | bug fix |
+| docs | 📝 | documentation |
+| style | 🎨 | formatting / whitespace only |
+| refactor | ♻️ | code restructuring (no feature/fix) |
+| perf | ⚡️ | performance improvement |
+| test | ✅ | add/update tests |
+| build | 🏗️ | build system or dependencies |
+| ci | 👷 | CI configuration/scripts |
+| chore | 🧹 | maintenance tasks |
+| revert | ⏪ | revert previous commit |
+
+**Type selection:** Prefer `feat`/`fix` for user-visible changes. Otherwise use the most accurate type.
+
+**Examples:**
+- `feat(auth): ✨ add passkey login support`
+- `fix(api): 🐛 handle missing OAuth refresh token`
+- `docs: 📝 document WebAuthn redirect flow`
+- `style(ui): 🎨 format CSS and remove trailing spaces`
+- `refactor(core): ♻️ extract session validation helper`
+- `perf(db): ⚡️ speed up credential ID lookup`
+- `test(auth): ✅ add FIDO2 regression tests`
+- `build(deps): 🏗️ bump Playwright to latest version`
+- `ci: 👷 run lint and tests on PRs`
+- `chore: 🧹 update release instructions`
+- `revert: ⏪ revert "feat(auth): ✨ add passkey login support"`
+
+**AI co-authorship:** When an AI agent authors or co-authors a commit, add a `Co-authored-by` footer with the agent's identity. Example:
+```
+Co-authored-by: Claude <noreply@anthropic.com>
+```
+
+**Breaking change example:**
+```
+feat(api)!: ✨ rename /v1/login to /v2/login
+
+BREAKING CHANGE: The /v1/login endpoint was removed. Use /v2/login instead.
+Fixes #123
+Co-authored-by: Claude <noreply@anthropic.com>
+```
+
+## Commit Frequency
+
+Commit frequently and logically when working on multiple tasks. Use your judgement to determine the right commit granularity:
+
+- **Separate tasks get separate commits.** Two unrelated features, a bug fix and a refactor, or any combination of independent changes must each be their own commit.
+- **One cohesive change can be one commit.** A single feature that spans multiple files or involves smaller substeps (e.g., adding a model, a route, and a template for one feature) should be committed together as one atomic unit.
+- **When in doubt, commit more often.** Smaller, focused commits are easier to review, revert, and bisect. Prefer granularity over batching.
