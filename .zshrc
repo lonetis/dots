@@ -49,7 +49,10 @@ alias beta="/Applications/Google\ Chrome\ Beta.app/Contents/MacOS/Google\ Chrome
 alias dev="/Applications/Google\ Chrome\ Dev.app/Contents/MacOS/Google\ Chrome\ Dev"
 
 # Dotfiles: open yadm-managed dotfiles in VS Code
-alias dots='GIT_DIR="$HOME/.local/share/yadm/repo.git" GIT_WORK_TREE="$HOME" code "$HOME"'
+alias dots-code='GIT_DIR="$HOME/.local/share/yadm/repo.git" GIT_WORK_TREE="$HOME" code "$HOME"'
 
 # Dotfiles: stage, commit (per CLAUDE.md commit conventions), and push yadm changes via claude
 alias dots-commit='claude -p "Run \`yadm status\` and \`yadm diff\` to review changes, then stage all changes with \`yadm add\`, create a commit with \`yadm commit\` following the configured commit conventions, and push with \`yadm push\`." --allowedTools "Bash"'
+
+# Dotfiles: dump global Brewfile with descriptions
+alias dots-brew-bundle-dump='brew bundle dump --global --force --describe'
