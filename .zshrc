@@ -17,7 +17,6 @@ export SSH_AUTH_SOCK="~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/age
 # Git: prevent git from showing home directory as a git repository in child directories
 export GIT_CEILING_DIRECTORIES="$HOME"
 
-
 # ==============================================================================
 # Shell Integrations
 # ==============================================================================
@@ -32,7 +31,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
-
 
 # ==============================================================================
 # Aliases
