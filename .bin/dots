@@ -11,9 +11,10 @@ usage() {
 dots — yadm dotfiles helper
 
 Usage:
-  dots edit    Open yadm-managed dotfiles in VS Code
-  dots update  yadm pull and re-run bootstrap
-  dots commit  Stage changes, ask Claude to propose conventional commits, review interactively, push
+  dots edit          Open yadm-managed dotfiles in VS Code
+  dots add <path>... Stage new files into yadm (bypasses gitignore via -f)
+  dots update        Re-run the upstream init.sh installer
+  dots commit        Stage changes, ask Claude to propose conventional commits, review interactively, push
 EOF
 }
 
@@ -21,9 +22,16 @@ cmd_edit() {
   GIT_DIR="$(yadm introspect repo)" GIT_WORK_TREE="$HOME" code "$HOME"
 }
 
+cmd_add() {
+  if [[ "$#" -eq 0 ]]; then
+    warn "Usage: dots add <path>..."
+    exit 1
+  fi
+  yadm add -f -- "$@"
+}
+
 cmd_update() {
-  yadm pull
-  yadm bootstrap
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/lonetis/dots/main/.init.sh)"
 }
 
 cmd_commit() {
@@ -189,6 +197,7 @@ review_commit() {
 
 case "${1:-}" in
   edit)              cmd_edit ;;
+  add)               shift; cmd_add "$@" ;;
   update)            cmd_update ;;
   commit)            cmd_commit ;;
   ""|-h|--help|help) usage ;;
