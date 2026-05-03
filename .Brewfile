@@ -188,6 +188,10 @@ cask "brave-browser"
 cask "burp-suite"
 # Web debugging Proxy application
 cask "charles"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Terminal-based AI coding assistant
+cask "claude-code@latest"
 # Menu bar usage monitor for Codex and Claude
 cask "steipete/tap/codexbar"
 # Voice and text chat software
