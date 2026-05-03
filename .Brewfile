@@ -218,8 +218,6 @@ cask "google-chrome@dev"
 cask "gstreamer-runtime"
 # Hex editor focussing on speed
 cask "hex-fiend"
-# Binary code analysis tool
-cask "idafree"
 # Keyboard customiser
 cask "karabiner-elements"
 # File system integration
