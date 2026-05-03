@@ -1,23 +1,4 @@
 # ==============================================================================
-# Environment Variables
-# ==============================================================================
-
-# PATH: custom binaries
-export PATH="$PATH:$HOME/.bin"
-
-# PATH: chromium development (depot_tools)
-export PATH="$PATH:$HOME/repos/chromium.googlesource.com/chromium/tools/depot_tools"
-
-# PATH: google antigravity
-export PATH="$PATH:$HOME/.antigravity/antigravity/bin"
-
-# SSH: 1password ssh agent
-export SSH_AUTH_SOCK="~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-
-# Git: prevent git from showing home directory as a git repository in child directories
-export GIT_CEILING_DIRECTORIES="$HOME"
-
-# ==============================================================================
 # Shell Integrations
 # ==============================================================================
 
@@ -36,16 +17,10 @@ compinit
 # Aliases
 # ==============================================================================
 
-# Chrome: stable channel
+# Chrome: stable, canary, beta, dev channel
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-
-# Chrome: canary channel
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
-
-# Chrome: beta channel
 alias beta="/Applications/Google\ Chrome\ Beta.app/Contents/MacOS/Google\ Chrome\ Beta"
-
-# Chrome: dev channel
 alias dev="/Applications/Google\ Chrome\ Dev.app/Contents/MacOS/Google\ Chrome\ Dev"
 
 # Dotfiles: open yadm-managed dotfiles in VS Code
