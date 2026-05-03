@@ -197,7 +197,7 @@ writeToProfile('Default profile', [
 
   simlayer('k', 'karabiner').manipulators([
     map(de_key('c')).to$('code ~/.config/karabiner-config'),
-    map(de_key('r')).to$('cd ~/.config/karabiner-config/ && npm run build && osascript -e \'display notification with title "reloaded karabiner config"\''),
+    map(de_key('r')).to$('cd ~/.config/karabiner-config/ && npm install && npm run update && npm run build && osascript -e \'display notification with title "reloaded karabiner config"\''),
   ]),
 
   simlayer('s', 'sketchybar').manipulators([
