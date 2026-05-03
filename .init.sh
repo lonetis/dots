@@ -3,16 +3,9 @@ set -euo pipefail
 
 DOTS_REPO="git@github.com:lonetis/dots.git"
 
-# Reattach to the controlling TTY when piped (curl ... | bash) so sudo can prompt.
-if [[ ! -t 0 ]] && [[ -r /dev/tty ]]; then
-  exec </dev/tty
-fi
-
 if ! command -v brew >/dev/null 2>&1; then
   echo "Installing Homebrew..."
-  # Cache sudo creds first so NONINTERACTIVE Homebrew install can chown /opt/homebrew silently.
-  sudo -v
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   echo "Homebrew already installed."
 fi
