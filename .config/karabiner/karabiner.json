@@ -4277,7 +4277,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "cd ~/.config/karabiner-config/ && npm run build && osascript -e 'display notification with title \"reloaded karabiner config\"'"
+                    "shell_command": "cd ~/.config/karabiner-config/ && npm install && npm run update && npm run build && osascript -e 'display notification with title \"reloaded karabiner config\"'"
                   }
                 ],
                 "conditions": [
@@ -4347,7 +4347,7 @@
                     }
                   },
                   {
-                    "shell_command": "cd ~/.config/karabiner-config/ && npm run build && osascript -e 'display notification with title \"reloaded karabiner config\"'"
+                    "shell_command": "cd ~/.config/karabiner-config/ && npm install && npm run update && npm run build && osascript -e 'display notification with title \"reloaded karabiner config\"'"
                   }
                 ],
                 "from": {
