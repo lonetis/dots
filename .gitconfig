@@ -21,3 +21,7 @@
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [gitget]
 	root = /Users/louis/repos
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
