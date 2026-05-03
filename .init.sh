@@ -26,6 +26,13 @@ else
   echo "yadm already installed."
 fi
 
+if ! command -v git-crypt >/dev/null 2>&1; then
+  echo "Installing git-crypt..."
+  brew install git-crypt
+else
+  echo "git-crypt already installed."
+fi
+
 YADM_REPO="${XDG_DATA_HOME:-$HOME/.local/share}/yadm/repo.git"
 
 if [[ -d "$YADM_REPO" ]]; then
