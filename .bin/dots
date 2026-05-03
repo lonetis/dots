@@ -1,0 +1,196 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+bold() { printf '\033[1m%s\033[0m\n' "$*"; }
+cyan() { printf '\033[36m%s\033[0m\n' "$*"; }
+dim()  { printf '\033[2m%s\033[0m\n' "$*"; }
+warn() { printf '\033[31m%s\033[0m\n' "$*" >&2; }
+
+usage() {
+  cat <<EOF
+dots — yadm dotfiles helper
+
+Usage:
+  dots edit    Open yadm-managed dotfiles in VS Code
+  dots update  yadm pull and re-run bootstrap
+  dots commit  Stage changes, ask Claude to propose conventional commits, review interactively, push
+EOF
+}
+
+cmd_edit() {
+  GIT_DIR="$(yadm introspect repo)" GIT_WORK_TREE="$HOME" code "$HOME"
+}
+
+cmd_update() {
+  yadm pull
+  yadm bootstrap
+}
+
+cmd_commit() {
+  cd "$HOME"
+
+  if [[ -z "$(yadm status --porcelain)" ]]; then
+    echo "Nothing to commit."
+    return 0
+  fi
+
+  bold "Pending changes:"
+  yadm status --short
+  echo
+
+  local diff
+  diff="$(yadm diff HEAD)"
+  if [[ -z "$diff" ]]; then
+    warn "No tracked-file changes detected (untracked files are not handled — yadm add them first)."
+    return 1
+  fi
+
+  echo "Asking Claude to propose commits..."
+  local raw json
+  raw="$(claude_propose "$diff")"
+  json="$(extract_json_array "$raw")"
+
+  if [[ -z "$json" ]] || ! echo "$json" | jq empty 2>/dev/null; then
+    warn "Claude did not return a parseable JSON array. Raw output:"
+    printf '%s\n' "$raw" >&2
+    return 1
+  fi
+
+  local count
+  count="$(echo "$json" | jq length)"
+  bold "Claude proposed $count commit(s)."
+
+  local committed=0 i
+  for ((i = 0; i < count; i++)); do
+    if review_commit "$json" "$i"; then
+      committed=$((committed + 1))
+    fi
+  done
+
+  if [[ "$committed" -gt 0 ]]; then
+    echo
+    read -rp "Push $committed commit(s) to remote? [Y/n] " ans
+    if [[ ! "$ans" =~ ^[Nn] ]]; then
+      yadm push
+    fi
+  fi
+}
+
+claude_propose() {
+  local diff="$1" prompt
+  prompt="$(cat <<'PROMPT'
+Analyze the git diff below and propose conventional commit messages.
+
+Rules:
+- Conventional Commits v1.0.0 with emojis. Allowed type+emoji pairs:
+  feat ✨, fix 🐛, docs 📝, style 🎨, refactor ♻️, perf ⚡️,
+  test ✅, build 🏗️, ci 👷, chore 🧹, revert ⏪
+- Header only (subject line). NO body.
+- Footers allowed (e.g. "Co-authored-by: ...", "Refs #123") if relevant.
+- Subject format: <type>[(scope)][!]: <emoji> <imperative description>
+- Description starts lowercase, no trailing period.
+- Split unrelated changes into separate commits; keep cohesive changes together.
+- Each commit lists exact file paths (relative to $HOME) drawn from the diff.
+- Output ONLY a JSON array (no markdown fences, no prose):
+  [{"subject":"...","footer":"...","paths":["..."]}, ...]
+- "footer" may be an empty string.
+
+DIFF:
+PROMPT
+)"
+  claude -p "$prompt"$'\n'"$diff" --allowedTools ""
+}
+
+extract_json_array() {
+  # Tolerate markdown fences and surrounding prose; return the first [...] block.
+  local raw="$1"
+  raw="${raw//\`\`\`json/}"
+  raw="${raw//\`\`\`/}"
+  printf '%s' "$raw" | awk '
+    /^[[:space:]]*\[/ { inside = 1 }
+    inside { print; if (/^[[:space:]]*\]/) exit }
+  '
+}
+
+review_commit() {
+  local json="$1" idx="$2"
+  local subject footer
+  subject="$(echo "$json" | jq -r ".[$idx].subject")"
+  footer="$(echo "$json" | jq -r ".[$idx].footer // \"\"")"
+  local -a paths
+  mapfile -t paths < <(echo "$json" | jq -r ".[$idx].paths[]")
+
+  while true; do
+    echo
+    bold "─── Commit $((idx + 1)) ───"
+    cyan "$subject"
+    if [[ -n "$footer" ]]; then
+      echo
+      dim "$footer"
+    fi
+    echo
+    bold "Files:"
+    printf '  %s\n' "${paths[@]}"
+    echo
+    read -rp "[a]ccept · [d]iff · [e]dit · [s]kip · [q]uit > " choice
+    case "$choice" in
+      a|A)
+        yadm reset >/dev/null
+        # -f bypasses gitignore: paths come from `yadm diff HEAD` (tracked-only),
+        # but some tracked dotfiles live under ignored paths (e.g. .bin/) and need it to re-stage.
+        if ! yadm add -f -- "${paths[@]}"; then
+          warn "yadm add failed."
+          return 1
+        fi
+        if yadm diff --cached --quiet; then
+          warn "Nothing staged for these paths — skipping."
+          return 1
+        fi
+        local message="$subject"
+        [[ -n "$footer" ]] && message+=$'\n\n'"$footer"
+        if ! yadm commit -m "$message"; then
+          warn "yadm commit failed."
+          return 1
+        fi
+        return 0
+        ;;
+      d|D)
+        yadm diff --color=always HEAD -- "${paths[@]}" | less -R
+        ;;
+      e|E)
+        local tmp content
+        tmp="$(mktemp)"
+        {
+          printf '%s\n\n%s\n' "$subject" "$footer"
+          printf '\n# First non-comment line is the subject.\n'
+          printf '# Lines after the first blank line form the footer.\n'
+          printf '# Lines starting with # are ignored.\n'
+        } > "$tmp"
+        "${EDITOR:-vi}" "$tmp"
+        content="$(grep -v '^#' "$tmp")"
+        subject="$(printf '%s\n' "$content" | head -n 1)"
+        footer="$(printf '%s\n' "$content" | tail -n +2 | awk '/./ {seen=1} seen')"
+        rm -f "$tmp"
+        ;;
+      s|S)
+        echo "Skipped."
+        return 1
+        ;;
+      q|Q)
+        echo "Aborted."
+        exit 0
+        ;;
+      *)
+        warn "Unknown choice: $choice"
+        ;;
+    esac
+  done
+}
+
+case "${1:-}" in
+  edit)              cmd_edit ;;
+  update)            cmd_update ;;
+  commit)            cmd_commit ;;
+  ""|-h|--help|help) usage ;;
+  *) warn "Unknown command: $1"; usage >&2; exit 1 ;;
+esac
