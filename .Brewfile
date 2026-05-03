@@ -278,6 +278,32 @@ cask "wireshark-app"
 cask "zoom"
 # Collect, organise, cite, and share research sources
 cask "zotero"
+mas "1Password for Safari", id: 1569813296
+mas "AdBlock", id: 1402042596
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Infuse", id: 1136220934
+mas "IPTV Expert", id: 1641944027
+mas "Keynote", id: 409183694
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
+mas "Notability", id: 360593530
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Perplexity", id: 6714467650
+mas "Portal", id: 1436994560
+mas "RunCat", id: 1429033973
+mas "Save to Raindrop.io", id: 1549370672
+mas "Slack", id: 803453959
+mas "Table Tool", id: 1122008420
+mas "TestFlight", id: 899247664
+mas "The Unarchiver", id: 425424353
+mas "WhatsApp", id: 310633997
+mas "Windows App", id: 1295203466
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
 vscode "anthropic.claude-code"
 vscode "britesnow.vscode-toggle-quotes"
 vscode "chrisdias.vscode-opennewinstance"
