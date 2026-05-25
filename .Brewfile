@@ -22,6 +22,8 @@ brew "autoconf"
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Tool for managing dock items
+brew "dockutil"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -230,7 +232,7 @@ cask "macfuse"
 cask "makemkv"
 # Multi-platform web browser
 cask "microsoft-edge"
-# Set of tools to create, alter and inspect Matroska files (MKV)
+# GUI including a set of tools to create, alter and inspect Matroska files (MKV)
 cask "mkvtoolnix-app"
 # Interactive tool for analyzing MongoDB data
 cask "mongodb-compass"
