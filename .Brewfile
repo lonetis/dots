@@ -22,6 +22,8 @@ brew "autoconf"
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
 # Tool for managing dock items
 brew "dockutil"
 # Modern, maintained replacement for ls
