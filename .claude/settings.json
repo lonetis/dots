@@ -12,7 +12,6 @@
     "superpowers@claude-plugins-official": false,
     "claude-md-management@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
-    "warp@claude-code-warp": true,
     "code-review@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
@@ -25,7 +24,8 @@
     "pr-review-toolkit@claude-plugins-official": true,
     "agent-sdk-dev@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
-    "mongodb@claude-plugins-official": true
+    "mongodb@claude-plugins-official": true,
+    "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
     "claude-code-warp": {
