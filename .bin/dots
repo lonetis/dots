@@ -11,11 +11,16 @@ usage() {
 dots — yadm dotfiles helper
 
 Usage:
+  dots status        Show yadm working-tree status
   dots edit          Open yadm-managed dotfiles in VS Code
   dots add <path>... Stage new files into yadm (bypasses gitignore via -f)
   dots update        Re-run the upstream init.sh installer
   dots commit        Stage changes, ask Claude to propose conventional commits, review interactively, push
 EOF
+}
+
+cmd_status() {
+  yadm status
 }
 
 cmd_edit() {
@@ -196,6 +201,7 @@ review_commit() {
 }
 
 case "${1:-}" in
+  status)            cmd_status ;;
   edit)              cmd_edit ;;
   add)               shift; cmd_add "$@" ;;
   update)            cmd_update ;;
