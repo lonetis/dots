@@ -14,7 +14,7 @@ apps=(
   "/Applications/Claude.app"
   "/Applications/Visual Studio Code.app"
   "/Applications/Warp.app"
-  "/Applications/Burp Suite Community Edition.app"
+  "/Applications/Burp Suite.app"
   "/System/Applications/TextEdit.app"
   "/Applications/Xcode.app"
   "/Applications/Zotero.app"
