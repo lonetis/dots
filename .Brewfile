@@ -62,6 +62,8 @@ brew "imagemagick"
 brew "iperf3"
 # Featureful UNIX password cracker
 brew "john"
+# Handy way to save and run project-specific commands
+brew "just"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Mac App Store command-line interface
@@ -317,7 +319,6 @@ vscode "docker.docker"
 vscode "eseom.nunjucks-template"
 vscode "euskadi31.json-pretty-printer"
 vscode "github.codespaces"
-vscode "github.copilot-chat"
 vscode "github.github-vscode-theme"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
