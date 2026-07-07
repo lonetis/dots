@@ -24,7 +24,7 @@ cmd_status() {
 }
 
 cmd_edit() {
-  GIT_DIR="$(yadm introspect repo)" GIT_WORK_TREE="$HOME" code "$HOME"
+  code "$HOME"
 }
 
 cmd_add() {
