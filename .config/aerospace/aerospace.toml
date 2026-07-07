@@ -1,3 +1,5 @@
+config-version = 2
+
 start-at-login = true
 after-login-command = []
 after-startup-command = ['workspace q']

@@ -1,13 +1,13 @@
-tap "dail8859/notepadnext"
-tap "domt4/autoupdate"
-tap "fastrepl/hyprnote"
-tap "felixkratz/formulae"
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
+tap "dail8859/notepadnext", trusted: true
+tap "domt4/autoupdate", trusted: true
+tap "fastrepl/fastrepl", "https://github.com/fastrepl/homebrew-fastrepl.git", trusted: true
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 tap "jesseduffield/lazydocker"
 tap "joncrangle/tap"
-tap "koekeishiya/formulae"
-tap "krishkrosh/apps"
-tap "manaflow-ai/cmux"
-tap "nikitabobko/tap"
+tap "krishkrosh/apps", trusted: true
+tap "manaflow-ai/cmux", trusted: true
+tap "nikitabobko/tap", trusted: true
 tap "openpubkey/opkssh"
 tap "steipete/tap"
 # Display directories as trees (with optional color/HTML output)
@@ -22,6 +22,8 @@ brew "autoconf"
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# CLI tool for analyzing Claude Code usage from local JSONL files
+brew "ccusage"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Tool for managing dock items
@@ -72,8 +74,6 @@ brew "mas"
 brew "mole"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
-# Fast, highly customisable system info script
-brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Small build system for use with gyp or CMake
@@ -100,8 +100,6 @@ brew "parallel"
 brew "pdfgrep"
 # General-purpose scripting language
 brew "php"
-# Display the PID number for a given process name
-brew "pidof"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Python dependency management tool
@@ -171,17 +169,17 @@ brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
 # A simple terminal UI for docker, written in Go
-brew "jesseduffield/lazydocker/lazydocker"
+brew "jesseduffield/lazydocker/lazydocker", trusted: true
 # Simple system stats event provider for SketchyBar
-brew "joncrangle/tap/sketchybar-system-stats"
+brew "joncrangle/tap/sketchybar-system-stats", trusted: true
 # opkssh (OpenPubKey SSH) - SSH with OpenID Connect
-brew "openpubkey/opkssh/opkssh"
+brew "openpubkey/opkssh/opkssh", trusted: true
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
+cask "nikitabobko/tap/aerospace", trusted: true
 # Application uninstaller
 cask "appcleaner"
 # Chromium based browser
@@ -199,7 +197,7 @@ cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code@latest"
 # Menu bar usage monitor for Codex and Claude
-cask "steipete/tap/codexbar"
+cask "steipete/tap/codexbar", trusted: true
 # Voice and text chat software
 cask "discord"
 # App to build and share containerised applications and microservices
@@ -252,6 +250,8 @@ cask "postman"
 cask "prusaslicer"
 # Companion app for Flipper Zero devices
 cask "qflipper"
+# All-in-one bookmark manager
+cask "raindropio"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Tool that provides consistent, highly configurable symbols for apps
@@ -366,5 +366,6 @@ npm "@googleworkspace/cli"
 npm "@immich/cli"
 npm "@openai/codex"
 npm "browserify"
+npm "claudeleaf"
 npm "tsc"
 npm "webmake"
