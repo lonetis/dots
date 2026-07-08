@@ -16,17 +16,21 @@ fi
 echo "Windows: $windows_json"
 
 focused_window=$(aerospace list-windows --focused --format "%{window-id}")
+[[ -z "$focused_window" ]] && focused_window=-1
 echo "Focused window: $focused_window"
 
-previous_window=$(echo $windows_json | jq -r --argjson focused $focused_window '
+target=$(echo "$windows_json" | jq -r --argjson focused "$focused_window" '
     sort_by(.workspace, .["window-id"]) as $sorted |
     ($sorted | map(."window-id")) as $ids |
-    if ($ids | index($focused) | not) then
-        $ids[-1]
+    (if ($ids | index($focused) | not) then
+        $sorted[-1]
     else
-        $ids[($ids | index($focused) - 1 + length) % length]
-    end')
+        $sorted[($ids | index($focused) - 1 + length) % length]
+    end) | "\(.["window-id"]) \(.workspace)"')
 
-echo "Previous window: $previous_window"
+target_window=${target%% *}
+target_workspace=${target##* }
+echo "Target window: $target_window on workspace: $target_workspace"
 
-aerospace focus --window-id "$previous_window"
+aerospace workspace "$target_workspace"
+aerospace focus --window-id "$target_window"

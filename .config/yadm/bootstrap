@@ -13,6 +13,69 @@ if [[ ! -d "$BOOTSTRAP_D" ]]; then
   exit 1
 fi
 
+# Ask for the administrator password once and reuse it for every privileged
+# step. A cached sudo timestamp alone is not enough: brew resets it on every
+# invocation (`sudo --reset-timestamp` in brew.sh), so each cask install would
+# prompt again. Homebrew adds -A to its sudo calls when SUDO_ASKPASS is set,
+# which makes it authenticate through the helper below instead of the TTY.
+SUDO_ASKPASS_DIR=""
+SUDO_KEEPALIVE_PID=""
+
+cleanup_sudo() {
+  if [[ -n "$SUDO_KEEPALIVE_PID" ]]; then
+    kill "$SUDO_KEEPALIVE_PID" 2>/dev/null || true
+  fi
+  if [[ -n "$SUDO_ASKPASS_DIR" ]]; then
+    rm -rf "$SUDO_ASKPASS_DIR"
+  fi
+  sudo -K 2>/dev/null || true
+}
+
+setup_sudo() {
+  # Respect an askpass helper already provided by the caller.
+  if [[ -n "${SUDO_ASKPASS:-}" ]]; then
+    return 0
+  fi
+
+  if ! { : </dev/tty; } 2>/dev/null; then
+    echo "Warning: no TTY available, sudo may prompt during bootstrap." >&2
+    return 0
+  fi
+
+  SUDO_ASKPASS_DIR="$(mktemp -d)"
+  trap cleanup_sudo EXIT
+  printf '#!/bin/sh\nexec cat "%s/pw"\n' "$SUDO_ASKPASS_DIR" >"$SUDO_ASKPASS_DIR/askpass"
+  chmod 700 "$SUDO_ASKPASS_DIR/askpass"
+
+  local attempt password
+  for attempt in 1 2 3; do
+    IFS= read -rs -p "Administrator password (asked once, reused for all steps): " password </dev/tty
+    echo >/dev/tty
+    (umask 177 && printf '%s\n' "$password" >"$SUDO_ASKPASS_DIR/pw")
+    password=""
+    # -k forces re-authentication, which validates the password right away.
+    if SUDO_ASKPASS="$SUDO_ASKPASS_DIR/askpass" sudo -kA -v 2>/dev/null; then
+      export SUDO_ASKPASS="$SUDO_ASKPASS_DIR/askpass"
+      # Keep the sudo timestamp fresh so scripts calling plain `sudo`
+      # (without -A) don't prompt either, even after brew has reset it.
+      (
+        while kill -0 "$$" 2>/dev/null; do
+          sudo -A -v 2>/dev/null || exit
+          sleep 60
+        done
+      ) &
+      SUDO_KEEPALIVE_PID=$!
+      return 0
+    fi
+    echo "Sorry, wrong password. Try again." >&2
+  done
+
+  echo "Error: could not validate the administrator password" >&2
+  return 1
+}
+
+setup_sudo
+
 declare -a bootstraps
 while IFS= read -r bootstrap; do
   if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ ~$ ]]; then

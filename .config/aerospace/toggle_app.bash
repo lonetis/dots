@@ -8,7 +8,9 @@ fi
 bundle_id=$1
 
 focused_app=$(aerospace list-windows --focused --format "%{app-bundle-id}")
-if [[ "$focused_app" == "$bundle_id" ]]; then
+focused_window_workspace=$(aerospace list-windows --focused --format "%{workspace}")
+focused_workspace=$(aerospace list-workspaces --focused)
+if [[ "$focused_app" == "$bundle_id" && "$focused_window_workspace" == "$focused_workspace" ]]; then
     echo "Hiding $bundle_id"
     aerospace close
     exit 0
@@ -23,7 +25,6 @@ if [[ -z "$app_window_id" ]]; then
     exit 0
 fi
 
-focused_workspace=$(aerospace list-workspaces --focused)
 echo "Moving window $app_window_id from app $bundle_id to focused workspace: $focused_workspace"
 aerospace move-node-to-workspace --window-id "$app_window_id" --focus-follows-window --fail-if-noop "$focused_workspace" || aerospace focus --window-id "$app_window_id"
 exit 0
