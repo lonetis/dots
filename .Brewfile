@@ -230,8 +230,6 @@ cask "hex-fiend"
 cask "karabiner-elements"
 # File system integration
 cask "macfuse"
-# Video format converter (transcoder)
-cask "makemkv"
 # Multi-platform web browser
 cask "microsoft-edge"
 # GUI including a set of tools to create, alter and inspect Matroska files (MKV)
