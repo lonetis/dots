@@ -196,6 +196,8 @@ cask "charles"
 cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code@latest"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 # Menu bar usage monitor for Codex and Claude
 cask "steipete/tap/codexbar", trusted: true
 # Voice and text chat software
