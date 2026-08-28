@@ -234,8 +234,6 @@ cask "karabiner-elements"
 cask "macfuse"
 # Multi-platform web browser
 cask "microsoft-edge"
-# GUI including a set of tools to create, alter and inspect Matroska files (MKV)
-cask "mkvtoolnix-app"
 # Interactive tool for analyzing MongoDB data
 cask "mongodb-compass"
 # Web browser focused on privacy and on minimizing tracking and fingerprinting
@@ -244,6 +242,8 @@ cask "mullvad-browser"
 cask "mullvad-vpn"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Local-first alternative to Logitech Options+ for HID++ devices
+cask "openlogi"
 # Collaboration platform for API development
 cask "postman"
 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
