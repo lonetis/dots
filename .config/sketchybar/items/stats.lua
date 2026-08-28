@@ -6,14 +6,34 @@ local network_iface = "en0"
 local prev_rx_bytes = nil
 local prev_tx_bytes = nil
 
--- Format a throughput in kbit/s. Lua's "%d" rejects floats with a fractional part,
--- so the value is floored before it reaches the integer conversion.
+-- Width of the throughput labels, in points. The longest string these items can
+-- produce is 10 characters ("999.9 Mb/s"); SF Mono 15pt advances 9.272pt per glyph,
+-- so 10 glyphs measure 92.72pt. 100 leaves margin without a visible gap.
+--
+-- The labels are a fixed width and right-aligned rather than space-padded: sketchybar
+-- sizes the label box from the trimmed text, so padded strings rendered wider than
+-- their box and spilled the unit off the right edge.
+local rate_label_width = 100
+
+-- Format a throughput in kbit/s. Right alignment pins the unit column, so the number
+-- grows leftwards and "Kb/s" / "Mb/s" never move. The Gb/s tier keeps the string at or
+-- under 10 characters on a gigabit link. Lua's "%d" rejects floats with a fractional
+-- part, hence the floor.
 local function format_rate(kbits)
     if kbits < 1000 then
-        return string.format("%d Kbit/s", math.floor(kbits))
+        return string.format("%d Kb/s", math.floor(kbits))
     end
-    return string.format("%.1f Mbit/s", kbits / 1000)
+
+    local mbits = kbits / 1000
+    if mbits < 1000 then
+        return string.format("%.1f Mb/s", mbits)
+    end
+
+    return string.format("%.1f Gb/s", mbits / 1000)
 end
+
+-- Seeded into both link items so the bar does not reflow when the first sample lands.
+local rate_placeholder = format_rate(0)
 
 -- Get primary network interface dynamically
 sbar.exec("route -n get default 2>/dev/null | awk '/interface:/{print $2}'", function(primary_iface)
@@ -130,7 +150,9 @@ local uplink = sbar.add("item", "uplink", {
     },
     label = {
         font = fonts.mono,
-        width = 120,
+        string = rate_placeholder,
+        width = rate_label_width,
+        align = "right",
     },
     background = {
         drawing = true,
@@ -147,7 +169,9 @@ local downlink = sbar.add("item", "downlink", {
     },
     label = {
         font = fonts.mono,
-        width = 120,
+        string = rate_placeholder,
+        width = rate_label_width,
+        align = "right",
     },
     background = {
         drawing = true,
