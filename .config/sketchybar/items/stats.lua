@@ -6,15 +6,28 @@ local network_iface = "en0"
 local prev_rx_bytes = nil
 local prev_tx_bytes = nil
 
+-- Format a throughput in kbit/s. Lua's "%d" rejects floats with a fractional part,
+-- so the value is floored before it reaches the integer conversion.
+local function format_rate(kbits)
+    if kbits < 1000 then
+        return string.format("%d Kbit/s", math.floor(kbits))
+    end
+    return string.format("%.1f Mbit/s", kbits / 1000)
+end
+
 -- Get primary network interface dynamically
 sbar.exec("route -n get default 2>/dev/null | awk '/interface:/{print $2}'", function(primary_iface)
     primary_iface = primary_iface:gsub("%s+", "") -- trim whitespace
-    if primary_iface == "" then
-        primary_iface = "en0" -- fallback to en0
+    if primary_iface ~= "" then
+        network_iface = primary_iface
     end
-    network_iface = primary_iface
-    sbar.exec("killall stats_provider >/dev/null; /opt/homebrew/bin/stats_provider --battery percentage remaining state time_to_full --cpu count frequency temperature usage --disk count free total usage used --memory ram_available ram_total ram_usage ram_used swp_free swp_total swp_usage swp_used --network " .. primary_iface .. " --system arch distro host_name kernel_version name os_version long_os_version --uptime day hour --interval 1 --network-refresh-rate 1 --no-units &")
 end)
+
+-- stats_provider exits as soon as it fails to reach sketchybar (e.g. while the bar
+-- reloads), and a plain detached child would then stay dead until a manual restart.
+-- The supervisor restarts it, and replaces its own stale instance on every reload.
+local config_dir = os.getenv("HOME") .. "/.config/sketchybar"
+sbar.exec(config_dir .. "/helpers/stats_provider_supervisor.sh >/dev/null 2>&1 &")
 
 local uptime = sbar.add("item", "uptime", {
     position = "right",
@@ -67,7 +80,9 @@ local wifi = sbar.add("item", "wifi", {
 
 local function update_wifi()
     -- Check for active ethernet/LAN connection (matches Ethernet adapters and USB LAN adapters)
-    sbar.exec([[networksetup -listallhardwareports | awk '/Ethernet|LAN/{getline; print $2}' | while read dev; do [ -n "$dev" ] && ifconfig "$dev" 2>/dev/null | grep -q "status: active" && echo "connected" && break; done]], function(lan_result)
+    -- The interface list is collected before the loop runs: piping it into `while`
+    -- and breaking early closed the pipe under awk and logged an i/o error each tick.
+    sbar.exec([[for dev in $(networksetup -listallhardwareports | awk '/Ethernet|LAN/{getline; print $2}'); do ifconfig "$dev" 2>/dev/null | grep -q "status: active" && { echo "connected"; break; }; done]], function(lan_result)
         local has_lan = lan_result:gsub("%s+", "") == "connected"
 
         sbar.exec("shortcuts run get-wlan-ssid", function(result)
@@ -191,13 +206,13 @@ local cpu = sbar.add("item", "cpu", {
 
 disk:subscribe("system_stats", function(env)
     if env.CPU_USAGE then
-        cpu:set { label = string.format("%02d%%", tonumber(env.CPU_USAGE)) }
+        cpu:set { label = string.format("%02d%%", math.floor(tonumber(env.CPU_USAGE) or 0)) }
     end
     if env.CPU_TEMP then
-        temp:set { label = string.format("%02d°C", math.floor(tonumber(env.CPU_TEMP))) }
+        temp:set { label = string.format("%02d°C", math.floor(tonumber(env.CPU_TEMP) or 0)) }
     end
     if env.RAM_USAGE then
-        ram:set { label = string.format("%02d%%", tonumber(env.RAM_USAGE)) }
+        ram:set { label = string.format("%02d%%", math.floor(tonumber(env.RAM_USAGE) or 0)) }
     end
     -- Network stats via netstat (stats_provider network output is broken in v0.8.1)
     sbar.exec("netstat -I " .. network_iface .. " -b | awk 'NR==2{print $7, $10}'", function(result)
@@ -205,26 +220,27 @@ disk:subscribe("system_stats", function(env)
         if rx_str and tx_str then
             local rx_bytes = tonumber(rx_str)
             local tx_bytes = tonumber(tx_str)
-            if prev_rx_bytes and prev_tx_bytes then
-                local rx_kbits = (rx_bytes - prev_rx_bytes) * 8 / 1000
-                local tx_kbits = (tx_bytes - prev_tx_bytes) * 8 / 1000
-                if rx_kbits < 1000 then
-                    downlink:set { label = string.format("%d Kbit/s", rx_kbits) }
-                else
-                    downlink:set { label = string.format("%.1f Mbit/s", rx_kbits / 1000) }
-                end
-                if tx_kbits < 1000 then
-                    uplink:set { label = string.format("%d Kbit/s", tx_kbits) }
-                else
-                    uplink:set { label = string.format("%.1f Mbit/s", tx_kbits / 1000) }
-                end
-            end
+            local last_rx, last_tx = prev_rx_bytes, prev_tx_bytes
+
+            -- Advance the baseline before formatting: a formatting error here used to
+            -- abort the callback and freeze the baseline, inflating every later delta.
             prev_rx_bytes = rx_bytes
             prev_tx_bytes = tx_bytes
+
+            if last_rx and last_tx then
+                -- Counters are 32-bit on some interfaces and reset on link change;
+                -- a negative delta means the counter wrapped, so skip that sample.
+                local rx_delta = rx_bytes - last_rx
+                local tx_delta = tx_bytes - last_tx
+                if rx_delta >= 0 and tx_delta >= 0 then
+                    downlink:set { label = format_rate(rx_delta * 8 / 1000) }
+                    uplink:set { label = format_rate(tx_delta * 8 / 1000) }
+                end
+            end
         end
     end)
     if env.DISK_USAGE then
-        disk:set { label = string.format("%02d%%", tonumber(env.DISK_USAGE)) }
+        disk:set { label = string.format("%02d%%", math.floor(tonumber(env.DISK_USAGE) or 0)) }
     end
     if env.HOST_NAME then
         hostname:set { label = env.HOST_NAME }
