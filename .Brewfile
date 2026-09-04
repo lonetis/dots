@@ -192,6 +192,8 @@ cask "brave-browser"
 cask "burp-suite"
 # Web debugging Proxy application
 cask "charles"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
