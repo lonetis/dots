@@ -1,6 +1,5 @@
 tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
 tap "dail8859/notepadnext", trusted: true
-tap "domt4/autoupdate", trusted: true
 tap "fastrepl/fastrepl", "https://github.com/fastrepl/homebrew-fastrepl.git", trusted: true
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 tap "jesseduffield/lazydocker"
@@ -180,8 +179,6 @@ cask "1password"
 cask "adobe-acrobat-reader"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace", trusted: true
-# Application uninstaller
-cask "appcleaner"
 # Chromium based browser
 cask "arc"
 # Tool to flash OS images to SD cards & USB drives
@@ -226,10 +223,10 @@ cask "google-chrome@beta"
 cask "google-chrome@canary"
 # Web browser
 cask "google-chrome@dev"
-# Open Source Multimedia Framework
-cask "gstreamer-runtime"
 # Hex editor focussing on speed
 cask "hex-fiend"
+# Homebrew's official GUI
+cask "homebrew-app"
 # Keyboard customiser
 cask "karabiner-elements"
 # File system integration
@@ -256,6 +253,8 @@ cask "qflipper"
 cask "raindropio"
 # Control your tools with a few keystrokes
 cask "raycast"
+# Remote desktop application focusing on security
+cask "realvnc-connect-viewer"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
 # Instant messaging application focusing on security
@@ -274,12 +273,8 @@ cask "utm"
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
-# Remote desktop application focusing on security
-cask "vnc-viewer"
 # Rust-based terminal
 cask "warp"
-# Compatibility layer to run Windows applications
-cask "wine-stable"
 # Network protocol analyzer
 cask "wireshark-app"
 # Video communication and virtual meeting platform
