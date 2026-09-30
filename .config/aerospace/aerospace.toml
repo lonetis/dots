@@ -69,6 +69,10 @@ if.app-id = 'com.openai.chat'
 run = 'move-node-to-workspace i'
 check-further-callbacks = true
 [[on-window-detected]]
+if.app-id = 'com.openai.codex'
+run = 'move-node-to-workspace j'
+check-further-callbacks = true
+[[on-window-detected]]
 if.app-id = 'com.apple.iCal'
 run = 'move-node-to-workspace k'
 check-further-callbacks = true

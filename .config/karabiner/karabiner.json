@@ -359,6 +359,25 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.openai.codex || open -b 'com.openai.codex'"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
@@ -817,6 +836,26 @@
                 "to": [
                   {
                     "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.openai.chat"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.openai.codex"
                   }
                 ]
               },
