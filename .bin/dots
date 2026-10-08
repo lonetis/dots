@@ -9,7 +9,7 @@ dots — yadm dotfiles helper
 
 Usage:
   dots status        Show yadm working-tree status
-  dots diff          Open all changes in the native macOS diff tool (FileMerge)
+  dots diff          Review all changes in hunk (terminal diff viewer)
   dots edit          Open yadm-managed dotfiles in VS Code
   dots add <path>... Stage files into yadm (bypasses gitignore via -f)
   dots commit        Commit staged changes with message "update"
@@ -24,8 +24,9 @@ cmd_status() {
 }
 
 cmd_diff() {
-  # Directory diff in a single FileMerge window comparing HEAD to the working tree.
-  yadm difftool -d -t opendiff -y HEAD
+  # yadm enter exports GIT_DIR/GIT_WORK_TREE so hunk sees the yadm repo; untracked
+  # files are excluded because the work tree is all of $HOME.
+  yadm enter hunk diff HEAD --exclude-untracked
 }
 
 cmd_edit() {
