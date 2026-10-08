@@ -57,6 +57,8 @@ brew "helix"
 brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Review-first terminal diff viewer for agent-authored changesets
+brew "hunk"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Update of iperf: measures TCP, UDP, and SCTP bandwidth
@@ -175,6 +177,8 @@ brew "joncrangle/tap/sketchybar-system-stats", trusted: true
 brew "openpubkey/opkssh/opkssh", trusted: true
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
+# Command-line helper for the 1Password password manager
+cask "1password-cli@beta"
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -345,6 +349,7 @@ vscode "ms-vscode.remote-server"
 vscode "ms-vscode.vscode-speech"
 vscode "ms-vsliveshare.vsliveshare"
 vscode "openai.chatgpt"
+vscode "openai.codex-audio"
 vscode "redhat.ansible"
 vscode "redhat.vscode-yaml"
 vscode "svelte.svelte-vscode"
