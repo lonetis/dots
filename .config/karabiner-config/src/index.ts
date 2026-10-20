@@ -200,8 +200,11 @@ writeToProfile('Default profile', [
     map(de_key('r')).to$('cd ~/.config/karabiner-config/ && npm install && npm run update && npm run build && osascript -e \'display notification with title "reloaded karabiner config"\''),
   ]),
 
-  simlayer('s', 'sketchybar').manipulators([
+  // one simlayer per trigger key: a second simlayer('s', ...) would compete for the same s+key combos
+  simlayer('s', 'sketchybar + symbols').manipulators([
     map(de_key('c')).to$('code ~/.config/sketchybar'),
+    withMapper(['⌘', '⌥', '⌃', '⇧', '⇪'])((k, i) => map((i + 1) as NumberKeyValue).toPaste(k)),
+    withMapper(['←', '→', '↑', '↓', '␣', '⏎', '⇥', '⎋', '⌫', '⌦'])((k) => map(k).toPaste(k)),
   ]),
 
   simlayer('o', 'ollama').manipulators([
@@ -224,11 +227,6 @@ writeToProfile('Default profile', [
     map(de_key('v')).to$('open -u raycast://extensions/SamuelNitsche/tunnelblick/index'), // vpn tunnelblick
     map(de_key('z')).to$('open -u raycast://extensions/reckoning-dev/zotero/commandSearchZotero'), // zotero
     map(de_key('␣')).to$('open -u raycast://extensions/raycast/file-search/search-files'), // file search
-  ]),
-
-  simlayer('s', 'symbols').manipulators([
-    withMapper(['⌘', '⌥', '⌃', '⇧', '⇪'])((k, i) => map((i + 1) as NumberKeyValue).toPaste(k)),
-    withMapper(['←', '→', '↑', '↓', '␣', '⏎', '⇥', '⎋', '⌫', '⌦'])((k) => map(k).toPaste(k)),
   ]),
 
   simlayer('␣', 'space fn').manipulators([

@@ -17,6 +17,8 @@ brew "ansible"
 brew "ansible-lint"
 # Automatic configure script builder
 brew "autoconf"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
