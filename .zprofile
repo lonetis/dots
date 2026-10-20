@@ -26,3 +26,6 @@ export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/
 
 # Git: prevent git from showing home directory as a git repository in child directories
 export GIT_CEILING_DIRECTORIES="$HOME"
+
+# Locale: the terminal sets LC_CTYPE=UTF-8, which only macOS knows, and ssh sends it to every server (SendEnv LC_*), so LANG has to cover it
+unset LC_CTYPE
