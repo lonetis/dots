@@ -12,6 +12,7 @@ apps=(
   "/System/Applications/Mail.app"
   "/Applications/Slack.app"
   "/Applications/Claude.app"
+  "/Applications/ChatGPT.app"
   "/Applications/Visual Studio Code.app"
   "/Applications/Warp.app"
   "/Applications/Burp Suite.app"
