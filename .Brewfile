@@ -139,8 +139,6 @@ brew "scrapy"
 brew "showkey"
 # SOcket CAT: netcat on steroids
 brew "socat"
-# Cross-shell prompt for astronauts
-brew "starship"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
 # Terminal multiplexer

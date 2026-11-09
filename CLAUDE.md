@@ -142,7 +142,7 @@ Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-exte
 
 ## Shell and scripts
 
-- `.zprofile` holds environment variables and PATH entries, grouped under `# ===` section banners with a `# Category: what` comment above each entry. `.zshrc` holds shell integrations (starship, zsh-autosuggestions, completions) and aliases.
+- `.zprofile` holds environment variables and PATH entries, grouped under `# ===` section banners with a `# Category: what` comment above each entry. `.zshrc` holds shell integrations (zsh-autosuggestions, completions) and aliases.
 - `~/.bin` is on PATH through `.zprofile`. Karabiner shell commands get their PATH from `/Library/Application Support/org.pqrs/config/karabiner_environment`, which bootstrap `002` writes. A directory that Karabiner commands need must go in both places.
 - `.bin/model -m chatgpt|pcc|local` pipes a prompt into the macOS Shortcut of the same name and converts the result to plain text. The Shortcuts aren't in the repo.
 - `/usr/bin/env bash` resolves to Homebrew bash 5 (`brew "bash"` in `.Brewfile`), so scripts outside bootstrap may use bash 4+ features. If you remove that entry, check those scripts first (for example `declare -A` in `raycast-scripts/burp-chrome.sh`).
