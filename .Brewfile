@@ -23,12 +23,18 @@ brew "bash"
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Multi-platform, multi-architecture disassembly framework
+brew "capstone"
 # CLI tool for analyzing Claude Code usage from local JSONL files
 brew "ccusage"
+# Cross-platform make
+brew "cmake"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Tool for managing dock items
 brew "dockutil"
+# Utilities for the ext2, ext3, and ext4 file systems
+brew "e2fsprogs"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -63,6 +69,8 @@ brew "httpie"
 brew "hunk"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# CLI tool for searching and downloading app packages from the iOS App Store
+brew "ipatool"
 # Update of iperf: measures TCP, UDP, and SCTP bandwidth
 brew "iperf3"
 # Featureful UNIX password cracker
@@ -217,6 +225,8 @@ cask "font-hack-nerd-font"
 cask "font-sf-mono"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Desktop client for GitHub repositories
 cask "github"
 # Web browser
@@ -227,6 +237,8 @@ cask "google-chrome@beta"
 cask "google-chrome@canary"
 # Web browser
 cask "google-chrome@dev"
+# Desktop app for terminals and coding agents
+cask "herdr-app"
 # Hex editor focussing on speed
 cask "hex-fiend"
 # Homebrew's official GUI
@@ -362,6 +374,7 @@ vscode "xdebug.php-pack"
 vscode "yy0931.vscode-sqlite3-editor"
 vscode "yzhang.markdown-all-in-one"
 vscode "zobo.php-intellisense"
+go "golang.org/x/tools/gopls"
 npm "@github/copilot"
 npm "@google/gemini-cli"
 npm "@googleworkspace/cli"

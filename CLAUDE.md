@@ -87,9 +87,9 @@ To add a step, create `bootstrap.d/NNN-name.sh` in the matching range. Start it 
 
 ## Homebrew (`.Brewfile`)
 
-This file is the single source of truth for installed software: taps, formulae, casks, Mac App Store apps (`mas`), VS Code extensions (`vscode`) and global npm packages (`npm`). Bootstrap installs it with `brew bundle install --global` and then **removes everything not listed**. Anything installed by hand has to be added here, or it disappears on the next bootstrap.
+This file is the single source of truth for installed software: taps, formulae, casks, Mac App Store apps (`mas`), VS Code extensions (`vscode`), Go binaries (`go`) and global npm packages (`npm`). Bootstrap installs it with `brew bundle install --global` and then **removes everything not listed**. Anything installed by hand has to be added here, or it disappears on the next bootstrap.
 
-When you add entries, keep the format that `brew bundle dump --describe` writes: a `# description` comment above each formula and cask, sections ordered taps, brews, tap-qualified brews, casks, mas, vscode, npm, and alphabetical order inside each section.
+When you add entries, keep the existing format: a `# description` comment above each formula and cask, sections ordered taps, brews, tap-qualified brews, casks, mas, vscode, go, npm, and alphabetical order inside each section. Homebrew has disabled `brew bundle dump --describe`, so take each description from `brew desc <name>` (or `brew desc --cask <name>`). To find what's missing, compare a plain `brew bundle dump --file=<tmp>` with `.Brewfile`, or run `brew bundle cleanup --global` without `--force`, which only lists what bootstrap would remove.
 
 ## Keyboard and window management
 
