@@ -542,7 +542,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash dev.warp.Warp-Stable || open -b 'dev.warp.Warp-Stable'"
+                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.superlogical.rex || open -b 'com.superlogical.rex'"
                   }
                 ]
               },
@@ -1035,7 +1035,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash dev.warp.Warp-Stable"
+                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.superlogical.rex"
                   }
                 ]
               },

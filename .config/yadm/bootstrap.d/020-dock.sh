@@ -14,7 +14,7 @@ apps=(
   "/Applications/Claude.app"
   "/Applications/ChatGPT.app"
   "/Applications/Visual Studio Code.app"
-  "/Applications/Warp.app"
+  "/Applications/Rex Beta.app"
   "/Applications/Burp Suite.app"
   "/System/Applications/TextEdit.app"
   "/Applications/Xcode.app"

@@ -105,7 +105,7 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace s'
 check-further-callbacks = true
 [[on-window-detected]]
-if.app-id = 'dev.warp.Warp-Stable'
+if.app-id = 'com.superlogical.rex'
 run = 'move-node-to-workspace t'
 check-further-callbacks = true
 [[on-window-detected]]
