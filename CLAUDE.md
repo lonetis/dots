@@ -59,6 +59,7 @@ Paths marked `filter=git-crypt diff=git-crypt` in `.gitattributes` are encrypted
 ├── .vscode/settings.json          # makes `code ~` usable: hides non-dot entries, disables file watching
 └── .config/
     ├── yadm/                      # bootstrap + bootstrap.d/NNN-*.sh
+    ├── ccstatusline/settings.json # Claude Code status line layout
     ├── karabiner-config/          # karabiner.ts sources (TypeScript)
     ├── karabiner/karabiner.json   # GENERATED from karabiner-config
     ├── aerospace/                 # AeroSpace tiling WM: aerospace.toml + helper scripts
@@ -140,6 +141,13 @@ Each `*.sh` file is a Raycast script command. Raycast's own settings aren't trac
 
 Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-extensions.sh` builds and installs them. To add one, append its SSH URL to the `extensions` array.
 
+## Claude Code (`.claude/`)
+
+- `.claude/CLAUDE.md` holds the global instructions and is loaded in **every** Claude Code session, so edit it with care. Claude Code rewrites `.claude/settings.json` itself, so that file often shows up as modified. Nothing else under `~/.claude` (transcripts, memory, plugins, projects) is tracked, and nothing else there may be added.
+- The status line is [ccstatusline](https://github.com/sirmalloc/ccstatusline), run as `npx -y ccstatusline@latest` from `statusLine` in `settings.json`. Its layout lives in `.config/ccstatusline/settings.json`: one row with model, effort, permission mode, ultracode, context, the 5h, weekly and weekly Fable limits, and git. Running `npx ccstatusline` without stdin opens its TUI editor, which rewrites that file.
+- ccstatusline has no widget for permission mode or ultracode, and the statusLine JSON doesn't carry either. Two `custom-command` widgets read them from the session transcript (`transcript_path`): the last `permissionMode` and the last `ultra_effort_enter`/`ultra_effort_exit` attachment. Both update with the next prompt, not on Shift+Tab or `/effort`. The ultracode widget prints nothing while ultracode is off, so it and its separator disappear.
+- To test a layout, pipe in a captured statusLine JSON: `npx -y ccstatusline@latest --config <file> < input.json`.
+
 ## Shell and scripts
 
 - `.zprofile` holds environment variables and PATH entries, grouped under `# ===` section banners with a `# Category: what` comment above each entry. `.zshrc` holds shell integrations (zsh-autosuggestions, completions) and aliases.
@@ -150,7 +158,6 @@ Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-exte
 ## Other tracked config
 
 - `.gitconfig`: identity, SSH commit signing through 1Password, and git-get with root `~/repos`, which clones repos to `~/repos/<host>/<path>`. `.git-repos` is the matching git-get dump. Restore it with `git get --dump ~/.git-repos` and refresh it with `git list --out dump > ~/.git-repos`.
-- `.claude/CLAUDE.md` is loaded in **every** Claude Code session, so edit it with care. Claude Code rewrites `.claude/settings.json` itself, so that file often shows up as modified. Nothing else under `~/.claude` (transcripts, memory, plugins, projects) is tracked, and nothing else there may be added.
 - `.vscode/settings.json` holds workspace settings for `code ~` (`dots edit`).
 
 ## Conventions

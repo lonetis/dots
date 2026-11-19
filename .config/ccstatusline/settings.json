@@ -1,0 +1,128 @@
+{
+  "version": 4,
+  "lines": [
+    [
+      {
+        "id": "model",
+        "type": "model",
+        "color": "hex:b4befe",
+        "bold": true,
+        "rawValue": true
+      },
+      {
+        "id": "sep-1",
+        "type": "separator"
+      },
+      {
+        "id": "effort",
+        "type": "thinking-effort",
+        "color": "hex:cba6f7",
+        "metadata": {
+          "label": "Effort: "
+        }
+      },
+      {
+        "id": "sep-2",
+        "type": "separator"
+      },
+      {
+        "id": "mode",
+        "type": "custom-command",
+        "color": "hex:f38ba8",
+        "commandPath": "f=$(jq -r '.transcript_path // empty'); [ -r \"$f\" ] && LC_ALL=C grep -ao '\"permissionMode\":\"[A-Za-z]*\"' \"$f\" | tail -n 1 | cut -d '\"' -f 4 | sed -e 's/^bypassPermissions$/bypass/' -e 's/^acceptEdits$/accept edits/' -e 's/^dontAsk$/dont ask/' -e 's/^/Mode: /'; true"
+      },
+      {
+        "id": "sep-3",
+        "type": "separator"
+      },
+      {
+        "id": "ultracode",
+        "type": "custom-command",
+        "color": "hex:f5c2e7",
+        "bold": true,
+        "commandPath": "f=$(jq -r '.transcript_path // empty'); [ -r \"$f\" ] && LC_ALL=C grep -ao '\"type\":\"ultra_effort_e[a-z]*\"' \"$f\" | tail -n 1 | grep -q enter && echo ultracode; true"
+      },
+      {
+        "id": "sep-4",
+        "type": "separator"
+      },
+      {
+        "id": "context",
+        "type": "context-percentage",
+        "color": "hex:fab387",
+        "metadata": {
+          "label": "Ctx: "
+        }
+      },
+      {
+        "id": "sep-5",
+        "type": "separator"
+      },
+      {
+        "id": "five-hour",
+        "type": "session-usage",
+        "color": "hex:a6e3a1"
+      },
+      {
+        "id": "sep-6",
+        "type": "separator"
+      },
+      {
+        "id": "weekly",
+        "type": "weekly-usage",
+        "color": "hex:a6e3a1"
+      },
+      {
+        "id": "sep-7",
+        "type": "separator"
+      },
+      {
+        "id": "fable",
+        "type": "fable-weekly-usage",
+        "color": "hex:a6e3a1",
+        "metadata": {
+          "label": "Fable: "
+        }
+      },
+      {
+        "id": "sep-8",
+        "type": "separator"
+      },
+      {
+        "id": "git-branch",
+        "type": "git-branch",
+        "color": "hex:eba0ac",
+        "metadata": {
+          "hide": "no-git"
+        }
+      },
+      {
+        "id": "sep-9",
+        "type": "separator"
+      },
+      {
+        "id": "git-changes",
+        "type": "git-changes",
+        "color": "hex:f9e2af",
+        "metadata": {
+          "hide": "no-git,zero"
+        }
+      }
+    ]
+  ],
+  "colorLevel": 3,
+  "defaultPaddingSide": "both",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "minimalistMode": false,
+  "installation": {
+    "method": "auto-update",
+    "packageManager": "npm"
+  },
+  "numberFormat": {
+    "percent": {
+      "style": "whole"
+    }
+  }
+}

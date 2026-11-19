@@ -289,8 +289,6 @@ cask "utm"
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
-# Rust-based terminal
-cask "warp"
 # Network protocol analyzer
 cask "wireshark-app"
 # Video communication and virtual meeting platform

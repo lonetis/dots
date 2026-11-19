@@ -1,21 +1,28 @@
-# Project Guidelines
+# Global Guidelines
 
-## Architecture & Design Philosophy
+Defaults for every project. A project's own `CLAUDE.md` can narrow or override them.
+
+## Architecture & Design
 
 - **Extensibility first**: Before implementing any feature, consider what related features could be added in the future. Design abstractions, interfaces, and data models to accommodate foreseeable extensions — without implementing them yet.
 - **Maintainability**: Prioritize clean code structure, clear separation of concerns, and consistent patterns. The codebase must be easy to navigate and modify for both humans and AI agents.
+- **Flat layout**: Keep a flat and intuitive directory layout.
 - **Configuration via environment**: All runtime configuration is done exclusively through environment variables. No config files, no hardcoded values, no CLI flags for configuration.
 
-## Project Structure
+## Code Style
 
-- Keep a flat and intuitive directory layout.
-- Document the project structure, tech stack, design decisions, and internal architecture **only** in the `CLAUDE.md` — never in the README.
+- Write clean, self-documenting code. Use comments only for non-obvious "why", not "what".
+- Prefer explicit over implicit. Prefer simple over clever.
+- Handle errors explicitly — no silent swallowing.
+- Use consistent naming conventions per language ecosystem (e.g., snake_case for Python, camelCase for JS/TS).
 
 ## Documentation
 
+Docs change together with the code: update `README.md` and `CLAUDE.md` whenever a feature is added or modified, and add a new environment variable to `.env.example` before code uses it.
+
 ### README.md
 
-Structure (keep it tight and concise):
+User-facing only. No technical deep-dives, no project structure, no architecture docs. Keep it tight and concise:
 
 1. **Short intro** — one paragraph max
 2. **Features** — bullet list
@@ -25,11 +32,9 @@ Structure (keep it tight and concise):
    - **Production Setup** — reference `docker-compose.prod.yml`
 4. Any additional info relevant **for users of the repo** (not developers)
 
-The README is user-facing only. No technical deep-dives, no project structure, no architecture docs.
-
 ### CLAUDE.md
 
-Keep it updated with every structural change, new component, design decision, or convention. This is the single source of truth for how the project works internally.
+The single source of truth for how the project works internally: project structure, tech stack, design decisions, conventions, and internal architecture. Keep it updated with every structural change, new component, design decision, or convention.
 
 ### .env.example
 
@@ -38,9 +43,9 @@ Keep it updated with every structural change, new component, design decision, or
 - Include instructions for obtaining tokens/secrets (URLs, CLI commands, etc.).
 - This is the **only** place where environment variables are documented. Do not explain them in README, CLAUDE.md, or anywhere else.
 
-## Docker & Compose Conventions
+## Docker & Compose
 
-### Compose File Organization
+### Compose Files
 
 - **`docker-compose.dev.yml`** — development setup with hot reload / volume mounts so containers don't need rebuilding on code changes.
 - **`docker-compose.prod.yml`** — production setup pulling pre-built images from GHCR. No local builds needed. Updating = pulling the latest image.
@@ -99,30 +104,20 @@ networks:
 - Add GitHub Actions workflow for automatic GHCR image builds when applicable.
 - Tag images with `latest` and the git SHA or semver tag.
 
-## Code Style
+## Git
 
-- Write clean, self-documenting code. Use comments only for non-obvious "why", not "what".
-- Prefer explicit over implicit. Prefer simple over clever.
-- Handle errors explicitly — no silent swallowing.
-- Use consistent naming conventions per language ecosystem (e.g., snake_case for Python, camelCase for JS/TS).
-
-## Workflow
-
-- When modifying existing features or adding new ones, always update `README.md` and `CLAUDE.md` to reflect the changes.
-- When adding new environment variables, add them to `.env.example` with description and defaults before using them in code.
-
-# Git Guidelines
-
-## Commit Messages
+### Commit Messages
 
 Follow **Conventional Commits v1.0.0** with emojis.
 
 **Format:**
+
 1. Header (required, single line): `<type>[optional scope][!]: <emoji> <description>`
 2. Body (optional): blank line after header, wrap at ~72 chars.
 3. Footer (optional): blank line after body (or header if no body).
 
 **Rules:**
+
 - `<type>` must be lowercase and one of the allowed types below.
 - `<scope>` is optional, lowercase noun (e.g., auth, api, ui, deps).
 - `<description>` is required, imperative mood, concise, no trailing period.
@@ -151,6 +146,7 @@ Follow **Conventional Commits v1.0.0** with emojis.
 **Type selection:** Prefer `feat`/`fix` for user-visible changes. Otherwise use the most accurate type.
 
 **Examples:**
+
 - `feat(auth): ✨ add passkey login support`
 - `fix(api): 🐛 handle missing OAuth refresh token`
 - `docs: 📝 document WebAuthn redirect flow`
@@ -164,11 +160,13 @@ Follow **Conventional Commits v1.0.0** with emojis.
 - `revert: ⏪ revert "feat(auth): ✨ add passkey login support"`
 
 **AI co-authorship:** When an AI agent authors or co-authors a commit, add a `Co-authored-by` footer with the agent's identity. Example:
+
 ```
 Co-authored-by: Claude <noreply@anthropic.com>
 ```
 
 **Breaking change example:**
+
 ```
 feat(api)!: ✨ rename /v1/login to /v2/login
 
@@ -177,7 +175,7 @@ Fixes #123
 Co-authored-by: Claude <noreply@anthropic.com>
 ```
 
-## Commit Frequency
+### Commit Frequency
 
 Commit frequently and logically when working on multiple tasks. Use your judgement to determine the right commit granularity:
 

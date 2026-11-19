@@ -47,23 +47,7 @@
     "mongodb@claude-plugins-official": true,
     "postman@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {
-    "googlechrome": {
-      "source": {
-        "source": "github",
-        "repo": "GoogleChrome/modern-web-guidance"
-      }
-    }
-  },
   "effortLevel": "xhigh",
-  "modelSettings": {
-    "claude-opus-5": {
-      "effortLevel": "xhigh"
-    },
-    "claude-opus-5-5": {
-      "effortLevel": "xhigh"
-    }
-  },
   "askUserQuestionTimeout": "never",
   "pluginConfigs": {
     "cc-plugin-agents-md@builtin": {
