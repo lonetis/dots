@@ -155,6 +155,10 @@ brew "tmux"
 brew "tor"
 # Lightweight BitTorrent client
 brew "transmission-cli"
+# Language for application scale JavaScript development
+brew "typescript"
+# Language Server Protocol implementation for TypeScript wrapping tsserver
+brew "typescript-language-server"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Bundler for JavaScript and friends
@@ -381,5 +385,4 @@ npm "@openai/codex"
 npm "browserify"
 npm "ccstatusline"
 npm "claudeleaf"
-npm "tsc"
 npm "webmake"
