@@ -58,6 +58,7 @@ Paths marked `filter=git-crypt diff=git-crypt` in `.gitattributes` are encrypted
 └── .config/
     ├── yadm/                      # bootstrap + bootstrap.d/NNN-*.sh
     ├── ccstatusline/settings.json # Claude Code status line layout
+    ├── git/allowed_signers        # SSH keys git trusts when verifying commit signatures
     ├── karabiner-config/          # karabiner.ts sources (TypeScript)
     ├── karabiner/karabiner.json   # GENERATED from karabiner-config
     ├── aerospace/                 # AeroSpace tiling WM: aerospace.toml + helper scripts
@@ -158,6 +159,7 @@ Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-exte
 ## Other tracked config
 
 - `.gitconfig`: identity, SSH commit signing through 1Password, and git-get with root `~/repos`, which clones repos to `~/repos/<host>/<path>`. `.git-repos` is the matching git-get dump. Restore it with `git get --dump ~/.git-repos` and refresh it with `git list --out dump > ~/.git-repos`.
+- `.config/git/allowed_signers` lists the SSH keys git trusts when it verifies commit signatures: my 1Password key under my email, and the agent key `~/.ssh/agent-commit-signing` under the principal `agent-commit-signing`, so `%GS` tells agent commits apart. When a machine gets a new agent key, add its public key there.
 - `.vscode/settings.json` holds workspace settings for `code ~` (`dots edit`).
 
 ## Conventions

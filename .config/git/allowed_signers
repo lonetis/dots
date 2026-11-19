@@ -1,0 +1,5 @@
+# SSH keys git trusts when it verifies commit signatures (gpg.ssh.allowedSignersFile in ~/.gitconfig).
+# My own key, stored in 1Password.
+louisjannett@icloud.com namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP6czsrcsdR3vf+v30/zwGROnrdeMEqFCB/BhaCTVD0U
+# The key coding agents sign their commits with (~/.ssh/agent-commit-signing).
+agent-commit-signing namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILFAQZuZgPLuNtta/hueSFrodgArgETluODXKi7IwGVO
