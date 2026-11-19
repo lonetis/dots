@@ -47,6 +47,12 @@
     "postman@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
+  "askUserQuestionTimeout": "never",
   "pluginConfigs": {
     "cc-plugin-agents-md@builtin": {
       "options": {
@@ -58,21 +64,15 @@
   "voice": {
     "enabled": true
   },
+  "timeFormat": "auto",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "editorMode": "normal",
   "preferredNotifChannel": "auto",
   "autoCompactEnabled": true,
+  "idleCompaction": false,
   "switchModelsOnFlag": true,
   "teammateMode": "auto",
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
-  "modelSettings": {
-    "claude-opus-5-5": {
-      "effortLevel": "xhigh"
-    }
-  },
-  "askUserQuestionTimeout": "never",
-  "timeFormat": "auto",
-  "idleCompaction": false
+  "agentPushNotifEnabled": true
 }
