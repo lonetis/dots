@@ -55,13 +55,34 @@
         }
       },
       {
+        "id": "sep-cost",
+        "type": "separator"
+      },
+      {
+        "id": "cost",
+        "type": "session-cost",
+        "color": "hex:94e2d5"
+      },
+      {
         "id": "sep-5",
         "type": "separator"
       },
       {
         "id": "five-hour",
         "type": "session-usage",
-        "color": "hex:a6e3a1"
+        "color": "hex:a6e3a1",
+        "merge": true
+      },
+      {
+        "id": "five-hour-reset",
+        "type": "reset-timer",
+        "color": "hex:a6e3a1",
+        "dim": true,
+        "metadata": {
+          "label": " ↻ ",
+          "compact": "true",
+          "hide": "no-data"
+        }
       },
       {
         "id": "sep-6",
@@ -70,7 +91,19 @@
       {
         "id": "weekly",
         "type": "weekly-usage",
-        "color": "hex:a6e3a1"
+        "color": "hex:a6e3a1",
+        "merge": true
+      },
+      {
+        "id": "weekly-reset",
+        "type": "weekly-reset-timer",
+        "color": "hex:a6e3a1",
+        "dim": true,
+        "metadata": {
+          "label": " ↻ ",
+          "compact": "true",
+          "hide": "no-data"
+        }
       },
       {
         "id": "sep-7",
