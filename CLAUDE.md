@@ -1,7 +1,5 @@
 # CLAUDE.md — dots
 
-> **Scope:** this file is for the dotfiles in `$HOME` that yadm tracks. Claude Code also loads it in every project below `~` (for example `~/repos/...`). When you work in one of those projects, ignore this file. Its git rules apply only to `yadm`, never to other repositories.
-
 Personal macOS dotfiles (Apple Silicon, Homebrew under `/opt/homebrew`, German keyboard layout), managed with [yadm](https://yadm.io) and published at `github.com/lonetis/dots`. **The repo is public.** Anyone can read every tracked file except the ones git-crypt encrypts.
 
 ## Version control (yadm)
@@ -11,7 +9,7 @@ yadm wraps git. The repo is at `~/.local/share/yadm/repo.git` and its work tree 
 ### Rules
 
 - **Stage every change, and never commit.** After you create, edit, rename or delete a tracked file, stage it. Don't run `yadm commit`, `yadm push`, `dots commit`, `dots push` or `dots save`. The user reviews, commits and pushes.
-- **The commit message is always exactly `update`.** If the user explicitly asks for a commit, run `dots commit` (which is `yadm commit -m "update"`). Don't add Conventional Commit prefixes, emoji, a body or any `Co-authored-by` trailer. The git guidelines in `~/.claude/CLAUDE.md` don't apply to this repo.
+- **The commit message is always exactly `update`.** If the user explicitly asks for a commit, run `dots commit` (which is `yadm commit -m "update"`). Don't add Conventional Commit prefixes, emoji, a body or any `Co-authored-by` trailer. The `code:git` skill doesn't apply to this repo.
 - **Stage explicit file paths, never directories or globs.** `.gitignore` is `*`, so new files need `-f`, and `-f` also bypasses `.gitignore_global`. Running `yadm add -f` on a directory would pull in `node_modules/`, `.DS_Store`, Claude Code transcripts and similar files.
 - **Never stage secrets as plaintext.** See [Secrets](#secrets-git-crypt).
 - Commits are SSH-signed through 1Password (`op-ssh-sign`), and pushes use the 1Password SSH agent. Both can need the user to unlock 1Password, which is one more reason to leave them to the user.
@@ -55,7 +53,7 @@ Paths marked `filter=git-crypt diff=git-crypt` in `.gitattributes` are encrypted
 ├── .gitattributes                 # git-crypt file list
 ├── .git-repos                     # 🔒 git-get dump of ~/repos (one "url branch" per line)
 ├── .ssh/config                    # 🔒
-├── .claude/                       # Claude Code: CLAUDE.md (global instructions) + settings.json only
+├── .claude/                       # Claude Code: settings.json only
 ├── .vscode/settings.json          # makes `code ~` usable: hides non-dot entries, disables file watching
 └── .config/
     ├── yadm/                      # bootstrap + bootstrap.d/NNN-*.sh
@@ -143,7 +141,9 @@ Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-exte
 
 ## Claude Code (`.claude/`)
 
-- `.claude/CLAUDE.md` holds the global instructions and is loaded in **every** Claude Code session, so edit it with care. Claude Code rewrites `.claude/settings.json` itself, so that file often shows up as modified. Nothing else under `~/.claude` (transcripts, memory, plugins, projects) is tracked, and nothing else there may be added.
+- Only `.claude/settings.json` is tracked. Claude Code rewrites it itself, so it often shows up as modified. Nothing else under `~/.claude` (transcripts, memory, plugins, projects) is tracked, and nothing else there may be added.
+- There is no global `~/.claude/CLAUDE.md`. My coding conventions come from the skills of the `code` plugin, which Claude loads when they apply.
+- Claude Code loads every `CLAUDE.md` from the session's directory upward, so it would load this file in every project below `~`. `settings.json` excludes it everywhere with `claudeMdExcludes`, and a SessionStart hook tells Claude to read it when a session starts in `~` (`$CLAUDE_PROJECT_DIR` is `$HOME`). The hook points to the file instead of printing it, because Claude Code cuts hook output off at 10,000 characters.
 - The status line is [ccstatusline](https://github.com/sirmalloc/ccstatusline), installed globally through `npm "ccstatusline"` in `.Brewfile` (not `npx`, which is slower on every render) and set as the `statusLine` command in `settings.json`. Updates come from `brew bundle` or `npm update -g ccstatusline`. Its layout lives in `.config/ccstatusline/settings.json`: one row with model, effort, permission mode, ultracode, context (against the auto-compaction point), session cost, the 5h and weekly limits with their reset times, the weekly Fable limit, and git. Running `ccstatusline` without stdin opens its TUI editor, which rewrites that file.
 - ccstatusline has no widget for permission mode or ultracode, and the statusLine JSON doesn't carry either. Two `custom-command` widgets read them from the session transcript (`transcript_path`): the last `permissionMode` and the last `ultra_effort_enter`/`ultra_effort_exit` attachment. Both update with the next prompt, not on Shift+Tab or `/effort`. The ultracode widget prints nothing while ultracode is off, so it and its separator disappear.
 - To test a layout, pipe in a captured statusLine JSON: `ccstatusline --config <file> < input.json`.
@@ -169,5 +169,5 @@ Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-exte
   3. Stage the explicit config files, never caches or state.
   4. If setup needs more than files (`defaults`, `sudo`, a build), add a `bootstrap.d` step.
   5. Add the tool to [Layout](#layout), and give it a section here if it isn't trivial.
-- The global guidelines in `~/.claude/CLAUDE.md` about code style and environment-variable configuration still apply. The ones about Docker, `.env.example`, CI and commit messages don't.
+- Of the `code` plugin's skills, only `code:conventions` applies here.
 - `README.md` stays user-facing and covers bootstrap only. Update this CLAUDE.md whenever a component, convention or flow changes, and stage it with the change.
