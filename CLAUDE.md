@@ -144,9 +144,9 @@ Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-exte
 ## Claude Code (`.claude/`)
 
 - `.claude/CLAUDE.md` holds the global instructions and is loaded in **every** Claude Code session, so edit it with care. Claude Code rewrites `.claude/settings.json` itself, so that file often shows up as modified. Nothing else under `~/.claude` (transcripts, memory, plugins, projects) is tracked, and nothing else there may be added.
-- The status line is [ccstatusline](https://github.com/sirmalloc/ccstatusline), run as `npx -y ccstatusline@latest` from `statusLine` in `settings.json`. Its layout lives in `.config/ccstatusline/settings.json`: one row with model, effort, permission mode, ultracode, context, session cost, the 5h and weekly limits with their reset times, the weekly Fable limit, and git. Running `npx ccstatusline` without stdin opens its TUI editor, which rewrites that file.
+- The status line is [ccstatusline](https://github.com/sirmalloc/ccstatusline), installed globally through `npm "ccstatusline"` in `.Brewfile` (not `npx`, which is slower on every render) and set as the `statusLine` command in `settings.json`. Updates come from `brew bundle` or `npm update -g ccstatusline`. Its layout lives in `.config/ccstatusline/settings.json`: one row with model, effort, permission mode, ultracode, context (against the auto-compaction point), session cost, the 5h and weekly limits with their reset times, the weekly Fable limit, and git. Running `ccstatusline` without stdin opens its TUI editor, which rewrites that file.
 - ccstatusline has no widget for permission mode or ultracode, and the statusLine JSON doesn't carry either. Two `custom-command` widgets read them from the session transcript (`transcript_path`): the last `permissionMode` and the last `ultra_effort_enter`/`ultra_effort_exit` attachment. Both update with the next prompt, not on Shift+Tab or `/effort`. The ultracode widget prints nothing while ultracode is off, so it and its separator disappear.
-- To test a layout, pipe in a captured statusLine JSON: `npx -y ccstatusline@latest --config <file> < input.json`.
+- To test a layout, pipe in a captured statusLine JSON: `ccstatusline --config <file> < input.json`.
 
 ## Shell and scripts
 

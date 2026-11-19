@@ -48,7 +48,7 @@
       },
       {
         "id": "context",
-        "type": "context-percentage",
+        "type": "context-percentage-usable",
         "color": "hex:fab387",
         "metadata": {
           "label": "Ctx: "
@@ -102,7 +102,10 @@
         "metadata": {
           "label": " ↻ ",
           "compact": "true",
-          "hide": "no-data"
+          "hide": "no-data",
+          "absolute": "true",
+          "weekday": "true",
+          "timezone": "local"
         }
       },
       {
@@ -150,7 +153,7 @@
   "gitCacheTtlSeconds": 5,
   "minimalistMode": false,
   "installation": {
-    "method": "auto-update",
+    "method": "self-managed",
     "packageManager": "npm"
   },
   "numberFormat": {
