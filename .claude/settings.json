@@ -4,7 +4,6 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
-    "defaultMode": "bypassPermissions",
     "deny": [
       "Bash(yadm commit *)",
       "Bash(yadm push *)",
@@ -13,7 +12,8 @@
       "Bash(yadm bootstrap *)",
       "Bash(dots init *)",
       "Bash(brew bundle cleanup *--force*)"
-    ]
+    ],
+    "defaultMode": "bypassPermissions"
   },
   "hooks": {
     "SessionStart": [
@@ -92,5 +92,6 @@
   "switchModelsOnFlag": true,
   "teammateMode": "auto",
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "remoteControlAtStartup": true
 }
