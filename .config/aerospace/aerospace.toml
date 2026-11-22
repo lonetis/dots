@@ -133,7 +133,7 @@ if.app-id = 'com.google.Chrome.canary'
 run = 'move-node-to-workspace y'
 check-further-callbacks = true
 [[on-window-detected]]
-if.app-id = 'org.zotero.zotero-beta'
+if.app-id = 'org.zotero.zotero'
 run = 'move-node-to-workspace z'
 check-further-callbacks = true
 ##### END DEFAULT WORKSPACES #####

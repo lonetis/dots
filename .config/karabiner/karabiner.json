@@ -675,7 +675,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash org.zotero.zotero-beta || open -b 'org.zotero.zotero-beta'"
+                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash org.zotero.zotero || open -b 'org.zotero.zotero'"
                   }
                 ]
               },
@@ -1175,7 +1175,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash org.zotero.zotero-beta"
+                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash org.zotero.zotero"
                   }
                 ]
               },
