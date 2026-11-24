@@ -170,7 +170,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py new-window"
+                    "shell_command": "~/.config/omniwm/scripts/new-window.sh"
                   }
                 ]
               }
@@ -219,7 +219,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.ActivityMonitor || open -b 'com.apple.ActivityMonitor'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.ActivityMonitor || open -b 'com.apple.ActivityMonitor'"
                   }
                 ]
               },
@@ -238,7 +238,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.microsoft.Excel || open -b 'com.microsoft.Excel'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.microsoft.Excel || open -b 'com.microsoft.Excel'"
                   }
                 ]
               },
@@ -257,7 +257,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.install4j.9806-1938-4586-6531.70 || open -b 'com.install4j.9806-1938-4586-6531.70'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.install4j.9806-1938-4586-6531.70 || open -b 'com.install4j.9806-1938-4586-6531.70'"
                   }
                 ]
               },
@@ -276,7 +276,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.microsoft.VSCode || open -b 'com.microsoft.VSCode'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.microsoft.VSCode || open -b 'com.microsoft.VSCode'"
                   }
                 ]
               },
@@ -295,7 +295,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.finder || open -b 'com.apple.finder'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.finder || open -b 'com.apple.finder'"
                   }
                 ]
               },
@@ -314,7 +314,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle org.mozilla.firefox || open -b 'org.mozilla.firefox'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh org.mozilla.firefox || open -b 'org.mozilla.firefox'"
                   }
                 ]
               },
@@ -333,7 +333,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.google.Chrome || open -b 'com.google.Chrome'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.google.Chrome || open -b 'com.google.Chrome'"
                   }
                 ]
               },
@@ -352,7 +352,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.openai.chat || open -b 'com.openai.chat'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.openai.chat || open -b 'com.openai.chat'"
                   }
                 ]
               },
@@ -371,7 +371,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.openai.codex || open -b 'com.openai.codex'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.openai.codex || open -b 'com.openai.codex'"
                   }
                 ]
               },
@@ -390,7 +390,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.iCal || open -b 'com.apple.iCal'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.iCal || open -b 'com.apple.iCal'"
                   }
                 ]
               },
@@ -409,7 +409,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
                   }
                 ]
               },
@@ -428,7 +428,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.mail || open -b 'com.apple.mail'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.mail || open -b 'com.apple.mail'"
                   }
                 ]
               },
@@ -447,7 +447,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.Notes || open -b 'com.apple.Notes'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.Notes || open -b 'com.apple.Notes'"
                   }
                 ]
               },
@@ -466,7 +466,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle us.zoom.xos || open -b 'us.zoom.xos'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh us.zoom.xos || open -b 'us.zoom.xos'"
                   }
                 ]
               },
@@ -485,7 +485,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.microsoft.Powerpoint || open -b 'com.microsoft.Powerpoint'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.microsoft.Powerpoint || open -b 'com.microsoft.Powerpoint'"
                   }
                 ]
               },
@@ -504,7 +504,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.Reminders || open -b 'com.apple.Reminders'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.Reminders || open -b 'com.apple.Reminders'"
                   }
                 ]
               },
@@ -523,7 +523,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.tinyspeck.slackmacgap || open -b 'com.tinyspeck.slackmacgap'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.tinyspeck.slackmacgap || open -b 'com.tinyspeck.slackmacgap'"
                   }
                 ]
               },
@@ -542,7 +542,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.superlogical.rex || open -b 'com.superlogical.rex'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.superlogical.rex || open -b 'com.superlogical.rex'"
                   }
                 ]
               },
@@ -561,7 +561,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.utmapp.UTM || open -b 'com.utmapp.UTM'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.utmapp.UTM || open -b 'com.utmapp.UTM'"
                   }
                 ]
               },
@@ -580,7 +580,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.microsoft.Word || open -b 'com.microsoft.Word'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.microsoft.Word || open -b 'com.microsoft.Word'"
                   }
                 ]
               },
@@ -599,7 +599,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.Preview || open -b 'com.apple.Preview'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.Preview || open -b 'com.apple.Preview'"
                   }
                 ]
               },
@@ -618,7 +618,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.Safari || open -b 'com.apple.Safari'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.Safari || open -b 'com.apple.Safari'"
                   }
                 ]
               },
@@ -637,7 +637,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.dt.Xcode || open -b 'com.apple.dt.Xcode'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.dt.Xcode || open -b 'com.apple.dt.Xcode'"
                   }
                 ]
               },
@@ -656,7 +656,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle com.google.Chrome.canary || open -b 'com.google.Chrome.canary'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.google.Chrome.canary || open -b 'com.google.Chrome.canary'"
                   }
                 ]
               },
@@ -675,7 +675,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py cycle org.zotero.zotero || open -b 'org.zotero.zotero'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh org.zotero.zotero || open -b 'org.zotero.zotero'"
                   }
                 ]
               },
@@ -695,7 +695,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.ActivityMonitor"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.ActivityMonitor"
                   }
                 ]
               },
@@ -715,7 +715,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.microsoft.Excel"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Excel"
                   }
                 ]
               },
@@ -735,7 +735,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.install4j.9806-1938-4586-6531.70"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.install4j.9806-1938-4586-6531.70"
                   }
                 ]
               },
@@ -755,7 +755,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.microsoft.VSCode"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.VSCode"
                   }
                 ]
               },
@@ -775,7 +775,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.finder"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.finder"
                   }
                 ]
               },
@@ -795,7 +795,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull org.mozilla.firefox"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh org.mozilla.firefox"
                   }
                 ]
               },
@@ -815,7 +815,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.google.Chrome"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.google.Chrome"
                   }
                 ]
               },
@@ -835,7 +835,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.openai.chat"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.chat"
                   }
                 ]
               },
@@ -855,7 +855,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.openai.codex"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.codex"
                   }
                 ]
               },
@@ -875,7 +875,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.iCal"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.iCal"
                   }
                 ]
               },
@@ -895,7 +895,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.anthropic.claudefordesktop"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.anthropic.claudefordesktop"
                   }
                 ]
               },
@@ -915,7 +915,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.mail"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.mail"
                   }
                 ]
               },
@@ -935,7 +935,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.Notes"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Notes"
                   }
                 ]
               },
@@ -955,7 +955,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull us.zoom.xos"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh us.zoom.xos"
                   }
                 ]
               },
@@ -975,7 +975,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.microsoft.Powerpoint"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Powerpoint"
                   }
                 ]
               },
@@ -995,7 +995,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.Reminders"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Reminders"
                   }
                 ]
               },
@@ -1015,7 +1015,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.tinyspeck.slackmacgap"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.tinyspeck.slackmacgap"
                   }
                 ]
               },
@@ -1035,7 +1035,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.superlogical.rex"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.superlogical.rex"
                   }
                 ]
               },
@@ -1055,7 +1055,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.utmapp.UTM"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.utmapp.UTM"
                   }
                 ]
               },
@@ -1075,7 +1075,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.microsoft.Word"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Word"
                   }
                 ]
               },
@@ -1095,7 +1095,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.Preview"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Preview"
                   }
                 ]
               },
@@ -1115,7 +1115,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.Safari"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Safari"
                   }
                 ]
               },
@@ -1135,7 +1135,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.dt.Xcode"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.dt.Xcode"
                   }
                 ]
               },
@@ -1155,7 +1155,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull com.google.Chrome.canary"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.google.Chrome.canary"
                   }
                 ]
               },
@@ -1175,7 +1175,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py pull org.zotero.zotero"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh org.zotero.zotero"
                   }
                 ]
               },
@@ -1194,7 +1194,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py toggle com.1password.1password"
+                    "shell_command": "~/.config/omniwm/scripts/toggle.sh com.1password.1password"
                   }
                 ]
               }
@@ -1218,7 +1218,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 1"
+                    "shell_command": "omniwmctl command switch-workspace 31"
                   }
                 ]
               },
@@ -1237,7 +1237,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 2"
+                    "shell_command": "omniwmctl command switch-workspace 32"
                   }
                 ]
               },
@@ -1256,7 +1256,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 3"
+                    "shell_command": "omniwmctl command switch-workspace 33"
                   }
                 ]
               },
@@ -1275,7 +1275,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 4"
+                    "shell_command": "omniwmctl command switch-workspace 34"
                   }
                 ]
               },
@@ -1294,7 +1294,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 5"
+                    "shell_command": "omniwmctl command switch-workspace 35"
                   }
                 ]
               },
@@ -1313,7 +1313,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 6"
+                    "shell_command": "omniwmctl command switch-workspace 36"
                   }
                 ]
               },
@@ -1332,7 +1332,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 7"
+                    "shell_command": "omniwmctl command switch-workspace 37"
                   }
                 ]
               },
@@ -1351,7 +1351,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 8"
+                    "shell_command": "omniwmctl command switch-workspace 38"
                   }
                 ]
               },
@@ -1370,7 +1370,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 9"
+                    "shell_command": "omniwmctl command switch-workspace 39"
                   }
                 ]
               },
@@ -1389,7 +1389,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py focus 0"
+                    "shell_command": "omniwmctl command switch-workspace 30"
                   }
                 ]
               },
@@ -1405,7 +1405,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon a"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh a"
                   }
                 ]
               },
@@ -1421,7 +1421,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon b"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh b"
                   }
                 ]
               },
@@ -1437,7 +1437,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon c"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh c"
                   }
                 ]
               },
@@ -1453,7 +1453,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon d"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh d"
                   }
                 ]
               },
@@ -1469,7 +1469,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon e"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh e"
                   }
                 ]
               },
@@ -1485,7 +1485,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon f"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh f"
                   }
                 ]
               },
@@ -1501,7 +1501,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon g"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh g"
                   }
                 ]
               },
@@ -1517,7 +1517,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon h"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh h"
                   }
                 ]
               },
@@ -1533,7 +1533,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon i"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh i"
                   }
                 ]
               },
@@ -1549,7 +1549,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon j"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh j"
                   }
                 ]
               },
@@ -1565,7 +1565,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon m"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh m"
                   }
                 ]
               },
@@ -1581,7 +1581,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon n"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh n"
                   }
                 ]
               },
@@ -1597,7 +1597,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon o"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh o"
                   }
                 ]
               },
@@ -1613,7 +1613,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon p"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh p"
                   }
                 ]
               },
@@ -1629,7 +1629,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon q"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh q"
                   }
                 ]
               },
@@ -1645,7 +1645,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon r"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh r"
                   }
                 ]
               },
@@ -1661,7 +1661,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon s"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh s"
                   }
                 ]
               },
@@ -1677,7 +1677,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon t"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh t"
                   }
                 ]
               },
@@ -1693,7 +1693,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon u"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh u"
                   }
                 ]
               },
@@ -1709,7 +1709,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon v"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh v"
                   }
                 ]
               },
@@ -1725,7 +1725,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon w"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh w"
                   }
                 ]
               },
@@ -1741,7 +1741,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon x"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh x"
                   }
                 ]
               },
@@ -1757,7 +1757,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon y"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh y"
                   }
                 ]
               },
@@ -1773,7 +1773,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon z"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh z"
                   }
                 ]
               },
@@ -1789,7 +1789,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon ä"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh ä"
                   }
                 ]
               },
@@ -1805,7 +1805,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon ö"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh ö"
                   }
                 ]
               },
@@ -1821,7 +1821,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon ü"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh ü"
                   }
                 ]
               },
@@ -1837,7 +1837,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 1"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 1"
                   }
                 ]
               },
@@ -1853,7 +1853,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 2"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 2"
                   }
                 ]
               },
@@ -1869,7 +1869,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 3"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 3"
                   }
                 ]
               },
@@ -1885,7 +1885,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 4"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 4"
                   }
                 ]
               },
@@ -1901,7 +1901,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 5"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 5"
                   }
                 ]
               },
@@ -1917,7 +1917,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 6"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 6"
                   }
                 ]
               },
@@ -1933,7 +1933,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 7"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 7"
                   }
                 ]
               },
@@ -1949,7 +1949,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 8"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 8"
                   }
                 ]
               },
@@ -1965,7 +1965,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 9"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 9"
                   }
                 ]
               },
@@ -1981,7 +1981,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py summon 0"
+                    "shell_command": "~/.config/omniwm/scripts/summon.sh 0"
                   }
                 ]
               },
@@ -1998,7 +1998,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window a"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh a"
                   }
                 ]
               },
@@ -2015,7 +2015,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window b"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh b"
                   }
                 ]
               },
@@ -2032,7 +2032,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window c"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh c"
                   }
                 ]
               },
@@ -2049,7 +2049,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window d"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh d"
                   }
                 ]
               },
@@ -2066,7 +2066,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window e"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh e"
                   }
                 ]
               },
@@ -2083,7 +2083,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window f"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh f"
                   }
                 ]
               },
@@ -2100,7 +2100,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window g"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh g"
                   }
                 ]
               },
@@ -2117,7 +2117,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window h"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh h"
                   }
                 ]
               },
@@ -2134,7 +2134,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window i"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh i"
                   }
                 ]
               },
@@ -2151,7 +2151,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window j"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh j"
                   }
                 ]
               },
@@ -2168,7 +2168,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window m"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh m"
                   }
                 ]
               },
@@ -2185,7 +2185,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window n"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh n"
                   }
                 ]
               },
@@ -2202,7 +2202,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window o"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh o"
                   }
                 ]
               },
@@ -2219,7 +2219,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window p"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh p"
                   }
                 ]
               },
@@ -2236,7 +2236,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window q"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh q"
                   }
                 ]
               },
@@ -2253,7 +2253,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window r"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh r"
                   }
                 ]
               },
@@ -2270,7 +2270,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window s"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh s"
                   }
                 ]
               },
@@ -2287,7 +2287,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window t"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh t"
                   }
                 ]
               },
@@ -2304,7 +2304,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window u"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh u"
                   }
                 ]
               },
@@ -2321,7 +2321,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window v"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh v"
                   }
                 ]
               },
@@ -2338,7 +2338,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window w"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh w"
                   }
                 ]
               },
@@ -2355,7 +2355,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window x"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh x"
                   }
                 ]
               },
@@ -2372,7 +2372,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window y"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh y"
                   }
                 ]
               },
@@ -2389,7 +2389,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window z"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh z"
                   }
                 ]
               },
@@ -2406,7 +2406,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window ä"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh ä"
                   }
                 ]
               },
@@ -2423,7 +2423,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window ö"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh ö"
                   }
                 ]
               },
@@ -2440,7 +2440,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window ü"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh ü"
                   }
                 ]
               },
@@ -2457,7 +2457,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 1"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 1"
                   }
                 ]
               },
@@ -2474,7 +2474,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 2"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 2"
                   }
                 ]
               },
@@ -2491,7 +2491,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 3"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 3"
                   }
                 ]
               },
@@ -2508,7 +2508,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 4"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 4"
                   }
                 ]
               },
@@ -2525,7 +2525,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 5"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 5"
                   }
                 ]
               },
@@ -2542,7 +2542,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 6"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 6"
                   }
                 ]
               },
@@ -2559,7 +2559,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 7"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 7"
                   }
                 ]
               },
@@ -2576,7 +2576,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 8"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 8"
                   }
                 ]
               },
@@ -2593,7 +2593,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 9"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 9"
                   }
                 ]
               },
@@ -2610,7 +2610,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window 0"
+                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 0"
                   }
                 ]
               },
@@ -2667,7 +2667,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-to-default"
+                    "shell_command": "~/.config/omniwm/scripts/move-to-default.sh"
                   }
                 ]
               },
@@ -2687,7 +2687,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-all-to-default"
+                    "shell_command": "~/.config/omniwm/scripts/move-all-to-default.sh"
                   }
                 ]
               }
@@ -3197,7 +3197,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py close --quit-if-last-window"
+                    "shell_command": "~/.config/omniwm/scripts/close.sh --quit-if-last-window"
                   }
                 ]
               },
@@ -3217,7 +3217,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py close-others"
+                    "shell_command": "~/.config/omniwm/scripts/close-others.sh"
                   }
                 ]
               },
@@ -3238,7 +3238,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py close-others --quit-if-last-window"
+                    "shell_command": "~/.config/omniwm/scripts/close-others.sh --quit-if-last-window"
                   }
                 ]
               }
@@ -3349,7 +3349,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window-to-display next"
+                    "shell_command": "~/.config/omniwm/scripts/move-window-to-display.sh next"
                   }
                 ]
               },
@@ -3369,7 +3369,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-window-to-display prev"
+                    "shell_command": "~/.config/omniwm/scripts/move-window-to-display.sh prev"
                   }
                 ]
               },
@@ -3389,7 +3389,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-workspace next"
+                    "shell_command": "~/.config/omniwm/scripts/move-workspace.sh next"
                   }
                 ]
               },
@@ -3409,7 +3409,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py move-workspace prev"
+                    "shell_command": "~/.config/omniwm/scripts/move-workspace.sh prev"
                   }
                 ]
               },
@@ -3427,7 +3427,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace a"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh a"
                   }
                 ]
               },
@@ -3445,7 +3445,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace b"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh b"
                   }
                 ]
               },
@@ -3463,7 +3463,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace c"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh c"
                   }
                 ]
               },
@@ -3481,7 +3481,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace d"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh d"
                   }
                 ]
               },
@@ -3499,7 +3499,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace e"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh e"
                   }
                 ]
               },
@@ -3517,7 +3517,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace f"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh f"
                   }
                 ]
               },
@@ -3535,7 +3535,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace g"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh g"
                   }
                 ]
               },
@@ -3553,7 +3553,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace h"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh h"
                   }
                 ]
               },
@@ -3571,7 +3571,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace i"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh i"
                   }
                 ]
               },
@@ -3589,7 +3589,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace j"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh j"
                   }
                 ]
               },
@@ -3607,7 +3607,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace m"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh m"
                   }
                 ]
               },
@@ -3625,7 +3625,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace n"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh n"
                   }
                 ]
               },
@@ -3643,7 +3643,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace o"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh o"
                   }
                 ]
               },
@@ -3661,7 +3661,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace p"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh p"
                   }
                 ]
               },
@@ -3679,7 +3679,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace q"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh q"
                   }
                 ]
               },
@@ -3697,7 +3697,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace r"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh r"
                   }
                 ]
               },
@@ -3715,7 +3715,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace s"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh s"
                   }
                 ]
               },
@@ -3733,7 +3733,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace t"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh t"
                   }
                 ]
               },
@@ -3751,7 +3751,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace u"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh u"
                   }
                 ]
               },
@@ -3769,7 +3769,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace v"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh v"
                   }
                 ]
               },
@@ -3787,7 +3787,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace w"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh w"
                   }
                 ]
               },
@@ -3805,7 +3805,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace x"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh x"
                   }
                 ]
               },
@@ -3823,7 +3823,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace y"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh y"
                   }
                 ]
               },
@@ -3841,7 +3841,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace z"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh z"
                   }
                 ]
               },
@@ -3859,7 +3859,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace ä"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh ä"
                   }
                 ]
               },
@@ -3877,7 +3877,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace ö"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh ö"
                   }
                 ]
               },
@@ -3895,7 +3895,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace ü"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh ü"
                   }
                 ]
               },
@@ -3913,7 +3913,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 1"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 1"
                   }
                 ]
               },
@@ -3931,7 +3931,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 2"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 2"
                   }
                 ]
               },
@@ -3949,7 +3949,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 3"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 3"
                   }
                 ]
               },
@@ -3967,7 +3967,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 4"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 4"
                   }
                 ]
               },
@@ -3985,7 +3985,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 5"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 5"
                   }
                 ]
               },
@@ -4003,7 +4003,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 6"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 6"
                   }
                 ]
               },
@@ -4021,7 +4021,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 7"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 7"
                   }
                 ]
               },
@@ -4039,7 +4039,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 8"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 8"
                   }
                 ]
               },
@@ -4057,7 +4057,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 9"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 9"
                   }
                 ]
               },
@@ -4075,7 +4075,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/wm.py send-workspace 0"
+                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 0"
                   }
                 ]
               }

@@ -61,7 +61,7 @@ Paths marked `filter=git-crypt diff=git-crypt` in `.gitattributes` are encrypted
     ├── git/allowed_signers        # SSH keys git trusts when verifying commit signatures
     ├── karabiner-config/          # karabiner.ts sources (TypeScript)
     ├── karabiner/karabiner.json   # GENERATED from karabiner-config
-    ├── omniwm/                    # OmniWM tiling WM: settings.toml (partly GENERATED) + wm.py helper
+    ├── omniwm/                    # OmniWM tiling WM: settings.toml (partly GENERATED) + scripts/ helpers
     └── raycast-scripts/           # Raycast script commands + icons/
 ```
 
@@ -91,7 +91,7 @@ When you add entries, keep the existing format: a `# description` comment above 
 
 ## Keyboard and window management
 
-Karabiner-Elements and [OmniWM](https://omniwm.app) work as one system. **Every keybinding lives in Karabiner.** OmniWM's own hotkeys are off (`general.hotkeysEnabled = false`, every binding `"Unassigned"`). Karabiner drives OmniWM through `omniwmctl` calls and the helper `.config/omniwm/wm.py`. OmniWM also replaces the former SketchyBar bar and JankyBorders borders with its own workspace bar and focus border.
+Karabiner-Elements and [OmniWM](https://omniwm.app) work as one system. **Every keybinding lives in Karabiner.** OmniWM's own hotkeys are off (`general.hotkeysEnabled = false`, every binding `"Unassigned"`). Karabiner drives OmniWM through `omniwmctl` calls and the helper scripts in `.config/omniwm/scripts/`. OmniWM also replaces the former SketchyBar bar and JankyBorders borders with its own workspace bar and focus border.
 
 ### Karabiner (`.config/karabiner-config/`)
 
@@ -106,13 +106,13 @@ Karabiner-Elements and [OmniWM](https://omniwm.app) work as one system. **Every 
 
 ### Workspaces and the app-to-workspace mapping
 
-Workspace keys are `a–z`, `ä ö ü` and `0–9`. OmniWM only accepts positive integers as workspace names, so the key at position *i* of `workspaceKeys` in `omniwm_settings.ts` becomes workspace `i + 1` with the upper-case key as its `displayName` (`a` → `1`/`A`, `0` → `30`, `9` → `39`). `wm.py` looks workspaces up by display name. Only append to `workspaceKeys`, because inserting a key renumbers every workspace after it. New workspaces get the home monitor `main`, except `4–6` (`secondary`) and `7–9` (`tertiary`); a home changed later in OmniWM's Settings window survives the build.
+Workspace keys are `a–z`, `ä ö ü` and `0–9`. OmniWM only accepts positive integers as workspace names, so the key at position *i* of `workspaceKeys` in `omniwm_settings.ts` becomes workspace `i + 1` with the upper-case key as its `displayName` (`a` → `1`/`A`, `0` → `30`, `9` → `39`). Native `omniwmctl` calls in `index.ts` get the number from `workspaceName(key)` at build time (Hyper plus a digit runs `omniwmctl command switch-workspace <number>`). The scripts take keys and look workspaces up by display name. Only append to `workspaceKeys`, because inserting a key renumbers every workspace after it. New workspaces get the home monitor `main`, except `4–6` (`secondary`) and `7–9` (`tertiary`); a home changed later in OmniWM's Settings window survives the build.
 
 `src/apps.json` maps workspace keys to bundle IDs and is the single source of truth. Three things read it:
 
 - Karabiner: Hyper plus a key cycles through that app's windows or launches the app, and ⌃+Hyper plus a key pulls one of its windows to the workspace under the pointer.
 - The generated `assignToWorkspace` app rules in `settings.toml`. OmniWM applies them only while the app has no windows, so an app's first window lands on its workspace and later windows open on the active one.
-- `wm.py` at runtime (`move-to-default`, `move-all-to-default`). Apps that aren't mapped fall back to workspace `q`.
+- `move-to-default.sh` and `move-all-to-default.sh` in `.config/omniwm/scripts/`, at runtime. Apps that aren't mapped fall back to workspace `q`.
 
 To change a mapping, find the bundle ID with `mdls -name kMDItemCFBundleIdentifier -r /Applications/<App>.app`, edit `apps.json`, build, and stage `apps.json`, `karabiner.json` and `settings.toml`.
 
@@ -123,7 +123,7 @@ To change a mapping, find the bundle ID with `mdls -name kMDItemCFBundleIdentifi
 - The bar is OmniWM's default OmniShell style: a full-width bar over the top edge that replaces the macOS menu bar (OmniWM sets the menu bar to auto-hide and restores the previous choice when it quits). The style's own `[workspaceBar]` in `shell/default/shell.toml` overrides the matching `settings.toml` keys (position, height, full width, reserved space, labels, stats button). To change those, put `[profiles.default.workspaceBar]` in a top-level `shell/shell.toml` and track that file.
 - `routing.arrangements` holds the monitor grid from OmniWM's Monitor Setup, keyed by this machine's display UUIDs.
 - The rest of `shell/` (OmniWM-managed profiles, widgets and type definitions, updated with each release) is untracked. Track only files you add there. Runtime state lives in `~/.local/state/omniwm` and is untracked too.
-- `wm.py` is a Python 3 script (stdlib only; Karabiner runs Homebrew's `python3`). It cycles, pulls and toggles app windows, summons a workspace to the display under the pointer (swapping it with the workspace shown there when it's visible elsewhere), moves windows and workspaces between displays with wrap-around, and closes other windows. OmniWM moves a workspace only to an *adjacent* monitor (`omniwmctl workspace move-to-monitor --force`, a runtime override that a settings reload clears). So `wm.py` reads the routing grid from `settings.toml`, hops along the route, and restores what the displays in between showed. It keeps the pull state in `~/.local/state/omniwm-helper` and takes its configuration from `OMNIWM_*` environment variables.
+- Bindings use a native `omniwmctl` command whenever one does the job. `scripts/` holds one bash script per action that needs state or several calls, named after the action (`cycle.sh`, `summon.sh`, `close-others.sh`, …), plus `lib.sh`, which they all source. They need bash 5 and `jq` (`/usr/bin/jq` ships with macOS). They cycle, pull and toggle app windows, summon a workspace to the display under the pointer (swapping it with the workspace shown there when it's visible elsewhere), move windows and workspaces between displays with wrap-around, send windows to their app's workspace, and close other windows. `omniwmctl command move-to-workspace` doesn't make focus follow the window, so `move-window.sh` moves it by id and then navigates to it. OmniWM moves a workspace only to an *adjacent* monitor (`omniwmctl workspace move-to-monitor --force`, a runtime override that a settings reload clears). So `lib.sh` reads the routing grid from `settings.toml` with `awk` (which relies on OmniWM's canonical layout), finds the route with jq, hops along it, and restores what the displays in between showed. The scripts read and move the pointer through `osascript -l JavaScript` (AppKit and CoreGraphics). They keep the pull state in `~/.local/state/omniwm-helper`, take their configuration from `OMNIWM_*` environment variables (defaults at the top of `lib.sh`), and report errors on stderr with exit code 1. `cycle.sh` also exits 1 when the app has no windows, so Karabiner launches it.
 - Setup that isn't in the repo, per machine: grant OmniWM Accessibility and Input Monitoring, turn on Start at Login in its Settings (macOS manages that, not `settings.toml`), keep "Displays have separate Spaces" on, and run Monitor Setup when the displays change.
 - Changes to `settings.toml` apply on save. The `a` simlayer opens the folder (`c`) and restarts OmniWM (`r`).
 
@@ -156,7 +156,7 @@ Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-exte
 - `.zprofile` holds environment variables and PATH entries, grouped under `# ===` section banners with a `# Category: what` comment above each entry. `.zshrc` holds the Apple HIG color palette, shell integrations (zsh-autosuggestions, completions) and aliases. The palette is four associative arrays of hex values (`hig_light`, `hig_dark`, `hig_light_contrast`, `hig_dark_contrast`) keyed by color name (`red` … `brown`, `gray` … `gray6`), for `%F{$hig_dark[red]}` in prompts and `fg=$hig_dark[gray]` in highlight styles.
 - `~/.bin` is on PATH through `.zprofile`. Karabiner shell commands get their PATH from `/Library/Application Support/org.pqrs/config/karabiner_environment`, which bootstrap `002` writes. A directory that Karabiner commands need must go in both places.
 - `.bin/model -m chatgpt|pcc|local` pipes a prompt into the macOS Shortcut of the same name and converts the result to plain text. The Shortcuts aren't in the repo.
-- `/usr/bin/env bash` resolves to Homebrew bash 5 (`brew "bash"` in `.Brewfile`), so scripts outside bootstrap may use bash 4+ features. If you remove that entry, check those scripts first (for example `declare -A` in `raycast-scripts/burp-chrome.sh`).
+- `/usr/bin/env bash` resolves to Homebrew bash 5 (`brew "bash"` in `.Brewfile`), so scripts outside bootstrap may use bash 4+ features. If you remove that entry, check those scripts first (for example `declare -A` in `raycast-scripts/burp-chrome.sh` and `inherit_errexit` in `omniwm/scripts/lib.sh`).
 
 ## Other tracked config
 

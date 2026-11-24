@@ -21,7 +21,7 @@ import {
 } from 'karabiner.ts'
 import apps from './apps'
 import de_key from './de_key'
-import updateOmniWMSettings from './omniwm_settings'
+import updateOmniWMSettings, { workspaceName } from './omniwm_settings'
 
 /*
 TODO:
@@ -53,7 +53,7 @@ const alphabet = [...'abcdefghijmnopqrstuvwxyzäöü']
 
 updateOmniWMSettings()
 
-const wm = '~/.config/omniwm/wm.py'
+const wm = '~/.config/omniwm/scripts'
 
 writeToProfile('Default profile', [
 
@@ -80,7 +80,7 @@ writeToProfile('Default profile', [
     // open screenshot launcher
     map(de_key('4'), lCmdShift).to$('open -b com.apple.screenshot.launcher'),
     // open new window of focused app (not always supported)
-    map('⏎', lAltShift).to$(`${wm} new-window`),
+    map('⏎', lAltShift).to$(`${wm}/new-window.sh`),
   ]),
 
   rule('omniwm: config').manipulators([
@@ -90,32 +90,32 @@ writeToProfile('Default profile', [
 
   rule('omniwm: app management').manipulators([
     withMapper(apps)((ws, bid) =>
-      map(de_key(ws), hyper).to$(`${wm} cycle ${bid} || open -b '${bid}'`),
+      map(de_key(ws), hyper).to$(`${wm}/cycle.sh ${bid} || open -b '${bid}'`),
     ),
     withMapper(apps)((ws, bid) =>
-      map(de_key(ws), lCtrlHyper).to$(`${wm} pull ${bid}`),
+      map(de_key(ws), lCtrlHyper).to$(`${wm}/pull.sh ${bid}`),
     ),
-    map(de_key('p'), hyper).to$(`${wm} toggle com.1password.1password`),
+    map(de_key('p'), hyper).to$(`${wm}/toggle.sh com.1password.1password`),
   ]),
 
   rule('omniwm: workspace management').manipulators([
     withMapper(numbers)((k) =>
-      map(de_key(k), hyper).to$(`${wm} focus ${k}`),
+      map(de_key(k), hyper).to$(`omniwmctl command switch-workspace ${workspaceName(k)}`),
     ),
     withMapper([...alphabet, ...numbers])((k) =>
-      map(de_key(k), rCmd).to$(`${wm} summon ${k}`)
+      map(de_key(k), rCmd).to$(`${wm}/summon.sh ${k}`)
     ),
     withMapper([...alphabet, ...numbers])((k) =>
-      map(de_key(k), rCmdAlt).to$(`${wm} move-window ${k}`)
+      map(de_key(k), rCmdAlt).to$(`${wm}/move-window.sh ${k}`)
     ),
     // focus to previous workspace
     map(de_key('^'), hyper).to$('omniwmctl command switch-workspace back-and-forth'),
     // focus to previous window or workspace if previous window is closed
     map(de_key('⇥'), hyper).to$('omniwmctl command focus previous || omniwmctl command switch-workspace back-and-forth'),
     // move window to default workspace or workspace q if it is already on its default workspace
-    map(de_key('⎋'), hyper).to$(`${wm} move-to-default`),
+    map(de_key('⎋'), hyper).to$(`${wm}/move-to-default.sh`),
     // move all windows to their default workspaces
-    map(de_key('⎋'), lShiftHyper).to$(`${wm} move-all-to-default`),
+    map(de_key('⎋'), lShiftHyper).to$(`${wm}/move-all-to-default.sh`),
   ]),
 
   rule('omniwm: window management').manipulators([
@@ -158,11 +158,11 @@ writeToProfile('Default profile', [
     // close window
     map(de_key('x'), lCmdHyper).to$('omniwmctl command close-focused-window'),
     // quit window
-    map(de_key('x'), lCmdShiftHyper).to$(`${wm} close --quit-if-last-window`),
+    map(de_key('x'), lCmdShiftHyper).to$(`${wm}/close.sh --quit-if-last-window`),
     // close all but current window
-    map(de_key('⌫'), lCmdHyper).to$(`${wm} close-others`),
+    map(de_key('⌫'), lCmdHyper).to$(`${wm}/close-others.sh`),
     // quit all but current window
-    map(de_key('⌫'), lCmdShiftHyper).to$(`${wm} close-others --quit-if-last-window`),
+    map(de_key('⌫'), lCmdShiftHyper).to$(`${wm}/close-others.sh --quit-if-last-window`),
   ]),
 
   rule('omniwm: layout management').manipulators([
@@ -178,16 +178,16 @@ writeToProfile('Default profile', [
 
   rule('omniwm: display management').manipulators([
     // move focused window to next monitor
-    map(de_key('e'), lAltHyper).to$(`${wm} move-window-to-display next`),
+    map(de_key('e'), lAltHyper).to$(`${wm}/move-window-to-display.sh next`),
     // move focused window to previous monitor
-    map(de_key('q'), lAltHyper).to$(`${wm} move-window-to-display prev`),
+    map(de_key('q'), lAltHyper).to$(`${wm}/move-window-to-display.sh prev`),
     // move focused workspace to next monitor
-    map(de_key('e'), lCmdHyper).to$(`${wm} move-workspace next`),
+    map(de_key('e'), lCmdHyper).to$(`${wm}/move-workspace.sh next`),
     // move focused workspace to previous monitor
-    map(de_key('q'), lCmdHyper).to$(`${wm} move-workspace prev`),
+    map(de_key('q'), lCmdHyper).to$(`${wm}/move-workspace.sh prev`),
     // move workspace to next monitor
     withMapper([...alphabet, ...numbers])((k) =>
-      map(de_key(k), rCmdAltShift).to$(`${wm} send-workspace ${k}`)
+      map(de_key(k), rCmdAltShift).to$(`${wm}/send-workspace.sh ${k}`)
     ),
   ]),
 
