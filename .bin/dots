@@ -30,7 +30,10 @@ cmd_diff() {
 }
 
 cmd_edit() {
-  code "$HOME"
+  # There is no ~/.git, so VS Code's git extension only finds the yadm repo through
+  # GIT_DIR/GIT_WORK_TREE. A running VS Code hands them to the new window, but not to a
+  # ~ window it already has open or restores after a restart.
+  GIT_DIR="$(yadm introspect repo)" GIT_WORK_TREE="$HOME" code "$HOME"
 }
 
 cmd_add() {

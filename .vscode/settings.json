@@ -1,13 +1,25 @@
 {
     "git.enabled": true,
     "git.autoRepositoryDetection": "openEditors",
+    "git.untrackedChanges": "hidden",
+    "terminal.integrated.env.osx": {
+        "GIT_DIR": null,
+        "GIT_WORK_TREE": null,
+    },
     "search.followSymlinks": false,
     "search.ripgrep.maxThreads": 1,
     "search.exclude": {
         "[!.]*": true,
     },
+    // Watch only dot entries, minus the busy folders that hold no tracked files. The git
+    // extension needs the yadm repo in .local/share/yadm watched to refresh on its own.
     "files.watcherExclude": {
-        "**": true,
+        "[!.]*": true,
+        "[!.]*/**": true,
+        ".{Trash,cache,codex,npm}/**": true,
+        ".local/{state,share/[!y]*}/**": true,
+        ".{claude,vscode}/*/**": true,
+        ".config/{raycast,omniwm/shell}/**": true,
     },
     "files.exclude": {
         "[!.]*": true,

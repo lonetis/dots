@@ -28,7 +28,7 @@ yadm wraps git. The repo is at `~/.local/share/yadm/repo.git` and its work tree 
 | Stop tracking but keep the file | `yadm rm --cached <path>` |
 | List encrypted files | `yadm git-crypt status -e` |
 
-`dots` (`.bin/dots`) wraps the user's own workflow: `status`, `diff` (the interactive `hunk` TUI), `edit` (opens `~` in VS Code), `add`, `commit`, `push`, `save` (`add -u`, commit `update`, push) and `init` (re-runs `.init.sh`). As an agent, use the plain `yadm` commands above. Avoid the interactive subcommands, and don't use the commit or push subcommands unless the user asks.
+`dots` (`.bin/dots`) wraps the user's own workflow: `status`, `diff` (the interactive `hunk` TUI), `edit` (opens `~` in VS Code with the yadm repo), `add`, `commit`, `push`, `save` (`add -u`, commit `update`, push) and `init` (re-runs `.init.sh`). As an agent, use the plain `yadm` commands above. Avoid the interactive subcommands, and don't use the commit or push subcommands unless the user asks.
 
 ### Secrets (git-crypt)
 
@@ -54,7 +54,7 @@ Paths marked `filter=git-crypt diff=git-crypt` in `.gitattributes` are encrypted
 ├── .git-repos                     # 🔒 git-get dump of ~/repos (one "url branch" per line)
 ├── .ssh/config                    # 🔒
 ├── .claude/                       # Claude Code: settings.json only
-├── .vscode/settings.json          # makes `code ~` usable: hides non-dot entries, disables file watching
+├── .vscode/settings.json          # makes `code ~` usable: hides non-dot entries, watches only dotfiles
 └── .config/
     ├── yadm/                      # bootstrap + bootstrap.d/NNN-*.sh
     ├── ccstatusline/settings.json # Claude Code status line layout
@@ -162,7 +162,7 @@ Custom Raycast extensions live in their own repos. `bootstrap.d/030-raycast-exte
 
 - `.gitconfig`: identity, SSH commit signing through 1Password, and git-get with root `~/repos`, which clones repos to `~/repos/<host>/<path>`. `.git-repos` is the matching git-get dump. Restore it with `git get --dump ~/.git-repos` and refresh it with `git list --out dump > ~/.git-repos`.
 - `.config/git/allowed_signers` lists the SSH keys git trusts when it verifies commit signatures: my 1Password key under my email, and the agent key `~/.ssh/agent-commit-signing` under the principal `agent-commit-signing`, so `%GS` tells agent commits apart. When a machine gets a new agent key, add its public key there.
-- `.vscode/settings.json` holds workspace settings for `code ~` (`dots edit`).
+- `.vscode/settings.json` holds workspace settings for `code ~`. VS Code's git extension finds no `~/.git`, so `dots edit` launches it with `GIT_DIR` and `GIT_WORK_TREE` pointing at the yadm repo. Because `.gitignore` is `*`, the explorer then greys out every untracked file and every folder without tracked files. The settings keep untracked files out of Source Control (`git status -uno`, so git never scans `$HOME`) and remove both variables from the integrated terminal, so plain `git` there still works on other repos. VS Code passes the variables only to the window `dots edit` opens; a `~` window it restores after a restart lacks them, so close it and run `dots edit` again. `files.watcherExclude` excludes non-dot entries and busy dot folders without tracked files (caches, `.claude/*/`, `.vscode/extensions`, `.local/share` except `yadm`). The git extension refreshes from a watcher on the yadm repo dir, so never exclude `.local/share/yadm`. If a new dot folder churns, add it there.
 
 ## Conventions
 

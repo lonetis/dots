@@ -5,17 +5,17 @@ mode = "dark"
 tabRailAppIcons = false
 
 [borders]
-enabled = false
+enabled = true
 width = 1.0
 
 [borders.color]
-alpha = 0.75
-blue = 0.8902000784873962
-green = 0.8863000273704529
-red = 0.8863000273704529
+alpha = 1.0
+blue = 0.23529411764705882
+green = 0.22352941176470587
+red = 1.0
 
 [borders.glow]
-enabled = true
+enabled = false
 opacity = 0.6
 radius = 3.0
 
@@ -62,7 +62,7 @@ moveMouseToFocusedWindow = false
 raiseOnMouseFocus = false
 
 [gaps]
-fullscreenUsesOuterGaps = false
+fullscreenUsesOuterGaps = true
 size = 5.0
 
 [gaps.outer]
@@ -72,7 +72,7 @@ right = 5.0
 top = 5.0
 
 [general]
-animationSpeed = 4.0
+animationSpeed = 1.0
 animationsEnabled = true
 defaultLayoutType = "dwindle"
 hotkeysEnabled = false
@@ -129,7 +129,7 @@ terminal = "terminal"
 
 [mouseWarp]
 constrainToArrangement = false
-enabled = true
+enabled = false
 margin = 1
 
 [niri]
@@ -139,7 +139,7 @@ centerFocusedColumn = "never"
 containerPrimarySpanPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
 defaultContainerPrimarySpan = 0.5
 edgeGaps = true
-infiniteLoop = false
+infiniteLoop = true
 moveWindowStacksIntoColumn = false
 overscrollVisibleStripPercent = 5
 resizeStepPercent = 5
@@ -193,7 +193,7 @@ provider = "ghostty"
 widthPercent = 50.0
 
 [routing]
-mode = "custom"
+mode = "macOS"
 
 [[routing.arrangements]]
 id = "5284C251-5820-4888-9DE4-26D6804CA5A6"
@@ -1806,7 +1806,7 @@ type = "main"
 [[workspaces]]
 displayName = "G"
 id = "C23B8793-D16D-5238-86E8-07920A4A319A"
-layoutType = "default"
+layoutType = "dwindle"
 name = "7"
 
 [workspaces.monitorAssignment]
@@ -1923,7 +1923,7 @@ type = "main"
 [[workspaces]]
 displayName = "T"
 id = "AE540E80-0B4A-5BE6-92A8-AD1425A3016B"
-layoutType = "dwindle"
+layoutType = "niri"
 name = "20"
 
 [workspaces.monitorAssignment]
