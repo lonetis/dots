@@ -279,7 +279,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.install4j.9806-1938-4586-6531.70 || open -b 'com.install4j.9806-1938-4586-6531.70'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.install4j.6592-1155-2163-3973.70 || open -b 'com.install4j.6592-1155-2163-3973.70'"
                   }
                 ]
               },
@@ -488,7 +488,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.Reminders || open -b 'com.apple.Reminders'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.reminders || open -b 'com.apple.reminders'"
                   }
                 ]
               },
@@ -719,7 +719,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.install4j.9806-1938-4586-6531.70"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.install4j.6592-1155-2163-3973.70"
                   }
                 ]
               },
@@ -939,7 +939,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Reminders"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.reminders"
                   }
                 ]
               },

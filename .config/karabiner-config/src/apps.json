@@ -1,7 +1,7 @@
 {
     "a": "com.apple.ActivityMonitor",
     "ä": "com.microsoft.Excel",
-    "b": "com.install4j.9806-1938-4586-6531.70",
+    "b": "com.install4j.6592-1155-2163-3973.70",
     "c": "com.microsoft.VSCode",
     "e": "com.apple.finder",
     "f": "org.mozilla.firefox",
@@ -12,7 +12,7 @@
     "n": "com.apple.Notes",
     "o": "us.zoom.xos",
     "ö": "com.microsoft.Powerpoint",
-    "r": "com.apple.Reminders",
+    "r": "com.apple.reminders",
     "s": "com.tinyspeck.slackmacgap",
     "t": ["com.superlogical.rex", "com.mitchellh.ghostty"],
     "u": "com.utmapp.UTM",

@@ -400,8 +400,8 @@ id = "6C86E60E-4A61-549A-832F-EF9ACCAE6A53"
 
 [[appRules]]
 assignToWorkspace = "12"
-bundleId = "com.install4j.9806-1938-4586-6531.70"
-id = "436E077B-8A7C-5BD1-B8AD-5F83CAE898B3"
+bundleId = "com.install4j.6592-1155-2163-3973.70"
+id = "B7A8839C-2F21-55AA-9439-8AAAB6FB0668"
 
 [[appRules]]
 assignToWorkspace = "13"
@@ -460,8 +460,8 @@ id = "A33F1EDF-BB25-56B0-B50C-10ECA542C631"
 
 [[appRules]]
 assignToWorkspace = "28"
-bundleId = "com.apple.Reminders"
-id = "FDF9DCCF-A8B9-5F27-804F-4292691F4D9C"
+bundleId = "com.apple.reminders"
+id = "F9B889AE-FEE4-5004-A96F-AF965958BD20"
 
 [[appRules]]
 assignToWorkspace = "29"
