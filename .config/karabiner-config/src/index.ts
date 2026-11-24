@@ -21,7 +21,7 @@ import {
 } from 'karabiner.ts'
 import apps from './apps'
 import de_key from './de_key'
-import updateDefaultWorkspaces from './update_default_workspaces'
+import updateOmniWMSettings from './omniwm_settings'
 
 /*
 TODO:
@@ -51,7 +51,9 @@ const rCmdAltShift: FromModifierParam = {right: '⌘⌥⇧'}
 const numbers = [...'1234567890']
 const alphabet = [...'abcdefghijmnopqrstuvwxyzäöü']
 
-updateDefaultWorkspaces()
+updateOmniWMSettings()
+
+const wm = '~/.config/omniwm/wm.py'
 
 writeToProfile('Default profile', [
 
@@ -59,9 +61,11 @@ writeToProfile('Default profile', [
     map('caps_lock', '?<⌘⌥⌃⇧').to('>⌘', '>⌥⌃⇧'),
   ]),
 
-  rule('raycast extension pull window').manipulators([
-    map('⏎', hyper).to$('open -u raycast://extensions/chearix/raycast-extension-pull-window/windows'),
-    map('⏎', lShiftHyper).to$('open -u raycast://extensions/chearix/raycast-extension-pull-window/workspaces'),
+  rule('omniwm: search').manipulators([
+    // search all windows
+    map('⏎', hyper).to$('omniwmctl command open-command-palette windows'),
+    // overview of all workspaces
+    map('⏎', lShiftHyper).to$('omniwmctl command toggle-overview'),
   ]),
 
   rule('mission control').manipulators([
@@ -76,111 +80,114 @@ writeToProfile('Default profile', [
     // open screenshot launcher
     map(de_key('4'), lCmdShift).to$('open -b com.apple.screenshot.launcher'),
     // open new window of focused app (not always supported)
-    map('⏎', lAltShift).to$(`open -n -b $(aerospace list-windows --focused --format '%{app-bundle-id}')`),
+    map('⏎', lAltShift).to$(`${wm} new-window`),
   ]),
 
-  rule('aerospace: config').manipulators([
-    map(de_key('⎋'), lCmdHyper).to$('aerospace enable toggle'),
+  rule('omniwm: config').manipulators([
+    // OmniWM has no on/off switch over IPC, so quit or relaunch it
+    map(de_key('⎋'), lCmdHyper).to$(`pgrep -xq OmniWM && osascript -e 'quit app "OmniWM"' || open -a OmniWM`),
   ]),
 
-  rule('aerospace: app management').manipulators([
+  rule('omniwm: app management').manipulators([
     withMapper(apps)((ws, bid) =>
-      map(de_key(ws), hyper).to$(`bash ~/.config/aerospace/cycle_windows.bash ${bid} || open -b '${bid}'`),
+      map(de_key(ws), hyper).to$(`${wm} cycle ${bid} || open -b '${bid}'`),
     ),
     withMapper(apps)((ws, bid) =>
-      map(de_key(ws), lCtrlHyper).to$(`bash ~/.config/aerospace/pull_windows_restore.bash ${bid}`),
+      map(de_key(ws), lCtrlHyper).to$(`${wm} pull ${bid}`),
     ),
-    map(de_key('p'), hyper).to$('bash ~/.config/aerospace/toggle_app.bash com.1password.1password'),
+    map(de_key('p'), hyper).to$(`${wm} toggle com.1password.1password`),
   ]),
 
-  rule('aerospace: workspace management').manipulators([
+  rule('omniwm: workspace management').manipulators([
     withMapper(numbers)((k) =>
-      map(de_key(k), hyper).to$(`aerospace workspace ${k}`),
+      map(de_key(k), hyper).to$(`${wm} focus ${k}`),
     ),
     withMapper([...alphabet, ...numbers])((k) =>
-      map(de_key(k), rCmd).to$(`bash ~/.config/aerospace/summon_workspace_swap.bash ${k}`)
+      map(de_key(k), rCmd).to$(`${wm} summon ${k}`)
     ),
     withMapper([...alphabet, ...numbers])((k) =>
-      map(de_key(k), rCmdAlt).to$(`aerospace move-node-to-workspace ${k} --focus-follows-window`)
+      map(de_key(k), rCmdAlt).to$(`${wm} move-window ${k}`)
     ),
     // focus to previous workspace
-    map(de_key('^'), hyper).to$('aerospace workspace-back-and-forth'),
+    map(de_key('^'), hyper).to$('omniwmctl command switch-workspace back-and-forth'),
     // focus to previous window or workspace if previous window is closed
-    map(de_key('⇥'), hyper).to$('aerospace focus-back-and-forth || aerospace workspace-back-and-forth'),
-    // move node to default workspace or workspace q if it is already on its default workspace
-    map(de_key('⎋'), hyper).to$('bash ~/.config/aerospace/move_node_to_default_workspace.bash'),
-    // move all nodes to default workspaces or workspace q if they are already on their default workspaces
-    map(de_key('⎋'), lShiftHyper).to$('bash ~/.config/aerospace/move_all_nodes_to_default_workspace.bash'),
+    map(de_key('⇥'), hyper).to$('omniwmctl command focus previous || omniwmctl command switch-workspace back-and-forth'),
+    // move window to default workspace or workspace q if it is already on its default workspace
+    map(de_key('⎋'), hyper).to$(`${wm} move-to-default`),
+    // move all windows to their default workspaces
+    map(de_key('⎋'), lShiftHyper).to$(`${wm} move-all-to-default`),
   ]),
 
-  rule('aerospace: window management').manipulators([
+  rule('omniwm: window management').manipulators([
     // focus
-    map(de_key('↑'), lCmdHyper).to$('aerospace focus up'),
-    map(de_key('↓'), lCmdHyper).to$('aerospace focus down'),
-    map(de_key('←'), lCmdHyper).to$('aerospace focus left'),
-    map(de_key('→'), lCmdHyper).to$('aerospace focus right'),
-    // move
-    map(de_key('w'), lCmdHyper).to$('aerospace move up'),
-    map(de_key('s'), lCmdHyper).to$('aerospace move down'),
-    map(de_key('a'), lCmdHyper).to$('aerospace move left'),
-    map(de_key('d'), lCmdHyper).to$('aerospace move right'),
-    // join
-    map(de_key('k'), lCmdHyper).to$('aerospace join-with up'),
-    map(de_key('j'), lCmdHyper).to$('aerospace join-with down'),
-    map(de_key('h'), lCmdHyper).to$('aerospace join-with left'),
-    map(de_key('l'), lCmdHyper).to$('aerospace join-with right'),
+    map(de_key('↑'), lCmdHyper).to$('omniwmctl command focus up'),
+    map(de_key('↓'), lCmdHyper).to$('omniwmctl command focus down'),
+    map(de_key('←'), lCmdHyper).to$('omniwmctl command focus left'),
+    map(de_key('→'), lCmdHyper).to$('omniwmctl command focus right'),
+    // move (niri: swap columns left / right, reorder within the column up / down)
+    map(de_key('w'), lCmdHyper).to$('omniwmctl command move up'),
+    map(de_key('s'), lCmdHyper).to$('omniwmctl command move down'),
+    map(de_key('a'), lCmdHyper).to$('omniwmctl command move left'),
+    map(de_key('d'), lCmdHyper).to$('omniwmctl command move right'),
+    // join (niri: consume into / expel from columns; dwindle: join or extract tiles)
+    map(de_key('k'), lCmdHyper).to$('omniwmctl command consume-window-into-column || omniwmctl command move up'),
+    map(de_key('j'), lCmdHyper).to$('omniwmctl command expel-window-from-column || omniwmctl command move down'),
+    map(de_key('h'), lCmdHyper).to$('omniwmctl command consume-or-expel-window-left || omniwmctl command move left'),
+    map(de_key('l'), lCmdHyper).to$('omniwmctl command consume-or-expel-window-right || omniwmctl command move right'),
 
-    // focus by dfs index
+    // focus column by index
     withMapper([1, 2, 3, 4])((k) =>
-      map(de_key(k), lCmdHyper).to$(`aerospace focus --dfs-index ${k-1}`),
+      map(de_key(k), lCmdHyper).to$(`omniwmctl command focus-column ${k}`),
     ),
 
-    // resize
-    map(de_key('+'), lCmdHyper).to$('aerospace resize smart +200'),
-    map(de_key('-'), lCmdHyper).to$('aerospace resize smart -200'),
+    // resize (niri: column width; dwindle: focused window)
+    map(de_key('+'), lCmdHyper).to$('omniwmctl command set-container-primary-span +10% || omniwmctl command resize-focused grow'),
+    map(de_key('-'), lCmdHyper).to$('omniwmctl command set-container-primary-span -10% || omniwmctl command resize-focused shrink'),
     // balance
-    map(de_key('b'), lCmdHyper).to$('aerospace balance-sizes'),
-    // flatten
-    map(de_key('#'), lCmdHyper).to$('aerospace flatten-workspace-tree'),
+    map(de_key('b'), lCmdHyper).to$('omniwmctl command balance-sizes'),
+    // cycle size presets (1/3, 1/2, 2/3)
+    map(de_key('#'), lCmdHyper).to$('omniwmctl command cycle-size forward'),
 
     // fullscreen
-    map(de_key('f'), lCmdHyper).to$('aerospace fullscreen'),
+    map(de_key('f'), lCmdHyper).to$('omniwmctl command toggle-fullscreen'),
     // fullscreen native
-    map(de_key('f'), lCmdShiftHyper).to$('aerospace macos-native-fullscreen'),
+    map(de_key('f'), lCmdShiftHyper).to$('omniwmctl command toggle-native-fullscreen'),
     // minimize window
-    map(de_key('m'), lCmdHyper).to$('aerospace macos-native-minimize'),
+    map(de_key('m'), lCmdHyper).to('m', lCmd),
 
     // close window
-    map(de_key('x'), lCmdHyper).to$('aerospace close'),
+    map(de_key('x'), lCmdHyper).to$('omniwmctl command close-focused-window'),
     // quit window
-    map(de_key('x'), lCmdShiftHyper).to$('aerospace close --quit-if-last-window'),
+    map(de_key('x'), lCmdShiftHyper).to$(`${wm} close --quit-if-last-window`),
     // close all but current window
-    map(de_key('⌫'), lCmdHyper).to$('aerospace close-all-windows-but-current'),
+    map(de_key('⌫'), lCmdHyper).to$(`${wm} close-others`),
     // quit all but current window
-    map(de_key('⌫'), lCmdShiftHyper).to$('aerospace close-all-windows-but-current --quit-if-last-window'),
+    map(de_key('⌫'), lCmdShiftHyper).to$(`${wm} close-others --quit-if-last-window`),
   ]),
 
-  rule('aerospace: layout management').manipulators([
+  rule('omniwm: layout management').manipulators([
     // tiling / floating
-    map(de_key('t'), lCmdHyper).to$('aerospace layout floating tiling'),
-    // tiles
-    map(de_key('v'), lCmdHyper).to$('aerospace layout tiles vertical horizontal'),
-    // accordion
-    map(de_key('c'), lCmdHyper).to$('aerospace layout accordion horizontal vertical'),
+    map(de_key('t'), lCmdHyper).to$('omniwmctl command toggle-focused-window-floating'),
+    // niri / dwindle
+    map(de_key('v'), lCmdHyper).to$('omniwmctl command toggle-workspace-layout'),
+    // dwindle: toggle split orientation
+    map(de_key('v'), lCmdShiftHyper).to$('omniwmctl command toggle-split'),
+    // niri: tabbed column
+    map(de_key('c'), lCmdHyper).to$('omniwmctl command toggle-column-tabbed'),
   ]),
 
-  rule('aerospace: display management').manipulators([
+  rule('omniwm: display management').manipulators([
     // move focused window to next monitor
-    map(de_key('e'), lAltHyper).to$('aerospace move-node-to-monitor --focus-follows-window --wrap-around next'),
+    map(de_key('e'), lAltHyper).to$(`${wm} move-window-to-display next`),
     // move focused window to previous monitor
-    map(de_key('q'), lAltHyper).to$('aerospace move-node-to-monitor --focus-follows-window --wrap-around prev'),
+    map(de_key('q'), lAltHyper).to$(`${wm} move-window-to-display prev`),
     // move focused workspace to next monitor
-    map(de_key('e'), lCmdHyper).to$('aerospace move-workspace-to-monitor --wrap-around next && aerospace move-mouse monitor-lazy-center'),
+    map(de_key('e'), lCmdHyper).to$(`${wm} move-workspace next`),
     // move focused workspace to previous monitor
-    map(de_key('q'), lCmdHyper).to$('aerospace move-workspace-to-monitor --wrap-around prev && aerospace move-mouse monitor-lazy-center'),
+    map(de_key('q'), lCmdHyper).to$(`${wm} move-workspace prev`),
     // move workspace to next monitor
     withMapper([...alphabet, ...numbers])((k) =>
-      map(de_key(k), rCmdAltShift).to$(`aerospace move-workspace-to-monitor --workspace ${k} --wrap-around next && aerospace focus-monitor --wrap-around next`)
+      map(de_key(k), rCmdAltShift).to$(`${wm} send-workspace ${k}`)
     ),
   ]),
 
@@ -190,9 +197,10 @@ writeToProfile('Default profile', [
     map('equal_sign').to([{key_code: 'equal_sign'}, {key_code: 'spacebar'}]),
   ]),
 
-  simlayer('a', 'aerospace').manipulators([
-    map(de_key('c')).to$('code ~/.config/aerospace'),
-    map(de_key('r')).to$('aerospace reload-config && osascript -e \'display notification with title "reloaded aerospace config"\''),
+  // OmniWM reloads settings.toml on save; r restarts it
+  simlayer('a', 'omniwm').manipulators([
+    map(de_key('c')).to$('code ~/.config/omniwm'),
+    map(de_key('r')).to$('osascript -e \'quit app "OmniWM"\'; while pgrep -xq OmniWM; do sleep 0.2; done; open -a OmniWM && osascript -e \'display notification with title "restarted omniwm"\''),
   ]),
 
   simlayer('k', 'karabiner').manipulators([
@@ -201,8 +209,7 @@ writeToProfile('Default profile', [
   ]),
 
   // one simlayer per trigger key: a second simlayer('s', ...) would compete for the same s+key combos
-  simlayer('s', 'sketchybar + symbols').manipulators([
-    map(de_key('c')).to$('code ~/.config/sketchybar'),
+  simlayer('s', 'symbols').manipulators([
     withMapper(['⌘', '⌥', '⌃', '⇧', '⇪'])((k, i) => map((i + 1) as NumberKeyValue).toPaste(k)),
     withMapper(['←', '→', '↑', '↓', '␣', '⏎', '⇥', '⎋', '⌫', '⌦'])((k) => map(k).toPaste(k)),
   ]),

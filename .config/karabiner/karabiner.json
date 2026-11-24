@@ -36,7 +36,7 @@
             ]
           },
           {
-            "description": "raycast extension pull window",
+            "description": "omniwm: search",
             "manipulators": [
               {
                 "type": "basic",
@@ -53,7 +53,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u raycast://extensions/chearix/raycast-extension-pull-window/windows"
+                    "shell_command": "omniwmctl command open-command-palette windows"
                   }
                 ]
               },
@@ -73,7 +73,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u raycast://extensions/chearix/raycast-extension-pull-window/workspaces"
+                    "shell_command": "omniwmctl command toggle-overview"
                   }
                 ]
               }
@@ -170,14 +170,14 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -n -b $(aerospace list-windows --focused --format '%{app-bundle-id}')"
+                    "shell_command": "~/.config/omniwm/wm.py new-window"
                   }
                 ]
               }
             ]
           },
           {
-            "description": "aerospace: config",
+            "description": "omniwm: config",
             "manipulators": [
               {
                 "type": "basic",
@@ -195,14 +195,14 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace enable toggle"
+                    "shell_command": "pgrep -xq OmniWM && osascript -e 'quit app \"OmniWM\"' || open -a OmniWM"
                   }
                 ]
               }
             ]
           },
           {
-            "description": "aerospace: app management",
+            "description": "omniwm: app management",
             "manipulators": [
               {
                 "type": "basic",
@@ -219,7 +219,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.ActivityMonitor || open -b 'com.apple.ActivityMonitor'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.ActivityMonitor || open -b 'com.apple.ActivityMonitor'"
                   }
                 ]
               },
@@ -238,7 +238,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.microsoft.Excel || open -b 'com.microsoft.Excel'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.microsoft.Excel || open -b 'com.microsoft.Excel'"
                   }
                 ]
               },
@@ -257,7 +257,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.install4j.9806-1938-4586-6531.70 || open -b 'com.install4j.9806-1938-4586-6531.70'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.install4j.9806-1938-4586-6531.70 || open -b 'com.install4j.9806-1938-4586-6531.70'"
                   }
                 ]
               },
@@ -276,7 +276,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.microsoft.VSCode || open -b 'com.microsoft.VSCode'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.microsoft.VSCode || open -b 'com.microsoft.VSCode'"
                   }
                 ]
               },
@@ -295,7 +295,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.finder || open -b 'com.apple.finder'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.finder || open -b 'com.apple.finder'"
                   }
                 ]
               },
@@ -314,7 +314,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash org.mozilla.firefox || open -b 'org.mozilla.firefox'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle org.mozilla.firefox || open -b 'org.mozilla.firefox'"
                   }
                 ]
               },
@@ -333,7 +333,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.google.Chrome || open -b 'com.google.Chrome'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.google.Chrome || open -b 'com.google.Chrome'"
                   }
                 ]
               },
@@ -352,7 +352,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.openai.chat || open -b 'com.openai.chat'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.openai.chat || open -b 'com.openai.chat'"
                   }
                 ]
               },
@@ -371,7 +371,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.openai.codex || open -b 'com.openai.codex'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.openai.codex || open -b 'com.openai.codex'"
                   }
                 ]
               },
@@ -390,7 +390,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.iCal || open -b 'com.apple.iCal'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.iCal || open -b 'com.apple.iCal'"
                   }
                 ]
               },
@@ -409,7 +409,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
                   }
                 ]
               },
@@ -428,7 +428,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.mail || open -b 'com.apple.mail'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.mail || open -b 'com.apple.mail'"
                   }
                 ]
               },
@@ -447,7 +447,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.Notes || open -b 'com.apple.Notes'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.Notes || open -b 'com.apple.Notes'"
                   }
                 ]
               },
@@ -466,7 +466,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash us.zoom.xos || open -b 'us.zoom.xos'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle us.zoom.xos || open -b 'us.zoom.xos'"
                   }
                 ]
               },
@@ -485,7 +485,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.microsoft.Powerpoint || open -b 'com.microsoft.Powerpoint'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.microsoft.Powerpoint || open -b 'com.microsoft.Powerpoint'"
                   }
                 ]
               },
@@ -504,7 +504,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.Reminders || open -b 'com.apple.Reminders'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.Reminders || open -b 'com.apple.Reminders'"
                   }
                 ]
               },
@@ -523,7 +523,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.tinyspeck.slackmacgap || open -b 'com.tinyspeck.slackmacgap'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.tinyspeck.slackmacgap || open -b 'com.tinyspeck.slackmacgap'"
                   }
                 ]
               },
@@ -542,7 +542,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.superlogical.rex || open -b 'com.superlogical.rex'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.superlogical.rex || open -b 'com.superlogical.rex'"
                   }
                 ]
               },
@@ -561,7 +561,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.utmapp.UTM || open -b 'com.utmapp.UTM'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.utmapp.UTM || open -b 'com.utmapp.UTM'"
                   }
                 ]
               },
@@ -580,7 +580,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.microsoft.Word || open -b 'com.microsoft.Word'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.microsoft.Word || open -b 'com.microsoft.Word'"
                   }
                 ]
               },
@@ -599,7 +599,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.Preview || open -b 'com.apple.Preview'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.Preview || open -b 'com.apple.Preview'"
                   }
                 ]
               },
@@ -618,7 +618,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.Safari || open -b 'com.apple.Safari'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.Safari || open -b 'com.apple.Safari'"
                   }
                 ]
               },
@@ -637,7 +637,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.apple.dt.Xcode || open -b 'com.apple.dt.Xcode'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.apple.dt.Xcode || open -b 'com.apple.dt.Xcode'"
                   }
                 ]
               },
@@ -656,7 +656,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash com.google.Chrome.canary || open -b 'com.google.Chrome.canary'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle com.google.Chrome.canary || open -b 'com.google.Chrome.canary'"
                   }
                 ]
               },
@@ -675,7 +675,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/cycle_windows.bash org.zotero.zotero || open -b 'org.zotero.zotero'"
+                    "shell_command": "~/.config/omniwm/wm.py cycle org.zotero.zotero || open -b 'org.zotero.zotero'"
                   }
                 ]
               },
@@ -695,7 +695,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.ActivityMonitor"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.ActivityMonitor"
                   }
                 ]
               },
@@ -715,7 +715,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.microsoft.Excel"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.microsoft.Excel"
                   }
                 ]
               },
@@ -735,7 +735,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.install4j.9806-1938-4586-6531.70"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.install4j.9806-1938-4586-6531.70"
                   }
                 ]
               },
@@ -755,7 +755,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.microsoft.VSCode"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.microsoft.VSCode"
                   }
                 ]
               },
@@ -775,7 +775,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.finder"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.finder"
                   }
                 ]
               },
@@ -795,7 +795,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash org.mozilla.firefox"
+                    "shell_command": "~/.config/omniwm/wm.py pull org.mozilla.firefox"
                   }
                 ]
               },
@@ -815,7 +815,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.google.Chrome"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.google.Chrome"
                   }
                 ]
               },
@@ -835,7 +835,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.openai.chat"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.openai.chat"
                   }
                 ]
               },
@@ -855,7 +855,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.openai.codex"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.openai.codex"
                   }
                 ]
               },
@@ -875,7 +875,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.iCal"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.iCal"
                   }
                 ]
               },
@@ -895,7 +895,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.anthropic.claudefordesktop"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.anthropic.claudefordesktop"
                   }
                 ]
               },
@@ -915,7 +915,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.mail"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.mail"
                   }
                 ]
               },
@@ -935,7 +935,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.Notes"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.Notes"
                   }
                 ]
               },
@@ -955,7 +955,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash us.zoom.xos"
+                    "shell_command": "~/.config/omniwm/wm.py pull us.zoom.xos"
                   }
                 ]
               },
@@ -975,7 +975,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.microsoft.Powerpoint"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.microsoft.Powerpoint"
                   }
                 ]
               },
@@ -995,7 +995,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.Reminders"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.Reminders"
                   }
                 ]
               },
@@ -1015,7 +1015,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.tinyspeck.slackmacgap"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.tinyspeck.slackmacgap"
                   }
                 ]
               },
@@ -1035,7 +1035,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.superlogical.rex"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.superlogical.rex"
                   }
                 ]
               },
@@ -1055,7 +1055,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.utmapp.UTM"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.utmapp.UTM"
                   }
                 ]
               },
@@ -1075,7 +1075,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.microsoft.Word"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.microsoft.Word"
                   }
                 ]
               },
@@ -1095,7 +1095,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.Preview"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.Preview"
                   }
                 ]
               },
@@ -1115,7 +1115,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.Safari"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.Safari"
                   }
                 ]
               },
@@ -1135,7 +1135,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.apple.dt.Xcode"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.apple.dt.Xcode"
                   }
                 ]
               },
@@ -1155,7 +1155,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash com.google.Chrome.canary"
+                    "shell_command": "~/.config/omniwm/wm.py pull com.google.Chrome.canary"
                   }
                 ]
               },
@@ -1175,7 +1175,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/pull_windows_restore.bash org.zotero.zotero"
+                    "shell_command": "~/.config/omniwm/wm.py pull org.zotero.zotero"
                   }
                 ]
               },
@@ -1194,14 +1194,14 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/toggle_app.bash com.1password.1password"
+                    "shell_command": "~/.config/omniwm/wm.py toggle com.1password.1password"
                   }
                 ]
               }
             ]
           },
           {
-            "description": "aerospace: workspace management",
+            "description": "omniwm: workspace management",
             "manipulators": [
               {
                 "type": "basic",
@@ -1218,7 +1218,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 1"
+                    "shell_command": "~/.config/omniwm/wm.py focus 1"
                   }
                 ]
               },
@@ -1237,7 +1237,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 2"
+                    "shell_command": "~/.config/omniwm/wm.py focus 2"
                   }
                 ]
               },
@@ -1256,7 +1256,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 3"
+                    "shell_command": "~/.config/omniwm/wm.py focus 3"
                   }
                 ]
               },
@@ -1275,7 +1275,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 4"
+                    "shell_command": "~/.config/omniwm/wm.py focus 4"
                   }
                 ]
               },
@@ -1294,7 +1294,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 5"
+                    "shell_command": "~/.config/omniwm/wm.py focus 5"
                   }
                 ]
               },
@@ -1313,7 +1313,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 6"
+                    "shell_command": "~/.config/omniwm/wm.py focus 6"
                   }
                 ]
               },
@@ -1332,7 +1332,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 7"
+                    "shell_command": "~/.config/omniwm/wm.py focus 7"
                   }
                 ]
               },
@@ -1351,7 +1351,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 8"
+                    "shell_command": "~/.config/omniwm/wm.py focus 8"
                   }
                 ]
               },
@@ -1370,7 +1370,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 9"
+                    "shell_command": "~/.config/omniwm/wm.py focus 9"
                   }
                 ]
               },
@@ -1389,7 +1389,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace 0"
+                    "shell_command": "~/.config/omniwm/wm.py focus 0"
                   }
                 ]
               },
@@ -1405,7 +1405,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash a"
+                    "shell_command": "~/.config/omniwm/wm.py summon a"
                   }
                 ]
               },
@@ -1421,7 +1421,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash b"
+                    "shell_command": "~/.config/omniwm/wm.py summon b"
                   }
                 ]
               },
@@ -1437,7 +1437,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash c"
+                    "shell_command": "~/.config/omniwm/wm.py summon c"
                   }
                 ]
               },
@@ -1453,7 +1453,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash d"
+                    "shell_command": "~/.config/omniwm/wm.py summon d"
                   }
                 ]
               },
@@ -1469,7 +1469,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash e"
+                    "shell_command": "~/.config/omniwm/wm.py summon e"
                   }
                 ]
               },
@@ -1485,7 +1485,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash f"
+                    "shell_command": "~/.config/omniwm/wm.py summon f"
                   }
                 ]
               },
@@ -1501,7 +1501,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash g"
+                    "shell_command": "~/.config/omniwm/wm.py summon g"
                   }
                 ]
               },
@@ -1517,7 +1517,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash h"
+                    "shell_command": "~/.config/omniwm/wm.py summon h"
                   }
                 ]
               },
@@ -1533,7 +1533,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash i"
+                    "shell_command": "~/.config/omniwm/wm.py summon i"
                   }
                 ]
               },
@@ -1549,7 +1549,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash j"
+                    "shell_command": "~/.config/omniwm/wm.py summon j"
                   }
                 ]
               },
@@ -1565,7 +1565,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash m"
+                    "shell_command": "~/.config/omniwm/wm.py summon m"
                   }
                 ]
               },
@@ -1581,7 +1581,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash n"
+                    "shell_command": "~/.config/omniwm/wm.py summon n"
                   }
                 ]
               },
@@ -1597,7 +1597,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash o"
+                    "shell_command": "~/.config/omniwm/wm.py summon o"
                   }
                 ]
               },
@@ -1613,7 +1613,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash p"
+                    "shell_command": "~/.config/omniwm/wm.py summon p"
                   }
                 ]
               },
@@ -1629,7 +1629,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash q"
+                    "shell_command": "~/.config/omniwm/wm.py summon q"
                   }
                 ]
               },
@@ -1645,7 +1645,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash r"
+                    "shell_command": "~/.config/omniwm/wm.py summon r"
                   }
                 ]
               },
@@ -1661,7 +1661,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash s"
+                    "shell_command": "~/.config/omniwm/wm.py summon s"
                   }
                 ]
               },
@@ -1677,7 +1677,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash t"
+                    "shell_command": "~/.config/omniwm/wm.py summon t"
                   }
                 ]
               },
@@ -1693,7 +1693,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash u"
+                    "shell_command": "~/.config/omniwm/wm.py summon u"
                   }
                 ]
               },
@@ -1709,7 +1709,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash v"
+                    "shell_command": "~/.config/omniwm/wm.py summon v"
                   }
                 ]
               },
@@ -1725,7 +1725,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash w"
+                    "shell_command": "~/.config/omniwm/wm.py summon w"
                   }
                 ]
               },
@@ -1741,7 +1741,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash x"
+                    "shell_command": "~/.config/omniwm/wm.py summon x"
                   }
                 ]
               },
@@ -1757,7 +1757,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash y"
+                    "shell_command": "~/.config/omniwm/wm.py summon y"
                   }
                 ]
               },
@@ -1773,7 +1773,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash z"
+                    "shell_command": "~/.config/omniwm/wm.py summon z"
                   }
                 ]
               },
@@ -1789,7 +1789,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash ä"
+                    "shell_command": "~/.config/omniwm/wm.py summon ä"
                   }
                 ]
               },
@@ -1805,7 +1805,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash ö"
+                    "shell_command": "~/.config/omniwm/wm.py summon ö"
                   }
                 ]
               },
@@ -1821,7 +1821,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash ü"
+                    "shell_command": "~/.config/omniwm/wm.py summon ü"
                   }
                 ]
               },
@@ -1837,7 +1837,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 1"
+                    "shell_command": "~/.config/omniwm/wm.py summon 1"
                   }
                 ]
               },
@@ -1853,7 +1853,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 2"
+                    "shell_command": "~/.config/omniwm/wm.py summon 2"
                   }
                 ]
               },
@@ -1869,7 +1869,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 3"
+                    "shell_command": "~/.config/omniwm/wm.py summon 3"
                   }
                 ]
               },
@@ -1885,7 +1885,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 4"
+                    "shell_command": "~/.config/omniwm/wm.py summon 4"
                   }
                 ]
               },
@@ -1901,7 +1901,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 5"
+                    "shell_command": "~/.config/omniwm/wm.py summon 5"
                   }
                 ]
               },
@@ -1917,7 +1917,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 6"
+                    "shell_command": "~/.config/omniwm/wm.py summon 6"
                   }
                 ]
               },
@@ -1933,7 +1933,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 7"
+                    "shell_command": "~/.config/omniwm/wm.py summon 7"
                   }
                 ]
               },
@@ -1949,7 +1949,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 8"
+                    "shell_command": "~/.config/omniwm/wm.py summon 8"
                   }
                 ]
               },
@@ -1965,7 +1965,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 9"
+                    "shell_command": "~/.config/omniwm/wm.py summon 9"
                   }
                 ]
               },
@@ -1981,7 +1981,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/summon_workspace_swap.bash 0"
+                    "shell_command": "~/.config/omniwm/wm.py summon 0"
                   }
                 ]
               },
@@ -1998,7 +1998,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace a --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window a"
                   }
                 ]
               },
@@ -2015,7 +2015,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace b --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window b"
                   }
                 ]
               },
@@ -2032,7 +2032,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace c --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window c"
                   }
                 ]
               },
@@ -2049,7 +2049,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace d --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window d"
                   }
                 ]
               },
@@ -2066,7 +2066,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace e --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window e"
                   }
                 ]
               },
@@ -2083,7 +2083,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace f --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window f"
                   }
                 ]
               },
@@ -2100,7 +2100,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace g --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window g"
                   }
                 ]
               },
@@ -2117,7 +2117,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace h --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window h"
                   }
                 ]
               },
@@ -2134,7 +2134,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace i --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window i"
                   }
                 ]
               },
@@ -2151,7 +2151,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace j --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window j"
                   }
                 ]
               },
@@ -2168,7 +2168,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace m --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window m"
                   }
                 ]
               },
@@ -2185,7 +2185,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace n --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window n"
                   }
                 ]
               },
@@ -2202,7 +2202,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace o --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window o"
                   }
                 ]
               },
@@ -2219,7 +2219,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace p --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window p"
                   }
                 ]
               },
@@ -2236,7 +2236,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace q --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window q"
                   }
                 ]
               },
@@ -2253,7 +2253,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace r --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window r"
                   }
                 ]
               },
@@ -2270,7 +2270,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace s --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window s"
                   }
                 ]
               },
@@ -2287,7 +2287,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace t --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window t"
                   }
                 ]
               },
@@ -2304,7 +2304,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace u --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window u"
                   }
                 ]
               },
@@ -2321,7 +2321,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace v --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window v"
                   }
                 ]
               },
@@ -2338,7 +2338,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace w --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window w"
                   }
                 ]
               },
@@ -2355,7 +2355,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace x --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window x"
                   }
                 ]
               },
@@ -2372,7 +2372,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace y --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window y"
                   }
                 ]
               },
@@ -2389,7 +2389,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace z --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window z"
                   }
                 ]
               },
@@ -2406,7 +2406,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace ä --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window ä"
                   }
                 ]
               },
@@ -2423,7 +2423,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace ö --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window ö"
                   }
                 ]
               },
@@ -2440,7 +2440,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace ü --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window ü"
                   }
                 ]
               },
@@ -2457,7 +2457,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 1 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 1"
                   }
                 ]
               },
@@ -2474,7 +2474,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 2 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 2"
                   }
                 ]
               },
@@ -2491,7 +2491,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 3 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 3"
                   }
                 ]
               },
@@ -2508,7 +2508,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 4 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 4"
                   }
                 ]
               },
@@ -2525,7 +2525,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 5 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 5"
                   }
                 ]
               },
@@ -2542,7 +2542,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 6 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 6"
                   }
                 ]
               },
@@ -2559,7 +2559,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 7 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 7"
                   }
                 ]
               },
@@ -2576,7 +2576,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 8 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 8"
                   }
                 ]
               },
@@ -2593,7 +2593,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 9 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 9"
                   }
                 ]
               },
@@ -2610,7 +2610,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-workspace 0 --focus-follows-window"
+                    "shell_command": "~/.config/omniwm/wm.py move-window 0"
                   }
                 ]
               },
@@ -2629,7 +2629,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace workspace-back-and-forth"
+                    "shell_command": "omniwmctl command switch-workspace back-and-forth"
                   }
                 ]
               },
@@ -2648,7 +2648,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus-back-and-forth || aerospace workspace-back-and-forth"
+                    "shell_command": "omniwmctl command focus previous || omniwmctl command switch-workspace back-and-forth"
                   }
                 ]
               },
@@ -2667,7 +2667,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/move_node_to_default_workspace.bash"
+                    "shell_command": "~/.config/omniwm/wm.py move-to-default"
                   }
                 ]
               },
@@ -2687,14 +2687,14 @@
                 },
                 "to": [
                   {
-                    "shell_command": "bash ~/.config/aerospace/move_all_nodes_to_default_workspace.bash"
+                    "shell_command": "~/.config/omniwm/wm.py move-all-to-default"
                   }
                 ]
               }
             ]
           },
           {
-            "description": "aerospace: window management",
+            "description": "omniwm: window management",
             "manipulators": [
               {
                 "type": "basic",
@@ -2712,7 +2712,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus up"
+                    "shell_command": "omniwmctl command focus up"
                   }
                 ]
               },
@@ -2732,7 +2732,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus down"
+                    "shell_command": "omniwmctl command focus down"
                   }
                 ]
               },
@@ -2752,7 +2752,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus left"
+                    "shell_command": "omniwmctl command focus left"
                   }
                 ]
               },
@@ -2772,7 +2772,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus right"
+                    "shell_command": "omniwmctl command focus right"
                   }
                 ]
               },
@@ -2792,7 +2792,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move up"
+                    "shell_command": "omniwmctl command move up"
                   }
                 ]
               },
@@ -2812,7 +2812,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move down"
+                    "shell_command": "omniwmctl command move down"
                   }
                 ]
               },
@@ -2832,7 +2832,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move left"
+                    "shell_command": "omniwmctl command move left"
                   }
                 ]
               },
@@ -2852,7 +2852,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move right"
+                    "shell_command": "omniwmctl command move right"
                   }
                 ]
               },
@@ -2872,7 +2872,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace join-with up"
+                    "shell_command": "omniwmctl command consume-window-into-column || omniwmctl command move up"
                   }
                 ]
               },
@@ -2892,7 +2892,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace join-with down"
+                    "shell_command": "omniwmctl command expel-window-from-column || omniwmctl command move down"
                   }
                 ]
               },
@@ -2912,7 +2912,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace join-with left"
+                    "shell_command": "omniwmctl command consume-or-expel-window-left || omniwmctl command move left"
                   }
                 ]
               },
@@ -2932,7 +2932,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace join-with right"
+                    "shell_command": "omniwmctl command consume-or-expel-window-right || omniwmctl command move right"
                   }
                 ]
               },
@@ -2952,7 +2952,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus --dfs-index 0"
+                    "shell_command": "omniwmctl command focus-column 1"
                   }
                 ]
               },
@@ -2972,7 +2972,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus --dfs-index 1"
+                    "shell_command": "omniwmctl command focus-column 2"
                   }
                 ]
               },
@@ -2992,7 +2992,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus --dfs-index 2"
+                    "shell_command": "omniwmctl command focus-column 3"
                   }
                 ]
               },
@@ -3012,7 +3012,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace focus --dfs-index 3"
+                    "shell_command": "omniwmctl command focus-column 4"
                   }
                 ]
               },
@@ -3032,7 +3032,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace resize smart +200"
+                    "shell_command": "omniwmctl command set-container-primary-span +10% || omniwmctl command resize-focused grow"
                   }
                 ]
               },
@@ -3052,7 +3052,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace resize smart -200"
+                    "shell_command": "omniwmctl command set-container-primary-span -10% || omniwmctl command resize-focused shrink"
                   }
                 ]
               },
@@ -3072,7 +3072,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace balance-sizes"
+                    "shell_command": "omniwmctl command balance-sizes"
                   }
                 ]
               },
@@ -3092,7 +3092,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace flatten-workspace-tree"
+                    "shell_command": "omniwmctl command cycle-size forward"
                   }
                 ]
               },
@@ -3112,7 +3112,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace fullscreen"
+                    "shell_command": "omniwmctl command toggle-fullscreen"
                   }
                 ]
               },
@@ -3133,7 +3133,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace macos-native-fullscreen"
+                    "shell_command": "omniwmctl command toggle-native-fullscreen"
                   }
                 ]
               },
@@ -3153,7 +3153,10 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace macos-native-minimize"
+                    "key_code": "m",
+                    "modifiers": [
+                      "left_command"
+                    ]
                   }
                 ]
               },
@@ -3173,7 +3176,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace close"
+                    "shell_command": "omniwmctl command close-focused-window"
                   }
                 ]
               },
@@ -3194,7 +3197,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace close --quit-if-last-window"
+                    "shell_command": "~/.config/omniwm/wm.py close --quit-if-last-window"
                   }
                 ]
               },
@@ -3214,7 +3217,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace close-all-windows-but-current"
+                    "shell_command": "~/.config/omniwm/wm.py close-others"
                   }
                 ]
               },
@@ -3235,14 +3238,14 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace close-all-windows-but-current --quit-if-last-window"
+                    "shell_command": "~/.config/omniwm/wm.py close-others --quit-if-last-window"
                   }
                 ]
               }
             ]
           },
           {
-            "description": "aerospace: layout management",
+            "description": "omniwm: layout management",
             "manipulators": [
               {
                 "type": "basic",
@@ -3260,7 +3263,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace layout floating tiling"
+                    "shell_command": "omniwmctl command toggle-focused-window-floating"
                   }
                 ]
               },
@@ -3280,7 +3283,28 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace layout tiles vertical horizontal"
+                    "shell_command": "omniwmctl command toggle-workspace-layout"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "left_shift",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command toggle-split"
                   }
                 ]
               },
@@ -3300,14 +3324,14 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace layout accordion horizontal vertical"
+                    "shell_command": "omniwmctl command toggle-column-tabbed"
                   }
                 ]
               }
             ]
           },
           {
-            "description": "aerospace: display management",
+            "description": "omniwm: display management",
             "manipulators": [
               {
                 "type": "basic",
@@ -3325,7 +3349,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-monitor --focus-follows-window --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py move-window-to-display next"
                   }
                 ]
               },
@@ -3345,7 +3369,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-node-to-monitor --focus-follows-window --wrap-around prev"
+                    "shell_command": "~/.config/omniwm/wm.py move-window-to-display prev"
                   }
                 ]
               },
@@ -3365,7 +3389,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --wrap-around next && aerospace move-mouse monitor-lazy-center"
+                    "shell_command": "~/.config/omniwm/wm.py move-workspace next"
                   }
                 ]
               },
@@ -3385,7 +3409,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --wrap-around prev && aerospace move-mouse monitor-lazy-center"
+                    "shell_command": "~/.config/omniwm/wm.py move-workspace prev"
                   }
                 ]
               },
@@ -3403,7 +3427,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace a --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace a"
                   }
                 ]
               },
@@ -3421,7 +3445,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace b --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace b"
                   }
                 ]
               },
@@ -3439,7 +3463,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace c --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace c"
                   }
                 ]
               },
@@ -3457,7 +3481,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace d --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace d"
                   }
                 ]
               },
@@ -3475,7 +3499,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace e --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace e"
                   }
                 ]
               },
@@ -3493,7 +3517,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace f --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace f"
                   }
                 ]
               },
@@ -3511,7 +3535,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace g --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace g"
                   }
                 ]
               },
@@ -3529,7 +3553,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace h --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace h"
                   }
                 ]
               },
@@ -3547,7 +3571,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace i --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace i"
                   }
                 ]
               },
@@ -3565,7 +3589,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace j --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace j"
                   }
                 ]
               },
@@ -3583,7 +3607,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace m --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace m"
                   }
                 ]
               },
@@ -3601,7 +3625,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace n --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace n"
                   }
                 ]
               },
@@ -3619,7 +3643,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace o --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace o"
                   }
                 ]
               },
@@ -3637,7 +3661,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace p --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace p"
                   }
                 ]
               },
@@ -3655,7 +3679,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace q --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace q"
                   }
                 ]
               },
@@ -3673,7 +3697,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace r --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace r"
                   }
                 ]
               },
@@ -3691,7 +3715,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace s --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace s"
                   }
                 ]
               },
@@ -3709,7 +3733,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace t --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace t"
                   }
                 ]
               },
@@ -3727,7 +3751,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace u --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace u"
                   }
                 ]
               },
@@ -3745,7 +3769,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace v --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace v"
                   }
                 ]
               },
@@ -3763,7 +3787,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace w --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace w"
                   }
                 ]
               },
@@ -3781,7 +3805,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace x --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace x"
                   }
                 ]
               },
@@ -3799,7 +3823,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace y --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace y"
                   }
                 ]
               },
@@ -3817,7 +3841,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace z --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace z"
                   }
                 ]
               },
@@ -3835,7 +3859,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace ä --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace ä"
                   }
                 ]
               },
@@ -3853,7 +3877,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace ö --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace ö"
                   }
                 ]
               },
@@ -3871,7 +3895,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace ü --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace ü"
                   }
                 ]
               },
@@ -3889,7 +3913,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 1 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 1"
                   }
                 ]
               },
@@ -3907,7 +3931,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 2 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 2"
                   }
                 ]
               },
@@ -3925,7 +3949,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 3 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 3"
                   }
                 ]
               },
@@ -3943,7 +3967,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 4 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 4"
                   }
                 ]
               },
@@ -3961,7 +3985,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 5 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 5"
                   }
                 ]
               },
@@ -3979,7 +4003,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 6 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 6"
                   }
                 ]
               },
@@ -3997,7 +4021,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 7 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 7"
                   }
                 ]
               },
@@ -4015,7 +4039,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 8 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 8"
                   }
                 ]
               },
@@ -4033,7 +4057,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 9 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 9"
                   }
                 ]
               },
@@ -4051,7 +4075,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace move-workspace-to-monitor --workspace 0 --wrap-around next && aerospace focus-monitor --wrap-around next"
+                    "shell_command": "~/.config/omniwm/wm.py send-workspace 0"
                   }
                 ]
               }
@@ -4136,7 +4160,7 @@
             ]
           },
           {
-            "description": "Simlayer - aerospace",
+            "description": "Simlayer - omniwm",
             "manipulators": [
               {
                 "type": "basic",
@@ -4150,13 +4174,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "code ~/.config/aerospace"
+                    "shell_command": "code ~/.config/omniwm"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "aerospace",
+                    "name": "omniwm",
                     "value": 1
                   }
                 ]
@@ -4173,13 +4197,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "aerospace reload-config && osascript -e 'display notification with title \"reloaded aerospace config\"'"
+                    "shell_command": "osascript -e 'quit app \"OmniWM\"'; while pgrep -xq OmniWM; do sleep 0.2; done; open -a OmniWM && osascript -e 'display notification with title \"restarted omniwm\"'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "aerospace",
+                    "name": "omniwm",
                     "value": 1
                   }
                 ]
@@ -4192,12 +4216,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "aerospace",
+                      "name": "omniwm",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "code ~/.config/aerospace"
+                    "shell_command": "code ~/.config/omniwm"
                   }
                 ],
                 "from": {
@@ -4217,7 +4241,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "aerospace",
+                          "name": "omniwm",
                           "value": 0
                         }
                       }
@@ -4238,12 +4262,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "aerospace",
+                      "name": "omniwm",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "aerospace reload-config && osascript -e 'display notification with title \"reloaded aerospace config\"'"
+                    "shell_command": "osascript -e 'quit app \"OmniWM\"'; while pgrep -xq OmniWM; do sleep 0.2; done; open -a OmniWM && osascript -e 'display notification with title \"restarted omniwm\"'"
                   }
                 ],
                 "from": {
@@ -4263,7 +4287,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "aerospace",
+                          "name": "omniwm",
                           "value": 0
                         }
                       }
@@ -4422,31 +4446,8 @@
             ]
           },
           {
-            "description": "Simlayer - sketchybar + symbols",
+            "description": "Simlayer - symbols",
             "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "code ~/.config/sketchybar"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "sketchybar + symbols",
-                    "value": 1
-                  }
-                ]
-              },
               {
                 "type": "basic",
                 "from": {
@@ -4465,7 +4466,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4488,7 +4489,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4511,7 +4512,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4534,7 +4535,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4557,7 +4558,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4580,7 +4581,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4603,7 +4604,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4626,7 +4627,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4649,7 +4650,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4672,7 +4673,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4695,7 +4696,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4718,7 +4719,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4741,7 +4742,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4764,7 +4765,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4787,7 +4788,7 @@
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "sketchybar + symbols",
+                    "name": "symbols",
                     "value": 1
                   }
                 ]
@@ -4800,53 +4801,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "shell_command": "code ~/.config/sketchybar"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "s"
-                    },
-                    {
-                      "key_code": "c"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "sketchybar + symbols",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 300
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -4871,7 +4826,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -4892,7 +4847,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -4917,7 +4872,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -4938,7 +4893,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -4963,7 +4918,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -4984,7 +4939,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5009,7 +4964,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5030,7 +4985,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5055,7 +5010,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5076,7 +5031,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5101,7 +5056,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5122,7 +5077,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5147,7 +5102,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5168,7 +5123,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5193,7 +5148,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5214,7 +5169,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5239,7 +5194,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5260,7 +5215,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5285,7 +5240,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5306,7 +5261,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5331,7 +5286,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5352,7 +5307,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5377,7 +5332,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5398,7 +5353,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5423,7 +5378,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5444,7 +5399,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5469,7 +5424,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }
@@ -5490,7 +5445,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "sketchybar + symbols",
+                      "name": "symbols",
                       "value": 1
                     }
                   },
@@ -5515,7 +5470,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "sketchybar + symbols",
+                          "name": "symbols",
                           "value": 0
                         }
                       }

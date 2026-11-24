@@ -8,6 +8,7 @@
   "devDependencies": {
     "@types/node": "^20",
     "karabiner.ts": "latest",
+    "smol-toml": "^1.9.1",
     "tsx": "^4",
     "typescript": "^5"
   }

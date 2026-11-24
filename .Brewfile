@@ -1,13 +1,10 @@
 tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
 tap "dail8859/notepadnext", trusted: true
 tap "fastrepl/fastrepl", "https://github.com/fastrepl/homebrew-fastrepl.git", trusted: true
-tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 tap "jesseduffield/lazydocker"
-tap "joncrangle/tap"
 tap "krishkrosh/apps", trusted: true
 tap "lonetis/webster", "https://github.com/lonetis/webster"
 tap "manaflow-ai/cmux", trusted: true
-tap "nikitabobko/tap", trusted: true
 tap "openpubkey/opkssh"
 tap "steipete/tap"
 # Display directories as trees (with optional color/HTML output)
@@ -178,14 +175,8 @@ brew "zoxide"
 brew "zrok"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
-# A window border system for macOS
-brew "felixkratz/formulae/borders"
-# Custom macOS statusbar with shell plugin, interaction and graph support
-brew "felixkratz/formulae/sketchybar"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker", trusted: true
-# Simple system stats event provider for SketchyBar
-brew "joncrangle/tap/sketchybar-system-stats", trusted: true
 # Terminal connection tester for CrUX web origins
 brew "lonetis/webster/webster", trusted: true
 # opkssh (OpenPubKey SSH) - SSH with OpenID Connect
@@ -196,8 +187,6 @@ cask "1password"
 cask "1password-cli@beta"
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
-# AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace", trusted: true
 # Chromium based browser
 cask "arc"
 # Tool to flash OS images to SD cards & USB drives
@@ -231,7 +220,6 @@ cask "firefox@nightly"
 cask "font-hack-nerd-font"
 cask "font-sf-mono"
 cask "font-sf-pro"
-cask "font-sketchybar-app-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Desktop client for GitHub repositories
@@ -264,6 +252,8 @@ cask "mullvad-browser"
 cask "mullvad-vpn"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Tiling window manager
+cask "omniwm"
 # Local-first alternative to Logitech Options+ for HID++ devices
 cask "openlogi"
 # Collaboration platform for API development

@@ -7,7 +7,6 @@ set -euo pipefail
 
 extensions=(
   "git@github.com:lonetis/reponizer.git"
-  "git@github.com:lonetis/raycast-extension-pull-window.git"
 )
 
 checkouts_dir="${XDG_DATA_HOME:-$HOME/.local/share}/raycast-extensions"
