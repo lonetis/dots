@@ -1,23 +1,22 @@
 #!/usr/bin/env bash
-# Moves the app's previous window to the workspace under the pointer and focuses it.
-# Pulling again within OMNIWM_PULL_RESTORE_SECONDS sends the last pulled window back
-# first, so repeated presses step through the app's windows.
+# Moves the previous window of the apps with the given bundle IDs to the workspace under
+# the pointer and focuses it. Pulling again within OMNIWM_PULL_RESTORE_SECONDS sends the
+# last pulled window back first, so repeated presses step through the apps' windows.
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
-(($# == 1)) || die "usage: ${0##*/} <bundle-id>"
-bundle_id=$1
+(($# >= 1)) || die "usage: ${0##*/} <bundle-id>..."
 state_file=$state_dir/pull.json
 [[ $pull_restore_seconds =~ ^[0-9]+([.][0-9]+)?$ ]] || die "OMNIWM_PULL_RESTORE_SECONDS is not a number: $pull_restore_seconds"
 
 all_displays=$(displays)
 target_display=$(display_under_pointer "$all_displays")
 target_workspace=$(jq -r .activeWorkspace.rawName <<<"$target_display")
-app_windows=$(windows --bundle-id "$bundle_id")
+windows_of_apps=$(app_windows "$@")
 window=$(jq -c 'sort_by(.windowId)
   | (map(.isFocused) | index(true)) as $focused
-  | if length == 0 then empty elif $focused == null then .[-1] else .[$focused - 1] end' <<<"$app_windows")
-[[ -n $window ]] || die "no windows for $bundle_id"
+  | if length == 0 then empty elif $focused == null then .[-1] else .[$focused - 1] end' <<<"$windows_of_apps")
+[[ -n $window ]] || die "no windows for $*"
 window_id=$(jq -r .id <<<"$window")
 source_workspace=$(jq -r .workspace.rawName <<<"$window")
 

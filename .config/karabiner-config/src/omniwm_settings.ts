@@ -104,11 +104,11 @@ function generateAppRules(existing: TomlTable[]): TomlTable[] {
   if (unknownKeys.length > 0) throw new Error(`apps.json uses unknown workspace keys: ${unknownKeys.join(', ')}`)
 
   const ownRules = existing.filter((rule) => rule.id !== appRuleId(String(rule.bundleId)))
-  const generated = Object.entries(apps).map(([key, bundleId]) => ({
+  const generated = Object.entries(apps).flatMap(([key, bundleIds]) => bundleIds.map((bundleId) => ({
     assignToWorkspace: workspaceName(key),
     bundleId,
     id: appRuleId(bundleId),
-  }))
+  })))
   return [...ownRules, ...generated]
 }
 

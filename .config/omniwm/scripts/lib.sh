@@ -4,7 +4,7 @@
 # that needs state. Workspaces are addressed by their key (a-z, ä, ö, ü, 0-9), which
 # OmniWM shows as the upper-case display name of a numbered workspace.
 
-apps_json="${OMNIWM_APPS_JSON:-$HOME/.config/karabiner-config/src/apps.json}"  # workspace key -> bundle id
+apps_json="${OMNIWM_APPS_JSON:-$HOME/.config/karabiner-config/src/apps.json}"  # workspace key -> bundle id or list of bundle ids
 settings_toml="${OMNIWM_SETTINGS:-$HOME/.config/omniwm/settings.toml}"         # OmniWM settings, read for the routing grid
 state_dir="${OMNIWM_HELPER_STATE_DIR:-$HOME/.local/state/omniwm-helper}"       # short-lived pull state
 fallback_key="${OMNIWM_FALLBACK_WORKSPACE:-q}"                                 # workspace for apps missing from apps.json
@@ -52,6 +52,13 @@ windows() {
   query windows "$@" --fields id,window-id,app,workspace,display,is-focused,is-scratchpad | jq -c '.windows'
 }
 
+# Prints the JSON list of windows of the apps with the given bundle IDs.
+app_windows() {
+  local all_windows
+  all_windows=$(windows)
+  jq -c 'map(select(.app.bundleId | IN($ARGS.positional[])))' --args "$@" <<<"$all_windows"
+}
+
 # Prints nothing when no managed window has focus.
 focused_window() {
   ctl --ok not_found --ok no_focused_window query focused-window | jq -c '.result.payload.window // empty'
@@ -85,7 +92,7 @@ current_workspace() {
 # Prints the workspace key apps.json maps the bundle id $1 to, or the fallback key.
 default_key() {
   jq -r --arg bundle_id "$1" --arg fallback "$fallback_key" \
-    'first(to_entries[] | select(.value == $bundle_id) | .key) // $fallback' "$apps_json" \
+    'first(to_entries[] | select([.value] | flatten | any(. == $bundle_id)) | .key) // $fallback' "$apps_json" \
     || die "cannot read $apps_json"
 }
 

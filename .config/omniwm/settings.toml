@@ -425,23 +425,18 @@ id = "F3B5DF8F-71E8-523C-853D-6CE7B29291A3"
 
 [[appRules]]
 assignToWorkspace = "9"
-bundleId = "com.openai.chat"
-id = "F29F172F-8EC5-5C9D-8847-3F031BD82118"
-
-[[appRules]]
-assignToWorkspace = "10"
 bundleId = "com.openai.codex"
 id = "60AF05FF-AF0E-5F6D-85CF-94B6F3F858D9"
+
+[[appRules]]
+assignToWorkspace = "9"
+bundleId = "com.anthropic.claudefordesktop"
+id = "9E427A7D-AD12-5F0F-BC29-536179D3CBE6"
 
 [[appRules]]
 assignToWorkspace = "11"
 bundleId = "com.apple.iCal"
 id = "4324CAC9-C14F-5794-8421-890EC9D8C64B"
-
-[[appRules]]
-assignToWorkspace = "12"
-bundleId = "com.anthropic.claudefordesktop"
-id = "9E427A7D-AD12-5F0F-BC29-536179D3CBE6"
 
 [[appRules]]
 assignToWorkspace = "13"
@@ -477,6 +472,11 @@ id = "121EE977-5E77-5AE8-9A87-1BFAD901F09F"
 assignToWorkspace = "20"
 bundleId = "com.superlogical.rex"
 id = "B64F45AA-D758-5E8C-B7CE-F0CA51E8CD53"
+
+[[appRules]]
+assignToWorkspace = "20"
+bundleId = "com.mitchellh.ghostty"
+id = "D9FB175E-4E1E-52BE-B9B0-A072B974A077"
 
 [[appRules]]
 assignToWorkspace = "21"
@@ -1824,7 +1824,7 @@ type = "main"
 [[workspaces]]
 displayName = "I"
 id = "E1A9808E-4A87-58CB-9A57-BC8DA981E8AF"
-layoutType = "default"
+layoutType = "dwindle"
 name = "9"
 
 [workspaces.monitorAssignment]
@@ -1923,7 +1923,7 @@ type = "main"
 [[workspaces]]
 displayName = "T"
 id = "AE540E80-0B4A-5BE6-92A8-AD1425A3016B"
-layoutType = "niri"
+layoutType = "dwindle"
 name = "20"
 
 [workspaces.monitorAssignment]

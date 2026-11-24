@@ -80,6 +80,28 @@
             ]
           },
           {
+            "description": "omniwm: quake terminal",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command toggle-quake-terminal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "mission control",
             "manipulators": [
               {
@@ -352,26 +374,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.openai.chat || open -b 'com.openai.chat'"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.openai.codex || open -b 'com.openai.codex'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.openai.codex com.anthropic.claudefordesktop || open -b 'com.openai.codex'"
                   }
                 ]
               },
@@ -391,25 +394,6 @@
                 "to": [
                   {
                     "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.iCal || open -b 'com.apple.iCal'"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
                   }
                 ]
               },
@@ -542,7 +526,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.superlogical.rex || open -b 'com.superlogical.rex'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.superlogical.rex com.mitchellh.ghostty || open -b 'com.superlogical.rex'"
                   }
                 ]
               },
@@ -835,27 +819,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.chat"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.codex"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.codex com.anthropic.claudefordesktop"
                   }
                 ]
               },
@@ -876,26 +840,6 @@
                 "to": [
                   {
                     "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.iCal"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.anthropic.claudefordesktop"
                   }
                 ]
               },
@@ -1035,7 +979,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.superlogical.rex"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.superlogical.rex com.mitchellh.ghostty"
                   }
                 ]
               },

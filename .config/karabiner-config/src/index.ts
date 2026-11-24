@@ -68,6 +68,11 @@ writeToProfile('Default profile', [
     map('⏎', lShiftHyper).to$('omniwmctl command toggle-overview'),
   ]),
 
+  rule('omniwm: quake terminal').manipulators([
+    // OmniWM's built-in Ghostty quake terminal ([quakeTerminal] in settings.toml)
+    map('⏎', lCmdAlt).to$('omniwmctl command toggle-quake-terminal'),
+  ]),
+
   rule('mission control').manipulators([
     map('⇥').toAfterKeyUp('⇥').toIfHeldDown({key_code: 'mission_control', halt: true}),
   ]),
@@ -89,11 +94,12 @@ writeToProfile('Default profile', [
   ]),
 
   rule('omniwm: app management').manipulators([
-    withMapper(apps)((ws, bid) =>
-      map(de_key(ws), hyper).to$(`${wm}/cycle.sh ${bid} || open -b '${bid}'`),
+    // cycle through the windows of the key's apps, or launch the first app
+    withMapper(apps)((ws, bids) =>
+      map(de_key(ws), hyper).to$(`${wm}/cycle.sh ${bids.join(' ')} || open -b '${bids[0]}'`),
     ),
-    withMapper(apps)((ws, bid) =>
-      map(de_key(ws), lCtrlHyper).to$(`${wm}/pull.sh ${bid}`),
+    withMapper(apps)((ws, bids) =>
+      map(de_key(ws), lCtrlHyper).to$(`${wm}/pull.sh ${bids.join(' ')}`),
     ),
     map(de_key('p'), hyper).to$(`${wm}/toggle.sh com.1password.1password`),
   ]),
