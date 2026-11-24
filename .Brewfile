@@ -5,6 +5,7 @@ tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", tr
 tap "jesseduffield/lazydocker"
 tap "joncrangle/tap"
 tap "krishkrosh/apps", trusted: true
+tap "lonetis/webster", "https://github.com/lonetis/webster"
 tap "manaflow-ai/cmux", trusted: true
 tap "nikitabobko/tap", trusted: true
 tap "openpubkey/opkssh"
@@ -185,6 +186,8 @@ brew "felixkratz/formulae/sketchybar"
 brew "jesseduffield/lazydocker/lazydocker", trusted: true
 # Simple system stats event provider for SketchyBar
 brew "joncrangle/tap/sketchybar-system-stats", trusted: true
+# Terminal connection tester for CrUX web origins
+brew "lonetis/webster/webster", trusted: true
 # opkssh (OpenPubKey SSH) - SSH with OpenID Connect
 brew "openpubkey/opkssh/opkssh", trusted: true
 # Password manager that keeps all passwords secure behind one password
@@ -377,6 +380,7 @@ vscode "yy0931.vscode-sqlite3-editor"
 vscode "yzhang.markdown-all-in-one"
 vscode "zobo.php-intellisense"
 go "golang.org/x/tools/gopls"
+uv "zotero-mcp-server[pdf]"
 npm "@github/copilot"
 npm "@google/gemini-cli"
 npm "@googleworkspace/cli"
