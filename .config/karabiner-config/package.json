@@ -1,15 +1,22 @@
 {
   "name": "karabiner-config",
-  "description": "karabiner config in karabiner.ts",
+  "description": "Karabiner-Elements rules and OmniWM workspaces, written with karabiner.ts",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
   "scripts": {
-    "build": "tsx src/index.ts",
-    "update": "npm update karabiner.ts"
+    "build": "npm run check && node src/index.ts",
+    "check": "tsc",
+    "update": "npm update"
+  },
+  "dependencies": {
+    "karabiner.ts": "^1.38.0",
+    "smol-toml": "^1.9.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "karabiner.ts": "latest",
-    "smol-toml": "^1.9.1",
-    "tsx": "^4",
-    "typescript": "^5"
+    "@types/node": "^26.6.6",
+    "typescript": "^6.0.3"
   }
 }
