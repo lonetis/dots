@@ -58,7 +58,7 @@ followsMouseOnlyFullyVisible = false
 followsWindowToMonitor = false
 lockModifier = "off"
 moveCrossesMonitorAtEdge = false
-moveMouseToFocusedWindow = false
+moveMouseToFocusedWindow = true
 raiseOnMouseFocus = false
 
 [gaps]
@@ -98,7 +98,7 @@ resizePreviewStyle = "live"
 scrollEnabled = true
 scrollModifierKey = "optionShift"
 scrollSensitivity = 5.0
-trackpadScrollStyle = "snap"
+trackpadScrollStyle = "momentum"
 windowGestureSensitivity = 1.0
 windowMoveEnabled = false
 windowMoveFingerCount = 4
@@ -151,7 +151,7 @@ enabled = true
 invertScrollDirection = false
 matchFocusBorder = true
 mouseScrollSpeed = 1.0
-zoom = 1.5
+zoom = 0.75
 
 [overview.backdrop]
 alpha = 0.0
@@ -180,17 +180,17 @@ green = 0.8
 red = 0.3
 
 [quakeTerminal]
-animationDuration = 0.2
-autoHide = false
+animationDuration = 0.0
+autoHide = true
 backgroundBlurRadius = 0
-backgroundEffect = "standardBlur"
+backgroundEffect = "glassClear"
 enabled = true
-heightPercent = 50.0
+heightPercent = 70.0
 monitorMode = "focusedWindow"
 opacity = 1.0
 position = "center"
 provider = "ghostty"
-widthPercent = 50.0
+widthPercent = 70.0
 
 [routing]
 mode = "macOS"
@@ -389,127 +389,127 @@ id = "5FECF90A-592B-4340-AD37-236C168BDAB4"
 layout = "float"
 
 [[appRules]]
-assignToWorkspace = "1"
+assignToWorkspace = "11"
 bundleId = "com.apple.ActivityMonitor"
 id = "7D8B06B1-0746-5797-8D14-393D13432C9A"
 
 [[appRules]]
-assignToWorkspace = "27"
+assignToWorkspace = "37"
 bundleId = "com.microsoft.Excel"
 id = "6C86E60E-4A61-549A-832F-EF9ACCAE6A53"
 
 [[appRules]]
-assignToWorkspace = "2"
+assignToWorkspace = "12"
 bundleId = "com.install4j.9806-1938-4586-6531.70"
 id = "436E077B-8A7C-5BD1-B8AD-5F83CAE898B3"
 
 [[appRules]]
-assignToWorkspace = "3"
+assignToWorkspace = "13"
 bundleId = "com.microsoft.VSCode"
 id = "44BC4E08-F25A-50F6-AE91-377D1D0060DE"
 
 [[appRules]]
-assignToWorkspace = "5"
+assignToWorkspace = "15"
 bundleId = "com.apple.finder"
 id = "54210945-F469-5A5E-9A28-A49771EA3357"
 
 [[appRules]]
-assignToWorkspace = "6"
+assignToWorkspace = "16"
 bundleId = "org.mozilla.firefox"
 id = "FAB9D31C-B006-557B-BF73-4CFCF044E386"
 
 [[appRules]]
-assignToWorkspace = "7"
+assignToWorkspace = "17"
 bundleId = "com.google.Chrome"
 id = "F3B5DF8F-71E8-523C-853D-6CE7B29291A3"
 
 [[appRules]]
-assignToWorkspace = "9"
+assignToWorkspace = "19"
 bundleId = "com.openai.codex"
 id = "60AF05FF-AF0E-5F6D-85CF-94B6F3F858D9"
 
 [[appRules]]
-assignToWorkspace = "9"
+assignToWorkspace = "19"
 bundleId = "com.anthropic.claudefordesktop"
 id = "9E427A7D-AD12-5F0F-BC29-536179D3CBE6"
 
 [[appRules]]
-assignToWorkspace = "11"
+assignToWorkspace = "21"
 bundleId = "com.apple.iCal"
 id = "4324CAC9-C14F-5794-8421-890EC9D8C64B"
 
 [[appRules]]
-assignToWorkspace = "13"
+assignToWorkspace = "23"
 bundleId = "com.apple.mail"
 id = "0C3CDFF6-63D8-5AD9-937A-51DC7F66E624"
 
 [[appRules]]
-assignToWorkspace = "14"
+assignToWorkspace = "24"
 bundleId = "com.apple.Notes"
 id = "78A26544-AED3-5165-92C3-4C236357AC9F"
 
 [[appRules]]
-assignToWorkspace = "15"
+assignToWorkspace = "25"
 bundleId = "us.zoom.xos"
 id = "A4E4B4DB-6BA3-54A1-AEC6-5CD5C308856A"
 
 [[appRules]]
-assignToWorkspace = "28"
+assignToWorkspace = "38"
 bundleId = "com.microsoft.Powerpoint"
 id = "A33F1EDF-BB25-56B0-B50C-10ECA542C631"
 
 [[appRules]]
-assignToWorkspace = "18"
+assignToWorkspace = "28"
 bundleId = "com.apple.Reminders"
 id = "FDF9DCCF-A8B9-5F27-804F-4292691F4D9C"
 
 [[appRules]]
-assignToWorkspace = "19"
+assignToWorkspace = "29"
 bundleId = "com.tinyspeck.slackmacgap"
 id = "121EE977-5E77-5AE8-9A87-1BFAD901F09F"
 
 [[appRules]]
-assignToWorkspace = "20"
+assignToWorkspace = "30"
 bundleId = "com.superlogical.rex"
 id = "B64F45AA-D758-5E8C-B7CE-F0CA51E8CD53"
 
 [[appRules]]
-assignToWorkspace = "20"
+assignToWorkspace = "30"
 bundleId = "com.mitchellh.ghostty"
 id = "D9FB175E-4E1E-52BE-B9B0-A072B974A077"
 
 [[appRules]]
-assignToWorkspace = "21"
+assignToWorkspace = "31"
 bundleId = "com.utmapp.UTM"
 id = "1F7A314C-1371-5FD9-A522-1967277325DF"
 
 [[appRules]]
-assignToWorkspace = "29"
+assignToWorkspace = "39"
 bundleId = "com.microsoft.Word"
 id = "843A919E-900A-5E4F-A00A-E31FDEDDFAF2"
 
 [[appRules]]
-assignToWorkspace = "22"
+assignToWorkspace = "32"
 bundleId = "com.apple.Preview"
 id = "29B509A1-2781-52AD-B0AC-E1DE3B90C0DF"
 
 [[appRules]]
-assignToWorkspace = "23"
+assignToWorkspace = "33"
 bundleId = "com.apple.Safari"
 id = "E6080FC0-472B-5516-9E57-E0C0656BDC32"
 
 [[appRules]]
-assignToWorkspace = "24"
+assignToWorkspace = "34"
 bundleId = "com.apple.dt.Xcode"
 id = "15B41518-404E-524A-86A0-BDF607756A80"
 
 [[appRules]]
-assignToWorkspace = "25"
+assignToWorkspace = "35"
 bundleId = "com.google.Chrome.canary"
 id = "16A7E984-30EE-584B-8E5B-5CCC7FCCBC37"
 
 [[appRules]]
-assignToWorkspace = "26"
+assignToWorkspace = "36"
 bundleId = "org.zotero.zotero"
 id = "CDD5A01B-91BD-5F89-88F0-C8C56C8E7304"
 
@@ -1750,280 +1750,10 @@ binding = "Unassigned"
 id = "toggleShellWidget.workspaces"
 
 [[workspaces]]
-displayName = "A"
-id = "3E2271C7-CBB9-5383-9EC7-95FA9CC194E2"
-layoutType = "default"
-name = "1"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "B"
-id = "1CCDC7B3-CB87-5008-B442-791CF4FF6F2C"
-layoutType = "default"
-name = "2"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "C"
-id = "1F9A7BAA-1607-571C-ABF1-1520630F47E3"
-layoutType = "default"
-name = "3"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "D"
-id = "C9729CFD-5A11-5CC4-8A11-F8CB0B62E8B5"
-layoutType = "default"
-name = "4"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "E"
-id = "89FE6D3D-0C6F-5FC4-85BA-8533EB48C81C"
-layoutType = "niri"
-name = "5"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "F"
-id = "703CDCD7-5BD4-5516-B827-39335E85A657"
-layoutType = "default"
-name = "6"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "G"
-id = "C23B8793-D16D-5238-86E8-07920A4A319A"
-layoutType = "dwindle"
-name = "7"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "H"
-id = "FF28DB34-6DBE-5A89-B779-C68F5B77A335"
-layoutType = "default"
-name = "8"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "I"
-id = "E1A9808E-4A87-58CB-9A57-BC8DA981E8AF"
-layoutType = "dwindle"
-name = "9"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "J"
-id = "2578F708-C504-59DE-9193-804895B05274"
-layoutType = "default"
-name = "10"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "K"
-id = "747354CF-6A0F-5E25-8627-F20AE1A91A00"
-layoutType = "default"
-name = "11"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "L"
-id = "43DE96C9-C6E7-5E93-B7C4-0DE05A6B0064"
-layoutType = "default"
-name = "12"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "M"
-id = "B622D5BC-E5A1-57B9-91C2-761BEBE248E6"
-layoutType = "default"
-name = "13"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "N"
-id = "DE9F5BAD-82A6-5714-AA0B-528AC553150D"
-layoutType = "default"
-name = "14"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "O"
-id = "7EA80B24-39D5-5575-B879-A1B218573970"
-layoutType = "default"
-name = "15"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "P"
-id = "B67C0F93-2FD1-5D4F-B7D4-BF2C419F0E11"
-layoutType = "default"
-name = "16"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "Q"
-id = "248C70EC-FA33-5E25-A1E7-9D44151EC40B"
-layoutType = "default"
-name = "17"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "R"
-id = "1DD7ED59-AFE5-56C4-AD18-6B756C324EE0"
-layoutType = "default"
-name = "18"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "S"
-id = "EDD81649-654E-58F8-8749-E7D60EE5BA59"
-layoutType = "default"
-name = "19"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "T"
-id = "AE540E80-0B4A-5BE6-92A8-AD1425A3016B"
-layoutType = "dwindle"
-name = "20"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "U"
-id = "C320F6EB-2AE3-5B1F-8665-A8B86571A729"
-layoutType = "default"
-name = "21"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "V"
-id = "698F5E7F-7784-5D26-9DFA-518B65AC18D1"
-layoutType = "default"
-name = "22"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "W"
-id = "2894FAC4-9450-5FD3-87EA-EBDCAAACA1EC"
-layoutType = "default"
-name = "23"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "X"
-id = "FFEFC794-E806-5A61-98F6-7B504F6862A7"
-layoutType = "default"
-name = "24"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "Y"
-id = "55711E91-22B7-5F34-B77D-B4078F2A0486"
-layoutType = "default"
-name = "25"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "Z"
-id = "42D45A27-B955-5B27-8767-DFCBAF6CF573"
-layoutType = "default"
-name = "26"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "Ä"
-id = "ED3B782F-919C-50C3-8D15-F2852463ADEA"
-layoutType = "default"
-name = "27"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "Ö"
-id = "557A87C0-75DE-5EEA-B2D8-0EA68B745409"
-layoutType = "default"
-name = "28"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "Ü"
-id = "AF634EA2-6F68-59A2-8C5E-72EB71671738"
-layoutType = "default"
-name = "29"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
-displayName = "0"
-id = "4759DEE2-9D97-5E91-97D1-04EF0D9A4A5A"
-layoutType = "default"
-name = "30"
-
-[workspaces.monitorAssignment]
-type = "main"
-
-[[workspaces]]
 displayName = "1"
 id = "AA0B3335-B967-5F8F-BB3A-9759342C10A9"
 layoutType = "default"
-name = "31"
+name = "1"
 
 [workspaces.monitorAssignment]
 type = "main"
@@ -2032,7 +1762,7 @@ type = "main"
 displayName = "2"
 id = "9A5E3CCD-9D0E-513B-9BF2-4F3CE5047F7C"
 layoutType = "default"
-name = "32"
+name = "2"
 
 [workspaces.monitorAssignment]
 type = "main"
@@ -2041,7 +1771,7 @@ type = "main"
 displayName = "3"
 id = "BF97DA79-058A-5C44-A94D-A56629C8A98A"
 layoutType = "default"
-name = "33"
+name = "3"
 
 [workspaces.monitorAssignment]
 type = "main"
@@ -2050,7 +1780,7 @@ type = "main"
 displayName = "4"
 id = "D11BB394-1428-561E-B74B-2061D6ED3A0E"
 layoutType = "default"
-name = "34"
+name = "4"
 
 [workspaces.monitorAssignment]
 type = "secondary"
@@ -2059,7 +1789,7 @@ type = "secondary"
 displayName = "5"
 id = "BDB06913-BCE0-50A7-ACFB-713A8DE6BD94"
 layoutType = "default"
-name = "35"
+name = "5"
 
 [workspaces.monitorAssignment]
 type = "secondary"
@@ -2068,7 +1798,7 @@ type = "secondary"
 displayName = "6"
 id = "C8B8A456-77BE-5DAE-A6A1-334ED59899D6"
 layoutType = "default"
-name = "36"
+name = "6"
 
 [workspaces.monitorAssignment]
 type = "secondary"
@@ -2077,7 +1807,7 @@ type = "secondary"
 displayName = "7"
 id = "9D5D9399-5CD7-5B21-AC2B-56059CACD251"
 layoutType = "default"
-name = "37"
+name = "7"
 
 [workspaces.monitorAssignment]
 type = "tertiary"
@@ -2086,7 +1816,7 @@ type = "tertiary"
 displayName = "8"
 id = "1547390C-28FB-5AF3-B334-DCDFA4EADACF"
 layoutType = "default"
-name = "38"
+name = "8"
 
 [workspaces.monitorAssignment]
 type = "tertiary"
@@ -2095,7 +1825,277 @@ type = "tertiary"
 displayName = "9"
 id = "81CCA57C-BF9E-5C31-86E9-B097E8C1B329"
 layoutType = "default"
-name = "39"
+name = "9"
 
 [workspaces.monitorAssignment]
 type = "tertiary"
+
+[[workspaces]]
+displayName = "0"
+id = "4759DEE2-9D97-5E91-97D1-04EF0D9A4A5A"
+layoutType = "default"
+name = "10"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "A"
+id = "3E2271C7-CBB9-5383-9EC7-95FA9CC194E2"
+layoutType = "default"
+name = "11"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "B"
+id = "1CCDC7B3-CB87-5008-B442-791CF4FF6F2C"
+layoutType = "default"
+name = "12"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "C"
+id = "1F9A7BAA-1607-571C-ABF1-1520630F47E3"
+layoutType = "default"
+name = "13"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "D"
+id = "C9729CFD-5A11-5CC4-8A11-F8CB0B62E8B5"
+layoutType = "default"
+name = "14"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "E"
+id = "89FE6D3D-0C6F-5FC4-85BA-8533EB48C81C"
+layoutType = "niri"
+name = "15"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "F"
+id = "703CDCD7-5BD4-5516-B827-39335E85A657"
+layoutType = "default"
+name = "16"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "G"
+id = "C23B8793-D16D-5238-86E8-07920A4A319A"
+layoutType = "dwindle"
+name = "17"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "H"
+id = "FF28DB34-6DBE-5A89-B779-C68F5B77A335"
+layoutType = "default"
+name = "18"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "I"
+id = "E1A9808E-4A87-58CB-9A57-BC8DA981E8AF"
+layoutType = "niri"
+name = "19"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "J"
+id = "2578F708-C504-59DE-9193-804895B05274"
+layoutType = "default"
+name = "20"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "K"
+id = "747354CF-6A0F-5E25-8627-F20AE1A91A00"
+layoutType = "default"
+name = "21"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "L"
+id = "43DE96C9-C6E7-5E93-B7C4-0DE05A6B0064"
+layoutType = "default"
+name = "22"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "M"
+id = "B622D5BC-E5A1-57B9-91C2-761BEBE248E6"
+layoutType = "default"
+name = "23"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "N"
+id = "DE9F5BAD-82A6-5714-AA0B-528AC553150D"
+layoutType = "default"
+name = "24"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "O"
+id = "7EA80B24-39D5-5575-B879-A1B218573970"
+layoutType = "default"
+name = "25"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "P"
+id = "B67C0F93-2FD1-5D4F-B7D4-BF2C419F0E11"
+layoutType = "default"
+name = "26"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Q"
+id = "248C70EC-FA33-5E25-A1E7-9D44151EC40B"
+layoutType = "default"
+name = "27"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "R"
+id = "1DD7ED59-AFE5-56C4-AD18-6B756C324EE0"
+layoutType = "default"
+name = "28"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "S"
+id = "EDD81649-654E-58F8-8749-E7D60EE5BA59"
+layoutType = "default"
+name = "29"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "T"
+id = "AE540E80-0B4A-5BE6-92A8-AD1425A3016B"
+layoutType = "niri"
+name = "30"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "U"
+id = "C320F6EB-2AE3-5B1F-8665-A8B86571A729"
+layoutType = "default"
+name = "31"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "V"
+id = "698F5E7F-7784-5D26-9DFA-518B65AC18D1"
+layoutType = "default"
+name = "32"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "W"
+id = "2894FAC4-9450-5FD3-87EA-EBDCAAACA1EC"
+layoutType = "default"
+name = "33"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "X"
+id = "FFEFC794-E806-5A61-98F6-7B504F6862A7"
+layoutType = "default"
+name = "34"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Y"
+id = "55711E91-22B7-5F34-B77D-B4078F2A0486"
+layoutType = "default"
+name = "35"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Z"
+id = "42D45A27-B955-5B27-8767-DFCBAF6CF573"
+layoutType = "default"
+name = "36"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Ä"
+id = "ED3B782F-919C-50C3-8D15-F2852463ADEA"
+layoutType = "default"
+name = "37"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Ö"
+id = "557A87C0-75DE-5EEA-B2D8-0EA68B745409"
+layoutType = "default"
+name = "38"
+
+[workspaces.monitorAssignment]
+type = "main"
+
+[[workspaces]]
+displayName = "Ü"
+id = "AF634EA2-6F68-59A2-8C5E-72EB71671738"
+layoutType = "default"
+name = "39"
+
+[workspaces.monitorAssignment]
+type = "main"

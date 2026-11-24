@@ -12,7 +12,7 @@ const settingsPath = path.resolve(homedir(), '.config/omniwm/settings.toml')
 
 // Workspace keys in bar order. OmniWM only accepts positive integers as workspace
 // names, so key i becomes workspace `i + 1` and shows the key as its display name.
-export const workspaceKeys = [...'abcdefghijklmnopqrstuvwxyzäöü0123456789']
+export const workspaceKeys = [...'1234567890abcdefghijklmnopqrstuvwxyzäöü']
 
 // Home monitor of a newly generated workspace. A workspace that already exists keeps
 // whatever home was set for it in OmniWM's settings.

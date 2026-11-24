@@ -1162,7 +1162,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 31"
+                    "shell_command": "omniwmctl command switch-workspace 1"
                   }
                 ]
               },
@@ -1181,7 +1181,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 32"
+                    "shell_command": "omniwmctl command switch-workspace 2"
                   }
                 ]
               },
@@ -1200,7 +1200,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 33"
+                    "shell_command": "omniwmctl command switch-workspace 3"
                   }
                 ]
               },
@@ -1219,7 +1219,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 34"
+                    "shell_command": "omniwmctl command switch-workspace 4"
                   }
                 ]
               },
@@ -1238,7 +1238,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 35"
+                    "shell_command": "omniwmctl command switch-workspace 5"
                   }
                 ]
               },
@@ -1257,7 +1257,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 36"
+                    "shell_command": "omniwmctl command switch-workspace 6"
                   }
                 ]
               },
@@ -1276,7 +1276,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 37"
+                    "shell_command": "omniwmctl command switch-workspace 7"
                   }
                 ]
               },
@@ -1295,7 +1295,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 38"
+                    "shell_command": "omniwmctl command switch-workspace 8"
                   }
                 ]
               },
@@ -1314,7 +1314,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 39"
+                    "shell_command": "omniwmctl command switch-workspace 9"
                   }
                 ]
               },
@@ -1333,7 +1333,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command switch-workspace 30"
+                    "shell_command": "omniwmctl command switch-workspace 10"
                   }
                 ]
               },
