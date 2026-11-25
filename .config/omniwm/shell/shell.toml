@@ -8,5 +8,6 @@ trailing = ["media", "notifications", "volume", "wifi", "battery-details", "cont
 
 [profiles.default.workspaceBar]
 fullWidth = true
+position = "bottom"
 transparentBackground = true
 windowLevel = "popup"
