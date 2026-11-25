@@ -290,15 +290,11 @@ mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
-mas "Notability", id: 360593530
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Perplexity", id: 6714467650
 mas "Portal", id: 1436994560
-mas "RunCat", id: 1429033973
 mas "Save to Raindrop.io", id: 1549370672
 mas "Slack", id: 803453959
-mas "Table Tool", id: 1122008420
 mas "TestFlight", id: 899247664
 mas "The Unarchiver", id: 425424353
 mas "WhatsApp", id: 310633997
