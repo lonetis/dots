@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
-
-# Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Generate Secret
 # @raycast.mode silent
-
-# Optional parameters:
-# @raycast.icon icons/key.svg
-# @raycast.packageName me.louisjannett.raycast.generate-secret
-
-# Documentation:
 # @raycast.description Generate a random secret from the chosen character classes and copy it to the clipboard, hidden from clipboard history. Every chosen class appears at least once.
-# @raycast.author Louis Jannett
-
 # @raycast.argument1 { "type": "text", "placeholder": "Length", "optional": true }
 # @raycast.argument2 { "type": "dropdown", "placeholder": "Characters", "data": [ { "title": "Aa1#  letters, digits, symbols", "value": "ulds" }, { "title": "Aa1  letters, digits", "value": "uld" }, { "title": "a1  lowercase, digits", "value": "ld" }, { "title": "A1  uppercase, digits", "value": "ud" }, { "title": "hex  0-9 a-f", "value": "h" }, { "title": "1  digits", "value": "d" }, { "title": "Aa  letters", "value": "ul" }, { "title": "a  lowercase", "value": "l" }, { "title": "A  uppercase", "value": "u" }, { "title": "Aa#  letters, symbols", "value": "uls" }, { "title": "a1#  lowercase, digits, symbols", "value": "lds" }, { "title": "A1#  uppercase, digits, symbols", "value": "uds" }, { "title": "a#  lowercase, symbols", "value": "ls" }, { "title": "A#  uppercase, symbols", "value": "us" }, { "title": "1#  digits, symbols", "value": "ds" }, { "title": "#  symbols", "value": "s" } ], "optional": true }
 # @raycast.argument3 { "type": "text", "placeholder": "Exclude chars", "optional": true }
@@ -21,7 +11,7 @@ set -euo pipefail
 
 default_length="${SECRET_LENGTH:-32}"                      # length used when the Length argument is empty
 symbols="${SECRET_SYMBOLS:-!#%&()*+,-./:;<=>?@[]^_{|\}~}"  # symbol class; the default omits ' " ` \ $, which break quoting in shells, .env files and JSON
-conceal="${SECRET_CONCEAL:-1}"                             # 1 = mark the clipboard entry as concealed so clipboard managers (e.g. Raycast's history) skip it
+conceal="${SECRET_CONCEAL:-1}"                             # 1 = mark the clipboard entry as concealed so clipboard managers (e.g. Tinycast's history) skip it
 
 length="${1:-$default_length}"
 spec="${2:-ulds}"

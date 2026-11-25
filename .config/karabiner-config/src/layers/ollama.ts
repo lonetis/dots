@@ -1,9 +1,9 @@
 import { map, simlayer } from 'karabiner.ts'
-import { raycast } from '../commands.ts'
+import { tinycastExtension } from '../commands.ts'
 import { deKey } from '../keys.ts'
 
-// Rewrites the selected text with the Raycast Ollama extension.
+// Rewrites the selected text with the Ollama extension (a Raycast extension, run by Tinycast).
 export const ollamaLayer = simlayer(deKey('o'), 'ollama').manipulators([
-  map(deKey('+')).to$(raycast('massimiliano_pasquini/raycast-ollama/ollama-longer')), // longer
-  map(deKey('-')).to$(raycast('massimiliano_pasquini/raycast-ollama/ollama-shorter')), // shorter
+  map(deKey('+')).to$(tinycastExtension('massimiliano_pasquini/raycast-ollama/ollama-longer')), // longer
+  map(deKey('-')).to$(tinycastExtension('massimiliano_pasquini/raycast-ollama/ollama-shorter')), // shorter
 ])

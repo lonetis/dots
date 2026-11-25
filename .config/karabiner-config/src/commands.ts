@@ -28,9 +28,25 @@ export function openUrl(url: string): string {
   return `open -u '${url}'`
 }
 
-/** Opens a Raycast extension command by its deeplink path, `<author>/<extension>/<command>`. */
-export function raycast(command: string): string {
-  return openUrl(`raycast://extensions/${command}`)
+// Tinycast links open with `open -g`, so the app in front keeps focus: snippets paste into it and
+// extensions read its selected text.
+function openTinycast(path: string): string {
+  return `open -g -u 'tinycast://${path}'`
+}
+
+/**
+ * Runs a built-in Tinycast command by its deeplink id, e.g. `tinycast('clipboard-history')`.
+ * `fallbackText` types into the command's first field. Tinycast asks once before it runs a link
+ * with text ("Always Allow" remembers the answer).
+ */
+export function tinycast(command: string, fallbackText?: string): string {
+  const query = fallbackText === undefined ? '' : `?fallbackText=${encodeURIComponent(fallbackText)}`
+  return openTinycast(`command/${command}${query}`)
+}
+
+/** Runs a Raycast extension command in Tinycast by its deeplink path, `<author>/<extension>/<command>`. */
+export function tinycastExtension(command: string): string {
+  return openTinycast(`extensions/${command}`)
 }
 
 /** Opens System Settings, or one of its panes by the bundle ID of the pane's extension. */

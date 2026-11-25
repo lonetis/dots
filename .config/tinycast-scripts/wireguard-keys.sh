@@ -1,24 +1,14 @@
 #!/usr/bin/env bash
-
-# Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title WireGuard Keys
 # @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon icons/wireguard.svg
-# @raycast.packageName me.louisjannett.raycast.wireguard-keys
-
-# Documentation:
 # @raycast.description Generate a WireGuard key pair, optionally with a preshared key, or derive the public key of an existing private key. Shows the keys in wg config syntax and copies them to the clipboard, hidden from clipboard history when they include a secret.
-# @raycast.author Louis Jannett
-
 # @raycast.argument1 { "type": "dropdown", "placeholder": "Preshared key", "data": [ { "title": "Without preshared key", "value": "no" }, { "title": "With preshared key", "value": "yes" } ], "optional": true }
 # @raycast.argument2 { "type": "password", "placeholder": "Private key (derive public key)", "optional": true }
 
 set -euo pipefail
 
-conceal="${WG_KEYS_CONCEAL:-1}"  # 1 = mark the clipboard entry as concealed so clipboard managers (e.g. Raycast's history) skip it
+conceal="${WG_KEYS_CONCEAL:-1}"  # 1 = mark the clipboard entry as concealed so clipboard managers (e.g. Tinycast's history) skip it
 
 with_psk="${1:-no}"
 private_key="${2:-}"

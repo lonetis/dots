@@ -19,7 +19,7 @@
         ".{Trash,cache,codex,npm}/**": true,
         ".local/{state,share/[!y]*}/**": true,
         ".{claude,vscode}/*/**": true,
-        ".config/{raycast,omniwm/shell}/**": true,
+        ".config/omniwm/shell/default/**": true,
     },
     "files.exclude": {
         "[!.]*": true,

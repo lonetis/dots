@@ -1,14 +1,7 @@
-tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
-tap "dail8859/notepadnext", trusted: true
-tap "fastrepl/fastrepl", "https://github.com/fastrepl/homebrew-fastrepl.git", trusted: true
 tap "jesseduffield/lazydocker"
-tap "krishkrosh/apps", trusted: true
 tap "lonetis/webster", "https://github.com/lonetis/webster"
-tap "manaflow-ai/cmux", trusted: true
 tap "openpubkey/opkssh"
 tap "steipete/tap"
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Checks ansible playbooks for practices and behaviour
@@ -153,6 +146,8 @@ brew "tmux"
 brew "tor"
 # Lightweight BitTorrent client
 brew "transmission-cli"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # Language for application scale JavaScript development
 brew "typescript"
 # Language Server Protocol implementation for TypeScript wrapping tsserver
@@ -217,8 +212,11 @@ cask "drawio"
 cask "firefox"
 # Web browser
 cask "firefox@nightly"
+# Hack Nerd Font (Hack)
 cask "font-hack-nerd-font"
+# San Francisco Mono (SF Mono)
 cask "font-sf-mono"
+# San Francisco Pro (SF Pro)
 cask "font-sf-pro"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
@@ -264,8 +262,6 @@ cask "prusaslicer"
 cask "qflipper"
 # All-in-one bookmark manager
 cask "raindropio"
-# Control your tools with a few keystrokes
-cask "raycast"
 # Remote desktop application focusing on security
 cask "realvnc-connect-viewer"
 # Tool that provides consistent, highly configurable symbols for apps
@@ -276,6 +272,8 @@ cask "signal"
 cask "tablecruncher"
 # Native GUI for Homebrew package management
 cask "taphouse"
+# Application launcher and productivity tool
+cask "tinycast"
 # Open-source BitTorrent client
 cask "transmission"
 # Free and open-source OpenVPN client

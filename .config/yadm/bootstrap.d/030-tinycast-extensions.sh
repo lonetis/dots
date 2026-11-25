@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Custom Raycast extensions, built from source. Each repo gets its own checkout
-# managed by this script (separate from any dev clone under ~/repos), so an
-# update never builds or disturbs work in progress.
+# Custom Raycast extensions, built from source and installed into Tinycast, which runs Raycast
+# extensions. Each repo gets its own checkout managed by this script (separate from any dev
+# clone under ~/repos), so an update never builds or disturbs work in progress.
 
 extensions=(
   "git@github.com:lonetis/reponizer.git"
 )
 
-checkouts_dir="${XDG_DATA_HOME:-$HOME/.local/share}/raycast-extensions"
-raycast_extensions_dir="$HOME/.config/raycast/extensions"
+checkouts_dir="${XDG_DATA_HOME:-$HOME/.local/share}/tinycast-extensions"
+tinycast_extensions_dir="$HOME/Library/Application Support/com.abueammar.tinycast/extensions"
 
 # On a fresh machine this is the first SSH connection to github.com; accept its
 # host key instead of stopping at a prompt (a changed key is still refused).
@@ -32,10 +32,10 @@ sync_checkout() {
 
 install_extension() {
   local url="$1"
-  local checkout name build_dir
+  local checkout name dir_name build_dir
 
   checkout="$checkouts_dir/$(basename "$url" .git)"
-  echo "Updating Raycast extension from $url..."
+  echo "Updating Tinycast extension from $url..."
 
   if ! sync_checkout "$url" "$checkout"; then
     echo "Error: could not fetch $url" >&2
@@ -43,10 +43,12 @@ install_extension() {
     return 1
   fi
 
-  # Raycast keys local extensions by their manifest name, which is also the
-  # directory name it expects inside its extensions folder.
+  # Tinycast keeps an extension in a folder named after its manifest name, with "/" turned
+  # into "-" (what its own "Add from folder" does), and loads package.json, the built
+  # <command>.js files, assets/ and a bundled node_modules/ from it: the layout of `ray build`.
   name="$(node -p 'require(process.argv[1]).name' "$checkout/package.json")"
-  build_dir="$staging_dir/$name"
+  dir_name="${name//\//-}"
+  build_dir="$staging_dir/$dir_name"
 
   (
     cd "$checkout"
@@ -54,12 +56,17 @@ install_extension() {
     ./node_modules/.bin/ray build --non-interactive -e dist -o "$build_dir"
   )
 
-  rm -rf "${raycast_extensions_dir:?}/${name:?}"
-  mv "$build_dir" "$raycast_extensions_dir/$name"
+  rm -rf "${tinycast_extensions_dir:?}/${dir_name:?}"
+  mv "$build_dir" "$tinycast_extensions_dir/$dir_name"
 }
 
-mkdir -p "$checkouts_dir" "$raycast_extensions_dir"
+mkdir -p "$checkouts_dir" "$tinycast_extensions_dir"
 
 for url in "${extensions[@]}"; do
   install_extension "$url"
 done
+
+# Tinycast scans its extensions folder at launch and when Settings → Extensions opens.
+if pgrep -xq Tinycast; then
+  echo "Restart Tinycast or open Settings → Extensions to load the updated extensions."
+fi

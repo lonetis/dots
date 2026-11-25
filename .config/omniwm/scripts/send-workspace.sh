@@ -3,6 +3,7 @@
 # it there.
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/displays.sh"
 
 (($# == 1)) || die "usage: ${0##*/} <workspace-key>"
 

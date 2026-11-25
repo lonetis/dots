@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Save this file as ~/.config/yadm/bootstrap and make it executable. It will
-# execute all executable files (excluding templates and editor backups) in the
-# ~/.config/yadm/bootstrap.d directory when run.
+# Run by `yadm bootstrap` (and so by .init.sh and `dots init`): asks for the administrator
+# password once, then runs every executable file in bootstrap.d/ in sort order and stops at
+# the first that fails. Templates (## in the name) and editor backups (~) are skipped.
+# Runs under macOS's /bin/bash 3.2 on a fresh machine, so no bash 4+ features.
 
-# Directory to look for bootstrap executables in
 BOOTSTRAP_D="${BASH_SOURCE[0]}.d"
 
 if [[ ! -d "$BOOTSTRAP_D" ]]; then

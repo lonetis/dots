@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
-
-# Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Entra User Lookup
 # @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon icons/entra.svg
-# @raycast.packageName me.louisjannett.raycast.entra-user-lookup
-
-# Documentation:
 # @raycast.description Look up an Entra ID user via the GetCredentialType endpoint
-# @raycast.author Louis Jannett
-
 # @raycast.argument1 { "type": "text", "placeholder": "Username" }
 
 set -euo pipefail

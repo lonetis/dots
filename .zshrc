@@ -37,8 +37,8 @@ typeset -A hig_dark_contrast=(
 # Shell Integrations
 # ==============================================================================
 
-# ZSH Autosuggestions (https://github.com/zsh-users/zsh-autosuggestions)
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# ZSH Autosuggestions (https://github.com/zsh-users/zsh-autosuggestions); HOMEBREW_PREFIX comes from .zprofile, which is faster than `brew --prefix`
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Docker completions (https://docs.docker.com/engine/cli/completion/)
 fpath=($HOME/.docker/completions $fpath)

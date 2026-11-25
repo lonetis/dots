@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# Pipes stdin to the Shortcut model-local as is (no preamble, unlike `model -m local`) and prints plain text.
 shortcuts run model-local | textutil -convert txt -stdin -stdout

@@ -4,6 +4,7 @@
 # last pulled window back first, so repeated presses step through the apps' windows.
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/displays.sh"
 
 (($# >= 1)) || die "usage: ${0##*/} <bundle-id>..."
 state_file=$state_dir/pull.json

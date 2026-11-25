@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
-
-# Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Burp Chrome
 # @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon icons/burp.svg
-# @raycast.packageName me.louisjannett.raycast.burp-chrome
-
-# Documentation:
 # @raycast.description Launch a real Google Chrome (Stable/Canary/Dev/Beta) pre-wired for Burp Suite — routes through Burp's proxy, trusts Burp's CA, and opens Burp. Uses your existing Chrome profiles by default, or an isolated fresh/persistent one.
-# @raycast.author Louis Jannett
-
 # @raycast.argument1 { "type": "dropdown", "placeholder": "Browser", "data": [ { "title": "Google Chrome", "value": "chrome" }, { "title": "Chrome Canary", "value": "canary" }, { "title": "Chrome Dev", "value": "dev" }, { "title": "Chrome Beta", "value": "beta" } ], "optional": false }
 # @raycast.argument2 { "type": "dropdown", "placeholder": "Profile", "data": [ { "title": "My existing profiles (normal Chrome data)", "value": "existing" }, { "title": "Fresh profile (/tmp, wiped on close)", "value": "fresh" }, { "title": "Persistent profile (reused)", "value": "persistent" } ], "optional": false }
 
@@ -35,7 +25,7 @@ keychain="${BURP_KEYCHAIN:-$HOME/Library/Keychains/login.keychain-db}"  # keycha
 ca_cache="${BURP_CA_CACHE:-$HOME/.cache/burp-chrome/cacert.pem}"        # cached Burp CA (PEM), reused across runs
 ca_file="${BURP_CA_FILE:-}"                              # optional: use this CA PEM/DER instead of fetching
 refresh="${BURP_CA_REFRESH:-0}"                          # 1 = re-fetch the CA even if cached
-profile_root="${BURP_CHROME_PROFILE_ROOT:-$HOME/.config/raycast-scripts/burp-chrome-profiles}"  # persistent profiles live here
+profile_root="${BURP_CHROME_PROFILE_ROOT:-${XDG_DATA_HOME:-$HOME/.local/share}/burp-chrome/profiles}"  # persistent profiles live here
 chrome_app_override="${BURP_CHROME_APP:-}"               # optional: open this .app bundle instead of the channel default
 
 # ── Preconditions ───────────────────────────────────────────────────────────
@@ -51,14 +41,13 @@ proxy="${proxy#http://}"; proxy="${proxy#https://}"; proxy="${proxy%/}"
 
 # Resolve the Chrome app bundle for the chosen channel. Google ships each channel
 # as a separate .app.
-declare -A app_name=(
-    [chrome]="Google Chrome"
-    [canary]="Google Chrome Canary"
-    [dev]="Google Chrome Dev"
-    [beta]="Google Chrome Beta"
-)
-name="${app_name[$channel]:-}"
-[[ -n "$name" ]] || { echo "Unknown browser '$channel' (use chrome|canary|dev|beta)" >&2; exit 1; }
+case "$channel" in
+    chrome) name="Google Chrome" ;;
+    canary) name="Google Chrome Canary" ;;
+    dev)    name="Google Chrome Dev" ;;
+    beta)   name="Google Chrome Beta" ;;
+    *) echo "Unknown browser '$channel' (use chrome|canary|dev|beta)" >&2; exit 1 ;;
+esac
 
 chrome_app="${chrome_app_override:-/Applications/$name.app}"
 [[ -d "$chrome_app" ]] || { echo "$name not found: $chrome_app" >&2; exit 1; }
@@ -110,7 +99,7 @@ open -a "$burp_app" || { echo "Could not open '$burp_app' — set BURP_APP to it
 # Burp serves its per-installation CA at http://burp/cert (DER) through the proxy.
 # We normalise it to PEM and cache it so repeat launches are instant and precise.
 fetch_cert_to() {
-    local out="$1" tmp; tmp="$(mktemp)"
+    local out="$1" proxy="$2" tmp; tmp="$(mktemp)"
     # Preferred: through the proxy to Burp's magic host. Fallback: straight at the listener.
     if curl -fsS --max-time 5 -x "http://$proxy" http://burp/cert -o "$tmp" 2>/dev/null \
         || curl -fsS --max-time 5 "http://$proxy/cert" -o "$tmp" 2>/dev/null; then
@@ -126,19 +115,9 @@ fetch_cert_to() {
 # Keep polling for the CA after we've already opened Chrome, so the NEXT launch can
 # pin the exact CA even if Burp's proxy wasn't ready in time for this one.
 warm_cache_bg() {
-    nohup bash -c '
-        cache="$1"; proxy="$2"; secs="$3"; end=$(( SECONDS + secs ))
-        while (( SECONDS < end )); do
-            tmp="$(mktemp)"
-            if curl -fsS --max-time 5 -x "http://$proxy" http://burp/cert -o "$tmp" 2>/dev/null \
-                || curl -fsS --max-time 5 "http://$proxy/cert" -o "$tmp" 2>/dev/null; then
-                if openssl x509 -inform DER -in "$tmp" -out "$cache" 2>/dev/null \
-                    || openssl x509 -inform PEM -in "$tmp" -out "$cache" 2>/dev/null; then
-                    rm -f "$tmp"; exit 0
-                fi
-            fi
-            rm -f "$tmp"; sleep 3
-        done
+    nohup bash -c "$(declare -f fetch_cert_to)"'
+        end=$(( SECONDS + $3 ))
+        until fetch_cert_to "$1" "$2" || (( SECONDS >= end )); do sleep 3; done
     ' _ "$1" "$2" "$3" >/dev/null 2>&1 &
     disown
 }
@@ -160,7 +139,7 @@ if [[ "$trust" != "none" ]]; then
         echo "Fetching Burp CA from http://$proxy (up to ${wait_secs}s)…"
         deadline=$(( SECONDS + wait_secs ))
         while :; do
-            if fetch_cert_to "$ca_cache"; then ca_pem="$ca_cache"; echo "Got Burp CA → $ca_cache"; break; fi
+            if fetch_cert_to "$ca_cache" "$proxy"; then ca_pem="$ca_cache"; echo "Got Burp CA → $ca_cache"; break; fi
             (( SECONDS >= deadline )) && break
             sleep 2
         done
@@ -253,7 +232,7 @@ open -na "$chrome_app" --args "${chrome_args[@]}" "$start_url"
 if [[ "$wipe_profile" == "1" ]]; then
     # `open` returns immediately, so we can't wait on the browser PID. Instead watch
     # for the instance by its unique data dir and wipe the profile once it closes.
-    # Detached so Raycast can return right away.
+    # Detached so Tinycast can return right away.
     nohup bash -c '
         prof="$1"
         for _ in $(seq 1 60); do pgrep -f -- "--user-data-dir=$prof" >/dev/null 2>&1 && break; sleep 0.5; done

@@ -15,6 +15,7 @@
     ],
     "defaultMode": "bypassPermissions"
   },
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -65,6 +66,9 @@
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "xhigh"
+    },
+    "claude-fable-5-2": {
+      "effortLevel": "medium"
     }
   },
   "askUserQuestionTimeout": "never",
@@ -75,7 +79,7 @@
       }
     }
   },
-  "tui": "default",
+  "tui": "fullscreen",
   "voice": {
     "enabled": true
   },
@@ -91,7 +95,7 @@
   "idleCompaction": false,
   "switchModelsOnFlag": true,
   "teammateMode": "auto",
+  "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
-  "remoteControlAtStartup": true
+  "agentPushNotifEnabled": true
 }

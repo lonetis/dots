@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
-
-# Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Git Clone Copy
 # @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon icons/git.svg
-# @raycast.packageName me.louisjannett.raycast.git-clone-copy
-
-# Documentation:
 # @raycast.description Shallow-clones a git repo and copies its contents (without .git) to a destination, overwriting if it exists.
-# @raycast.author Louis Jannett
-
 # @raycast.argument1 { "type": "text", "placeholder": "repo-url" }
 # @raycast.argument2 { "type": "text", "placeholder": "destination-dir" }
 # @raycast.argument3 { "type": "text", "placeholder": "branch / tag (optional)", "optional": true }

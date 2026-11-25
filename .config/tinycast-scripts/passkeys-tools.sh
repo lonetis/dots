@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
-
-# Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Passkeys.Tools Browser
 # @raycast.mode compact
-
-# Optional parameters:
-# @raycast.icon icons/passkey.svg
-# @raycast.packageName me.louisjannett.raycast.passkeys-tools
-
-# Documentation:
 # @raycast.description Ephemeral Chrome for Testing preconfigured with the Passkeys.Tools Interceptor — attacker (red), victim (yellow), default, or both. Fresh random profile each run, wiped on close.
-# @raycast.author Louis Jannett
-
 # @raycast.argument1 { "type": "dropdown", "placeholder": "Setup", "data": [ { "title": "Attacker (red)", "value": "attacker" }, { "title": "Victim (yellow)", "value": "victim" }, { "title": "Default (no attack)", "value": "default" }, { "title": "Attacker + Victim (2 browsers)", "value": "dual" } ], "optional": false }
 
 set -euo pipefail

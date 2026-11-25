@@ -5546,7 +5546,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-longer'"
+                    "shell_command": "open -g -u 'tinycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-longer'"
                   }
                 ],
                 "conditions": [
@@ -5569,7 +5569,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-shorter'"
+                    "shell_command": "open -g -u 'tinycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-shorter'"
                   }
                 ],
                 "conditions": [
@@ -5593,7 +5593,7 @@
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-longer'"
+                    "shell_command": "open -g -u 'tinycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-longer'"
                   }
                 ],
                 "from": {
@@ -5639,7 +5639,7 @@
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-shorter'"
+                    "shell_command": "open -g -u 'tinycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-shorter'"
                   }
                 ],
                 "from": {
@@ -5675,7 +5675,7 @@
             ]
           },
           {
-            "description": "Simlayer - raycast",
+            "description": "Simlayer - tinycast",
             "manipulators": [
               {
                 "type": "basic",
@@ -5689,13 +5689,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/luolei/karakeep/bookmarks'"
+                    "shell_command": "open -g -u 'tinycast://extensions/luolei/karakeep/bookmarks'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5712,13 +5712,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/thomas/visual-studio-code/index'"
+                    "shell_command": "open -g -u 'tinycast://extensions/thomas/visual-studio-code/index'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5735,13 +5735,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/GastroGeek/folder-search/search'"
+                    "shell_command": "open -g -u 'tinycast://extensions/GastroGeek/folder-search/search'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5758,13 +5758,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/emoji-symbols/search-emoji-symbols'"
+                    "shell_command": "open -g -u 'tinycast://command/search-emoji'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5781,13 +5781,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/calendar/my-schedule'"
+                    "shell_command": "open -g -u 'tinycast://command/my-schedule'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5804,36 +5804,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/navigation/search-menu-items'"
+                    "shell_command": "open -g -u 'tinycast://command/search-menu-items'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -u 'raycast://extensions/raycast/raycast/confetti'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5850,13 +5827,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/mblode/quick-event/index'"
+                    "shell_command": "open -g -u 'tinycast://extensions/mblode/quick-event/index'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5873,13 +5850,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/screenshots/search-screenshots'"
+                    "shell_command": "open -g -u 'tinycast://command/search-files?fallbackText=~%2FDocuments%2FScreenshots%2F'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5896,13 +5873,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/snippets/search-snippets'"
+                    "shell_command": "open -g -u 'tinycast://command/search-snippets'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5919,13 +5896,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/cecelot/utm-virtual-machines/index'"
+                    "shell_command": "open -g -u 'tinycast://extensions/cecelot/utm-virtual-machines/index'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5942,13 +5919,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/SamuelNitsche/tunnelblick/index'"
+                    "shell_command": "open -g -u 'tinycast://extensions/SamuelNitsche/tunnelblick/index'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5965,13 +5942,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/reckoning-dev/zotero/commandSearchZotero'"
+                    "shell_command": "open -g -u 'tinycast://extensions/reckoning-dev/zotero/commandSearchZotero'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -5988,13 +5965,13 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/file-search/search-files'"
+                    "shell_command": "open -g -u 'tinycast://command/search-files'"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "raycast",
+                    "name": "tinycast",
                     "value": 1
                   }
                 ]
@@ -6007,12 +5984,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/luolei/karakeep/bookmarks'"
+                    "shell_command": "open -g -u 'tinycast://extensions/luolei/karakeep/bookmarks'"
                   }
                 ],
                 "from": {
@@ -6032,7 +6009,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6053,12 +6030,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/thomas/visual-studio-code/index'"
+                    "shell_command": "open -g -u 'tinycast://extensions/thomas/visual-studio-code/index'"
                   }
                 ],
                 "from": {
@@ -6078,7 +6055,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6099,12 +6076,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/GastroGeek/folder-search/search'"
+                    "shell_command": "open -g -u 'tinycast://extensions/GastroGeek/folder-search/search'"
                   }
                 ],
                 "from": {
@@ -6124,7 +6101,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6145,12 +6122,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/emoji-symbols/search-emoji-symbols'"
+                    "shell_command": "open -g -u 'tinycast://command/search-emoji'"
                   }
                 ],
                 "from": {
@@ -6170,7 +6147,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6191,12 +6168,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/calendar/my-schedule'"
+                    "shell_command": "open -g -u 'tinycast://command/my-schedule'"
                   }
                 ],
                 "from": {
@@ -6216,7 +6193,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6237,12 +6214,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/navigation/search-menu-items'"
+                    "shell_command": "open -g -u 'tinycast://command/search-menu-items'"
                   }
                 ],
                 "from": {
@@ -6262,7 +6239,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6283,58 +6260,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/raycast/confetti'"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "r"
-                    },
-                    {
-                      "key_code": "p"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "raycast",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 300
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "raycast",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "shell_command": "open -u 'raycast://extensions/mblode/quick-event/index'"
+                    "shell_command": "open -g -u 'tinycast://extensions/mblode/quick-event/index'"
                   }
                 ],
                 "from": {
@@ -6354,7 +6285,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6375,12 +6306,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/screenshots/search-screenshots'"
+                    "shell_command": "open -g -u 'tinycast://command/search-files?fallbackText=~%2FDocuments%2FScreenshots%2F'"
                   }
                 ],
                 "from": {
@@ -6400,7 +6331,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6421,12 +6352,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/snippets/search-snippets'"
+                    "shell_command": "open -g -u 'tinycast://command/search-snippets'"
                   }
                 ],
                 "from": {
@@ -6446,7 +6377,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6467,12 +6398,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/cecelot/utm-virtual-machines/index'"
+                    "shell_command": "open -g -u 'tinycast://extensions/cecelot/utm-virtual-machines/index'"
                   }
                 ],
                 "from": {
@@ -6492,7 +6423,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6513,12 +6444,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/SamuelNitsche/tunnelblick/index'"
+                    "shell_command": "open -g -u 'tinycast://extensions/SamuelNitsche/tunnelblick/index'"
                   }
                 ],
                 "from": {
@@ -6538,7 +6469,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6559,12 +6490,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/reckoning-dev/zotero/commandSearchZotero'"
+                    "shell_command": "open -g -u 'tinycast://extensions/reckoning-dev/zotero/commandSearchZotero'"
                   }
                 ],
                 "from": {
@@ -6584,7 +6515,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -6605,12 +6536,12 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "raycast",
+                      "name": "tinycast",
                       "value": 1
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/raycast/file-search/search-files'"
+                    "shell_command": "open -g -u 'tinycast://command/search-files'"
                   }
                 ],
                 "from": {
@@ -6630,7 +6561,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "raycast",
+                          "name": "tinycast",
                           "value": 0
                         }
                       }
@@ -8187,7 +8118,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/benvp/audio-device/set-input-device'"
+                    "shell_command": "open -g -u 'tinycast://extensions/benvp/audio-device/set-input-device'"
                   }
                 ],
                 "conditions": [
@@ -8233,7 +8164,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -u 'raycast://extensions/benvp/audio-device/set-output-device'"
+                    "shell_command": "open -g -u 'tinycast://extensions/benvp/audio-device/set-output-device'"
                   }
                 ],
                 "conditions": [
@@ -8464,7 +8395,7 @@
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/benvp/audio-device/set-input-device'"
+                    "shell_command": "open -g -u 'tinycast://extensions/benvp/audio-device/set-input-device'"
                   }
                 ],
                 "from": {
@@ -8556,7 +8487,7 @@
                     }
                   },
                   {
-                    "shell_command": "open -u 'raycast://extensions/benvp/audio-device/set-output-device'"
+                    "shell_command": "open -g -u 'tinycast://extensions/benvp/audio-device/set-output-device'"
                   }
                 ],
                 "from": {
