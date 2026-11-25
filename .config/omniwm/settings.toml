@@ -1860,7 +1860,7 @@ type = "main"
 [[workspaces]]
 displayName = "C"
 id = "1F9A7BAA-1607-571C-ABF1-1520630F47E3"
-layoutType = "default"
+layoutType = "niri"
 name = "13"
 
 [workspaces.monitorAssignment]
@@ -1896,7 +1896,7 @@ type = "main"
 [[workspaces]]
 displayName = "G"
 id = "C23B8793-D16D-5238-86E8-07920A4A319A"
-layoutType = "dwindle"
+layoutType = "niri"
 name = "17"
 
 [workspaces.monitorAssignment]
@@ -1914,7 +1914,7 @@ type = "main"
 [[workspaces]]
 displayName = "I"
 id = "E1A9808E-4A87-58CB-9A57-BC8DA981E8AF"
-layoutType = "niri"
+layoutType = "dwindle"
 name = "19"
 
 [workspaces.monitorAssignment]
@@ -2013,7 +2013,7 @@ type = "main"
 [[workspaces]]
 displayName = "T"
 id = "AE540E80-0B4A-5BE6-92A8-AD1425A3016B"
-layoutType = "niri"
+layoutType = "dwindle"
 name = "30"
 
 [workspaces.monitorAssignment]
