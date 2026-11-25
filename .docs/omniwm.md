@@ -39,6 +39,7 @@
 - Bindings use a native `omniwmctl` command whenever one does the job. The scripts (`cycle.sh`, `pull.sh`, `summon.sh`, `close-others.sh`, …) are named after their action and need bash 5 and `jq` (`/usr/bin/jq` ships with macOS). They take settings from `OMNIWM_*` environment variables (defaults at the top of `lib.sh`), print errors on stderr and exit 1. `cycle.sh` also exits 1 when the app has no windows, so Karabiner launches it.
 - `omniwmctl command move-to-workspace` doesn't make focus follow the window, so `move-window.sh` moves it by id and then navigates to it.
 - OmniWM moves a workspace only to an *adjacent* monitor (`omniwmctl workspace move-to-monitor --force`, a runtime override that a settings reload clears). `displays.sh` reads the routing grid from `settings.toml` with `awk` (relying on OmniWM's canonical layout), finds a route with the jq functions in `displays.jq`, hops along it and restores what the displays in between showed. It reads and moves the pointer through `osascript -l JavaScript`.
+- The pointer stays where it is when focus changes: OmniWM's `focus.moveMouseToFocusedWindow` is off, and `move-workspace.sh` moves the pointer along with the workspace only with `OMNIWM_WARP_POINTER=true`.
 
 ## Changing it
 

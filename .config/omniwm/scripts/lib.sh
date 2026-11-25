@@ -11,6 +11,7 @@ settings_toml="${OMNIWM_SETTINGS:-$HOME/.config/omniwm/settings.toml}"         #
 state_dir="${OMNIWM_HELPER_STATE_DIR:-$HOME/.local/state/omniwm-helper}"       # short-lived pull state
 fallback_key="${OMNIWM_FALLBACK_WORKSPACE:-q}"                                 # workspace for apps missing from apps.json
 pull_restore_seconds="${OMNIWM_PULL_RESTORE_SECONDS:-5}"                       # a repeated pull within this time sends the last pulled window back
+warp_pointer="${OMNIWM_WARP_POINTER:-false}"                                   # true: move-workspace.sh moves the pointer along to the workspace's new display
 
 shopt -s inherit_errexit
 
