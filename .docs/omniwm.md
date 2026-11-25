@@ -15,7 +15,7 @@
 | `.config/omniwm/scripts/show-menu-bar.sh` | yes | manual | Turns macOS menu bar auto-hide back off, see below |
 | `Library/LaunchAgents/dots.show-menu-bar.plist` | yes | manual | Runs `show-menu-bar.sh` at login and whenever the global preferences change |
 | `~/Library/Logs/dots.show-menu-bar.log` | no | scripts | Errors of `show-menu-bar.sh` |
-| `.config/karabiner-config/src/apps.json`, `workspaces.ts` | yes | manual | Workspace keys and app mapping, see below |
+| `.config/karabiner-config/src/apps.json`, `workspaces.ts` | yes | manual | Workspace keys, and each app's workspace and key, see below |
 | `~/.local/state/omniwm/`, `~/.local/state/omniwm-helper/` | no | app / scripts | OmniWM's runtime state and the scripts' pull state |
 
 ## How it works
@@ -32,7 +32,7 @@
 
 - Workspace keys are `1–9`, `0`, `a–z`, `ä ö ü`, in that order (`workspaceKeys` in `workspaces.ts`). OmniWM only accepts positive integers as names, so the key at position *i* becomes workspace `i + 1` with the upper-case key as `displayName` (`1` → `1`, `0` → `10`, `a` → `11`/`A`, `ü` → `39`). Native `omniwmctl` calls use the number, resolved at build time; the scripts take keys and look workspaces up by display name.
 - New workspaces get the home monitor `main`, except `4–6` (`secondary`) and `7–9` (`tertiary`). A home changed later in OmniWM's Settings window survives the build.
-- `apps.json` maps a workspace key to one bundle ID or a list of them. A bundle ID may appear under one key only, its default workspace. It feeds Karabiner (Hyper + key cycles the apps' windows or launches the first app, ⌃ + Hyper + key pulls a window to the workspace under the pointer), the generated `assignToWorkspace` rules (OmniWM applies them only while the app has no windows, so its first window lands there) and `move-to-default.sh` / `move-all-to-default.sh` (unmapped apps go to `q`).
+- `apps.json` lists the apps, each as `{ "workspace": "t", "key": "t", "bundleId": "…" }`. `workspace` is the app's default workspace, which several apps can share. `key` is optional and belongs to one app only; it doesn't have to match the workspace (Claude has `l` and lives on `i`). An app without a key (Rex) gets its workspace but no Hyper binding. The workspace feeds the generated `assignToWorkspace` rules (OmniWM applies them only while the app has no windows, so its first window lands there) and `move-to-default.sh` / `move-all-to-default.sh` (unlisted apps go to `q`). The key feeds Karabiner: Hyper + key cycles the app's windows or launches it, ⌃ + Hyper + key pulls one of its windows to the workspace under the pointer.
 
 ### Scripts
 

@@ -20,7 +20,7 @@ Every keybinding lives here, including all of OmniWM's ([omniwm.md](omniwm.md)).
 | `src/layers/` | Simlayers, one file per trigger key, registered in `layers/index.ts` |
 | `src/keys.ts` | `deKey()` (German key labels → US key codes) and the modifier constants (`hyper`, `lCmdHyper`, `rCmd`, …) |
 | `src/commands.ts` | Builders for the shell commands bindings run: `omniwm()`, `omniwmScript()`, `tinycast()`, `tinycastExtension()`, `systemSettings()`, `notify()`, … |
-| `src/apps.json`, `apps.ts`, `workspaces.ts` | Workspace keys and the app-to-workspace mapping, see [omniwm.md](omniwm.md#workspaces-and-apps) |
+| `src/apps.json`, `apps.ts`, `workspaces.ts` | Workspace keys, and each app's workspace and key, see [omniwm.md](omniwm.md#workspaces-and-apps) |
 | `src/conflicts.ts` | Fails the build when two bindings share a trigger and conditions |
 | `src/karabiner-json.ts` | Writes the rules into `karabiner.json` |
 | `src/omniwm-settings.ts`, `src/toml.ts` | Write `[[workspaces]]` and the generated `[[appRules]]` into OmniWM's `settings.toml` |

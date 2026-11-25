@@ -1,43 +1,65 @@
 import appsJson from './apps.json' with { type: 'json' }
 import { isWorkspaceKey, workspaceKeys, type WorkspaceKey } from './workspaces.ts'
 
-// apps.json maps a workspace key to the bundle ID of the app that lives on that workspace,
-// or to a list of bundle IDs when several apps share it. The first one is launched when
-// none of them has a window. A bundle ID belongs to one key only, because that key is
-// its default workspace. Look a bundle ID up with:
+// apps.json lists the apps with their workspace and, optionally, their key:
+//   { "workspace": "t", "key": "t", "bundleId": "com.mitchellh.ghostty" }
+// Several apps can share a workspace, but a key belongs to one app only. Look a bundle ID
+// up with:
 //   mdls -name kMDItemCFBundleIdentifier -r /Applications/<App>.app
 //
 // The OmniWM scripts read apps.json at runtime too (OMNIWM_APPS_JSON in their lib.sh).
 
-/** Bundle IDs of a workspace's apps, the one to launch first. */
-export type BundleIds = [string, ...string[]]
+export interface App {
+  bundleId: string
+  /** The app's default workspace: its first window opens there. */
+  workspace: WorkspaceKey
+  /** Hyper plus this key cycles through the app's windows or launches it. */
+  key?: WorkspaceKey
+}
 
-export type Apps = Partial<Record<WorkspaceKey, BundleIds>>
+const appFields = new Set(['workspace', 'key', 'bundleId'])
 
-function parseApps(raw: Record<string, unknown>): Apps {
-  const apps: Apps = {}
-  const keyOfBundleId = new Map<string, string>()
+function parseApp(value: unknown, index: number): App {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+    throw new Error(`apps.json: entry ${index + 1} must be { "workspace": …, "key": …, "bundleId": … }`)
+  }
+  const fields = value as Record<string, unknown>
+  const { workspace, key, bundleId } = fields
+  if (typeof bundleId !== 'string' || bundleId === '') throw new Error(`apps.json: entry ${index + 1} needs a bundleId`)
+  const unknownField = Object.keys(fields).find((field) => !appFields.has(field))
+  if (unknownField !== undefined) throw new Error(`apps.json: ${bundleId} has unknown field "${unknownField}"`)
+  if (typeof workspace !== 'string' || !isWorkspaceKey(workspace)) {
+    throw new Error(`apps.json: ${bundleId} needs a workspace, one of ${workspaceKeys.join(' ')}`)
+  }
+  if (key === undefined) return { bundleId, workspace }
+  if (typeof key !== 'string' || !isWorkspaceKey(key)) {
+    throw new Error(`apps.json: key of ${bundleId} must be one of ${workspaceKeys.join(' ')}`)
+  }
+  return { bundleId, workspace, key }
+}
 
-  for (const [key, value] of Object.entries(raw)) {
-    if (!isWorkspaceKey(key)) {
-      throw new Error(`apps.json: "${key}" is not a workspace key (${workspaceKeys.join(' ')})`)
-    }
-    const bundleIds: unknown[] = Array.isArray(value) ? value : [value]
-    if (!isBundleIdList(bundleIds)) {
-      throw new Error(`apps.json: "${key}" must map to a bundle ID or a non-empty list of bundle IDs`)
-    }
-    for (const bundleId of bundleIds) {
-      const otherKey = keyOfBundleId.get(bundleId)
-      if (otherKey !== undefined) throw new Error(`apps.json: ${bundleId} is listed under both "${otherKey}" and "${key}"`)
-      keyOfBundleId.set(bundleId, key)
-    }
-    apps[key] = bundleIds
+function parseApps(raw: unknown[]): App[] {
+  const apps = raw.map(parseApp)
+  const bundleIds = new Set<string>()
+  for (const { bundleId } of apps) {
+    if (bundleIds.has(bundleId)) throw new Error(`apps.json: ${bundleId} is listed twice`)
+    bundleIds.add(bundleId)
   }
   return apps
 }
 
-function isBundleIdList(values: unknown[]): values is BundleIds {
-  return values.length > 0 && values.every((value) => typeof value === 'string' && value !== '')
+/** Maps each key to the bundle ID of its app. */
+function hotkeysOf(apps: App[]): Partial<Record<WorkspaceKey, string>> {
+  const hotkeys: Partial<Record<WorkspaceKey, string>> = {}
+  for (const { bundleId, key } of apps) {
+    if (key === undefined) continue
+    const otherBundleId = hotkeys[key]
+    if (otherBundleId !== undefined) throw new Error(`apps.json: key "${key}" is used by both ${otherBundleId} and ${bundleId}`)
+    hotkeys[key] = bundleId
+  }
+  return hotkeys
 }
 
 export const apps = parseApps(appsJson)
+
+export const hotkeys = hotkeysOf(apps)

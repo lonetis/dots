@@ -6,7 +6,7 @@
 # OmniWM shows as the upper-case display name of a numbered workspace. Every setting is an
 # OMNIWM_* environment variable with its default below.
 
-apps_json="${OMNIWM_APPS_JSON:-$HOME/.config/karabiner-config/src/apps.json}"  # workspace key -> bundle id or list of bundle ids
+apps_json="${OMNIWM_APPS_JSON:-$HOME/.config/karabiner-config/src/apps.json}"  # apps with their workspace key and Karabiner key
 settings_toml="${OMNIWM_SETTINGS:-$HOME/.config/omniwm/settings.toml}"         # OmniWM settings, read for the routing grid
 state_dir="${OMNIWM_HELPER_STATE_DIR:-$HOME/.local/state/omniwm-helper}"       # short-lived pull state
 fallback_key="${OMNIWM_FALLBACK_WORKSPACE:-q}"                                 # workspace for apps missing from apps.json
@@ -91,10 +91,10 @@ current_workspace() {
   printf '%s\n' "$workspace"
 }
 
-# Prints the workspace key apps.json maps the bundle id $1 to, or the fallback key.
+# Prints the workspace key apps.json assigns the bundle id $1 to, or the fallback key.
 default_key() {
   jq -r --arg bundle_id "$1" --arg fallback "$fallback_key" \
-    'first(to_entries[] | select([.value] | flatten | any(. == $bundle_id)) | .key) // $fallback' "$apps_json" \
+    'first(.[] | select(.bundleId == $bundle_id) | .workspace) // $fallback' "$apps_json" \
     || die "cannot read $apps_json"
 }
 

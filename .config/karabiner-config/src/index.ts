@@ -4,7 +4,7 @@
 // src/
 //   rules/          bindings with modifiers, one file per area
 //   layers/         simlayers, one file per trigger key
-//   apps.json       workspace key → bundle IDs, read by the rules, the OmniWM settings and scripts
+//   apps.json       apps with their workspace and key, read by the rules, the OmniWM settings and scripts
 //   workspaces.ts   workspace keys and their OmniWM names
 //   keys.ts         German key labels and the modifier constants
 //   commands.ts     shell commands the bindings run

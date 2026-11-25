@@ -374,7 +374,26 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.openai.codex com.anthropic.claudefordesktop || open -b 'com.openai.codex'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.openai.codex || open -b 'com.openai.codex'"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
                   }
                 ]
               },
@@ -526,7 +545,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.superlogical.rex com.mitchellh.ghostty || open -b 'com.superlogical.rex'"
+                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.mitchellh.ghostty || open -b 'com.mitchellh.ghostty'"
                   }
                 ]
               },
@@ -819,7 +838,27 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.codex com.anthropic.claudefordesktop"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.codex"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.anthropic.claudefordesktop"
                   }
                 ]
               },
@@ -979,7 +1018,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.superlogical.rex com.mitchellh.ghostty"
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.mitchellh.ghostty"
                   }
                 ]
               },

@@ -4,7 +4,7 @@ import { parse } from 'smol-toml'
 import { apps } from './apps.ts'
 import { config } from './config.ts'
 import { formatTableArray, getTableArray, replaceTable, type TomlTable } from './toml.ts'
-import { initialMonitor, workspaceKeys, workspaceLabel, workspaceName, type WorkspaceKey } from './workspaces.ts'
+import { initialMonitor, workspaceKeys, workspaceLabel, workspaceName } from './workspaces.ts'
 
 // Generates two arrays in OmniWM's settings.toml and leaves every other setting alone:
 // - [[workspaces]]: one per workspace key (see workspaces.ts)
@@ -46,13 +46,11 @@ function generateWorkspaces(existing: TomlTable[]): TomlTable[] {
 
 function generateAppRules(existing: TomlTable[]): TomlTable[] {
   const manualRules = existing.filter((rule) => rule.id !== appRuleId(String(rule.bundleId)))
-  const generatedRules = Object.entries(apps).flatMap(([key, bundleIds]) =>
-    bundleIds.map((bundleId) => ({
-      assignToWorkspace: workspaceName(key as WorkspaceKey),
-      bundleId,
-      id: appRuleId(bundleId),
-    })),
-  )
+  const generatedRules = apps.map(({ bundleId, workspace }) => ({
+    assignToWorkspace: workspaceName(workspace),
+    bundleId,
+    id: appRuleId(bundleId),
+  }))
   return [...manualRules, ...generatedRules]
 }
 
