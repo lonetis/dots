@@ -3,16 +3,16 @@
 // covers Homebrew (omniwmctl, node, npm) and ~/.bin. Every value interpolated below is
 // written in this repo, so values are at most wrapped in single quotes, never escaped.
 
-const omniwmScriptsDir = '~/.config/omniwm/scripts'
+const omniwmHelperPath = '~/.config/omniwm/helper/omniwm-helper'
 
 /** Runs a native OmniWM command, e.g. `omniwm('focus left')`. */
 export function omniwm(command: string): string {
   return `omniwmctl command ${command}`
 }
 
-/** Runs one of the helper scripts in ~/.config/omniwm/scripts, e.g. `omniwmScript('cycle', bundleId)`. */
-export function omniwmScript(name: string, ...args: string[]): string {
-  return [`${omniwmScriptsDir}/${name}.sh`, ...args].join(' ')
+/** Runs an action of the OmniWM helper, built from ~/.config/omniwm/helper, e.g. `omniwmHelper('cycle', bundleId)`. */
+export function omniwmHelper(action: string, ...args: string[]): string {
+  return [omniwmHelperPath, action, ...args].join(' ')
 }
 
 /** Runs each command only if the one before it failed, e.g. to fall back from a niri-only OmniWM command. */

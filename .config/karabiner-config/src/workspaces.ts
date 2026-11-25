@@ -32,7 +32,7 @@ export function workspaceName(key: WorkspaceKey): string {
   return String(workspaceKeys.indexOf(key) + 1)
 }
 
-/** The label OmniWM shows in the workspace bar, which the OmniWM scripts look workspaces up by. */
+/** The label OmniWM shows in the workspace bar, which the OmniWM helper looks workspaces up by. */
 export function workspaceLabel(key: WorkspaceKey): string {
   return key.toUpperCase()
 }

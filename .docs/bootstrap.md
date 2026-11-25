@@ -21,6 +21,7 @@ Sets up a Mac from scratch, or brings an existing one up to date: Homebrew, yadm
 | `013-brew-cleanup.sh` | `brew cleanup --prune=all`, `brew autoremove` |
 | `020-dock.sh` | Rebuilds the Dock with `dockutil` |
 | `030-tinycast-extensions.sh` | Builds custom Raycast extensions for Tinycast, see [tinycast.md](tinycast.md) |
+| `031-omniwm-helper.sh` | Builds the OmniWM helper, which isn't tracked, see [omniwm.md](omniwm.md#helper) |
 
 ## How it works
 

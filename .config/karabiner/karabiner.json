@@ -201,7 +201,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.ActivityMonitor || open -b 'com.apple.ActivityMonitor'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.ActivityMonitor || open -b 'com.apple.ActivityMonitor'"
                   }
                 ]
               },
@@ -220,7 +220,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.microsoft.Excel || open -b 'com.microsoft.Excel'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.microsoft.Excel || open -b 'com.microsoft.Excel'"
                   }
                 ]
               },
@@ -239,7 +239,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.install4j.6592-1155-2163-3973.70 || open -b 'com.install4j.6592-1155-2163-3973.70'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.install4j.6592-1155-2163-3973.70 || open -b 'com.install4j.6592-1155-2163-3973.70'"
                   }
                 ]
               },
@@ -258,7 +258,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.microsoft.VSCode || open -b 'com.microsoft.VSCode'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.microsoft.VSCode || open -b 'com.microsoft.VSCode'"
                   }
                 ]
               },
@@ -277,7 +277,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.finder || open -b 'com.apple.finder'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.finder || open -b 'com.apple.finder'"
                   }
                 ]
               },
@@ -296,7 +296,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh org.mozilla.firefox || open -b 'org.mozilla.firefox'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle org.mozilla.firefox || open -b 'org.mozilla.firefox'"
                   }
                 ]
               },
@@ -315,7 +315,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.google.Chrome || open -b 'com.google.Chrome'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.google.Chrome || open -b 'com.google.Chrome'"
                   }
                 ]
               },
@@ -334,7 +334,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.openai.codex || open -b 'com.openai.codex'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.openai.codex || open -b 'com.openai.codex'"
                   }
                 ]
               },
@@ -353,7 +353,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
                   }
                 ]
               },
@@ -372,7 +372,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.iCal || open -b 'com.apple.iCal'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.iCal || open -b 'com.apple.iCal'"
                   }
                 ]
               },
@@ -391,7 +391,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.mail || open -b 'com.apple.mail'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.mail || open -b 'com.apple.mail'"
                   }
                 ]
               },
@@ -410,7 +410,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.Notes || open -b 'com.apple.Notes'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.Notes || open -b 'com.apple.Notes'"
                   }
                 ]
               },
@@ -429,7 +429,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh us.zoom.xos || open -b 'us.zoom.xos'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle us.zoom.xos || open -b 'us.zoom.xos'"
                   }
                 ]
               },
@@ -448,7 +448,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.microsoft.Powerpoint || open -b 'com.microsoft.Powerpoint'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.microsoft.Powerpoint || open -b 'com.microsoft.Powerpoint'"
                   }
                 ]
               },
@@ -467,7 +467,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.reminders || open -b 'com.apple.reminders'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.reminders || open -b 'com.apple.reminders'"
                   }
                 ]
               },
@@ -486,7 +486,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.tinyspeck.slackmacgap || open -b 'com.tinyspeck.slackmacgap'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.tinyspeck.slackmacgap || open -b 'com.tinyspeck.slackmacgap'"
                   }
                 ]
               },
@@ -505,7 +505,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.mitchellh.ghostty || open -b 'com.mitchellh.ghostty'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.mitchellh.ghostty || open -b 'com.mitchellh.ghostty'"
                   }
                 ]
               },
@@ -524,7 +524,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.utmapp.UTM || open -b 'com.utmapp.UTM'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.utmapp.UTM || open -b 'com.utmapp.UTM'"
                   }
                 ]
               },
@@ -543,7 +543,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.microsoft.Word || open -b 'com.microsoft.Word'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.microsoft.Word || open -b 'com.microsoft.Word'"
                   }
                 ]
               },
@@ -562,7 +562,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.Preview || open -b 'com.apple.Preview'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.Preview || open -b 'com.apple.Preview'"
                   }
                 ]
               },
@@ -581,7 +581,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.Safari || open -b 'com.apple.Safari'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.Safari || open -b 'com.apple.Safari'"
                   }
                 ]
               },
@@ -600,7 +600,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.apple.dt.Xcode || open -b 'com.apple.dt.Xcode'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.dt.Xcode || open -b 'com.apple.dt.Xcode'"
                   }
                 ]
               },
@@ -619,7 +619,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh com.google.Chrome.canary || open -b 'com.google.Chrome.canary'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.google.Chrome.canary || open -b 'com.google.Chrome.canary'"
                   }
                 ]
               },
@@ -638,7 +638,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/cycle.sh org.zotero.zotero || open -b 'org.zotero.zotero'"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle org.zotero.zotero || open -b 'org.zotero.zotero'"
                   }
                 ]
               },
@@ -924,7 +924,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.ActivityMonitor"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.ActivityMonitor"
                   }
                 ]
               },
@@ -944,7 +944,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Excel"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.microsoft.Excel"
                   }
                 ]
               },
@@ -964,7 +964,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.install4j.6592-1155-2163-3973.70"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.install4j.6592-1155-2163-3973.70"
                   }
                 ]
               },
@@ -984,7 +984,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.VSCode"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.microsoft.VSCode"
                   }
                 ]
               },
@@ -1004,7 +1004,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.finder"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.finder"
                   }
                 ]
               },
@@ -1024,7 +1024,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh org.mozilla.firefox"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull org.mozilla.firefox"
                   }
                 ]
               },
@@ -1044,7 +1044,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.google.Chrome"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.google.Chrome"
                   }
                 ]
               },
@@ -1064,7 +1064,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.codex"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.openai.codex"
                   }
                 ]
               },
@@ -1084,7 +1084,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.anthropic.claudefordesktop"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.anthropic.claudefordesktop"
                   }
                 ]
               },
@@ -1104,7 +1104,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.iCal"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.iCal"
                   }
                 ]
               },
@@ -1124,7 +1124,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.mail"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.mail"
                   }
                 ]
               },
@@ -1144,7 +1144,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Notes"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.Notes"
                   }
                 ]
               },
@@ -1164,7 +1164,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh us.zoom.xos"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull us.zoom.xos"
                   }
                 ]
               },
@@ -1184,7 +1184,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Powerpoint"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.microsoft.Powerpoint"
                   }
                 ]
               },
@@ -1204,7 +1204,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.reminders"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.reminders"
                   }
                 ]
               },
@@ -1224,7 +1224,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.tinyspeck.slackmacgap"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.tinyspeck.slackmacgap"
                   }
                 ]
               },
@@ -1244,7 +1244,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.mitchellh.ghostty"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.mitchellh.ghostty"
                   }
                 ]
               },
@@ -1264,7 +1264,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.utmapp.UTM"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.utmapp.UTM"
                   }
                 ]
               },
@@ -1284,7 +1284,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Word"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.microsoft.Word"
                   }
                 ]
               },
@@ -1304,7 +1304,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Preview"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.Preview"
                   }
                 ]
               },
@@ -1324,7 +1324,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Safari"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.Safari"
                   }
                 ]
               },
@@ -1344,7 +1344,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.dt.Xcode"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.dt.Xcode"
                   }
                 ]
               },
@@ -1364,7 +1364,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.google.Chrome.canary"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.google.Chrome.canary"
                   }
                 ]
               },
@@ -1384,7 +1384,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh org.zotero.zotero"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull org.zotero.zotero"
                   }
                 ]
               },
@@ -1403,7 +1403,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/toggle.sh com.1password.1password"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper toggle com.1password.1password"
                   }
                 ]
               }
@@ -1428,7 +1428,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 1"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 1"
                   }
                 ]
               },
@@ -1448,7 +1448,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 2"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 2"
                   }
                 ]
               },
@@ -1468,7 +1468,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 3"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 3"
                   }
                 ]
               },
@@ -1488,7 +1488,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 4"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 4"
                   }
                 ]
               },
@@ -1508,7 +1508,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 5"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 5"
                   }
                 ]
               },
@@ -1528,7 +1528,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 6"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 6"
                   }
                 ]
               },
@@ -1548,7 +1548,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 7"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 7"
                   }
                 ]
               },
@@ -1568,7 +1568,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 8"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 8"
                   }
                 ]
               },
@@ -1588,7 +1588,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 9"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 9"
                   }
                 ]
               },
@@ -1608,7 +1608,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh 0"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon 0"
                   }
                 ]
               },
@@ -1628,7 +1628,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh a"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon a"
                   }
                 ]
               },
@@ -1648,7 +1648,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh b"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon b"
                   }
                 ]
               },
@@ -1668,7 +1668,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh c"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon c"
                   }
                 ]
               },
@@ -1688,7 +1688,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh d"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon d"
                   }
                 ]
               },
@@ -1708,7 +1708,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh e"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon e"
                   }
                 ]
               },
@@ -1728,7 +1728,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh f"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon f"
                   }
                 ]
               },
@@ -1748,7 +1748,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh g"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon g"
                   }
                 ]
               },
@@ -1768,7 +1768,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh h"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon h"
                   }
                 ]
               },
@@ -1788,7 +1788,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh i"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon i"
                   }
                 ]
               },
@@ -1808,7 +1808,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh j"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon j"
                   }
                 ]
               },
@@ -1828,7 +1828,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh k"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon k"
                   }
                 ]
               },
@@ -1848,7 +1848,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh l"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon l"
                   }
                 ]
               },
@@ -1868,7 +1868,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh m"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon m"
                   }
                 ]
               },
@@ -1888,7 +1888,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh n"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon n"
                   }
                 ]
               },
@@ -1908,7 +1908,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh o"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon o"
                   }
                 ]
               },
@@ -1928,7 +1928,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh p"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon p"
                   }
                 ]
               },
@@ -1948,7 +1948,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh q"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon q"
                   }
                 ]
               },
@@ -1968,7 +1968,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh r"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon r"
                   }
                 ]
               },
@@ -1988,7 +1988,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh s"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon s"
                   }
                 ]
               },
@@ -2008,7 +2008,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh t"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon t"
                   }
                 ]
               },
@@ -2028,7 +2028,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh u"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon u"
                   }
                 ]
               },
@@ -2048,7 +2048,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh v"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon v"
                   }
                 ]
               },
@@ -2068,7 +2068,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh w"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon w"
                   }
                 ]
               },
@@ -2088,7 +2088,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh x"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon x"
                   }
                 ]
               },
@@ -2108,7 +2108,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh y"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon y"
                   }
                 ]
               },
@@ -2128,7 +2128,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh z"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon z"
                   }
                 ]
               },
@@ -2148,7 +2148,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh ä"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon ä"
                   }
                 ]
               },
@@ -2168,7 +2168,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh ö"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon ö"
                   }
                 ]
               },
@@ -2188,7 +2188,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/summon.sh ü"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper summon ü"
                   }
                 ]
               },
@@ -2209,7 +2209,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 1"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 1"
                   }
                 ]
               },
@@ -2230,7 +2230,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 2"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 2"
                   }
                 ]
               },
@@ -2251,7 +2251,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 3"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 3"
                   }
                 ]
               },
@@ -2272,7 +2272,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 4"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 4"
                   }
                 ]
               },
@@ -2293,7 +2293,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 5"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 5"
                   }
                 ]
               },
@@ -2314,7 +2314,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 6"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 6"
                   }
                 ]
               },
@@ -2335,7 +2335,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 7"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 7"
                   }
                 ]
               },
@@ -2356,7 +2356,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 8"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 8"
                   }
                 ]
               },
@@ -2377,7 +2377,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 9"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 9"
                   }
                 ]
               },
@@ -2398,7 +2398,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 0"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window 0"
                   }
                 ]
               },
@@ -2419,7 +2419,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh a"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window a"
                   }
                 ]
               },
@@ -2440,7 +2440,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh b"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window b"
                   }
                 ]
               },
@@ -2461,7 +2461,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh c"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window c"
                   }
                 ]
               },
@@ -2482,7 +2482,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh d"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window d"
                   }
                 ]
               },
@@ -2503,7 +2503,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh e"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window e"
                   }
                 ]
               },
@@ -2524,7 +2524,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh f"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window f"
                   }
                 ]
               },
@@ -2545,7 +2545,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh g"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window g"
                   }
                 ]
               },
@@ -2566,7 +2566,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh h"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window h"
                   }
                 ]
               },
@@ -2587,7 +2587,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh i"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window i"
                   }
                 ]
               },
@@ -2608,7 +2608,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh j"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window j"
                   }
                 ]
               },
@@ -2629,7 +2629,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh k"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window k"
                   }
                 ]
               },
@@ -2650,7 +2650,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh l"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window l"
                   }
                 ]
               },
@@ -2671,7 +2671,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh m"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window m"
                   }
                 ]
               },
@@ -2692,7 +2692,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh n"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window n"
                   }
                 ]
               },
@@ -2713,7 +2713,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh o"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window o"
                   }
                 ]
               },
@@ -2734,7 +2734,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh p"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window p"
                   }
                 ]
               },
@@ -2755,7 +2755,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh q"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window q"
                   }
                 ]
               },
@@ -2776,7 +2776,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh r"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window r"
                   }
                 ]
               },
@@ -2797,7 +2797,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh s"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window s"
                   }
                 ]
               },
@@ -2818,7 +2818,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh t"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window t"
                   }
                 ]
               },
@@ -2839,7 +2839,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh u"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window u"
                   }
                 ]
               },
@@ -2860,7 +2860,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh v"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window v"
                   }
                 ]
               },
@@ -2881,7 +2881,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh w"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window w"
                   }
                 ]
               },
@@ -2902,7 +2902,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh x"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window x"
                   }
                 ]
               },
@@ -2923,7 +2923,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh y"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window y"
                   }
                 ]
               },
@@ -2944,7 +2944,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh z"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window z"
                   }
                 ]
               },
@@ -2965,7 +2965,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh ä"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window ä"
                   }
                 ]
               },
@@ -2986,7 +2986,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh ö"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window ö"
                   }
                 ]
               },
@@ -3007,7 +3007,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh ü"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window ü"
                   }
                 ]
               },
@@ -3065,7 +3065,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-window.sh default"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper send-window default"
                   }
                 ]
               },
@@ -3085,7 +3085,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-all-to-default.sh"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper move-all-to-default"
                   }
                 ]
               }
@@ -3828,7 +3828,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/close-others.sh"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper close-others"
                   }
                 ]
               }
@@ -3938,7 +3938,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window-to-display.sh prev"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper move-window-to-display prev"
                   }
                 ]
               },
@@ -3958,7 +3958,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window-to-display.sh next"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper move-window-to-display next"
                   }
                 ]
               },
@@ -3978,7 +3978,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-workspace.sh prev"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper move-workspace prev"
                   }
                 ]
               },
@@ -3998,7 +3998,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-workspace.sh next"
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper move-workspace next"
                   }
                 ]
               }

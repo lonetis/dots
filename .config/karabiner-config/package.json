@@ -7,8 +7,9 @@
     "node": ">=26"
   },
   "scripts": {
-    "build": "npm run check && node src/index.ts",
+    "build": "npm run check && npm run helper && node src/index.ts",
     "check": "tsc",
+    "helper": "go -C ../omniwm/helper vet && go -C ../omniwm/helper build -trimpath -ldflags='-s -w' -o omniwm-helper .",
     "update": "npm update"
   },
   "dependencies": {

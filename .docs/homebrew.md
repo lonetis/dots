@@ -13,7 +13,7 @@
 - Bootstrap step `012` runs `brew bundle install --global` (which reads `~/.Brewfile`) and then `brew bundle cleanup --global --force`, which uninstalls and untaps what isn't listed.
 - Sections, in this order: `tap`, `brew`, tap-qualified `brew`, `cask`, `mas`, `vscode`, `go`, `uv`, `npm`. Entries are alphabetical inside each section; the Python formulae keep `brew bundle dump`'s dependency order.
 - Every `brew` and `cask` line has a `# description` comment above it, taken from `brew desc <name>` or `brew desc --cask <name>`. Casks without a description (the fonts) get their name instead.
-- `brew "bash"` makes `/usr/bin/env bash` resolve to bash 5 in shells and GUI apps (PATH from [bootstrap](bootstrap.md) step `002`). The OmniWM scripts rely on it (`inherit_errexit` in `lib.sh`).
+- `brew "bash"` makes `/usr/bin/env bash` resolve to bash 5 in shells and GUI apps (PATH from [bootstrap](bootstrap.md) step `002`).
 
 ## Changing it
 

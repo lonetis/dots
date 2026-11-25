@@ -1,5 +1,5 @@
 import { map, rule, type RuleBuilder } from 'karabiner.ts'
-import { omniwm, omniwmScript, orElse } from '../commands.ts'
+import { omniwm, omniwmHelper, orElse } from '../commands.ts'
 import { deKey, hyper, lCmd, lCmdHyper, lCmdShiftHyper, lCtrlHyper } from '../keys.ts'
 
 // The focused window and the layout of its workspace: Hyper moves focus, left ⌘ + Hyper
@@ -42,7 +42,7 @@ export const windowRules: RuleBuilder[] = [
     // close the window
     map(deKey('w'), lCtrlHyper).to$(omniwm('close-focused-window')),
     // close every other window on the workspace
-    map(deKey('⌫'), lCtrlHyper).to$(omniwmScript('close-others')),
+    map(deKey('⌫'), lCtrlHyper).to$(omniwmHelper('close-others')),
   ]),
 
   rule('omniwm: layout management').manipulators([

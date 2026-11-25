@@ -24,7 +24,7 @@ Personal macOS dotfiles (Apple Silicon, Homebrew in `/opt/homebrew`, German keyb
 | [git.md](.docs/git.md) | `.gitconfig`, commit signing, git-get and `.git-repos` |
 | [ssh.md](.docs/ssh.md) | `.ssh/config`, 1Password SSH agent |
 | [karabiner.md](.docs/karabiner.md) | Karabiner-Elements: every keybinding, written in TypeScript |
-| [omniwm.md](.docs/omniwm.md) | OmniWM window manager, workspaces and the app mapping, helper scripts |
+| [omniwm.md](.docs/omniwm.md) | OmniWM window manager, workspaces and the app mapping, the Go helper |
 | [tinycast.md](.docs/tinycast.md) | Tinycast launcher: settings, extensions, script commands |
 | [claude-code.md](.docs/claude-code.md) | Claude Code settings and the ccstatusline status line |
 | [vscode.md](.docs/vscode.md) | Workspace settings for editing `~` in VS Code |

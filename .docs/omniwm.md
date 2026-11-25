@@ -1,6 +1,6 @@
 # OmniWM
 
-[OmniWM](https://omniwm.app) is the tiling window manager. It also draws the workspace bar, which replaces the macOS menu bar, and the focus border. Its own hotkeys are off: Karabiner drives it through `omniwmctl` and the helper scripts ([karabiner.md](karabiner.md)).
+[OmniWM](https://omniwm.app) is the tiling window manager. It also draws the workspace bar, which replaces the macOS menu bar, and the focus border. Its own hotkeys are off: Karabiner drives it through `omniwmctl` and its own helper program ([karabiner.md](karabiner.md)).
 
 ## Files
 
@@ -10,14 +10,13 @@
 | `.config/omniwm/shell/shell.toml` | yes | hybrid | Bar overrides (`[profiles.default]`): widget layout and `workspaceBar` style. OmniWM's Settings window writes it; hand edits apply too |
 | `.config/omniwm/shell/widgets/meters/init.luau` | yes | manual | Bar widget showing CPU, GPU, memory, storage and network, see below |
 | `.config/omniwm/shell/` (everything else) | no | app | OmniWM-managed profiles, widgets and type definitions, updated with each release |
-| `.config/omniwm/scripts/*.sh` | yes | manual | One script per action that needs state or several calls |
-| `.config/omniwm/scripts/lib.sh` | yes | manual | Shared helpers and the `OMNIWM_*` settings with their defaults |
-| `.config/omniwm/scripts/displays.sh`, `displays.jq` | yes | manual | Display routing and pointer helpers, sourced after `lib.sh` |
+| `.config/omniwm/helper/*.go`, `go.mod` | yes | manual | The helper's Go sources: one file per action, plus `config.go` (the `OMNIWM_*` settings and their defaults), `ipc.go`, `omniwm.go`, `workspaces.go`, `routing.go`, `displays.go`, `pointer.go` and `state.go` |
+| `.config/omniwm/helper/omniwm-helper` | no | build | The helper program, built by the Karabiner build (`npm run helper`) and bootstrap step `031` |
 | `.config/omniwm/scripts/show-menu-bar.sh` | yes | manual | Turns macOS menu bar auto-hide back off, see below |
 | `Library/LaunchAgents/dots.show-menu-bar.plist` | yes | manual | Runs `show-menu-bar.sh` at login and whenever the global preferences change |
 | `~/Library/Logs/dots.show-menu-bar.log` | no | scripts | Errors of `show-menu-bar.sh` |
 | `.config/karabiner-config/src/apps.json`, `workspaces.ts` | yes | manual | Workspace keys, and each app's workspace and key, see below |
-| `~/.local/state/omniwm/`, `~/.local/state/omniwm-helper/` | no | app / scripts | OmniWM's runtime state and the scripts' pull and send state |
+| `~/.local/state/omniwm/`, `~/.local/state/omniwm-helper/` | no | app / helper | OmniWM's runtime state and the helper's pull and send state |
 
 ## How it works
 
@@ -32,17 +31,19 @@
 
 ### Workspaces and apps
 
-- Workspace keys are `1–9`, `0`, `a–z`, `ä ö ü`, in that order (`workspaceKeys` in `workspaces.ts`). OmniWM only accepts positive integers as names, so the key at position *i* becomes workspace `i + 1` with the upper-case key as `displayName` (`1` → `1`, `0` → `10`, `a` → `11`/`A`, `ü` → `39`). Native `omniwmctl` calls use the number, resolved at build time; the scripts take keys and look workspaces up by display name.
+- Workspace keys are `1–9`, `0`, `a–z`, `ä ö ü`, in that order (`workspaceKeys` in `workspaces.ts`). OmniWM only accepts positive integers as names, so the key at position *i* becomes workspace `i + 1` with the upper-case key as `displayName` (`1` → `1`, `0` → `10`, `a` → `11`/`A`, `ü` → `39`). Native `omniwmctl` calls use the number, resolved at build time; the helper takes keys and looks workspaces up by display name.
 - OmniWM numbers its scratchpads 1–10. Right ⌘ + digit toggles one and right ⌘⌥ + digit toggles the focused window's assignment to it, with `0` as scratchpad 10 like workspace 10.
 - New workspaces get the home monitor `main`, except `8` (`secondary`) and `9` (`tertiary`), and the layout `default`. A home changed later in OmniWM's Settings window survives the build.
-- `apps.json` lists the apps, each as `{ "workspace": "t", "key": "t", "bundleId": "…" }`. `workspace` is the app's default workspace, which several apps can share. `key` is optional and belongs to one app only; it doesn't have to match the workspace (Claude has `l` and lives on `i`). An app without a key (Rex) gets its workspace but no Hyper binding. The workspace feeds the generated `assignToWorkspace` rules (OmniWM applies them only while the app has no windows, so its first window lands there) and `send-window.sh default` / `move-all-to-default.sh` (unlisted apps go to `q`). Any workspace key, digit or letter, can be an app's key; the digits have none by default. The key feeds Karabiner: Hyper + key returns to the app's last focused window (OmniWM's `focus-rank`), cycles through its windows while the app has focus, or launches it, and Hyper + a key without an app switches to that key's workspace (`p` toggles 1Password instead). ⌘ + Hyper + key pulls one of its windows to the workspace under the pointer. ⌥ + Hyper + any workspace key pulls that workspace to the display under the pointer, and ⌥⌘ + Hyper + any workspace key sends the focused window there without following it; pressing it again within `OMNIWM_FOLLOW_SECONDS` (0.5 s) follows the window. ⌘ + Hyper + ␣ does the same for the window's app's workspace.
+- `apps.json` lists the apps, each as `{ "workspace": "t", "key": "t", "bundleId": "…" }`. `workspace` is the app's default workspace, which several apps can share. `key` is optional and belongs to one app only; it doesn't have to match the workspace (Claude has `l` and lives on `i`). An app without a key (Rex) gets its workspace but no Hyper binding. The workspace feeds the generated `assignToWorkspace` rules (OmniWM applies them only while the app has no windows, so its first window lands there) and the helper's `send-window default` / `move-all-to-default` (unlisted apps go to `q`). Any workspace key, digit or letter, can be an app's key; the digits have none by default. The key feeds Karabiner: Hyper + key returns to the app's last focused window (OmniWM's `focus-rank`), cycles through its windows while the app has focus, or launches it, and Hyper + a key without an app switches to that key's workspace (`p` toggles 1Password instead). ⌘ + Hyper + key pulls one of its windows to the workspace under the pointer. ⌥ + Hyper + any workspace key pulls that workspace to the display under the pointer, and ⌥⌘ + Hyper + any workspace key sends the focused window there without following it; pressing it again within `OMNIWM_FOLLOW_SECONDS` (0.5 s) follows the window. ⌘ + Hyper + ␣ does the same for the window's app's workspace.
 
-### Scripts
+### Helper
 
-- Bindings use a native `omniwmctl` command whenever one does the job. The scripts (`cycle.sh`, `pull.sh`, `summon.sh`, `close-others.sh`, …) are named after their action and need bash 5 and `jq` (`/usr/bin/jq` ships with macOS). They take settings from `OMNIWM_*` environment variables (defaults at the top of `lib.sh`), print errors on stderr and exit 1. `cycle.sh` also exits 1 when the app has no windows, so Karabiner launches it.
-- `omniwmctl command move-to-workspace` doesn't make focus follow the window, which `send-window.sh` relies on to send a window to a background workspace. A second press follows with `omniwmctl window navigate`. Presses take turns through a lock directory, because a quick second press starts while the first still runs.
-- OmniWM moves a workspace only to an *adjacent* monitor (`omniwmctl workspace move-to-monitor --force`, a runtime override that a settings reload clears). `displays.sh` reads the routing grid from `settings.toml` with `awk` (relying on OmniWM's canonical layout), finds a route with the jq functions in `displays.jq`, hops along it and restores what the displays in between showed. It reads and moves the pointer through `osascript -l JavaScript`.
-- The pointer stays where it is when focus changes: OmniWM's `focus.moveMouseToFocusedWindow` is off, and `move-workspace.sh` moves the pointer along with the workspace only with `OMNIWM_WARP_POINTER=true`.
+- Bindings use a native `omniwmctl` command whenever one does the job. Actions that need state or several requests run `omniwm-helper <action>`, a Go program with one file per action (`cycle.go`, `pull.go`, `summon.go`, `send_window.go`, …). It talks to OmniWM's IPC socket itself instead of starting `omniwmctl` for every request (about 5 ms each), so most actions take 3–4 ms. It reads its settings from `OMNIWM_*` environment variables (defaults in `config.go`), prints errors on stderr and exits 1. `cycle` also exits 1 when the app has no windows, so Karabiner launches it.
+- OmniWM doesn't document its IPC protocol: one JSON line per request to `~/Library/Application Support/com.barut.OmniWM/ipc.sock`, authenticated with the token in `ipc.sock.secret` next to it, at protocol version 22 (`ipc.go`, `omniwm.go`). `omniwmctl` speaks the same protocol, so after an OmniWM update that changes it, point `OMNIWM_SOCKET` at a socket that logs requests to see what `omniwmctl` sends now.
+- Moving the focused window with the `move-to-workspace` command doesn't make focus follow it, which `send-window` relies on to send a window to a background workspace. A second press follows with `window navigate`. Presses take turns through a lock directory, because a quick second press starts while the first still runs.
+- OmniWM moves a workspace only to an *adjacent* monitor (`workspace move-to-monitor` with `force`, a runtime override that a settings reload clears). The helper reads the routing grid from `settings.toml` with a scanner that relies on OmniWM's canonical layout (`routing.go`), finds a route over adjacent monitors, hops along it and restores what the displays in between showed (`displays.go`).
+- The helper reads and moves the pointer through CoreGraphics (`pointer.go`). It loads CoreGraphics only for the actions that need the pointer, because loading it takes about 13 ms, which is most of what `pull` and `summon` cost.
+- The pointer stays where it is when focus changes: OmniWM's `focus.moveMouseToFocusedWindow` is off, and `move-workspace` moves the pointer along with the workspace only with `OMNIWM_WARP_POINTER=true`.
 
 ## Changing it
 
@@ -50,6 +51,7 @@
 - Workspaces and app rules: edit `apps.json` or `workspaces.ts`, run the Karabiner build, and stage `apps.json`, `karabiner.json` and `settings.toml` together. Find a bundle ID with `mdls -name kMDItemCFBundleIdentifier -r /Applications/<App>.app`.
 - Only append to `workspaceKeys`. Inserting a key renumbers every later workspace, and OmniWM keeps windows on their workspace *number* across a reload.
 - Every write of `settings.toml` makes OmniWM reload, which drops runtime workspace-to-monitor moves; the build skips unchanged writes for this reason.
+- Helper: edit its Go files and run the Karabiner build, or `npm run helper` in `~/.config/karabiner-config` to rebuild only the helper. Bindings use the new program at once.
 - Track only files you add under `shell/`. The `a` simlayer opens the folder (`c`) and restarts OmniWM (`r`).
 - After editing the LaunchAgent, reload it: `launchctl bootout gui/$(id -u)/dots.show-menu-bar; launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/dots.show-menu-bar.plist`. Once #1270 is fixed, boot it out and delete it with `show-menu-bar.sh`.
 
@@ -58,3 +60,4 @@
 - Grant OmniWM Accessibility and Input Monitoring.
 - Turn on Start at Login in OmniWM's Settings (macOS stores it, not `settings.toml`).
 - Keep "Displays have separate Spaces" on, and run Monitor Setup when the displays change.
+- The helper program isn't tracked: bootstrap step `031` builds it, or run `npm run helper` in `~/.config/karabiner-config`.

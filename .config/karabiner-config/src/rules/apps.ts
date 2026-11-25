@@ -1,6 +1,6 @@
 import { map, rule, withMapper, type RuleBuilder } from 'karabiner.ts'
 import { hotkeys } from '../apps.ts'
-import { omniwm, omniwmScript, openApp, orElse } from '../commands.ts'
+import { omniwm, omniwmHelper, openApp, orElse } from '../commands.ts'
 import { deKey, hyper, lCmdHyper } from '../keys.ts'
 import { workspaceKeys, workspaceName } from '../workspaces.ts'
 
@@ -14,7 +14,7 @@ export const appRules: RuleBuilder[] = [
   rule('omniwm: app management').manipulators([
     // return to the key's app's last focused window, then cycle through its windows, or launch it
     withMapper(hotkeys)((key, bundleId) =>
-      map(deKey(key), hyper).to$(orElse(omniwmScript('cycle', bundleId), openApp(bundleId))),
+      map(deKey(key), hyper).to$(orElse(omniwmHelper('cycle', bundleId), openApp(bundleId))),
     ),
     // switch to the workspace of a key that no app has
     withMapper(keysWithoutApp)((key) =>
@@ -22,9 +22,9 @@ export const appRules: RuleBuilder[] = [
     ),
     // pull a window of the key's app to the workspace under the pointer
     withMapper(hotkeys)((key, bundleId) =>
-      map(deKey(key), lCmdHyper).to$(omniwmScript('pull', bundleId)),
+      map(deKey(key), lCmdHyper).to$(omniwmHelper('pull', bundleId)),
     ),
     // show or hide 1Password on top of the current workspace
-    map(deKey(onePasswordKey), hyper).to$(omniwmScript('toggle', 'com.1password.1password')),
+    map(deKey(onePasswordKey), hyper).to$(omniwmHelper('toggle', 'com.1password.1password')),
   ]),
 ]

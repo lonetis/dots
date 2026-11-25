@@ -7,7 +7,7 @@ import { isWorkspaceKey, workspaceKeys, type WorkspaceKey } from './workspaces.t
 // up with:
 //   mdls -name kMDItemCFBundleIdentifier -r /Applications/<App>.app
 //
-// The OmniWM scripts read apps.json at runtime too (OMNIWM_APPS_JSON in their lib.sh).
+// The OmniWM helper reads apps.json at runtime too (OMNIWM_APPS_JSON).
 
 export interface App {
   bundleId: string
