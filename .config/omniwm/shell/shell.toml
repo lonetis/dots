@@ -6,6 +6,9 @@ center = ["active-window"]
 leading = ["apple-menu", "app-menu", "omniwm", "workspaces", "scratchpads"]
 trailing = ["media", "notifications", "volume", "wifi", "battery-details", "control-center", "system-stats", "clock"]
 
+[profiles.default.hiddenBar]
+enabled = false
+
 [profiles.default.workspaceBar]
 fullWidth = true
 position = "bottom"
