@@ -179,8 +179,6 @@ cask "1password"
 cask "1password-cli@beta"
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader"
-# Chromium based browser
-cask "arc"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
 # Web browser focusing on privacy
@@ -227,8 +225,6 @@ cask "google-chrome@canary"
 cask "google-chrome@dev"
 # Desktop app for terminals and coding agents
 cask "herdr-app"
-# Hex editor focussing on speed
-cask "hex-fiend"
 # Homebrew's official GUI
 cask "homebrew-app"
 # Keyboard customiser
@@ -265,8 +261,6 @@ cask "sf-symbols"
 cask "signal"
 # Lightweight CSV editor
 cask "tablecruncher"
-# Native GUI for Homebrew package management
-cask "taphouse"
 # Application launcher and productivity tool
 cask "tinycast"
 # Open-source BitTorrent client
