@@ -8,7 +8,7 @@ import { deKey, hyper, lCtrlHyper } from '../keys.ts'
 
 export const appRules: RuleBuilder[] = [
   rule('omniwm: app management').manipulators([
-    // cycle through the windows of the key's app, or launch it
+    // return to the key's app's last focused window, then cycle through its windows, or launch it
     withMapper(hotkeys)((key, bundleId) =>
       map(deKey(key), hyper).to$(orElse(omniwmScript('cycle', bundleId), openApp(bundleId))),
     ),

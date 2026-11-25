@@ -51,7 +51,7 @@ workspaces() {
 }
 
 windows() {
-  query windows "$@" --fields id,window-id,app,workspace,display,is-focused,is-scratchpad | jq -c '.windows'
+  query windows "$@" --fields id,window-id,app,workspace,display,is-focused,is-scratchpad,focus-rank | jq -c '.windows'
 }
 
 # Prints the JSON list of windows of the apps with the given bundle IDs.
