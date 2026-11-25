@@ -8,9 +8,10 @@
 
 apps_json="${OMNIWM_APPS_JSON:-$HOME/.config/karabiner-config/src/apps.json}"  # apps with their workspace key and Karabiner key
 settings_toml="${OMNIWM_SETTINGS:-$HOME/.config/omniwm/settings.toml}"         # OmniWM settings, read for the routing grid
-state_dir="${OMNIWM_HELPER_STATE_DIR:-$HOME/.local/state/omniwm-helper}"       # short-lived pull state
+state_dir="${OMNIWM_HELPER_STATE_DIR:-$HOME/.local/state/omniwm-helper}"       # short-lived pull and send state
 fallback_key="${OMNIWM_FALLBACK_WORKSPACE:-q}"                                 # workspace for apps missing from apps.json
 pull_restore_seconds="${OMNIWM_PULL_RESTORE_SECONDS:-5}"                       # a repeated pull within this time sends the last pulled window back
+follow_seconds="${OMNIWM_FOLLOW_SECONDS:-0.5}"                                 # pressing a send key again within this time follows the window
 warp_pointer="${OMNIWM_WARP_POINTER:-false}"                                   # true: move-workspace.sh moves the pointer along to the workspace's new display
 
 shopt -s inherit_errexit
@@ -97,17 +98,4 @@ default_key() {
   jq -r --arg bundle_id "$1" --arg fallback "$fallback_key" \
     'first(.[] | select(.bundleId == $bundle_id) | .workspace) // $fallback' "$apps_json" \
     || die "cannot read $apps_json"
-}
-
-quit_app() {
-  osascript -e "tell application id \"$1\" to quit" >/dev/null
-}
-
-# Reads --quit-if-last-window, the only option of the close scripts, and prints true or false.
-parse_quit_option() {
-  case $* in
-    "") echo false ;;
-    --quit-if-last-window) echo true ;;
-    *) die "usage: ${0##*/} [--quit-if-last-window]" ;;
-  esac
 }

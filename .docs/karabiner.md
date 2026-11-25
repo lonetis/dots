@@ -16,7 +16,7 @@ Every keybinding lives here, including all of OmniWM's ([omniwm.md](omniwm.md)).
 | Source | Purpose |
 |---|---|
 | `src/index.ts` | Entry point: builds, checks, then writes both outputs |
-| `src/rules/` | Bindings with modifiers, one file per area (system, omniwm, apps, workspaces, windows, displays, utm); the order in `rules/index.ts` is their priority |
+| `src/rules/` | Bindings with modifiers, one file per area (system, omniwm, apps, workspaces, scratchpads, windows, displays, utm); the order in `rules/index.ts` is their priority |
 | `src/layers/` | Simlayers, one file per trigger key, registered in `layers/index.ts` |
 | `src/keys.ts` | `deKey()` (German key labels → US key codes) and the modifier constants (`hyper`, `lCmdHyper`, `rCmd`, …) |
 | `src/commands.ts` | Builders for the shell commands bindings run: `omniwm()`, `omniwmScript()`, `tinycast()`, `tinycastExtension()`, `systemSettings()`, `notify()`, … |

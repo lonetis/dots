@@ -58,11 +58,6 @@ export function notify(title: string): string {
   return `osascript -e 'display notification with title "${title}"'`
 }
 
-/** Quits the app when it runs, launches it otherwise. */
-export function toggleApp(app: string): string {
-  return `if pgrep -xq '${app}'; then osascript -e 'quit app "${app}"'; else open -a '${app}'; fi`
-}
-
 /** Quits the app, waits up to 10 s for it to exit, launches it again and reports the outcome. */
 export function restartApp(app: string): string {
   return [

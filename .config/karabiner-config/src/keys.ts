@@ -55,6 +55,8 @@ export const lAltHyper: ModifierParam = { left: '⌥', right: '⌘⌥⌃⇧' }
 export const lCtrlHyper: ModifierParam = { left: '⌃', right: '⌘⌥⌃⇧' }
 export const lShiftHyper: ModifierParam = { left: '⇧', right: '⌘⌥⌃⇧' }
 export const lCmdShiftHyper: ModifierParam = { left: '⌘⇧', right: '⌘⌥⌃⇧' }
+export const lAltShiftHyper: ModifierParam = { left: '⌥⇧', right: '⌘⌥⌃⇧' }
+export const lCmdAltHyper: ModifierParam = { left: '⌘⌥', right: '⌘⌥⌃⇧' }
 
 export const rCmd: ModifierParam = { right: '⌘' }
 export const rCmdAlt: ModifierParam = { right: '⌘⌥' }

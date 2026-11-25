@@ -112,23 +112,6 @@
                     "shell_command": "open -b com.apple.screenshot.launcher"
                   }
                 ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "return_or_enter",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_option",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/new-window.sh"
-                  }
-                ]
               }
             ]
           },
@@ -138,7 +121,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "return_or_enter",
+                  "key_code": "spacebar",
                   "modifiers": {
                     "mandatory": [
                       "right_command",
@@ -160,7 +143,7 @@
                   "key_code": "return_or_enter",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
+                      "left_command",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -185,29 +168,6 @@
                   "key_code": "return_or_enter",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
-                      "left_option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "omniwmctl command toggle-quake-terminal"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "omniwm: on/off",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "escape",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -217,7 +177,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "if pgrep -xq 'OmniWM'; then osascript -e 'quit app \"OmniWM\"'; else open -a 'OmniWM'; fi"
+                    "shell_command": "omniwmctl command toggle-quake-terminal"
                   }
                 ]
               }
@@ -685,510 +645,6 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.ActivityMonitor"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "quote",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Excel"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "b",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.install4j.6592-1155-2163-3973.70"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.VSCode"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.finder"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh org.mozilla.firefox"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "g",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.google.Chrome"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "i",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.codex"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.anthropic.claudefordesktop"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.iCal"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.mail"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Notes"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "o",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh us.zoom.xos"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "semicolon",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Powerpoint"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.reminders"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.tinyspeck.slackmacgap"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "t",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.mitchellh.ghostty"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "u",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.utmapp.UTM"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "open_bracket",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Word"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Preview"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Safari"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "x",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.dt.Xcode"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "z",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.google.Chrome.canary"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "y",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/pull.sh org.zotero.zotero"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/toggle.sh com.1password.1password"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "omniwm: workspace management",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "1",
                   "modifiers": {
                     "mandatory": [
@@ -1379,10 +835,594 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command switch-workspace 14"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command switch-workspace 18"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command switch-workspace 20"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command switch-workspace 27"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.ActivityMonitor"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Excel"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.install4j.6592-1155-2163-3973.70"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.VSCode"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.finder"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh org.mozilla.firefox"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.google.Chrome"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.openai.codex"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.anthropic.claudefordesktop"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.iCal"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.mail"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Notes"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh us.zoom.xos"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Powerpoint"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.reminders"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.tinyspeck.slackmacgap"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.mitchellh.ghostty"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.utmapp.UTM"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "open_bracket",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.microsoft.Word"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Preview"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.Safari"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.apple.dt.Xcode"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh com.google.Chrome.canary"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/pull.sh org.zotero.zotero"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/scripts/toggle.sh com.1password.1password"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "omniwm: workspace management",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "1",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1398,7 +1438,11 @@
                   "key_code": "2",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1414,7 +1458,11 @@
                   "key_code": "3",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1430,7 +1478,11 @@
                   "key_code": "4",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1446,7 +1498,11 @@
                   "key_code": "5",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1462,7 +1518,11 @@
                   "key_code": "6",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1478,7 +1538,11 @@
                   "key_code": "7",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1494,7 +1558,11 @@
                   "key_code": "8",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1510,7 +1578,11 @@
                   "key_code": "9",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1526,7 +1598,11 @@
                   "key_code": "0",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1542,7 +1618,11 @@
                   "key_code": "a",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1558,7 +1638,11 @@
                   "key_code": "b",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1574,7 +1658,11 @@
                   "key_code": "c",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1590,7 +1678,11 @@
                   "key_code": "d",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1606,7 +1698,11 @@
                   "key_code": "e",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1622,7 +1718,11 @@
                   "key_code": "f",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1638,7 +1738,11 @@
                   "key_code": "g",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1654,7 +1758,11 @@
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1670,7 +1778,11 @@
                   "key_code": "i",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1686,7 +1798,11 @@
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1702,7 +1818,11 @@
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1718,7 +1838,11 @@
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1734,7 +1858,11 @@
                   "key_code": "m",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1750,7 +1878,11 @@
                   "key_code": "n",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1766,7 +1898,11 @@
                   "key_code": "o",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1782,7 +1918,11 @@
                   "key_code": "p",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1798,7 +1938,11 @@
                   "key_code": "q",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1814,7 +1958,11 @@
                   "key_code": "r",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1830,7 +1978,11 @@
                   "key_code": "s",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1846,7 +1998,11 @@
                   "key_code": "t",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1862,7 +2018,11 @@
                   "key_code": "u",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1878,7 +2038,11 @@
                   "key_code": "v",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1894,7 +2058,11 @@
                   "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1910,7 +2078,11 @@
                   "key_code": "x",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1926,7 +2098,11 @@
                   "key_code": "z",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1942,7 +2118,11 @@
                   "key_code": "y",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1958,7 +2138,11 @@
                   "key_code": "quote",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1974,7 +2158,11 @@
                   "key_code": "semicolon",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -1990,7 +2178,11 @@
                   "key_code": "open_bracket",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "left_option",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
@@ -2006,14 +2198,18 @@
                   "key_code": "1",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 1"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 1"
                   }
                 ]
               },
@@ -2023,14 +2219,18 @@
                   "key_code": "2",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 2"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 2"
                   }
                 ]
               },
@@ -2040,14 +2240,18 @@
                   "key_code": "3",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 3"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 3"
                   }
                 ]
               },
@@ -2057,14 +2261,18 @@
                   "key_code": "4",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 4"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 4"
                   }
                 ]
               },
@@ -2074,14 +2282,18 @@
                   "key_code": "5",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 5"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 5"
                   }
                 ]
               },
@@ -2091,14 +2303,18 @@
                   "key_code": "6",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 6"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 6"
                   }
                 ]
               },
@@ -2108,14 +2324,18 @@
                   "key_code": "7",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 7"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 7"
                   }
                 ]
               },
@@ -2125,14 +2345,18 @@
                   "key_code": "8",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 8"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 8"
                   }
                 ]
               },
@@ -2142,14 +2366,18 @@
                   "key_code": "9",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 9"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 9"
                   }
                 ]
               },
@@ -2159,14 +2387,18 @@
                   "key_code": "0",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh 0"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh 0"
                   }
                 ]
               },
@@ -2176,14 +2408,18 @@
                   "key_code": "a",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh a"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh a"
                   }
                 ]
               },
@@ -2193,14 +2429,18 @@
                   "key_code": "b",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh b"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh b"
                   }
                 ]
               },
@@ -2210,14 +2450,18 @@
                   "key_code": "c",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh c"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh c"
                   }
                 ]
               },
@@ -2227,14 +2471,18 @@
                   "key_code": "d",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh d"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh d"
                   }
                 ]
               },
@@ -2244,14 +2492,18 @@
                   "key_code": "e",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh e"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh e"
                   }
                 ]
               },
@@ -2261,14 +2513,18 @@
                   "key_code": "f",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh f"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh f"
                   }
                 ]
               },
@@ -2278,14 +2534,18 @@
                   "key_code": "g",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh g"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh g"
                   }
                 ]
               },
@@ -2295,14 +2555,18 @@
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh h"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh h"
                   }
                 ]
               },
@@ -2312,14 +2576,18 @@
                   "key_code": "i",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh i"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh i"
                   }
                 ]
               },
@@ -2329,14 +2597,18 @@
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh j"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh j"
                   }
                 ]
               },
@@ -2346,14 +2618,18 @@
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh k"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh k"
                   }
                 ]
               },
@@ -2363,14 +2639,18 @@
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh l"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh l"
                   }
                 ]
               },
@@ -2380,14 +2660,18 @@
                   "key_code": "m",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh m"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh m"
                   }
                 ]
               },
@@ -2397,14 +2681,18 @@
                   "key_code": "n",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh n"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh n"
                   }
                 ]
               },
@@ -2414,14 +2702,18 @@
                   "key_code": "o",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh o"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh o"
                   }
                 ]
               },
@@ -2431,14 +2723,18 @@
                   "key_code": "p",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh p"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh p"
                   }
                 ]
               },
@@ -2448,14 +2744,18 @@
                   "key_code": "q",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh q"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh q"
                   }
                 ]
               },
@@ -2465,14 +2765,18 @@
                   "key_code": "r",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh r"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh r"
                   }
                 ]
               },
@@ -2482,14 +2786,18 @@
                   "key_code": "s",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh s"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh s"
                   }
                 ]
               },
@@ -2499,14 +2807,18 @@
                   "key_code": "t",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh t"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh t"
                   }
                 ]
               },
@@ -2516,14 +2828,18 @@
                   "key_code": "u",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh u"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh u"
                   }
                 ]
               },
@@ -2533,14 +2849,18 @@
                   "key_code": "v",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh v"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh v"
                   }
                 ]
               },
@@ -2550,14 +2870,18 @@
                   "key_code": "w",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh w"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh w"
                   }
                 ]
               },
@@ -2567,14 +2891,18 @@
                   "key_code": "x",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh x"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh x"
                   }
                 ]
               },
@@ -2584,14 +2912,18 @@
                   "key_code": "z",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh y"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh y"
                   }
                 ]
               },
@@ -2601,14 +2933,18 @@
                   "key_code": "y",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh z"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh z"
                   }
                 ]
               },
@@ -2618,14 +2954,18 @@
                   "key_code": "quote",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh ä"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh ä"
                   }
                 ]
               },
@@ -2635,14 +2975,18 @@
                   "key_code": "semicolon",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh ö"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh ö"
                   }
                 ]
               },
@@ -2652,14 +2996,18 @@
                   "key_code": "open_bracket",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
+                      "left_option",
                       "right_command",
-                      "right_option"
+                      "right_option",
+                      "right_control",
+                      "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-window.sh ü"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh ü"
                   }
                 ]
               },
@@ -2704,9 +3052,10 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "escape",
+                  "key_code": "spacebar",
                   "modifiers": {
                     "mandatory": [
+                      "left_command",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2716,17 +3065,17 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-to-default.sh"
+                    "shell_command": "~/.config/omniwm/scripts/send-window.sh default"
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "escape",
+                  "key_code": "spacebar",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2743,6 +3092,341 @@
             ]
           },
           {
+            "description": "omniwm: scratchpad management",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 1"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 2"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 3"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 4"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 5"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "6",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 6"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "7",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 7"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "8",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 8"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "9",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 9"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad toggle 10"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 1"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 2"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 3"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 4"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 5"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "6",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 6"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "7",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 7"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "8",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 8"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "9",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 9"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command scratchpad assign 10"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "omniwm: window management",
             "manipulators": [
               {
@@ -2751,7 +3435,6 @@
                   "key_code": "up_arrow",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2771,7 +3454,6 @@
                   "key_code": "down_arrow",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2791,7 +3473,6 @@
                   "key_code": "left_arrow",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2811,7 +3492,6 @@
                   "key_code": "right_arrow",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2828,7 +3508,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "w",
+                  "key_code": "up_arrow",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
@@ -2848,7 +3528,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "s",
+                  "key_code": "down_arrow",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
@@ -2868,7 +3548,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "a",
+                  "key_code": "left_arrow",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
@@ -2888,7 +3568,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "d",
+                  "key_code": "right_arrow",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
@@ -2908,10 +3588,11 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "k",
+                  "key_code": "up_arrow",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
+                      "left_shift",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2928,10 +3609,11 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "j",
+                  "key_code": "down_arrow",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
+                      "left_shift",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2948,10 +3630,11 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "h",
+                  "key_code": "left_arrow",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
+                      "left_shift",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2968,10 +3651,11 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "l",
+                  "key_code": "right_arrow",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
+                      "left_shift",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -2982,86 +3666,6 @@
                 "to": [
                   {
                     "shell_command": "omniwmctl command consume-or-expel-window-right || omniwmctl command move right"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "1",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "omniwmctl command focus-column 1"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "omniwmctl command focus-column 2"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "omniwmctl command focus-column 3"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "4",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "omniwmctl command focus-column 4"
                   }
                 ]
               },
@@ -3111,7 +3715,7 @@
                   "key_code": "b",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3151,7 +3755,7 @@
                   "key_code": "f",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3168,31 +3772,10 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "left_shift",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "omniwmctl command toggle-native-fullscreen"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "m",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3212,10 +3795,10 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "x",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3232,31 +3815,10 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "x",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "left_shift",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/close.sh --quit-if-last-window"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "delete_or_backspace",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3267,27 +3829,6 @@
                 "to": [
                   {
                     "shell_command": "~/.config/omniwm/scripts/close-others.sh"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "delete_or_backspace",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "left_shift",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/close-others.sh --quit-if-last-window"
                   }
                 ]
               }
@@ -3302,7 +3843,7 @@
                   "key_code": "t",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3319,10 +3860,30 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "v",
+                  "key_code": "r",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_control",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "omniwmctl command raise-all-floating-windows"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3339,31 +3900,10 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "left_shift",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "omniwmctl command toggle-split"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "c",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_control",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3385,30 +3925,10 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "e",
+                  "key_code": "comma",
                   "modifiers": {
                     "mandatory": [
-                      "left_option",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/move-window-to-display.sh next"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_option",
+                      "left_command",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3425,7 +3945,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "e",
+                  "key_code": "period",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
@@ -3438,17 +3958,17 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/move-workspace.sh next"
+                    "shell_command": "~/.config/omniwm/scripts/move-window-to-display.sh next"
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "q",
+                  "key_code": "comma",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
+                      "left_option",
                       "right_command",
                       "right_option",
                       "right_control",
@@ -3465,702 +3985,20 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "1",
+                  "key_code": "period",
                   "modifiers": {
                     "mandatory": [
+                      "left_option",
                       "right_command",
                       "right_option",
+                      "right_control",
                       "right_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 1"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 2"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 3"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "4",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 4"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "5",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 5"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "6",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 6"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "7",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 7"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "8",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 8"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "9",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 9"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "0",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh 0"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh a"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "b",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh b"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh c"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh d"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh e"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh f"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "g",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh g"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh h"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "i",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh i"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh j"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh k"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh l"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh m"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh n"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "o",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh o"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh p"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh q"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh r"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh s"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "t",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh t"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "u",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh u"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh v"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh w"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "x",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh x"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "z",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh y"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "y",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh z"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "quote",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh ä"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "semicolon",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh ö"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "open_bracket",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/scripts/send-workspace.sh ü"
+                    "shell_command": "~/.config/omniwm/scripts/move-workspace.sh next"
                   }
                 ]
               }

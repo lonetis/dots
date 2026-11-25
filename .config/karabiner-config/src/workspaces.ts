@@ -19,8 +19,8 @@ export type MonitorAssignment = 'main' | 'secondary' | 'tertiary'
 // Home monitor of a workspace when the build first creates it. A home changed later in
 // OmniWM's Settings window survives the build.
 const initialMonitors: Partial<Record<WorkspaceKey, MonitorAssignment>> = {
-  '4': 'secondary', '5': 'secondary', '6': 'secondary',
-  '7': 'tertiary', '8': 'tertiary', '9': 'tertiary',
+  '8': 'secondary',
+  '9': 'tertiary',
 }
 
 export function isWorkspaceKey(key: string): key is WorkspaceKey {

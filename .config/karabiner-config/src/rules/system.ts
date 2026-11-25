@@ -1,6 +1,5 @@
 import { ifDevice, map, rule, type RuleBuilder } from 'karabiner.ts'
-import { omniwmScript } from '../commands.ts'
-import { deKey, lAltShift, lCmd, lCmdShift } from '../keys.ts'
+import { deKey, lCmd, lCmdShift } from '../keys.ts'
 
 // macOS-wide keys that have nothing to do with window management.
 
@@ -30,7 +29,5 @@ export const systemRules: RuleBuilder[] = [
   rule('macos shortcuts').manipulators([
     // the Screenshot app instead of the area capture
     map(deKey('4'), lCmdShift).to$('open -b com.apple.screenshot.launcher'),
-    // new window of the focused app (not every app supports it)
-    map(deKey('⏎'), lAltShift).to$(omniwmScript('new-window')),
   ]),
 ]

@@ -1,10 +1,14 @@
 import { map, rule, withMapper, type RuleBuilder } from 'karabiner.ts'
 import { hotkeys } from '../apps.ts'
-import { omniwmScript, openApp, orElse } from '../commands.ts'
-import { deKey, hyper, lCtrlHyper } from '../keys.ts'
+import { omniwm, omniwmScript, openApp, orElse } from '../commands.ts'
+import { deKey, hyper, lCmdHyper } from '../keys.ts'
+import { workspaceKeys, workspaceName } from '../workspaces.ts'
 
-// One app per key, from apps.json. Hyper plus a digit switches workspaces instead
-// (rules/workspaces.ts), so a digit key in apps.json fails the build as a conflict.
+// Hyper plus a workspace key, digits and letters alike: the key's app from apps.json, or
+// the key's workspace when no app has the key. p toggles 1Password instead, so workspace P
+// has no Hyper binding, and an app on p in apps.json fails the build as a conflict.
+const onePasswordKey = 'p'
+const keysWithoutApp = workspaceKeys.filter((key) => hotkeys[key] === undefined && key !== onePasswordKey)
 
 export const appRules: RuleBuilder[] = [
   rule('omniwm: app management').manipulators([
@@ -12,11 +16,15 @@ export const appRules: RuleBuilder[] = [
     withMapper(hotkeys)((key, bundleId) =>
       map(deKey(key), hyper).to$(orElse(omniwmScript('cycle', bundleId), openApp(bundleId))),
     ),
+    // switch to the workspace of a key that no app has
+    withMapper(keysWithoutApp)((key) =>
+      map(deKey(key), hyper).to$(omniwm(`switch-workspace ${workspaceName(key)}`)),
+    ),
     // pull a window of the key's app to the workspace under the pointer
     withMapper(hotkeys)((key, bundleId) =>
-      map(deKey(key), lCtrlHyper).to$(omniwmScript('pull', bundleId)),
+      map(deKey(key), lCmdHyper).to$(omniwmScript('pull', bundleId)),
     ),
     // show or hide 1Password on top of the current workspace
-    map(deKey('p'), hyper).to$(omniwmScript('toggle', 'com.1password.1password')),
+    map(deKey(onePasswordKey), hyper).to$(omniwmScript('toggle', 'com.1password.1password')),
   ]),
 ]

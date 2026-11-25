@@ -2,6 +2,7 @@ import type { RuleBuilder } from 'karabiner.ts'
 import { appRules } from './apps.ts'
 import { displayRules } from './displays.ts'
 import { omniwmRules } from './omniwm.ts'
+import { scratchpadRules } from './scratchpads.ts'
 import { systemRules } from './system.ts'
 import { utmRules } from './utm.ts'
 import { windowRules } from './windows.ts'
@@ -15,6 +16,7 @@ export const rules: RuleBuilder[] = [
   ...omniwmRules,
   ...appRules,
   ...workspaceRules,
+  ...scratchpadRules,
   ...windowRules,
   ...displayRules,
   ...utmRules,
