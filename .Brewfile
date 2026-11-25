@@ -1,7 +1,6 @@
 tap "jesseduffield/lazydocker"
 tap "lonetis/webster", "https://github.com/lonetis/webster"
 tap "openpubkey/opkssh"
-tap "steipete/tap"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Checks ansible playbooks for practices and behaviour
@@ -64,8 +63,6 @@ brew "imagemagick"
 brew "ipatool"
 # Update of iperf: measures TCP, UDP, and SCTP bandwidth
 brew "iperf3"
-# Featureful UNIX password cracker
-brew "john"
 # Handy way to save and run project-specific commands
 brew "just"
 # Simple terminal UI for git commands
@@ -200,8 +197,6 @@ cask "claude"
 cask "claude-code@latest"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
-# Menu bar usage monitor for Codex and Claude
-cask "steipete/tap/codexbar", trusted: true
 # Voice and text chat software
 cask "discord"
 # App to build and share containerised applications and microservices
@@ -341,11 +336,6 @@ vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
