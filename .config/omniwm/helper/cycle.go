@@ -5,11 +5,12 @@ import (
 	"slices"
 )
 
-// cycle steps through the apps with the given bundle IDs as one list, in apps.json order:
-// each app's windows by workspace, then window id, and an app without windows as one stop
-// that launches it. While one of their windows has focus, it goes to the next stop,
-// wrapping around. Otherwise it returns to the window of theirs focused last, or launches
-// the first app when none of them has a window.
+// cycle steps through the apps with the given bundle IDs, in apps.json order, as one round:
+// within an app it steps to the previous window by workspace, then window id, like pull,
+// and after the app's first window it goes on to the next app's last window, wrapping
+// around after the last app. An app without windows is one stop that launches it. When
+// none of their windows has focus, it returns to the one focused last, or launches the
+// first app when none of them has a window.
 func cycle(e *env, bundleIDs []string) error {
 	if len(bundleIDs) == 0 {
 		return errUsage
@@ -33,9 +34,10 @@ type cycleStop struct {
 
 // cycleStep returns the window cycle focuses, or the bundle ID of the app it launches.
 func cycleStep(all []window, bundleIDs []string) (window, string) {
+	// The apps in reverse, so that stepping back through the stops moves on to the next app.
 	var stops []cycleStop
 	var windows []window
-	for _, bundleID := range bundleIDs {
+	for _, bundleID := range slices.Backward(bundleIDs) {
 		own := windowsOf(all, []string{bundleID})
 		if len(own) == 0 {
 			stops = append(stops, cycleStop{launch: bundleID})
@@ -51,7 +53,7 @@ func cycleStep(all []window, bundleIDs []string) (window, string) {
 	}
 
 	if f := slices.IndexFunc(stops, func(s cycleStop) bool { return s.launch == "" && s.window.IsFocused }); f >= 0 {
-		next := stops[(f+1)%len(stops)]
+		next := stops[(f-1+len(stops))%len(stops)]
 		return next.window, next.launch
 	}
 	if len(windows) > 0 {
