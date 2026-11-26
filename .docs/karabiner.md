@@ -22,16 +22,17 @@ Every keybinding lives here, including all of OmniWM's ([omniwm.md](omniwm.md)).
 | `src/commands.ts` | Builders for the shell commands bindings run: `omniwm()`, `omniwmHelper()`, `tinycast()`, `tinycastExtension()`, `systemSettings()`, `notify()`, … |
 | `src/apps.json`, `apps.ts`, `workspaces.ts` | Workspace keys, and each app's workspace and key, see [omniwm.md](omniwm.md#workspaces-and-apps) |
 | `src/conflicts.ts` | Fails the build when two bindings share a trigger and conditions |
-| `src/karabiner-json.ts` | Writes the rules into `karabiner.json` |
-| `src/omniwm-settings.ts`, `src/toml.ts` | Write `[[workspaces]]` and the generated `[[appRules]]` into OmniWM's `settings.toml` |
+| `src/karabiner-json.ts` | Puts the rules into `karabiner.json` |
+| `src/omniwm-settings.ts`, `src/toml.ts` | Generate `[[workspaces]]` and the `assignToWorkspace` `[[appRules]]` of OmniWM's `settings.toml`; `toml.ts` formats them in OmniWM's layout with smol-toml's `stringify()` |
+| `src/output.ts` | Writes each output only when it changed |
 | `src/config.ts` | Output paths, overridable with `KARABINER_JSON`, `KARABINER_PROFILE`, `OMNIWM_SETTINGS` |
 
 ## How it works
 
 - Hyper is Caps Lock, mapped to right ⌘⌥⌃⇧. Rules tell left and right modifiers apart, so a left modifier on top of Hyper gives a separate set of bindings. Karabiner applies the first matching rule.
-- Simlayers: hold one key and press another. Each trigger key has exactly one simlayer: `a` OmniWM, `k` Karabiner, `s` symbols, `o` Ollama, `r` Tinycast, space (navigation and programming symbols), `,` System Settings, `.` emoji.
+- Simlayers: hold one key and press another. Each trigger key has exactly one simlayer: `a` OmniWM, `k` Karabiner, `s` symbols, `r` Tinycast, space (navigation and programming symbols), `,` System Settings, `.` emoji.
 - Shell commands run with `/bin/sh` and the PATH from `karabiner_environment`. Tinycast deeplinks open with `open -g`, so the app in front keeps focus.
-- The build (`npm run build`) type-checks with `tsc`, builds the OmniWM helper with Go (`npm run helper`, see [omniwm.md](omniwm.md#helper)), then runs `node src/index.ts`. Node runs the TypeScript natively, so local imports carry their `.ts` extension and only erasable syntax is allowed (`tsconfig.json` enforces both). It stops before writing anything when type checking fails, the helper doesn't build, `apps.json` is invalid or two bindings conflict, and it writes each output only when it changed. karabiner.ts's own `writeToProfile()` can't be used: its ES module build calls `require()`.
+- The build (`npm run build`) type-checks with `tsc`, builds the OmniWM helper with Go (`npm run helper`, see [omniwm.md](omniwm.md#helper)), then runs `node src/index.ts`. Node runs the TypeScript natively, so local imports carry their `.ts` extension and only erasable syntax is allowed (`tsconfig.json` enforces both). It stops before writing anything when type checking fails, the helper doesn't build, `apps.json` is invalid, two bindings conflict, either output can't be read or the profile is missing, and it writes each output only when it changed. karabiner.ts's own `writeToProfile()` can't be used: its ES module build calls `require()`.
 - TypeScript stays on 6 because the `typescript-lsp` plugin needs `tsserver` ([claude-code.md](claude-code.md)).
 
 ## Changing it

@@ -362,7 +362,7 @@ minHeight = 320.0
 minWidth = 660.0
 
 [[appRules]]
-bundleId = "com.install4j.9806-1938-4586-6531.70"
+bundleId = "com.install4j.6592-1155-2163-3973.70"
 id = "78388554-CEB9-4A13-B6E6-76FDA2341400"
 layout = "float"
 titleSubstring = "Settings"
@@ -370,21 +370,6 @@ titleSubstring = "Settings"
 [[appRules]]
 bundleId = "com.1password.1password"
 id = "3ED6B220-C6C1-43FA-9683-C7FA3B07527C"
-layout = "float"
-
-[[appRules]]
-bundleId = "com.electron.wispr-flow.accessibility-mac-app"
-id = "CCF8D15B-CDC5-414D-9B5A-74171CE7FA85"
-layout = "float"
-
-[[appRules]]
-bundleId = "com.electron.wispr-flow"
-id = "4E1CE763-5017-4A75-A635-9556299B9806"
-layout = "float"
-
-[[appRules]]
-bundleId = "com.superduper.superwhisper"
-id = "5FECF90A-592B-4340-AD37-236C168BDAB4"
 layout = "float"
 
 [[appRules]]

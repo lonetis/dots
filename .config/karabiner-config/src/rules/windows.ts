@@ -20,11 +20,11 @@ export const windowRules: RuleBuilder[] = [
     map(deKey('↓'), lCmdHyper).to$(omniwm('move down')),
     map(deKey('←'), lCmdHyper).to$(omniwm('move left')),
     map(deKey('→'), lCmdHyper).to$(omniwm('move right')),
-    // join (niri: consume into / expel from columns; dwindle: move the tile instead)
-    map(deKey('↑'), lCmdShiftHyper).to$(orElse(omniwm('consume-window-into-column'), omniwm('move up'))),
-    map(deKey('↓'), lCmdShiftHyper).to$(orElse(omniwm('expel-window-from-column'), omniwm('move down'))),
-    map(deKey('←'), lCmdShiftHyper).to$(orElse(omniwm('consume-or-expel-window-left'), omniwm('move left'))),
-    map(deKey('→'), lCmdShiftHyper).to$(orElse(omniwm('consume-or-expel-window-right'), omniwm('move right'))),
+    // join (niri only: consume into / expel from columns; no fallback, moving is ⌘ + Hyper + arrow)
+    map(deKey('↑'), lCmdShiftHyper).to$(omniwm('consume-window-into-column')),
+    map(deKey('↓'), lCmdShiftHyper).to$(omniwm('expel-window-from-column')),
+    map(deKey('←'), lCmdShiftHyper).to$(omniwm('consume-or-expel-window-left')),
+    map(deKey('→'), lCmdShiftHyper).to$(omniwm('consume-or-expel-window-right')),
 
     // resize (niri: column width; dwindle: focused window)
     map(deKey('+'), lCmdHyper).to$(orElse(omniwm('set-container-primary-span +10%'), omniwm('resize-focused grow'))),

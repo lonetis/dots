@@ -11,9 +11,8 @@ import (
 // bottom-left corner of the main display and y grows upwards.
 
 type workspaceRef struct {
-	RawName     string `json:"rawName"`
-	DisplayName string `json:"displayName"`
-	Number      int    `json:"number"`
+	RawName string `json:"rawName"`
+	Number  int    `json:"number"`
 }
 
 type displayRef struct {
@@ -68,7 +67,7 @@ func (f frame) contains(x, y float64) bool {
 
 var (
 	windowFields    = []string{"id", "window-id", "app", "workspace", "display", "is-focused", "is-scratchpad", "focus-rank"}
-	workspaceFields = []string{"id", "raw-name", "display-name", "number", "display", "is-visible", "is-current"}
+	workspaceFields = []string{"raw-name", "display-name", "display", "is-visible", "is-current"}
 	displayFields   = []string{"id", "name", "uuid", "is-main", "is-current", "frame", "active-workspace"}
 )
 

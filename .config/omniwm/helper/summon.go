@@ -27,10 +27,6 @@ func summon(e *env, args []string) error {
 		return e.wm.switchWorkspace(ws.RawName)
 	}
 
-	grid, err := e.grid(displays)
-	if err != nil {
-		return err
-	}
 	plan := visiblePlan(displays)
 	if ws.IsVisible {
 		displacedName := plan[target.ID]
@@ -42,18 +38,14 @@ func summon(e *env, args []string) error {
 		if err != nil {
 			return err
 		}
-		if err := e.moveWorkspaceTo(ws, target, displays, grid); err != nil {
+		if err := e.moveWorkspaceTo(ws, target, displays); err != nil {
 			return err
 		}
-		moved, err := e.wm.displays()
-		if err != nil {
-			return err
-		}
-		if err := e.moveWorkspaceTo(displaced, source, moved, grid); err != nil {
+		if err := e.moveWorkspaceTo(displaced, source, displays); err != nil {
 			return err
 		}
 		plan[source.ID] = displacedName
-	} else if err := e.moveWorkspaceTo(ws, target, displays, grid); err != nil {
+	} else if err := e.moveWorkspaceTo(ws, target, displays); err != nil {
 		return err
 	}
 	plan[target.ID] = ws.RawName

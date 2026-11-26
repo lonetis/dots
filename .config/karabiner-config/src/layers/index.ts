@@ -1,7 +1,6 @@
 import type { RuleBuilder } from 'karabiner.ts'
 import { emojiLayer } from './emoji.ts'
 import { karabinerLayer } from './karabiner.ts'
-import { ollamaLayer } from './ollama.ts'
 import { omniwmLayer } from './omniwm.ts'
 import { settingsLayer } from './settings.ts'
 import { spaceFnLayer } from './space-fn.ts'
@@ -15,7 +14,6 @@ export const layers: RuleBuilder[] = [
   omniwmLayer, // a
   karabinerLayer, // k
   symbolsLayer, // s
-  ollamaLayer, // o
   tinycastLayer, // r
   spaceFnLayer, // ␣
   settingsLayer, // ,

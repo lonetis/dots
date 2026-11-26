@@ -3,19 +3,36 @@
 # @raycast.title WireGuard Keys
 # @raycast.mode fullOutput
 # @raycast.description Generate a WireGuard key pair, optionally with a preshared key, or derive the public key of an existing private key. Shows the keys in wg config syntax and copies them to the clipboard, hidden from clipboard history when they include a secret.
-# @raycast.argument1 { "type": "dropdown", "placeholder": "Preshared key", "data": [ { "title": "Without preshared key", "value": "no" }, { "title": "With preshared key", "value": "yes" } ], "optional": true }
+# @raycast.argument1 { "type": "text", "placeholder": "Preshared key: no · yes", "optional": true }
 # @raycast.argument2 { "type": "password", "placeholder": "Private key (derive public key)", "optional": true }
 
 set -euo pipefail
 
+# Tinycast has no dropdowns, so a choice is typed: the whole value or any unique prefix of
+# it, in any case. Prints the matching choice.
+choose() {
+    local label="$1" typed="$2" input choice matches=()
+    input="$(printf '%s' "$typed" | tr '[:upper:]' '[:lower:]')"
+    shift 2
+    for choice in "$@"; do
+        [[ "$choice" == "$input" ]] && { echo "$choice"; return 0; }
+        [[ -n "$input" && "$choice" == "$input"* ]] && matches+=("$choice")
+    done
+    if (( ${#matches[@]} == 1 )); then echo "${matches[0]}"; return 0; fi
+    if (( ${#matches[@]} > 1 )); then
+        echo "$label '$typed' could be ${matches[*]}; type more of it" >&2
+    else
+        echo "Unknown $label '$typed' (use $*)" >&2
+    fi
+    return 1
+}
+
 conceal="${WG_KEYS_CONCEAL:-1}"  # 1 = mark the clipboard entry as concealed so clipboard managers (e.g. Tinycast's history) skip it
 
-with_psk="${1:-no}"
+with_psk="$(choose "preshared key option" "${1:-no}" no yes)"
 private_key="${2:-}"
 # Pasted keys often carry stray spaces or line breaks.
 private_key="${private_key//[[:space:]]/}"
-
-[[ "$with_psk" == "yes" || "$with_psk" == "no" ]] || { echo "Unknown preshared key option '$with_psk'" >&2; exit 1; }
 
 for cmd in wg osascript; do
     command -v "$cmd" >/dev/null 2>&1 || { echo "Missing required command: $cmd" >&2; exit 1; }

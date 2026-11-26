@@ -11,12 +11,17 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // OmniWM's IPC protocol, as omniwmctl 0.8.0 speaks it: one JSON request per connection,
 // answered by one JSON line. OmniWM doesn't document it; when an update changes it, point
 // OMNIWM_SOCKET at a socket that logs what omniwmctl sends to see the new requests.
 const protocolVersion = 22
+
+// requestTimeout bounds a request, so a hung OmniWM fails the action instead of blocking it
+// and every press waiting behind it; requests normally take a few milliseconds.
+const requestTimeout = 2 * time.Second
 
 type client struct {
 	socket string
@@ -58,11 +63,14 @@ func (c *client) request(kind, name string, fields map[string]any, okCodes ...st
 		return nil, err
 	}
 
-	conn, err := net.Dial("unix", c.socket)
+	conn, err := net.DialTimeout("unix", c.socket, requestTimeout)
 	if err != nil {
 		return nil, fmt.Errorf("cannot reach OmniWM (is it running with IPC on?): %w", err)
 	}
 	defer conn.Close()
+	if err := conn.SetDeadline(time.Now().Add(requestTimeout)); err != nil {
+		return nil, err
+	}
 	if _, err := conn.Write(append(body, '\n')); err != nil {
 		return nil, fmt.Errorf("%s %s: %w", kind, name, err)
 	}

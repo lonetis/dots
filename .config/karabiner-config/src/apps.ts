@@ -3,8 +3,8 @@ import { isWorkspaceKey, workspaceKeys, type WorkspaceKey } from './workspaces.t
 
 // apps.json lists the apps with their workspace and, optionally, their key:
 //   { "workspace": "t", "key": "t", "bundleId": "com.mitchellh.ghostty" }
-// Several apps can share a workspace, but a key belongs to one app only. Look a bundle ID
-// up with:
+// An app's workspace and key are independent of each other and of other apps: several
+// apps can share a workspace, a key, or both. Look a bundle ID up with:
 //   mdls -name kMDItemCFBundleIdentifier -r /Applications/<App>.app
 //
 // The OmniWM helper reads apps.json at runtime too (OMNIWM_APPS_JSON).
@@ -13,7 +13,7 @@ export interface App {
   bundleId: string
   /** The app's default workspace: its first window opens there. */
   workspace: WorkspaceKey
-  /** Hyper plus this key cycles through the app's windows or launches it. */
+  /** Hyper plus this key cycles through the windows of the key's apps, or launches the first of them. */
   key?: WorkspaceKey
 }
 
@@ -48,14 +48,11 @@ function parseApps(raw: unknown[]): App[] {
   return apps
 }
 
-/** Maps each key to the bundle ID of its app. */
-function hotkeysOf(apps: App[]): Partial<Record<WorkspaceKey, string>> {
-  const hotkeys: Partial<Record<WorkspaceKey, string>> = {}
+/** Maps each key to the bundle IDs of its apps, in the order of apps.json. */
+function hotkeysOf(apps: App[]): Partial<Record<WorkspaceKey, string[]>> {
+  const hotkeys: Partial<Record<WorkspaceKey, string[]>> = {}
   for (const { bundleId, key } of apps) {
-    if (key === undefined) continue
-    const otherBundleId = hotkeys[key]
-    if (otherBundleId !== undefined) throw new Error(`apps.json: key "${key}" is used by both ${otherBundleId} and ${bundleId}`)
-    hotkeys[key] = bundleId
+    if (key !== undefined) hotkeys[key] = [...(hotkeys[key] ?? []), bundleId]
   }
   return hotkeys
 }

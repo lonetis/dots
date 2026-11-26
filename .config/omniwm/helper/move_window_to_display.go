@@ -15,11 +15,7 @@ func moveWindowToDisplay(e *env, args []string) error {
 	if err != nil {
 		return err
 	}
-	grid, err := e.grid(displays)
-	if err != nil {
-		return err
-	}
-	target, err := cycleDisplay(w.Display.ID, step, displays, grid)
+	target, err := cycleDisplay(w.Display.ID, step, displays)
 	if err != nil {
 		return err
 	}

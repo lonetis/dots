@@ -10,8 +10,10 @@
 | `.config/tinycast-scripts/*.sh` | yes | manual | Script commands, one self-contained file per command |
 | `.config/yadm/bootstrap.d/030-tinycast-extensions.sh` | yes | manual | Builds and installs custom extensions |
 | `~/Library/Application Support/com.abueammar.tinycast/` | no | app | Installed extensions, snippets, quicklinks, notes, clipboard history |
-| Tinycast's preferences (`defaults read com.abueammar.tinycast`) | no | app | Imported script commands and other custom commands |
+| Tinycast's preferences (`defaults read com.abueammar.tinycast`) | no | app | Imported script commands and other custom commands, in `customCommands` |
 | `~/.local/share/tinycast-extensions/` | no | bootstrap | Checkouts of the custom extensions |
+| `~/.cache/burp-chrome/`, `~/.local/share/burp-chrome/profiles/` | no | app | `burp-chrome.sh`: Burp's CA, and the persistent Chrome profiles |
+| `/tmp/pk-passkeys-tools-cache/`, `/tmp/pk-*` | no | app | `passkeys-tools.sh`: the Chrome for Testing download, and each run's profile, wiped when its browser closes |
 
 ## How it works
 
@@ -19,6 +21,7 @@
 - Deeplinks: `tinycast://command/<id>` runs a built-in command and `tinycast://extensions/<author>/<extension>/<command>` an extension command. "Copy Deeplink" (⇧⌘C) in the launcher shows any row's link. Karabiner opens them with `open -g` ([karabiner.md](karabiner.md)). Tinycast asks once before it runs a link that carries text (`fallbackText`), and it also claims `raycast://` links.
 - Store extensions are installed in Settings → Extensions, which searches the Raycast Store. Custom extensions live in their own repos; bootstrap step `030` builds each with `ray build` into `~/Library/Application Support/com.abueammar.tinycast/extensions/<manifest name>`. Tinycast loads extensions at launch and when Settings → Extensions opens.
 - Script commands: Tinycast doesn't watch the folder. Settings → Commands → Import Raycast Scripts turns each script into a custom command that runs `/usr/bin/env bash '<absolute path>'`, so moving or renaming a script breaks its command. Importing again adds only titles it doesn't have yet. Tinycast reads only `title`, `mode` (`compact` and `fullOutput` show the output), `needsConfirmation`, `currentDirectoryPath` and `argument1`–`argument3` (the placeholder names the field); dropdown and password arguments become plain text fields.
+- Tinycast keeps the commands in its preferences, not in `settings.json`: `customCommands` holds a JSON array with each command's id, name, command line, arguments (name and `isOptional`) and output and confirmation flags. A command runs its script file, so a change to the script's code applies on the next run. The metadata is copied at import, so a changed title, mode or argument needs the command edited in Settings → Commands, or its entry in `customCommands` rewritten while Tinycast is quit. Deleting and importing it again gives it a new id, which drops its hotkey.
 - Commands run with launchd's PATH, which [bootstrap](bootstrap.md) step `002` sets to include Homebrew (bash 5, `http`, `wg`, `node`).
 
 ## Changing it
@@ -28,8 +31,9 @@
 - New script commands follow the existing ones:
   - A metadata header right after the shebang: `@raycast.schemaVersion 1`, `title`, `mode`, `description` and `argumentN` JSON. Other Raycast fields (icon, packageName, author) are ignored by Tinycast, so leave them out.
   - `set -euo pipefail`, required commands checked up front, clear errors on stderr.
-  - Configuration **only** from environment variables, each with an inline default and a short comment, e.g. `proxy="${BURP_PROXY:-127.0.0.1:8080}"  # Burp proxy listener`. Caches go to `~/.cache/<name>`, persistent data to `~/.local/share/<name>`, never into this folder.
-  - Accept typed values for dropdown arguments, and stay executable.
+  - Configuration **only** from environment variables, each with an inline default and a short comment, e.g. `proxy="${BURP_PROXY:-127.0.0.1:8080}"  # Burp proxy listener`. Caches go to `~/.cache/<name>`, persistent data to `~/.local/share/<name>`, never into this folder. A large download that is cheap to fetch again may go to `/tmp`, which macOS clears at reboot, like the ~170 MB Chrome for Testing of `passkeys-tools.sh`.
+  - Tinycast has no dropdowns: write a choice as a text argument whose placeholder lists the values (`Browser: chrome · canary · dev · beta`), and resolve it with the script's own `choose` function, which takes any unique prefix in any case.
+  - Stay executable.
   - One self-contained script per command: no shared libraries or helper files; embedded helper code (JavaScript, …) stays in a heredoc.
 
 ## Per-machine setup

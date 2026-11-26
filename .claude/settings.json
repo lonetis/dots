@@ -4,29 +4,10 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
-    "deny": [
-      "Bash(yadm commit *)",
-      "Bash(yadm push *)",
-      "Bash(dots push *)",
-      "Bash(dots save *)",
-      "Bash(yadm bootstrap *)",
-      "Bash(dots init *)",
-      "Bash(brew bundle cleanup *--force*)"
-    ],
     "defaultMode": "bypassPermissions"
   },
-  "model": "opus",
   "hooks": {
     "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
-            "timeout": 5
-          }
-        ]
-      },
       {
         "hooks": [
           {
@@ -63,15 +44,6 @@
     "mongodb@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
-  "modelSettings": {
-    "claude-opus-5-5": {
-      "effortLevel": "xhigh"
-    },
-    "claude-fable-5-2": {
-      "effortLevel": "medium"
-    }
-  },
-  "askUserQuestionTimeout": "never",
   "pluginConfigs": {
     "cc-plugin-agents-md@builtin": {
       "options": {
@@ -83,7 +55,6 @@
   "voice": {
     "enabled": true
   },
-  "timeFormat": "auto",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "claudeMdExcludes": [
@@ -92,10 +63,20 @@
   "editorMode": "normal",
   "preferredNotifChannel": "ghostty",
   "autoCompactEnabled": true,
-  "idleCompaction": false,
   "switchModelsOnFlag": true,
   "teammateMode": "auto",
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-fable-5-2": {
+      "effortLevel": "medium"
+    }
+  },
+  "askUserQuestionTimeout": "never",
+  "timeFormat": "auto",
+  "idleCompaction": false
 }

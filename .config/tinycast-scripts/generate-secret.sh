@@ -4,7 +4,7 @@
 # @raycast.mode silent
 # @raycast.description Generate a random secret from the chosen character classes and copy it to the clipboard, hidden from clipboard history. Every chosen class appears at least once.
 # @raycast.argument1 { "type": "text", "placeholder": "Length", "optional": true }
-# @raycast.argument2 { "type": "dropdown", "placeholder": "Characters", "data": [ { "title": "Aa1#  letters, digits, symbols", "value": "ulds" }, { "title": "Aa1  letters, digits", "value": "uld" }, { "title": "a1  lowercase, digits", "value": "ld" }, { "title": "A1  uppercase, digits", "value": "ud" }, { "title": "hex  0-9 a-f", "value": "h" }, { "title": "1  digits", "value": "d" }, { "title": "Aa  letters", "value": "ul" }, { "title": "a  lowercase", "value": "l" }, { "title": "A  uppercase", "value": "u" }, { "title": "Aa#  letters, symbols", "value": "uls" }, { "title": "a1#  lowercase, digits, symbols", "value": "lds" }, { "title": "A1#  uppercase, digits, symbols", "value": "uds" }, { "title": "a#  lowercase, symbols", "value": "ls" }, { "title": "A#  uppercase, symbols", "value": "us" }, { "title": "1#  digits, symbols", "value": "ds" }, { "title": "#  symbols", "value": "s" } ], "optional": true }
+# @raycast.argument2 { "type": "text", "placeholder": "Characters: u l d s h (default ulds)", "optional": true }
 # @raycast.argument3 { "type": "text", "placeholder": "Exclude chars", "optional": true }
 
 set -euo pipefail
@@ -24,7 +24,8 @@ done
 [[ "$length" =~ ^[0-9]+$ ]] && (( 10#$length > 0 )) || { echo "Length must be a positive integer (got '$length')" >&2; exit 1; }
 length=$(( 10#$length ))
 
-# Each letter of the dropdown value selects one character class.
+# Each letter of the Characters argument selects one character class: u uppercase,
+# l lowercase, d digits, s symbols, h hex.
 class_names=()
 class_chars=()
 for (( i = 0; i < ${#spec}; i++ )); do

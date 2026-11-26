@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"os/exec"
-)
-
 // toggle closes the app's window if it has focus on the current workspace, otherwise
 // brings one of its windows here and focuses it, or launches the app.
 func toggle(e *env, args []string) error {
@@ -33,10 +28,7 @@ func toggle(e *env, args []string) error {
 		return err
 	}
 	if len(windows) == 0 {
-		if output, err := exec.Command("open", "-b", bundleID).CombinedOutput(); err != nil {
-			return fmt.Errorf("cannot launch %s: %v: %s", bundleID, err, output)
-		}
-		return nil
+		return launch(bundleID)
 	}
 	if err := e.wm.moveWindow(windows[0].ID, current.RawName); err != nil {
 		return err

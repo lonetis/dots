@@ -12,17 +12,19 @@ const keysWithoutApp = workspaceKeys.filter((key) => hotkeys[key] === undefined 
 
 export const appRules: RuleBuilder[] = [
   rule('omniwm: app management').manipulators([
-    // return to the key's app's last focused window, then cycle through its windows, or launch it
-    withMapper(hotkeys)((key, bundleId) =>
-      map(deKey(key), hyper).to$(orElse(omniwmHelper('cycle', bundleId), openApp(bundleId))),
+    // return to the last focused window of the key's apps, then step through their windows
+    // and launch those without one, as one list (see cycle.go); open the first app when
+    // the helper fails, e.g. while OmniWM isn't running
+    withMapper(hotkeys)((key, bundleIds) =>
+      map(deKey(key), hyper).to$(orElse(omniwmHelper('cycle', ...bundleIds), openApp(bundleIds[0]!))),
     ),
     // switch to the workspace of a key that no app has
     withMapper(keysWithoutApp)((key) =>
       map(deKey(key), hyper).to$(omniwm(`switch-workspace ${workspaceName(key)}`)),
     ),
-    // pull a window of the key's app to the workspace under the pointer
-    withMapper(hotkeys)((key, bundleId) =>
-      map(deKey(key), lCmdHyper).to$(omniwmHelper('pull', bundleId)),
+    // pull a window of the key's apps to the workspace under the pointer
+    withMapper(hotkeys)((key, bundleIds) =>
+      map(deKey(key), lCmdHyper).to$(omniwmHelper('pull', ...bundleIds)),
     ),
     // show or hide 1Password on top of the current workspace
     map(deKey(onePasswordKey), hyper).to$(omniwmHelper('toggle', 'com.1password.1password')),

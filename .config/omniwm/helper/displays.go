@@ -51,42 +51,23 @@ func displayUnderPointer(displays []display) (display, error) {
 
 // neighbor returns the display OmniWM moves to from origin in direction, without
 // wrapping around.
-func neighbor(origin display, direction string, displays []display, grid map[string]cell) (display, bool) {
+func neighbor(origin display, direction string, displays []display) (display, bool) {
 	var best display
 	var bestRank []float64
 	for _, d := range displays {
 		if d.ID == origin.ID {
 			continue
 		}
-		if rank, ok := neighborRank(origin, d, direction, grid); ok && (bestRank == nil || slices.Compare(rank, bestRank) < 0) {
+		if rank, ok := neighborRank(origin, d, direction); ok && (bestRank == nil || slices.Compare(rank, bestRank) < 0) {
 			best, bestRank = d, rank
 		}
 	}
 	return best, bestRank != nil
 }
 
-// neighborRank ranks d as origin's neighbor in direction, lower being closer: by grid
-// distance along the row or column, or without a grid by the distance between centers,
-// preferring displays straight in that direction.
-func neighborRank(origin, d display, direction string, grid map[string]cell) ([]float64, bool) {
-	if grid != nil {
-		from, to := grid[origin.ID], grid[d.ID]
-		var offset int
-		switch {
-		case direction == "right" && to.row == from.row:
-			offset = to.column - from.column
-		case direction == "left" && to.row == from.row:
-			offset = from.column - to.column
-		case direction == "up" && to.column == from.column:
-			offset = from.row - to.row
-		case direction == "down" && to.column == from.column:
-			offset = to.row - from.row
-		default:
-			return nil, false
-		}
-		return []float64{float64(offset)}, offset > 0
-	}
-
+// neighborRank ranks d as origin's neighbor in direction, lower being closer: by the
+// distance between centers, preferring displays straight in that direction.
+func neighborRank(origin, d display, direction string) ([]float64, bool) {
 	ox, oy := origin.Frame.center()
 	x, y := d.Frame.center()
 	dx, dy := x-ox, y-oy
@@ -103,7 +84,7 @@ func neighborRank(origin, d display, direction string, grid map[string]cell) ([]
 
 // route returns the directions that lead from source to target, one per hop to an
 // adjacent monitor, or false when target can't be reached.
-func route(source, target display, displays []display, grid map[string]cell) ([]string, bool) {
+func route(source, target display, displays []display) ([]string, bool) {
 	paths := map[string][]string{source.ID: {}}
 	queue := []display{source}
 	for len(queue) > 0 {
@@ -113,7 +94,7 @@ func route(source, target display, displays []display, grid map[string]cell) ([]
 			return paths[current.ID], true
 		}
 		for _, direction := range directions {
-			next, ok := neighbor(current, direction, displays, grid)
+			next, ok := neighbor(current, direction, displays)
 			if _, seen := paths[next.ID]; ok && !seen {
 				paths[next.ID] = append(slices.Clone(paths[current.ID]), direction)
 				queue = append(queue, next)
@@ -124,13 +105,10 @@ func route(source, target display, displays []display, grid map[string]cell) ([]
 }
 
 // cycleDisplay returns the display step places after the one with originID, wrapping
-// around. Next and previous go along the grid rows, or from left to right without a grid.
-func cycleDisplay(originID string, step int, displays []display, grid map[string]cell) (display, error) {
+// around. Next and previous go from left to right, then from top to bottom.
+func cycleDisplay(originID string, step int, displays []display) (display, error) {
 	ordered := slices.Clone(displays)
 	slices.SortStableFunc(ordered, func(a, b display) int {
-		if grid != nil {
-			return cmp.Or(cmp.Compare(grid[a.ID].row, grid[b.ID].row), cmp.Compare(grid[a.ID].column, grid[b.ID].column))
-		}
 		ax, ay := a.Frame.center()
 		bx, by := b.Frame.center()
 		return cmp.Or(cmp.Compare(ax, bx), cmp.Compare(by, ay))
@@ -145,14 +123,6 @@ func cycleDisplay(originID string, step int, displays []display, grid map[string
 
 // --- moving workspaces between displays ----------------------------------------------
 
-func (e *env) grid(displays []display) (map[string]cell, error) {
-	r, err := readRouting(e.config.settingsTOML)
-	if err != nil {
-		return nil, err
-	}
-	return gridCells(r, displays), nil
-}
-
 // visiblePlan maps each display id to the raw name of the workspace it shows.
 func visiblePlan(displays []display) map[string]string {
 	plan := map[string]string{}
@@ -164,12 +134,12 @@ func visiblePlan(displays []display) map[string]string {
 
 // moveWorkspaceTo moves the workspace to target, hopping along the route over adjacent
 // monitors.
-func (e *env) moveWorkspaceTo(ws workspace, target display, displays []display, grid map[string]cell) error {
+func (e *env) moveWorkspaceTo(ws workspace, target display, displays []display) error {
 	source, err := displayByID(ws.Display.ID, displays)
 	if err != nil {
 		return err
 	}
-	hops, ok := route(source, target, displays, grid)
+	hops, ok := route(source, target, displays)
 	if !ok {
 		return fmt.Errorf("no monitor route to %s", target.Name)
 	}
@@ -201,21 +171,21 @@ func (e *env) show(plan map[string]string, focusID string) error {
 }
 
 // moveToNextDisplay moves the workspace to the display step places further, wrapping
-// around, focuses it there and returns that display.
-func (e *env) moveToNextDisplay(ws workspace, step int, displays []display, grid map[string]cell) (display, error) {
-	target, err := cycleDisplay(ws.Display.ID, step, displays, grid)
+// around, and focuses it there.
+func (e *env) moveToNextDisplay(ws workspace, step int, displays []display) error {
+	target, err := cycleDisplay(ws.Display.ID, step, displays)
 	if err != nil {
-		return display{}, err
+		return err
 	}
 	if target.ID == ws.Display.ID {
-		return display{}, errors.New("only one display connected")
+		return errors.New("only one display connected")
 	}
 	plan := visiblePlan(displays)
-	if err := e.moveWorkspaceTo(ws, target, displays, grid); err != nil {
-		return display{}, err
+	if err := e.moveWorkspaceTo(ws, target, displays); err != nil {
+		return err
 	}
 	// The source display picks another workspace by itself.
 	delete(plan, ws.Display.ID)
 	plan[target.ID] = ws.RawName
-	return target, e.show(plan, target.ID)
+	return e.show(plan, target.ID)
 }

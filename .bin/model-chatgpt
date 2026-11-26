@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
 # Pipes stdin to the Shortcut model-chatgpt as is (no preamble, unlike `model -m chatgpt`) and prints plain text.
 shortcuts run model-chatgpt | textutil -convert txt -stdin -stdout

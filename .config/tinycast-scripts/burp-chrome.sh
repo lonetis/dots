@@ -3,13 +3,32 @@
 # @raycast.title Burp Chrome
 # @raycast.mode fullOutput
 # @raycast.description Launch a real Google Chrome (Stable/Canary/Dev/Beta) pre-wired for Burp Suite — routes through Burp's proxy, trusts Burp's CA, and opens Burp. Uses your existing Chrome profiles by default, or an isolated fresh/persistent one.
-# @raycast.argument1 { "type": "dropdown", "placeholder": "Browser", "data": [ { "title": "Google Chrome", "value": "chrome" }, { "title": "Chrome Canary", "value": "canary" }, { "title": "Chrome Dev", "value": "dev" }, { "title": "Chrome Beta", "value": "beta" } ], "optional": false }
-# @raycast.argument2 { "type": "dropdown", "placeholder": "Profile", "data": [ { "title": "My existing profiles (normal Chrome data)", "value": "existing" }, { "title": "Fresh profile (/tmp, wiped on close)", "value": "fresh" }, { "title": "Persistent profile (reused)", "value": "persistent" } ], "optional": false }
+# @raycast.argument1 { "type": "text", "placeholder": "Browser: chrome · canary · dev · beta" }
+# @raycast.argument2 { "type": "text", "placeholder": "Profile: existing · fresh · persistent" }
 
 set -euo pipefail
 
-channel="$1"
-profile_mode="$2"
+# Tinycast has no dropdowns, so a choice is typed: the whole value or any unique prefix of
+# it, in any case. Prints the matching choice.
+choose() {
+    local label="$1" typed="$2" input choice matches=()
+    input="$(printf '%s' "$typed" | tr '[:upper:]' '[:lower:]')"
+    shift 2
+    for choice in "$@"; do
+        [[ "$choice" == "$input" ]] && { echo "$choice"; return 0; }
+        [[ -n "$input" && "$choice" == "$input"* ]] && matches+=("$choice")
+    done
+    if (( ${#matches[@]} == 1 )); then echo "${matches[0]}"; return 0; fi
+    if (( ${#matches[@]} > 1 )); then
+        echo "$label '$typed' could be ${matches[*]}; type more of it" >&2
+    else
+        echo "Unknown $label '$typed' (use $*)" >&2
+    fi
+    return 1
+}
+
+channel="$(choose browser "${1:-}" chrome canary dev beta)"
+profile_mode="$(choose profile "${2:-}" existing fresh persistent)"
 
 # ── Configuration (environment only) ────────────────────────────────────────
 burp_app="${BURP_APP:-Burp Suite}"                       # Burp app name or path for `open -a`
@@ -112,16 +131,6 @@ fetch_cert_to() {
     rm -f "$tmp"; return 1
 }
 
-# Keep polling for the CA after we've already opened Chrome, so the NEXT launch can
-# pin the exact CA even if Burp's proxy wasn't ready in time for this one.
-warm_cache_bg() {
-    nohup bash -c "$(declare -f fetch_cert_to)"'
-        end=$(( SECONDS + $3 ))
-        until fetch_cert_to "$1" "$2" || (( SECONDS >= end )); do sleep 3; done
-    ' _ "$1" "$2" "$3" >/dev/null 2>&1 &
-    disown
-}
-
 ca_pem=""
 if [[ "$trust" != "none" ]]; then
     if [[ -n "$ca_file" ]]; then
@@ -143,10 +152,10 @@ if [[ "$trust" != "none" ]]; then
             (( SECONDS >= deadline )) && break
             sleep 2
         done
-        # Not fatal: open Chrome now with fallback trust; keep polling for the real CA.
+        # Not fatal: open Chrome now with fallback trust. Burp is up by the next launch,
+        # which then fetches and caches the exact CA.
         if [[ -z "$ca_pem" ]]; then
-            echo "Burp's proxy didn't answer in ${wait_secs}s — opening Chrome now; caching the exact CA in the background for next time."
-            warm_cache_bg "$ca_cache" "$proxy" 180
+            echo "Burp's proxy didn't answer in ${wait_secs}s — opening Chrome now; the next launch pins the exact CA."
         fi
     fi
 fi

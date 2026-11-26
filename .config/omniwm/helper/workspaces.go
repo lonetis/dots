@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"slices"
 	"strings"
 )
@@ -78,7 +79,15 @@ func last(windows []window) window {
 	return windows[len(windows)-1]
 }
 
-// --- apps.json -------------------------------------------------------------------
+// --- apps ------------------------------------------------------------------------
+
+// launch opens the app, or brings it to the front when it already runs.
+func launch(bundleID string) error {
+	if output, err := exec.Command("open", "-b", bundleID).CombinedOutput(); err != nil {
+		return fmt.Errorf("cannot launch %s: %v: %s", bundleID, err, output)
+	}
+	return nil
+}
 
 type app struct {
 	BundleID  string `json:"bundleId"`

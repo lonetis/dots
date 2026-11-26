@@ -1,8 +1,9 @@
 import { createHash } from 'node:crypto'
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { parse } from 'smol-toml'
 import { apps } from './apps.ts'
 import { config } from './config.ts'
+import type { Output } from './output.ts'
 import { formatTableArray, getTableArray, replaceTable, type TomlTable } from './toml.ts'
 import { initialMonitor, workspaceKeys, workspaceLabel, workspaceName } from './workspaces.ts'
 
@@ -54,13 +55,9 @@ function generateAppRules(existing: TomlTable[]): TomlTable[] {
   return [...manualRules, ...generatedRules]
 }
 
-export function updateOmniWMSettings(): void {
+/** OmniWM's settings.toml with the generated workspaces and app rules replaced. */
+export function omniwmSettingsOutput(): Output {
   const path = config.omniwmSettings
-  if (!existsSync(path)) {
-    console.warn(`⚠️ ${path} not found, skipping OmniWM workspaces and app rules.`)
-    return
-  }
-
   const text = readFileSync(path, 'utf-8')
   let updated: string
   try {
@@ -74,10 +71,5 @@ export function updateOmniWMSettings(): void {
   }
 
   // Every write makes OmniWM reload, which drops runtime workspace-to-monitor moves.
-  if (updated === text) {
-    console.log(`✓ OmniWM settings unchanged.`)
-    return
-  }
-  writeFileSync(path, updated, 'utf-8')
-  console.log(`✓ OmniWM settings updated.`)
+  return { label: 'OmniWM settings', path, text, updated }
 }

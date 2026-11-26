@@ -24,7 +24,7 @@
 
 ### Secrets (git-crypt)
 
-Paths marked `filter=git-crypt diff=git-crypt` in `.gitattributes` are encrypted on the remote and decrypted in the local checkout. Currently these are `.ssh/config` and `.git-repos`. Bootstrap step `000` unlocks the repo with `~/.git-crypt`.
+Paths marked `filter=git-crypt diff=git-crypt` in `.gitattributes` are encrypted on the remote and decrypted in the local checkout. Currently these are `.ssh/config` and `.git-repos`. Bootstrap step `001` unlocks the repo with `~/.git-crypt`.
 
 - Never copy anything from an encrypted file into a plaintext file, a commit message or a doc.
 - Every other file is public: no tokens, API keys, private hostnames or IPs, internal URLs or private repo names. Read secrets at runtime from the environment or 1Password (`op`).

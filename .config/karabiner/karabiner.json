@@ -3602,7 +3602,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command consume-window-into-column || omniwmctl command move up"
+                    "shell_command": "omniwmctl command consume-window-into-column"
                   }
                 ]
               },
@@ -3623,7 +3623,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command expel-window-from-column || omniwmctl command move down"
+                    "shell_command": "omniwmctl command expel-window-from-column"
                   }
                 ]
               },
@@ -3644,7 +3644,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command consume-or-expel-window-left || omniwmctl command move left"
+                    "shell_command": "omniwmctl command consume-or-expel-window-left"
                   }
                 ]
               },
@@ -3665,7 +3665,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "omniwmctl command consume-or-expel-window-right || omniwmctl command move right"
+                    "shell_command": "omniwmctl command consume-or-expel-window-right"
                   }
                 ]
               },
@@ -5409,174 +5409,8 @@
             ]
           },
           {
-            "description": "Simlayer - ollama",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "close_bracket",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-longer'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "ollama",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "slash",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-shorter'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "ollama",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 300
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "ollama",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-longer'"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "o"
-                    },
-                    {
-                      "key_code": "close_bracket"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "ollama",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 300
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "ollama",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/massimiliano_pasquini/raycast-ollama/ollama-shorter'"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "o"
-                    },
-                    {
-                      "key_code": "slash"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "ollama",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              }
-            ]
-          },
-          {
             "description": "Simlayer - tinycast",
             "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "b",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/luolei/karakeep/bookmarks'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "tinycast",
-                    "value": 1
-                  }
-                ]
-              },
               {
                 "type": "basic",
                 "from": {
@@ -5764,29 +5598,6 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "u",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/cecelot/utm-virtual-machines/index'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "tinycast",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "v",
                   "modifiers": {
                     "optional": [
@@ -5852,52 +5663,6 @@
                     "value": 1
                   }
                 ]
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 300
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "tinycast",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/luolei/karakeep/bookmarks'"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "r"
-                    },
-                    {
-                      "key_code": "b"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "tinycast",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
               },
               {
                 "type": "basic",
@@ -6244,52 +6009,6 @@
                     },
                     {
                       "key_code": "t"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "tinycast",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 300
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "tinycast",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/cecelot/utm-virtual-machines/index'"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "r"
-                    },
-                    {
-                      "key_code": "u"
                     }
                   ],
                   "simultaneous_options": {
@@ -7986,29 +7705,6 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "i",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/benvp/audio-device/set-input-device'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "settings",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "n",
                   "modifiers": {
                     "optional": [
@@ -8019,29 +7715,6 @@
                 "to": [
                   {
                     "shell_command": "open -u 'x-apple.systempreferences:com.apple.Network-Settings.extension'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "settings",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "o",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/benvp/audio-device/set-output-device'"
                   }
                 ],
                 "conditions": [
@@ -8272,52 +7945,6 @@
                     }
                   },
                   {
-                    "shell_command": "open -g -u 'tinycast://extensions/benvp/audio-device/set-input-device'"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "comma"
-                    },
-                    {
-                      "key_code": "i"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "settings",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 300
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "settings",
-                      "value": 1
-                    }
-                  },
-                  {
                     "shell_command": "open -u 'x-apple.systempreferences:com.apple.Network-Settings.extension'"
                   }
                 ],
@@ -8328,52 +7955,6 @@
                     },
                     {
                       "key_code": "n"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "settings",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 300
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "settings",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "shell_command": "open -g -u 'tinycast://extensions/benvp/audio-device/set-output-device'"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "comma"
-                    },
-                    {
-                      "key_code": "o"
                     }
                   ],
                   "simultaneous_options": {

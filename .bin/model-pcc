@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
 # Pipes stdin to the Shortcut model-pcc as is (no preamble, unlike `model -m pcc`) and prints plain text.
 shortcuts run model-pcc | textutil -convert txt -stdin -stdout

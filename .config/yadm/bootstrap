@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # Run by `yadm bootstrap` (and so by .init.sh and `dots init`): asks for the administrator
-# password once, then runs every executable file in bootstrap.d/ in sort order and stops at
-# the first that fails. Templates (## in the name) and editor backups (~) are skipped.
-# Runs under macOS's /bin/bash 3.2 on a fresh machine, so no bash 4+ features.
+# password once, then runs every bootstrap.d/*.sh in sort order and stops at the first that
+# fails, including one that isn't executable. Runs under macOS's /bin/bash 3.2 on a fresh
+# machine, so no bash 4+ features.
 
 BOOTSTRAP_D="${BASH_SOURCE[0]}.d"
 
@@ -32,11 +32,6 @@ cleanup_sudo() {
 }
 
 setup_sudo() {
-  # Respect an askpass helper already provided by the caller.
-  if [[ -n "${SUDO_ASKPASS:-}" ]]; then
-    return 0
-  fi
-
   if ! { : </dev/tty; } 2>/dev/null; then
     echo "Warning: no TTY available, sudo may prompt during bootstrap." >&2
     return 0
@@ -76,16 +71,13 @@ setup_sudo() {
 
 setup_sudo
 
-declare -a bootstraps
-while IFS= read -r bootstrap; do
-  if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ ~$ ]]; then
-    bootstraps+=("$bootstrap")
-  fi
-done < <(find -L "$BOOTSTRAP_D" -type f | sort)
+# Each step is its own process, so a Homebrew that step 000 installs reaches the later
+# steps only through a PATH that already lists its directories.
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
-for bootstrap in "${bootstraps[@]}"; do
-  if ! "$bootstrap"; then
-    echo "Error: bootstrap '$bootstrap' failed" >&2
+for step in "$BOOTSTRAP_D"/*.sh; do
+  if ! "$step"; then
+    echo "Error: bootstrap step '$step' failed" >&2
     exit 1
   fi
 done

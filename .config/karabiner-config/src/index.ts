@@ -9,16 +9,18 @@
 //   keys.ts         German key labels and the modifier constants
 //   commands.ts     shell commands the bindings run
 //   conflicts.ts    build-time check for duplicate bindings
-//   karabiner-json.ts             writes the rules to karabiner.json
-//   omniwm-settings.ts, toml.ts   writes the generated parts of OmniWM's settings.toml
+//   karabiner-json.ts             puts the rules into karabiner.json
+//   omniwm-settings.ts, toml.ts   generates the workspaces and app rules in OmniWM's settings.toml
+//   output.ts       writes each output when it changed
 //   config.ts       output paths, overridable through the environment
 
 import { complexModifications } from 'karabiner.ts'
 import { config } from './config.ts'
 import { assertNoConflicts } from './conflicts.ts'
-import { writeProfileRules } from './karabiner-json.ts'
+import { karabinerJsonOutput } from './karabiner-json.ts'
 import { layers } from './layers/index.ts'
-import { updateOmniWMSettings } from './omniwm-settings.ts'
+import { omniwmSettingsOutput } from './omniwm-settings.ts'
+import { writeOutput } from './output.ts'
 import { rules } from './rules/index.ts'
 
 const parameters = {
@@ -30,5 +32,5 @@ const parameters = {
 const karabinerRules = complexModifications([...rules, ...layers], parameters)
 assertNoConflicts(karabinerRules.rules)
 
-updateOmniWMSettings()
-writeProfileRules(config.karabinerJson, config.karabinerProfile, karabinerRules)
+const outputs = [omniwmSettingsOutput(), karabinerJsonOutput(config.karabinerJson, config.karabinerProfile, karabinerRules)]
+outputs.forEach(writeOutput)

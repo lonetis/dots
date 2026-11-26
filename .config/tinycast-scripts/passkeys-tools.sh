@@ -3,11 +3,30 @@
 # @raycast.title Passkeys.Tools Browser
 # @raycast.mode compact
 # @raycast.description Ephemeral Chrome for Testing preconfigured with the Passkeys.Tools Interceptor — attacker (red), victim (yellow), default, or both. Fresh random profile each run, wiped on close.
-# @raycast.argument1 { "type": "dropdown", "placeholder": "Setup", "data": [ { "title": "Attacker (red)", "value": "attacker" }, { "title": "Victim (yellow)", "value": "victim" }, { "title": "Default (no attack)", "value": "default" }, { "title": "Attacker + Victim (2 browsers)", "value": "dual" } ], "optional": false }
+# @raycast.argument1 { "type": "text", "placeholder": "Setup: attacker · victim · default · dual" }
 
 set -euo pipefail
 
-setup="$1"
+# Tinycast has no dropdowns, so a choice is typed: the whole value or any unique prefix of
+# it, in any case. Prints the matching choice.
+choose() {
+    local label="$1" typed="$2" input choice matches=()
+    input="$(printf '%s' "$typed" | tr '[:upper:]' '[:lower:]')"
+    shift 2
+    for choice in "$@"; do
+        [[ "$choice" == "$input" ]] && { echo "$choice"; return 0; }
+        [[ -n "$input" && "$choice" == "$input"* ]] && matches+=("$choice")
+    done
+    if (( ${#matches[@]} == 1 )); then echo "${matches[0]}"; return 0; fi
+    if (( ${#matches[@]} > 1 )); then
+        echo "$label '$typed' could be ${matches[*]}; type more of it" >&2
+    else
+        echo "Unknown $label '$typed' (use $*)" >&2
+    fi
+    return 1
+}
+
+setup="$(choose setup "${1:-}" attacker victim default dual)"
 ext_id="${PK_EXT_ID:-jeocfgcignclemjmlnmmhlcnalfioflg}"        # Chrome Web Store extension ID
 channel="${PK_CHANNEL:-Stable}"                                # Chrome for Testing channel
 cache_dir="${PK_CACHE_DIR:-/tmp/pk-passkeys-tools-cache}"      # cached browser download (reused across runs)
@@ -143,7 +162,7 @@ EOF
 # isolated-world clicks and its remote client warms up seconds after load.)
 write_cdp_helper() {
     cat > "$1/cdp-setstorage.js" <<'CDPEOF'
-const net = require('net'), crypto = require('crypto'), http = require('http'), fs = require('fs');
+const fs = require('fs');
 const [, , profileDir, secret, backend] = process.argv;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -155,48 +174,28 @@ async function readPort() {
     }
     throw new Error('no DevToolsActivePort');
 }
-function getJSON(port) {
-    return new Promise((res, rej) => {
-        const req = http.get({ host: '127.0.0.1', port, path: '/json' }, r => { let d = ''; r.on('data', c => d += c); r.on('end', () => { try { res(JSON.parse(d)); } catch (e) { rej(e); } }); });
-        req.on('error', rej);
-    });
-}
 async function findPage(port) {
     for (let i = 0; i < 200; i++) {
-        try { const pg = (await getJSON(port)).find(x => x.type === 'page' && /passkeys/i.test(x.url) && x.webSocketDebuggerUrl); if (pg) return pg; } catch (e) {}
+        try {
+            const pages = await (await fetch('http://127.0.0.1:' + port + '/json')).json();
+            const pg = pages.find(x => x.type === 'page' && /passkeys/i.test(x.url) && x.webSocketDebuggerUrl);
+            if (pg) return pg;
+        } catch (e) {}
         await sleep(150);
     }
     throw new Error('no page target');
 }
-// Minimal WebSocket client: one Runtime.evaluate round-trip.
+// One Runtime.evaluate round-trip over the page's DevTools WebSocket.
 function evaluate(wsUrl, expr, timeoutMs) {
     return new Promise((resolve, reject) => {
-        const u = new URL(wsUrl), key = crypto.randomBytes(16).toString('base64');
-        const sock = net.connect(u.port, u.hostname, () => sock.write(
-            'GET ' + u.pathname + u.search + ' HTTP/1.1\r\nHost: ' + u.host +
-            '\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: ' + key +
-            '\r\nSec-WebSocket-Version: 13\r\n\r\n'));
-        let hs = false, buf = Buffer.alloc(0);
-        const send = str => {
-            const p = Buffer.from(str), len = p.length;
-            const h = len < 126 ? Buffer.from([0x81, 0x80 | len]) : Buffer.from([0x81, 0x80 | 126, len >> 8 & 255, len & 255]);
-            const m = crypto.randomBytes(4), mk = Buffer.alloc(len);
-            for (let i = 0; i < len; i++) mk[i] = p[i] ^ m[i % 4];
-            sock.write(Buffer.concat([h, m, mk]));
+        const ws = new WebSocket(wsUrl);
+        const timer = setTimeout(() => { ws.close(); reject(new Error('cdp timeout')); }, timeoutMs || 20000);
+        ws.onopen = () => ws.send(JSON.stringify({ id: 1, method: 'Runtime.evaluate', params: { expression: expr, awaitPromise: true, returnByValue: true } }));
+        ws.onmessage = ({ data }) => {
+            const msg = JSON.parse(data);
+            if (msg.id === 1) { clearTimeout(timer); ws.close(); resolve(msg); }
         };
-        sock.on('data', ch => {
-            buf = Buffer.concat([buf, ch]);
-            if (!hs) { const i = buf.indexOf('\r\n\r\n'); if (i < 0) return; hs = true; buf = buf.slice(i + 4); send(JSON.stringify({ id: 1, method: 'Runtime.evaluate', params: { expression: expr, awaitPromise: true, returnByValue: true } })); }
-            while (buf.length >= 2) {
-                const op = buf[0] & 0x0f; let len = buf[1] & 0x7f, off = 2;
-                if (len === 126) { len = buf.readUInt16BE(2); off = 4; } else if (len === 127) { len = Number(buf.readBigUInt64BE(2)); off = 10; }
-                if (buf.length < off + len) break;
-                const pl = buf.slice(off, off + len); buf = buf.slice(off + len);
-                if (op === 1) { try { const msg = JSON.parse(pl.toString()); if (msg.id === 1) { resolve(msg); sock.end(); return; } } catch (e) {} }
-            }
-        });
-        sock.on('error', reject);
-        setTimeout(() => { reject(new Error('cdp timeout')); sock.destroy(); }, timeoutMs || 20000);
+        ws.onerror = () => { clearTimeout(timer); reject(new Error('cdp connection failed')); };
     });
 }
 (async () => {

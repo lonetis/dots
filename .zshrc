@@ -45,6 +45,13 @@ fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 
+# nvm (https://github.com/nvm-sh/nvm): Node versions in ~/.nvm; --no-use keeps Homebrew's node the default until `nvm use`, and skips the slow switch at every start
+export NVM_DIR="$HOME/.nvm"
+source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" --no-use
+
+# zoxide (https://github.com/ajeetdsouza/zoxide): `z <part of a path>` jumps to a frequent directory; after compinit, as zoxide requires
+eval "$(zoxide init zsh)"
+
 # ==============================================================================
 # Aliases
 # ==============================================================================

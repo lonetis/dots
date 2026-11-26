@@ -19,7 +19,7 @@
 
 - Add or remove entries in the format above. Homebrew disabled `brew bundle dump --describe`, so write the comment yourself.
 - To find what's missing, compare a plain `brew bundle dump --file=<tmp>` with `.Brewfile`. `brew bundle cleanup --global` without `--force` only lists what bootstrap would remove.
-- Don't run `brew bundle` or bootstrap unless the user asks; `brew bundle cleanup --force` is blocked for agents.
+- Don't run `brew bundle` or bootstrap unless the user asks; agents never run `brew bundle cleanup --force`.
 
 ## Per-machine setup
 

@@ -7,6 +7,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"syscall"
 	"time"
 )
 
@@ -14,9 +15,10 @@ import (
 // the one before it. Times are Unix seconds.
 
 type pullState struct {
-	Time      float64 `json:"time"`
-	Window    string  `json:"window"`
-	Workspace string  `json:"workspace"` // where the window came from
+	Time      float64  `json:"time"`
+	Apps      []string `json:"apps"` // the bundle IDs pulled from, sorted
+	Window    string   `json:"window"`
+	Workspace string   `json:"workspace"` // where the window came from
 }
 
 type sendState struct {
@@ -60,26 +62,25 @@ func writeState(path string, v any) error {
 }
 
 // lock makes presses take turns: a quick second press starts while the first one still
-// runs. A lock still held after 2 s belongs to a process that died, so it is taken over.
-// The returned function releases the lock.
+// runs. The kernel releases the lock when the process exits, even after a crash, and
+// requestTimeout bounds how long a holder waits for OmniWM. The returned function
+// releases the lock.
 func lock(path string) (func(), error) {
 	if err := os.MkdirAll(filepath.Dir(path), 0o700); err != nil {
 		return nil, err
 	}
-	release := func() {
-		if err := os.Remove(path); err != nil && !errors.Is(err, fs.ErrNotExist) {
+	file, err := os.OpenFile(path, os.O_CREATE|os.O_RDWR, 0o600)
+	if err != nil {
+		return nil, err
+	}
+	if err := syscall.Flock(int(file.Fd()), syscall.LOCK_EX); err != nil {
+		file.Close()
+		return nil, fmt.Errorf("cannot lock %s: %w", path, err)
+	}
+	return func() {
+		// Closing the file releases the lock.
+		if err := file.Close(); err != nil {
 			warn("cannot release %s: %v", path, err)
 		}
-	}
-	for range 100 {
-		err := os.Mkdir(path, 0o700)
-		if err == nil {
-			return release, nil
-		}
-		if !errors.Is(err, fs.ErrExist) {
-			return nil, err
-		}
-		time.Sleep(20 * time.Millisecond)
-	}
-	return release, nil
+	}, nil
 }

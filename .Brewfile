@@ -19,8 +19,6 @@ brew "capstone"
 brew "ccusage"
 # Cross-platform make
 brew "cmake"
-# Pack, ship and run any application as a lightweight container
-brew "docker"
 # Tool for managing dock items
 brew "dockutil"
 # Utilities for the ext2, ext3, and ext4 file systems
@@ -116,11 +114,11 @@ brew "python@3.12"
 # Python interface to Tcl/Tk
 brew "python-tk@3.12"
 # Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
-# Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.13"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.15"
 # Tools for and transforming and inspecting PDF files
 brew "qpdf"
 # Messaging and streaming broker
@@ -353,7 +351,6 @@ npm "@github/copilot"
 npm "@google/gemini-cli"
 npm "@googleworkspace/cli"
 npm "@immich/cli"
-npm "@openai/codex"
 npm "browserify"
 npm "ccstatusline"
 npm "claudeleaf"
