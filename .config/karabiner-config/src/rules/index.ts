@@ -4,6 +4,7 @@ import { displayRules } from './displays.ts'
 import { omniwmRules } from './omniwm.ts'
 import { scratchpadRules } from './scratchpads.ts'
 import { systemRules } from './system.ts'
+import { tinycastRules } from './tinycast.ts'
 import { utmRules } from './utm.ts'
 import { windowRules } from './windows.ts'
 import { workspaceRules } from './workspaces.ts'
@@ -20,4 +21,5 @@ export const rules: RuleBuilder[] = [
   ...windowRules,
   ...displayRules,
   ...utmRules,
+  ...tinycastRules,
 ]

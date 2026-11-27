@@ -413,14 +413,14 @@ bundleId = "com.openai.codex"
 id = "60AF05FF-AF0E-5F6D-85CF-94B6F3F858D9"
 
 [[appRules]]
-assignToWorkspace = "19"
-bundleId = "com.anthropic.claudefordesktop"
-id = "9E427A7D-AD12-5F0F-BC29-536179D3CBE6"
-
-[[appRules]]
 assignToWorkspace = "21"
 bundleId = "com.apple.iCal"
 id = "4324CAC9-C14F-5794-8421-890EC9D8C64B"
+
+[[appRules]]
+assignToWorkspace = "22"
+bundleId = "com.anthropic.claudefordesktop"
+id = "9E427A7D-AD12-5F0F-BC29-536179D3CBE6"
 
 [[appRules]]
 assignToWorkspace = "23"

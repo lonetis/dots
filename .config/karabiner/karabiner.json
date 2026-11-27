@@ -341,25 +341,6 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
@@ -373,6 +354,25 @@
                 "to": [
                   {
                     "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.apple.iCal || open -b 'com.apple.iCal'"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper cycle com.anthropic.claudefordesktop || open -b 'com.anthropic.claudefordesktop'"
                   }
                 ]
               },
@@ -1071,26 +1071,6 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "right_command",
-                      "right_option",
-                      "right_control",
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.anthropic.claudefordesktop"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
@@ -1105,6 +1085,26 @@
                 "to": [
                   {
                     "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.apple.iCal"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "right_command",
+                      "right_option",
+                      "right_control",
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.config/omniwm/helper/omniwm-helper pull com.anthropic.claudefordesktop"
                   }
                 ]
               },
@@ -4077,6 +4077,106 @@
                     "bundle_identifiers": [
                       "^com\\.utmapp\\.UTM$"
                     ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "tinycast: launcher",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f19",
+                    "modifiers": [
+                      "command",
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -g -u 'tinycast://command/clipboard-history'"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_option",
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -g -u 'tinycast://command/search-emoji'"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "tinycast: reponizer",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_option",
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -g -u 'tinycast://extensions/lonetis/reponizer/search-repos'"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_option",
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -g -u 'tinycast://extensions/lonetis/reponizer/create-repo'"
                   }
                 ]
               }

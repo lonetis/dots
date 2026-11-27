@@ -1,6 +1,6 @@
 {
   "general": {
-    "launcherShortcut": "cmd+space",
+    "launcherShortcut": "ctrl+option+shift+cmd+f19",
     "showInMenuBar": false,
     "automaticallyCheckForUpdates": true,
     "popToRootSeconds": 60,
@@ -200,7 +200,7 @@
     ],
     "commands": {
       "clipboard-history": {
-        "shortcut": "option+cmd+space",
+        "shortcut": null,
         "alias": null,
         "showInLauncher": true
       }
@@ -211,7 +211,7 @@
     "gridColumns": 8,
     "commands": {
       "search-emoji": {
-        "shortcut": "ctrl+option+e",
+        "shortcut": null,
         "alias": null,
         "showInLauncher": true
       }
